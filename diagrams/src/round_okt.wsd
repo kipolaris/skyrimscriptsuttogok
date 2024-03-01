@@ -1,0 +1,115 @@
+@startuml Round_okt
+participant Szoba as sz
+participant Hallgató as h
+participant Oktató as okt
+participant Ajto as a
+participant Tárgy as t
+participant Hátizsák as hát
+
+alt #green gased = true
+        sz->h ++: protection(bool)
+        return bool
+        alt oktatónak nincs védelme
+            sz->>h : paralyze
+        else
+            alt védelemnek van cooldownja
+            okt->>hát : decreaseCooldown(Object)
+            hát->>t : decreaseCooldown
+            end
+        end
+else
+end
+
+opt #gold Move
+    h->sz : Move
+
+    loop door_num
+        sz->a ++: askDirections
+        return ret(directions)
+    end
+
+    alt Szoba.capacity!=full && there is entrance
+        sz-->h : MoveAccept
+        sz->>sz : setParticipants
+        h->>h : setRoom    
+    else
+        sz-->h : MoveDeny
+    end
+
+    alt #green gased = true
+        sz->h ++: protection(bool)
+        return bool
+        alt #LightBlue oktatónak nincs védelme
+            sz->>h : paralyze
+        else
+            alt védelemnek van cooldownja
+            okt->>hát : decreaseCooldown(Object)
+            hát->>t : decreaseCooldown
+            end
+        end
+    else
+    end
+end
+
+' ---------------------- '
+newpage
+
+alt #LightPink van hallgató a szobában
+    loop for each hallgató in szoba
+
+        okt -> h : askIfDefense(bool)
+
+        h->hát : checkDefense
+        loop for each tárgy in hátizsák
+            hát->t ++: isDefensive
+            return isDefensive
+        end
+        
+        alt van védelmi tárgy
+            hát->>hát : choose_highest_in_hiearchy()
+
+            note right of hát : kiválasztja egy sorrendnek megfelelően,\n melyik tárgyat használja el
+            alt #LightSeaGreen a védelmi tárgynak van hatása
+
+                group perform effect
+
+                    hát->>t : effect
+                    t->hát ++ : getSzoba
+                    hát->okt ++: getSzoba
+                    return szoba
+                    hát-->t --: szoba
+                    t->>sz : invokeEffect()
+
+                    note right of t : az invokeEffect azt jelenti, hogy a védelmi tárgy hatásának\n megfelelő függvényt hívja meg
+                end
+            else
+                alt védelemnek van cooldownja
+                    okt->>hát : decreaseCooldown(Object)
+                    hát->>t : decreaseCooldown
+                end
+            end
+
+            hát-->h : return (true)
+            h-->okt : return (true)
+        else
+            hát-->h : return (false)
+            h-->okt : return (false)
+            okt ->> h !! : kibuktat            
+        end
+    end
+end
+
+loop max 3
+    opt tárgyfelvétel
+        okt->sz ++: askForObject
+        sz-->okt --: ret(Object)
+        okt->>hát : add(Object)
+    end
+
+    opt tárgyeldobás
+        okt->hát ++: askForObject
+        hát-->okt --: ret(Object)
+        okt->>sz : add(Object)
+    end
+end
+@enduml

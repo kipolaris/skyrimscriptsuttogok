@@ -1,0 +1,116 @@
+@startuml Round
+participant Szoba as sz
+participant Hallgató as h
+participant Oktató as okt
+participant Ajto as a
+participant Tárgy as t
+participant Hátizsák as hát
+
+loop for each active_object in hátizsák
+    hát->>t : decreaseCooldown()
+end
+
+' ezt át kellene írni úgy, hogy a hátizsák csökkentse a cooldownt azonnal. '
+
+alt #green gased = true
+        sz->h ++: protection(bool)
+        return bool
+        alt hallgatónak nincs védelme
+            sz->>h : paralyze
+        else
+            alt védelemnek van cooldownja
+            h->>hát : decreaseCooldown(Object)
+            hát->>t : decreaseCooldown
+            end
+        end
+else
+end
+
+note over h: most az oktatók lépnek
+
+group ref Round okt 
+end
+
+opt #gold Move
+    h->sz : Move
+
+    loop door_num
+        sz->a ++: askDirections
+        return ret(directions)
+    end
+
+    alt Szoba.capacity!=full && there is entrance
+        sz-->h : MoveAccept
+        sz->>sz : setParticipants
+        h->>h : setRoom    
+    else
+        sz-->h : MoveDeny
+    end
+
+    alt #green gased = true
+        sz->h ++: protection(bool)
+        return bool
+        alt #LightBlue hallgatónak nincs védelme
+            sz->>h : paralyze
+        else
+            alt védelemnek van cooldownja
+            h->>hát : decreaseCooldown(Object)
+            hát->>t : decreaseCooldown
+            end
+        end
+    else
+    end
+end
+
+newpage
+
+loop max 3
+    opt tárgyfelvétel
+        h->sz ++: askForObject
+        sz-->h --: ret(Object)
+        h->>hát : add(Object)
+    end
+
+    opt tárgyeldobás
+        h->hát ++: askForObject
+        hát-->h --: ret(Object)
+        h->>sz : add(Object)
+    end
+
+    opt tárgyhasználat
+        group perform effect
+
+            hát->>t : effect
+            t->hát ++ : getSzoba
+            hát->h ++: getSzoba
+            return szoba
+            hát-->t --: szoba
+            alt ha a tárgy magán kívül mást is módosít
+                t->>sz : invokeEffect()
+
+                note right of t : az invokeEffect azt jelenti, hogy a védelmi tárgy hatásának\n megfelelő függvényt hívja meg
+
+                alt gázosítás
+                    sz->>sz : setGased
+                end
+
+                alt oktatót bénít
+                    sz-->okt : paralyze
+                end
+
+                alt védelmet aktivál
+                    t->>t : setValid
+                end
+
+                alt tranzisztor
+                    group ref tranzisztorhasználat
+                    end
+                end
+            end
+        end
+    end
+end
+
+group ref Building changing
+end
+@enduml
