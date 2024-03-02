@@ -1,0 +1,82 @@
+@startuml teleport
+Participant "Tranzisztor A" as tranz
+participant "Tranzisztor B" as tranz2
+participant "Tranzisztor C" as tranz3
+participant "Hátizsák" as hát
+collections "Tranzisztormap" as map
+Participant Hallgató as h
+
+note over tranz2 : a célszobában levő tranzisztor (ha van)
+
+h->tranz : usageReq(goal)
+tranz->map : is there a transistor?
+return bool
+
+tranz->>tranz : isValid(goal)
+
+alt A kérés valid (van a célszobában párosított tranzisztor)
+
+    tranz-->h : ok
+    h->>] : move
+
+    group ref move
+    end
+
+    tranz->hát ++: getTranzisztorList
+    return TranzisztorList
+
+    tranz->>tranz2 : unpair(TranzisztorList)
+
+    tranz->>hát : unpairWith(B)
+    loop for each Tranzisztor in hátizsák
+        hát->>tranz3 : unpair(B)
+    end
+else
+    tranz-->h : deny
+end
+
+@enduml
+
+'------------------------------------------------'
+
+@startuml pair
+Participant "Tranzisztor A" as tranz1
+participant "Tranzisztor B" as tranz2
+collections "Tranzisztormap" as map
+participant Hátizsák as hát
+participant Hallgató as h
+
+group ref tárgyfelvétel
+    note over h : a hallgató tranzisztort vesz fel
+end
+
+hát->>tranz1 : notifyOnAdd
+tranz1->>map : setPlace(null)
+note right : beállítja, hogy nincs szobában
+
+tranz1->hát ++: pairAll
+loop for each tranzisztor in hátizsák
+    hát->>tranz2 : pairWith(A)
+end
+hát-->tranz1 --: return(tranzisztor List)
+tranz1->>tranz1 : pair(tranzisztor List)
+
+@enduml
+
+'---------------------------------------------'
+
+@startuml place
+
+Participant "Tranzisztor A" as tranz1
+collections "Tranzisztormap" as map
+participant Hátizsák as hát
+participant Hallgató as h
+
+group ref tárgyletétel
+note over h : a hallgató tranzisztort dob el
+end
+
+tranz1->>map : setPlace(szoba)
+note right: beállítja, hogy milyen szobába került
+
+@enduml

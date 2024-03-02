@@ -6,25 +6,13 @@ participant Ajto as a
 participant Tárgy as t
 participant Hátizsák as hát
 
+!includesub gased_rucksack.puml!GAS_RUCKSACK
+
 loop for each active_object in hátizsák
     hát->>t : decreaseCooldown()
 end
 
-' ezt át kellene írni úgy, hogy a hátizsák csökkentse a cooldownt azonnal. '
-
-alt #green gased = true
-        sz->h ++: protection(bool)
-        return bool
-        alt hallgatónak nincs védelme
-            sz->>h : paralyze
-        else
-            alt védelemnek van cooldownja
-            h->>hát : decreaseCooldown(Object)
-            hát->>t : decreaseCooldown
-            end
-        end
-else
-end
+$gasRuck("h")
 
 note over h: most az oktatók lépnek
 
@@ -47,19 +35,7 @@ opt #gold Move
         sz-->h : MoveDeny
     end
 
-    alt #green gased = true
-        sz->h ++: protection(bool)
-        return bool
-        alt #LightBlue hallgatónak nincs védelme
-            sz->>h : paralyze
-        else
-            alt védelemnek van cooldownja
-            h->>hát : decreaseCooldown(Object)
-            hát->>t : decreaseCooldown
-            end
-        end
-    else
-    end
+    $gasRuck("okt")
 end
 
 newpage
@@ -81,11 +57,11 @@ loop max 3
         group perform effect
 
             hát->>t : effect
-            t->hát ++ : getSzoba
-            hát->h ++: getSzoba
-            return szoba
-            hát-->t --: szoba
             alt ha a tárgy magán kívül mást is módosít
+                t->hát ++ : getSzoba
+                hát->h ++: getSzoba
+                return szoba
+                hát-->t --: szoba
                 t->>sz : invokeEffect()
 
                 note right of t : az invokeEffect azt jelenti, hogy a védelmi tárgy hatásának\n megfelelő függvényt hívja meg

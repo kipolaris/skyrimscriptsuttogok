@@ -1,0 +1,41 @@
+@startuml building_change
+actor "Building AI" as ai
+Participant Szoba as sz
+Participant Ajtó as ajt
+
+opt ajtó manipuláció
+
+ai->sz ++: requestDoorinfo()
+note right: Szükséges, hogy tudjuk, milyen állapotból indulunk.
+return info
+
+ai->>ai : randomizeFinalState()
+note right: random meghatározza, hogy a megadott ajtók \n végül milyenek legyenek (pl. egyirányúak, tűnjenek el, stb.)
+
+ai->>sz : sendState(state)
+activate sz
+
+sz->>sz : setDoors()
+deactivate sz
+note right : Egy ajtó több szobához is tartozhat,\n tehát ezzel a szomszédok is frissülnek.
+
+end
+
+opt szoba osztódás
+
+ai->>sz : split
+
+end
+
+opt szoba egyesítés
+
+ai->sz ++: requestData
+return data
+
+ai->>ai : mergeRoomData
+
+ai->>sz : setData
+
+end
+
+@enduml
