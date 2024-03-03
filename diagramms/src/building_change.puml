@@ -1,5 +1,7 @@
 @startuml building_change
 
+title Szobamanipuláció
+
 actor "Building AI" as ai
 Participant Room1 as sz
 Participant Room2 as sz2
