@@ -61,8 +61,8 @@ alt #LightPink van hallgató a szobában
                     note right of t : az invokeEffect azt jelenti, hogy a védelmi tárgy hatásának\n megfelelő függvényt hívja meg
                 end
             else
-                alt védelemnek van cooldownja
-                hát->>t : decreaseCooldown
+                alt védelemnek van durabilije
+                hát->>t : decreaseDurability
                 alt cooldown == 0
                     hát->>t !!: delete
                 end
@@ -81,18 +81,18 @@ end
 
 loop max 3
     opt tárgyfelvétel
-        okt->sz : askForObject
+        okt->sz : askForItem
         alt a Tárgy egy aktivált tranzisztor
             sz-->h : deny
         end
-        sz-->okt : ret(Object)
-        okt->>hát : add(Object)
+        sz-->okt : ret(Item)
+        okt->>hát : add(Item)
     end
 
     opt tárgyeldobás
-        okt->hát ++: askForObject
-        hát-->okt --: ret(Object)
-        okt->>sz : add(Object)
+        okt->hát ++: askForItem
+        hát-->okt --: ret(Item)
+        okt->>sz : add(Item)
     end
 end
 @enduml

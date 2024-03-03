@@ -19,41 +19,43 @@ note over h: most az oktatók lépnek
 group ref Round okt 
 end
 
-opt #lightyellow Move
-    h->sz : Move
+alt if skipTurn == false
+    opt #lightyellow Move
+        h->sz : Move
 
-    loop door_num
-        sz->a ++: askDirections
-        return ret(directions)
+        loop door_num
+            sz->a ++: askDirections
+            return ret(directions)
+        end
+
+        alt Szoba.capacity!=full && there is entrance
+            sz-->h : MoveAccept
+            sz->>sz : setParticipants
+            h->>h : setRoom    
+        else
+            sz-->h : MoveDeny
+        end
+
+        $gasRuck("h", "Tárgy2")
     end
-
-    alt Szoba.capacity!=full && there is entrance
-        sz-->h : MoveAccept
-        sz->>sz : setParticipants
-        h->>h : setRoom    
-    else
-        sz-->h : MoveDeny
-    end
-
-    $gasRuck("h", "Tárgy2")
 end
 
 newpage
 
 loop max 3
     opt tárgyfelvétel
-        h->sz : askForObject
+        h->sz : askForItem
         alt a Tárgy egy aktivált tranzisztor
             sz-->h : deny
         end
-        sz-->h : ret(Object)
-        h->>hát : add(Object)
+        sz-->h : ret(Item)
+        h->>hát : add(Item)
     end
 
     opt tárgyeldobás
-        h->hát ++: askForObject
-        hát-->h --: ret(Object)
-        h->>sz : add(Object)
+        h->hát ++: askForItem
+        hát-->h --: ret(Item)
+        h->>sz : add(Item)
     end
 
     opt tárgyhasználat
