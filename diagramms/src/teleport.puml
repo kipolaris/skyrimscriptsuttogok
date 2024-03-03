@@ -1,27 +1,21 @@
 @startuml teleport
-Participant "Tranzisztor A" as tranz
-participant "Tranzisztor B" as tranz2
-participant "Hátizsák" as hát
-Participant Hallgató as h
 
-note over tranz2 : a célszobában levő tranzisztor (ha van)
+Title A tranzisztor használat (teleportálás) akció
 
-h->tranz : usageReq(goal)
-tranz->map : is there a transistor?
-return bool
-
-tranz->>tranz : isValid(goal)
+Participant "Tranzistor A" as tranz
+participant "Tranzistor B" as tranz2
+Participant Student as h
 
 alt A kérés valid (van a célszobában párosított tranzisztora)
 
-    tranz-->h : ok
+    tranz->h : ok
     h->>] : move
 
     group ref move
+        note over h : az ajtóellenőrzést kivéve a mozgás a megszokott módon történik.
     end
 
-    tranz->tranz : unpair
-    return ok
+    tranz->tranz2 : unpair
 else
     tranz-->h : deny
 end
@@ -31,16 +25,19 @@ end
 '------------------------------------------------'
 
 @startuml pair
-Participant "Tranzisztor A" as tranz1
-participant "Tranzisztor B" as tranz2
-participant Hátizsák as hát
-participant Hallgató as h
+
+title A tranzisztor párosítás akció
+
+Participant "Tranzistor A" as tranz1
+participant "Tranzistor B" as tranz2
+participant Backpack as hát
+participant Student as h
 
 group ref tárgyhasználat
     note over h : a hallgató tranzisztort aktivál
 end
 
-tranz1->>tranz1 : setSzoba(null)
+tranz1->>tranz1 : setRoom(null)
 note right : beállítja, hogy nincs szobában
 
 tranz1->hát ++: getTranzistors
@@ -54,7 +51,7 @@ else
     tranz1->h ++: chooseTranzisztor(TranzisztorList)
     return tranzisztor
 
-    tran1->>tranz2 : pair
+    tranz1->>tranz2 : pair
 end
 
 @enduml
@@ -63,10 +60,12 @@ end
 
 @startuml place
 
-Participant "Tranzisztor A" as tranz1
-Participant "Tranzisztor B" as tranz2
-participant Hátizsák as hát
-participant Hallgató as h
+title A tranzisztor elhelyezése
+
+Participant "Tranzistor A" as tranz1
+Participant "Tranzistor B" as tranz2
+participant Backpack as hát
+participant Student as h
 
 group ref tárgyletétel
 note over h : a hallgató tranzisztort dob el
@@ -74,7 +73,7 @@ end
 
 hát->>tranz1 : notifyOnDrop
 
-tranz1->hát ++: getSzoba
+tranz1->hát ++: getRoom
 return szoba
 
 tranz1->tranz2 ++: isPlaced()
@@ -84,7 +83,7 @@ alt bool == true
 tranz1->>tranz2 : unpair()
 end
 
-tranz1->>tranz1 : setPlace(szoba)
+tranz1->>tranz1 : setLocation(szoba)
 note right: beállítja, hogy milyen szobába került
 
 @enduml

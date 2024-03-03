@@ -1,17 +1,20 @@
 @startuml Round_okt
-participant Szoba as sz
-participant Hallgató as h
-participant Oktató as okt
-participant Ajto as a
-participant Tárgy as t
-participant Hátizsák as hát
+
+title Oktatói kör
+
+participant Room as sz
+participant Student as h
+participant Professor as okt
+participant Door as a
+participant Item1 as t
+participant Backpack as hát
 
 !includesub gased_rucksack.puml!GAS_RUCKSACK
 
-$gasRuck("okt", "Tárgy1")
+$gasRuck("okt", "Item2")
 
 opt #LightYellow Move
-    h->sz : Move
+    h->okt : Move
 
     loop door_num
         sz->a ++: askDirections
@@ -19,14 +22,14 @@ opt #LightYellow Move
     end
 
     alt Szoba.capacity!=full && there is entrance
-        sz-->h : MoveAccept
+        sz-->okt : MoveAccept
         sz->>sz : setParticipants
-        h->>h : setRoom    
+        okt->>okt : setRoom    
     else
-        sz-->h : MoveDeny
+        sz-->okt : MoveDeny
     end
 
-    $gasRuck("okt", "Tárgy2")
+    $gasRuck("okt", "Item3")
 end
 
 ' ---------------------- '
@@ -52,8 +55,8 @@ alt #LightPink van hallgató a szobában
                 group perform effect
 
                     hát->>t : effect
-                    t->hát ++ : getSzoba
-                    hát->okt ++: getSzoba
+                    t->hát ++ : getRoom
+                    hát->okt ++: getRoom
                     return szoba
                     hát-->t --: szoba
                     t->>sz : invokeEffect()
@@ -83,7 +86,7 @@ loop max 3
     opt tárgyfelvétel
         okt->sz : askForItem
         alt a Tárgy egy aktivált tranzisztor
-            sz-->h : deny
+            sz-->okt : deny
         end
         sz-->okt : ret(Item)
         okt->>hát : add(Item)

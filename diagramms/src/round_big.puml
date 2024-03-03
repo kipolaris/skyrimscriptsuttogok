@@ -1,22 +1,29 @@
 @startuml Round
-participant Szoba as sz
-participant Hallgató as h
-participant Oktató as okt
-participant Ajto as a
-participant Hátizsák as hát
-participant "Tárgy" as t
+
+title Hallgatói kör
+
+participant Room as sz
+participant Student as h
+participant Professor as okt
+participant Door as a
+participant Backpack as hát
+participant "Item1" as t
+participant "Item2" as t2
 
 !includesub gased_rucksack.puml!GAS_RUCKSACK
 
 loop for each active_object in hátizsák
-    hát->>t : decreaseCooldown()
+    hát->>t2 : decreaseDurability()
+
+    alt cooldown == 0
+        hát->>t2 !!: delete
+    end
 end
 
-$gasRuck("h", "Tárgy1")
-
-note over h: most az oktatók lépnek
+$gasRuck("h", "Item3")
 
 group ref Round okt 
+    note over h: most az oktatók lépnek
 end
 
 alt if skipTurn == false
@@ -36,7 +43,7 @@ alt if skipTurn == false
             sz-->h : MoveDeny
         end
 
-        $gasRuck("h", "Tárgy2")
+        $gasRuck("h", "Item4")
     end
 end
 
@@ -62,6 +69,9 @@ loop max 3
         group perform effect
 
             hát->>t : effect
+            alt védelmet aktivál
+                    t->>t : setValid
+            end
             alt ha a tárgy magán kívül mást is módosít
                 t->hát ++ : getSzoba
                 hát->h ++: getSzoba
@@ -77,10 +87,6 @@ loop max 3
 
                 alt oktatót bénít
                     sz-->okt : paralyze
-                end
-
-                alt védelmet aktivál
-                    t->>t : setValid
                 end
 
                 alt tranzisztor
