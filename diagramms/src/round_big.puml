@@ -3,8 +3,8 @@ participant Szoba as sz
 participant Hallgató as h
 participant Oktató as okt
 participant Ajto as a
-participant Tárgy as t
 participant Hátizsák as hát
+participant "Tárgy" as t
 
 !includesub gased_rucksack.puml!GAS_RUCKSACK
 
@@ -12,14 +12,14 @@ loop for each active_object in hátizsák
     hát->>t : decreaseCooldown()
 end
 
-$gasRuck("h")
+$gasRuck("h", "Tárgy1")
 
 note over h: most az oktatók lépnek
 
 group ref Round okt 
 end
 
-opt #gold Move
+opt #lightyellow Move
     h->sz : Move
 
     loop door_num
@@ -35,15 +35,18 @@ opt #gold Move
         sz-->h : MoveDeny
     end
 
-    $gasRuck("okt")
+    $gasRuck("h", "Tárgy2")
 end
 
 newpage
 
 loop max 3
     opt tárgyfelvétel
-        h->sz ++: askForObject
-        sz-->h --: ret(Object)
+        h->sz : askForObject
+        alt a Tárgy egy aktivált tranzisztor
+            sz-->h : deny
+        end
+        sz-->h : ret(Object)
         h->>hát : add(Object)
     end
 

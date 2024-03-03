@@ -1,7 +1,6 @@
 @startuml building_change
 actor "Building AI" as ai
 Participant Szoba as sz
-Participant Ajtó as ajt
 
 opt ajtó manipuláció
 

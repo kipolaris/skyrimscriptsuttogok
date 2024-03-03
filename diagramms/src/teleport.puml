@@ -1,9 +1,7 @@
 @startuml teleport
 Participant "Tranzisztor A" as tranz
 participant "Tranzisztor B" as tranz2
-participant "Tranzisztor C" as tranz3
 participant "Hátizsák" as hát
-collections "Tranzisztormap" as map
 Participant Hallgató as h
 
 note over tranz2 : a célszobában levő tranzisztor (ha van)
@@ -14,7 +12,7 @@ return bool
 
 tranz->>tranz : isValid(goal)
 
-alt A kérés valid (van a célszobában párosított tranzisztor)
+alt A kérés valid (van a célszobában párosított tranzisztora)
 
     tranz-->h : ok
     h->>] : move
@@ -22,15 +20,8 @@ alt A kérés valid (van a célszobában párosított tranzisztor)
     group ref move
     end
 
-    tranz->hát ++: getTranzisztorList
-    return TranzisztorList
-
-    tranz->>tranz2 : unpair(TranzisztorList)
-
-    tranz->>hát : unpairWith(B)
-    loop for each Tranzisztor in hátizsák
-        hát->>tranz3 : unpair(B)
-    end
+    tranz->tranz : unpair
+    return ok
 else
     tranz-->h : deny
 end
@@ -42,24 +33,29 @@ end
 @startuml pair
 Participant "Tranzisztor A" as tranz1
 participant "Tranzisztor B" as tranz2
-collections "Tranzisztormap" as map
 participant Hátizsák as hát
 participant Hallgató as h
 
-group ref tárgyfelvétel
-    note over h : a hallgató tranzisztort vesz fel
+group ref tárgyhasználat
+    note over h : a hallgató tranzisztort aktivál
 end
 
-hát->>tranz1 : notifyOnAdd
-tranz1->>map : setPlace(null)
+tranz1->>tranz1 : setSzoba(null)
 note right : beállítja, hogy nincs szobában
 
-tranz1->hát ++: pairAll
-loop for each tranzisztor in hátizsák
-    hát->>tranz2 : pairWith(A)
+tranz1->hát ++: getTranzistors
+return TranzisztorList
+
+
+alt nincs másik nem aktív tranzisztor
+    tranz1->>hát : sendDeny
+    hát->>h : Deny
+else
+    tranz1->h ++: chooseTranzisztor(TranzisztorList)
+    return tranzisztor
+
+    tran1->>tranz2 : pair
 end
-hát-->tranz1 --: return(tranzisztor List)
-tranz1->>tranz1 : pair(tranzisztor List)
 
 @enduml
 
@@ -68,7 +64,7 @@ tranz1->>tranz1 : pair(tranzisztor List)
 @startuml place
 
 Participant "Tranzisztor A" as tranz1
-collections "Tranzisztormap" as map
+Participant "Tranzisztor B" as tranz2
 participant Hátizsák as hát
 participant Hallgató as h
 
@@ -76,7 +72,19 @@ group ref tárgyletétel
 note over h : a hallgató tranzisztort dob el
 end
 
-tranz1->>map : setPlace(szoba)
+hát->>tranz1 : notifyOnDrop
+
+tranz1->hát ++: getSzoba
+return szoba
+
+tranz1->tranz2 ++: isPlaced()
+return bool
+
+alt bool == true
+tranz1->>tranz2 : unpair()
+end
+
+tranz1->>tranz1 : setPlace(szoba)
 note right: beállítja, hogy milyen szobába került
 
 @enduml

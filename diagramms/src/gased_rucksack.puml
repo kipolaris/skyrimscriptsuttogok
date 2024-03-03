@@ -1,25 +1,23 @@
 @startuml Rucksack asks
 participant Hátizsák as hát
-participant Tárgy as t
-
-'megcsinálni, hogy különböző lifeline-on legyenek a kitörölt tárgyak'
 
 !startsub GAS_RUCKSACK
-!procedure $gasRuck($owner)
-alt #green gased = true
+!procedure $gasRuck($owner, $obj)
+participant $obj
+alt #LightSeaGreen gased = true
         sz->$owner ++: protection(bool)
         $owner->hát ++: askIfProtection
         loop for each tárgy in hátizsák
-            hát->t ++: areYouDefensive(bool)
+            hát->$obj ++: areYouDefensive(bool)
             return bool
         end
         alt van védelme
             hát->>hát : seeHiearchy
 
             alt védelemnek van cooldownja
-                hát->>t : decreaseCooldown
+                hát->>$obj : decreaseCooldown
                 alt cooldown == 0
-                    hát->>t !!: delete
+                    hát->>$obj !!: delete
                 end
             end
 
@@ -31,3 +29,5 @@ alt #green gased = true
 end
 !endprocedure
 !endsub
+
+@enduml

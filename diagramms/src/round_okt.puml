@@ -6,21 +6,11 @@ participant Ajto as a
 participant Tárgy as t
 participant Hátizsák as hát
 
-alt #green gased = true
-        sz->h ++: protection(bool)
-        return bool
-        alt oktatónak nincs védelme
-            sz->>h : paralyze
-        else
-            alt védelemnek van cooldownja
-            okt->>hát : decreaseCooldown(Object)
-            hát->>t : decreaseCooldown
-            end
-        end
-else
-end
+!includesub gased_rucksack.puml!GAS_RUCKSACK
 
-opt #gold Move
+$gasRuck("okt", "Tárgy1")
+
+opt #LightYellow Move
     h->sz : Move
 
     loop door_num
@@ -36,19 +26,7 @@ opt #gold Move
         sz-->h : MoveDeny
     end
 
-    alt #green gased = true
-        sz->h ++: protection(bool)
-        return bool
-        alt #LightBlue oktatónak nincs védelme
-            sz->>h : paralyze
-        else
-            alt védelemnek van cooldownja
-            okt->>hát : decreaseCooldown(Object)
-            hát->>t : decreaseCooldown
-            end
-        end
-    else
-    end
+    $gasRuck("okt", "Tárgy2")
 end
 
 ' ---------------------- '
@@ -84,9 +62,11 @@ alt #LightPink van hallgató a szobában
                 end
             else
                 alt védelemnek van cooldownja
-                    okt->>hát : decreaseCooldown(Object)
-                    hát->>t : decreaseCooldown
+                hát->>t : decreaseCooldown
+                alt cooldown == 0
+                    hát->>t !!: delete
                 end
+            end
             end
 
             hát-->h : return (true)
@@ -101,8 +81,11 @@ end
 
 loop max 3
     opt tárgyfelvétel
-        okt->sz ++: askForObject
-        sz-->okt --: ret(Object)
+        okt->sz : askForObject
+        alt a Tárgy egy aktivált tranzisztor
+            sz-->h : deny
+        end
+        sz-->okt : ret(Object)
         okt->>hát : add(Object)
     end
 
