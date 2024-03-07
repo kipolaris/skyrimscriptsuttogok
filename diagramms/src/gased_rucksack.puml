@@ -1,11 +1,11 @@
 @startuml Rucksack asks
 
 participant Backpack as hát
-
 !startsub GAS_RUCKSACK
 !procedure $gasRuck($owner, $obj)
 participant $obj
 alt #LightSeaGreen gased = true
+        g -> sz : checkGas()
         sz->$owner : protection(bool)
         $owner->hát : askIfGasProtection
         loop for each tárgy in hátizsák
@@ -28,6 +28,7 @@ alt #LightSeaGreen gased = true
             $owner-->sz : return false
             sz->>$owner : paralyze
         end
+        sz-->g
 end
 !endprocedure
 !endsub

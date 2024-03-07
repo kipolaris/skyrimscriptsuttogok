@@ -2,6 +2,7 @@
 
 title Hallgatói kör
 
+participant GameEngine as g
 participant Room as sz
 participant Student as h
 participant Professor as okt
@@ -12,13 +13,15 @@ participant "Item2" as t2
 
 !includesub gased_rucksack.puml!GAS_RUCKSACK
 
+g -> hát : decreaseDurability()
 loop for each active_object in hátizsák
     hát->>t2 : decreaseDurability()
 
     alt cooldown == 0
-        hát->>t2 !!: delete
+        t2->>t2 !!: delete
     end
 end
+hát-->g
 
 $gasRuck("h", "Item3")
 
@@ -26,25 +29,24 @@ group ref Round okt
     note over h: most az oktatók lépnek
 end
 
-alt if skipTurn == false
-    opt #lightyellow Move
-        h->sz : Move
+g -> h : doRound()
+opt #lightyellow Move [if skipturn==false]
+    h->sz : Move
 
-        loop door_num
-            sz->a ++: askDirections
-            return ret(directions)
-        end
-
-        alt Szoba.capacity!=full && there is entrance
-            sz-->h : MoveAccept
-            sz->>sz : setParticipants
-            h->>h : setRoom    
-        else
-            sz-->h : MoveDeny
-        end
-
-        $gasRuck("h", "Item4")
+    loop door_num
+        sz->a ++: askDirections
+        return ret(directions)
     end
+
+    alt Szoba.capacity!=full && there is entrance
+        sz-->h : MoveAccept
+        sz->>sz : setParticipants
+        h->>h : setRoom    
+    else
+        sz-->h : MoveDeny
+    end
+
+    $gasRuck("h", "Item4")
 end
 
 newpage
@@ -97,6 +99,7 @@ loop max 3
         end
     end
 end
+h-->g
 
 group ref Building changing
 end

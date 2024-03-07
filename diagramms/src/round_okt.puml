@@ -8,25 +8,27 @@ participant Professor as okt
 participant Door as a
 participant Item1 as t
 participant Backpack as hát
+participant GameEngine as g
 
 !includesub gased_rucksack.puml!GAS_RUCKSACK
 
 $gasRuck("okt", "Item2")
 
 opt #LightYellow Move
-    h->okt : Move
+    okt->szoba : Move(Professor)
 
+    'TODO'
     loop door_num
         sz->a ++: askDirections
-        return ret(directions)
+        return ret(directions) /
     end
 
     alt Szoba.capacity!=full && there is entrance
-        sz-->okt : MoveAccept
+        sz-->okt : true
         sz->>sz : setParticipants
-        okt->>okt : setRoom    
+        okt->>okt : setRoom(Szoba)  
     else
-        sz-->okt : MoveDeny
+        sz-->okt : false
     end
 
     $gasRuck("okt", "Item3")
@@ -35,6 +37,7 @@ end
 ' ---------------------- '
 newpage
 
+okt->sz : thereIsStudent()
 alt #LightPink van hallgató a szobában
     loop for each hallgató in szoba
 
@@ -80,6 +83,8 @@ alt #LightPink van hallgató a szobában
             okt ->> h !! : kibuktat            
         end
     end
+    else
+        sz --> okt : false
 end
 
 loop max 3
