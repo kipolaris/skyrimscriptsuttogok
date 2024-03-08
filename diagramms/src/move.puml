@@ -1,0 +1,42 @@
+@startuml move
+
+Title Move
+
+participant Character as char
+participant StartRoom as sz
+participant DestRoom as dsz
+participant Door as a
+
+opt #lightyellow Move [if character.skipturn==false]
+    char->dsz : Move(Room)
+
+    loop door_num of DestRoom
+        dsz->a : accept(Character, Room)
+        a-->dsz : bool
+    end
+
+    alt there is entrance
+        alt DestRoom.capacity!=max
+
+            dsz->>dsz : setParticipants()
+            dsz->>sz : setParticipants()
+
+            dsz-->char : true
+            activate char
+            char->>char : setLocation()
+            deactivate char
+
+            group ref Gázosított Szoba
+                note over dsz : gázosított szoba szekvencia a DestRoommal
+            end
+
+
+        else
+            dsz-->char : false
+        end
+    else
+        dsz-->char : false
+    end
+end
+
+@enduml

@@ -2,14 +2,16 @@
 
 title Szobamanipuláció
 
-actor "Building AI" as ai
 Participant GameEngine as g
-Participant Room1 as sz
+Participant "Building AI" as ai
+Participant RoomToChangeDoors as sz
+
+participant Room1 as sz1
 Participant Room2 as sz2
-Participant Room3 as sz3
+Participant MergedRoom as sz3
 
 g->ai : initiateChange()
-opt ajtó manipuláció
+opt ajtó manipuláció [GameEngine.Rooms.size()>=1]
     ai->sz ++: requestDoorinfo
     note right: Szükséges, hogy tudjuk, milyen állapotból indulunk.
     return ArrayList<Door>
@@ -17,34 +19,40 @@ opt ajtó manipuláció
     ai->>ai : randomizeFinalState
     note right: random meghatározza, hogy a megadott ajtók \n végül milyenek legyenek (pl. egyirányúak, tűnjenek el, stb.)
 
-    ai->>sz : giveDoors(ArrayList<Door>)
-    activate sz
+    ai->sz ++: setDoors(ArrayList<Door>)
+    return
 
-    sz->>sz : setDoors
-    deactivate sz
     note right : Egy ajtó két szobához is tartozhat,\n tehát ezzel a szomszédok is frissülnek.
 
 end
 
-opt szoba osztódás
+opt szoba osztódás [GameEngine.Rooms.size()>=1]
 
-    ai->>sz : split
+    ai->sz : split()
+    return
 
 end
 
-opt szoba egyesítés
+opt szoba egyesítés [GameEngine.Rooms.size()>=2]
 
-    ai->sz ++: requestData
-    return data
-    ai->sz2 ++: requestData
-    return data
+    ai->g ++: getRooms()
+    return ArrayList<Room>
 
-    ai->>ai ++: mergeRoom()
-    ai->>ai : calculate mergedData
-    ai->>sz !!: delete
-    ai->>sz2 !!: delete
-    ai->>sz3 **: create
-    ai->>sz3 : setData(mergedData)
+    ai->>ai : chooseTwoRooms()
+    ai->>ai ++: mergeRooms(Room, Room)
+    'Ezt itt a building AI törölje, vagy inkább a GameEngine?'
+    ai->>g ++: delete(Room)
+    g->>sz1 !!: delete
+    g-->ai
+    deactivate g
+    ai->>g ++: deleteRoom(Room)
+    g->>sz2 !!: delete
+    g-->ai
+    deactivate g
+    ai->>g ++: addRoom(Room)
+    g->>sz3 **: create
+    g-->ai
+    deactivate g
     deactivate ai
 
 end

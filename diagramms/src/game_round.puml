@@ -1,0 +1,86 @@
+@startuml Round
+
+title Egy játékkör
+
+'Labvezt megkérdezni: A semmivel visszatérő nyilak okésak-e'
+
+participant GameEngine as g
+participant StartRoom as sz
+participant DestRoom as dsz
+participant Student as h
+participant Professor as okt
+participant Door as a
+participant LowDurabilityItem as t2
+participant UsedItem as t
+
+note over g #LightCoral: Nem baj, ha nem actorokból indulnak a ki a diagramok?
+
+g -> h : decreaseDurabilities()
+loop for each item in inventory
+    alt activated == true
+        h->>t2 : decreaseDurability()
+
+        alt cooldown == 0
+            t2->>t2 !!: delete
+        end
+    end
+end
+h-->g
+
+g->sz : checkGas()
+group ref Gázosított Szoba
+end
+sz-->g
+
+group ref Oktatói kör
+    note over h: most az oktatók lépnek
+end
+
+g -> h : doRound()
+
+group ref Move
+note over h : A hallgató mozog
+end
+
+
+
+group ref tárgyfelvétel
+end
+
+group ref tárgyeldobás
+end
+
+opt tárgyhasználat [actions>0]
+    h->t : activate()
+
+    alt Cups
+        group activate Cups
+            note over t #LightCoral : Labvezt megkérdezni, hogy az, \n hogy ez az ábrázolás (overridolt függvény miatt) helyes-e
+            note over t : activated = true
+        end
+    else
+        alt Rag
+            group ref activate Rag
+                note over t : activated = true
+            end
+        else
+            alt Camembert
+                group ref activate Camembert
+                end
+            else
+                alt Transistor
+                    group ref activate Transistor
+                    end
+                end
+            end
+        end
+    end
+
+    t-->h
+
+end
+h-->g
+
+group ref Szobamanipuláció
+end
+@enduml

@@ -1,0 +1,35 @@
+@startuml gazed_room
+Title Gázosított Szoba
+
+participant Item as item
+participant Character as char
+participant Room as sz
+
+alt #LightGreen gased = true
+        sz->char : ifProtection()
+        loop for each tárgy in hátizsák
+            char->item++: isGasDefense()
+            return bool
+        end
+
+        note over item #LightCoral: ez mondjuk mindig az FFP2. Át kellene írni?
+
+        alt karakternek van gázvédelemmel rendelkező tárgya
+
+            alt védelemnek van durabilitije
+                char->>item : decreaseDurability()
+             
+                alt cooldown == 0
+                    item->>item !!: delete
+                 
+                end
+            end
+
+            char-->sz : return true
+        else
+            char-->sz : return false
+            sz->>char : paralyze()
+        end
+end
+
+@enduml

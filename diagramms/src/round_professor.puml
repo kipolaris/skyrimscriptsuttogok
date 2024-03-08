@@ -1,0 +1,79 @@
+@startuml Round_okt
+
+title Oktatói kör
+
+participant GameEngine as g
+
+participant Room as sz
+
+participant Student as h
+participant Professor as okt
+participant ItemInInventory as t1
+participant Item as t
+
+g->okt : doRound()
+
+group ref Move
+note over okt : Az oktató lép
+end
+
+okt->>sz : killStudents()
+alt #LightPink van hallgató a szobában
+    loop for each hallgató in szoba
+
+        sz -> h : ifProfessorDefense()
+
+        'megkérdezni a labvezt, hogy nem baj-e, hogy itt csak bool-al tér vissza'
+        loop for each Item in inventory
+            'ez jó?'
+            h->t1 ++: isDefensive()
+            return bool
+        end
+        
+        alt van aktív védelmi tárgy
+            h->>h : choose_highest_in_hiearchy()
+            note right of h : kiválasztja egy sorrendnek megfelelően,\n melyik tárgyat használja el
+
+
+            alt a védelmi tárgynak van hatása
+
+                group perform effect
+                    
+                    note over h #LightCoral : Ezt itt alaposan meg kell beszélnünk! \nlegyen inkább ez is activate? De akkor nem lesz az gond, hogy ha már aktiválva van egy tárgy, \nne lehessen még egyszer aktiválni?
+                    note over h #LightCoral : Másrészt: ez végülis mindig a SlideRule.
+                    note over h #LightCoral : További észrevétel: kétféle durability check van...
+                    h->t : effect()
+                    group ref SlideRule effect
+                        note over t: TODO
+                    end
+                    t-->h
+            
+                end
+            else
+                alt védelemnek van durabilije
+                    h->t : decreaseDurability
+                    alt cooldown == 0
+                        t->>t !!: delete
+                    end
+                    t-->h
+            end
+            end
+
+            h-->sz : return (true)
+        else
+            h-->sz : return (false)
+            sz ->> h !!: delete            
+        end
+    end
+end
+
+sz --> okt
+
+group ref tárgyfelvétel
+end
+
+group ref tárgyeldobás
+end
+
+okt --> g
+@enduml

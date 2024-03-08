@@ -1,0 +1,60 @@
+@startuml activate
+
+Title activate Transistor
+
+Participant "Tranzistor A" as tranz
+participant "Tranzistor B" as tranz2
+Participant Student as h
+
+h->tranz : activate()
+
+alt activated == true
+
+    'Labvezt megkérdezni: nem gond-e, ha ez nem külön szekvenciadiagram, hanem csak a része egynek.'
+    group ref Move
+        note over h : az ajtóellenőrzést kivéve a mozgás a megszokott módon történik.
+    end
+
+    tranz->>tranz2 : unpair()
+else activated == false
+    'Ez hogyan legyen pontosan?'
+    tranz->h : getActiveTranzistor()
+    alt van legalább egy másik nem aktív tranzisztor a hallgatónál
+        h-->tranz : Tranzistor
+
+        tranz->>tranz2 : pair(Tranzistor)
+    else
+        h-->tranz : null
+        tranz-->h : false
+    end
+
+end
+
+@enduml
+
+'---------------------------------------------'
+
+@startuml place
+
+title A tranzisztor elhelyezése
+
+Participant "Tranzistor" as tranz1
+Participant "Pair of Tranzistor" as tranz2
+participant Student as h
+
+group ref tárgyletétel
+note over h : a hallgató tranzisztort dob el:\n erről a setLocation(Room) függvényen keresztül értesül a Tranzisztor
+end
+
+alt pair != null
+    tranz1->tranz2 : isPlaced()
+    alt tranz2.location != null
+        tranz2-->tranz1 : true
+        tranz1->>tranz2 : unpair()
+        note over tranz1 : az unpair() a pár mindkét tagját deaktiválja
+    else
+        tranz2-->tranz1 : false
+    end
+end
+
+@enduml
