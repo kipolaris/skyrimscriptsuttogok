@@ -2,27 +2,25 @@
 
 title Egy játékkör
 
-participant GameEngine as g
-participant StartRoom as sz
-participant DestRoom as dsz
-participant Student as h
-participant Professor as okt
-participant Door as a
-participant LowDurabilityItem as t2
-participant UsedItem as t
+participant "g : GameEngine" as g
+participant "s.location : Room" as sz
+participant "destroom : Room" as dsz
+participant "s : Student" as h
+participant "p: Professor" as okt
+participant "d : Door" as a
+participant "lowDurabilityItem : Item" as t2
+participant "usedItem : Item" as t
 
-'nem baj, ha nem aktorokból indulnak ki a diagramok?'
-
-g->sz : checkGas()
+g->sz ++: checkGas()
 group ref Gázosított Szoba
 end
-sz-->g
+sz-->g --:
 
 group ref Oktatói kör
     note over h: most az oktatók lépnek
 end
 
-g -> h : doRound()
+g -> h ++: doRound()
 
 group ref Move
 note over h : A hallgató mozog
@@ -37,45 +35,37 @@ group ref tárgyeldobás
 end
 
 opt tárgyhasználat [actions>0]
-    h->t : activate()
+    h->t ++: activate()
 
-    alt Cups
+    
         group activate Cups
-            note over t : activated = true
         end
-    else
-        alt Rag
-            group ref activate Rag
-                note over t : activated = true
-            end
-        else
-            alt Camembert
-                group ref activate Camembert
-                end
-            else
-                alt Transistor
-                    group ref activate Transistor
-                    end
-                end
-            end
-        end
-    end
 
-    t-->h
+        group ref activate Rag
+        end
+
+        group ref activate Camembert
+        end
+
+        group ref activate Transistor
+        end
+
+    t-->h --:
 
 end
 
 loop for each item in inventory
     alt activated == true
-        h->>t2 : decreaseDurability()
+        h->t2 ++: decreaseDurability()
+        return
 
-        alt durability == 0
-            t2->>t2 !!: delete
+        alt lowDurabilityItem.durability == 0
+            h->>t2 !!: delete
         end
     end
 end
 
-h-->g
+h-->g --:
 
 group ref Szobamanipuláció
 end

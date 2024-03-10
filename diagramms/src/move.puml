@@ -2,41 +2,47 @@
 
 Title Move
 
-participant Character as char
-participant StartRoom as sz
-participant DestRoom as dsz
-participant Door as a
+actor "u : User" as u
+participant "c : Character" as char
+participant "s : StartRoom" as sz
+participant "d : DestRoom" as dsz
+participant "d : Door" as a
 
 opt #lightyellow Move [if character.skipturn==false]
-    char->dsz : Move(Room)
+    u->char ++: Move(d)
+    char->dsz ++: Move(d)
 
     loop door_num of DestRoom
-        dsz->a : accept(Character, Room)
-        a-->dsz : bool
+        dsz->a : accept(c, s)
+        a-->dsz : f : bool
     end
 
-    alt there is entrance
+    alt f == true
         alt DestRoom.capacity!=max
 
-            dsz->>dsz : addCharacter(Character)
-            dsz->>sz : removeCharacter(Character)
+            dsz->>dsz : addCharacter(c)
+            dsz->sz ++: removeCharacter(c)
+            return
 
-            dsz-->char : true
-            activate char
-            char->>char : setLocation()
-            deactivate char
+            dsz->char ++: setLocation(d)
+            return
 
-            group ref Gázosított Szoba
-                note over dsz : gázosított szoba szekvencia a DestRoommal
+            alt d.gassed == true
+                dsz -> char ++: paralyze()
+                group ref Gázosított Szoba
+                end
+                return
             end
 
 
+            dsz-->char --: true
+
         else
-            dsz-->char : false
         end
     else
-        dsz-->char : false
+        dsz-->char --: false
     end
+    char-->u --:
 end
 
 @enduml

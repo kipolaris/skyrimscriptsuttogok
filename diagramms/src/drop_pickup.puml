@@ -2,9 +2,12 @@
 
 Title tárgyeldobás
 
-participant Character as char
-participant Item as t
-participant Room as sz
+actor "u: User" as u
+participant "c : Character" as char
+participant "i : Item" as t
+participant "r : Room" as sz
+
+u->char ++: dropItem(i)
 
 opt tárgyeldobás [actions>0]
     alt inventory contains Item
@@ -12,6 +15,7 @@ opt tárgyeldobás [actions>0]
         char->>sz : add(Item)
     end
 end
+char-->u --:
 
 @enduml
 

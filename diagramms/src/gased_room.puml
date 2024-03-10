@@ -1,34 +1,36 @@
 @startuml gazed_room
 Title Gázosított Szoba
 
-participant Item as item
-participant Character as char
-participant Room as sz
+participant "i : Item" as item
+participant "c : Character" as char
+participant "r : Room" as sz
 
 alt #LightGreen gased = true
-        sz->>char : paralyze()
+        sz->char ++: paralyze()
         loop for each tárgy in inventory
-            char->item: protectMe("gas")
+            char->item ++: protectMe("gas")
+
+            return f: bool
 
             alt az item gázvédelmi
 
                 alt védelemnek van durabilitije
-                    char->>item : decreaseDurability()
+                    char->item ++: decreaseDurability()
+                    return
                 
                     alt durability == 0
-                        item->>item !!: delete
+                        char->>item !!: delete
                     
                     end
                 end
 
-                item-->char : return true
                 note over item : break loop
             else
-                item-->char : return false
                 char->>char : setParalyzed()
             end
 
         end
+        char-->sz --:
 end
 
 @enduml

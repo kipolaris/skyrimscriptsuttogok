@@ -2,33 +2,41 @@
 
 title Szobamanipuláció
 
-Participant GameEngine as g
-Participant "Building AI" as ai
-Participant RoomToChangeDoors as sz
+Participant "g : GameEngine" as g
+Participant "b: Building AI" as ai
+Participant "roomToChangeDoors : Room" as sz
 
-participant Room1 as sz1
-Participant Room2 as sz2
-Participant MergedRoom as sz3
+participant "r1 : Room" as sz1
+Participant "r2 : Room" as sz2
+participant "splittable : Room" as split
+Participant "mergedRoom : Room" as sz3
 
-g->ai : initiateChange()
+g->ai ++: initiateChange()
 opt ajtó manipuláció [GameEngine.Rooms.size()>=1]
-    ai->sz ++: requestDoorinfo
+    ai->sz ++: requestDoorinfo()
     note right: Szükséges, hogy tudjuk, milyen állapotból indulunk.
-    return ArrayList<Door>
+    return doors : ArrayList<Door>
 
-    ai->>ai : randomizeFinalState
+    ai->>ai : randomizeFinalState()
     note right: random meghatározza, hogy a megadott ajtók \n végül milyenek legyenek (pl. egyirányúak, tűnjenek el, stb.)
 
-    ai->sz ++: setDoors(ArrayList<Door>)
+    ai->sz ++: setDoors(doors : ArrayList<Door>)
     return
-
-    note right : Egy ajtó két szobához is tartozhat,\n tehát ezzel a szomszédok is frissülnek.
-
-end
 
 opt szoba osztódás [GameEngine.Rooms.size()>=1]
 
-    ai->sz : splitRoom()
+    ai->ai ++: splitRoom(splittable)
+    ai->>"aftersplit1 : Room" **: create
+    ai->g ++: addRoom(aftersplit1)
+    return
+    ai->>"aftersplit2 : Room" **: create
+    ai->g ++: addRoom(aftersplit2)
+    return
+
+    ai->g ++: removeRoom(splittable)
+    return
+
+    ai->>split !!: delete
     return
 
 end
@@ -36,26 +44,27 @@ end
 opt szoba egyesítés [GameEngine.Rooms.size()>=2]
 
     ai->g ++: getRooms()
-    return ArrayList<Room>
+    return rooms : ArrayList<Room>
 
     ai->>ai : chooseTwoRooms()
     ai->>ai ++: mergeRooms(Room, Room)
-    'Ezt itt a building AI törölje, vagy inkább a GameEngine?'
-    ai->>g ++: delete(Room)
-    g->>sz1 !!: delete
-    g-->ai
-    deactivate g
-    ai->>g ++: deleteRoom(Room)
-    g->>sz2 !!: delete
-    g-->ai
-    deactivate g
-    ai->>g ++: addRoom(Room)
+
+    ai->g ++: addRoom(Room)
     g->>sz3 **: create
     g-->ai
     deactivate g
     deactivate ai
 
+    ai->g ++: removeRoom(Room)
+    g->>sz1 !!: delete
+    g-->ai
+    deactivate g
+    ai->g ++: removeRoom(Room)
+    g->>sz2 !!: delete
+    g-->ai
+    deactivate g
+
 end
-ai-->g
+ai-->g --:
 
 @enduml
