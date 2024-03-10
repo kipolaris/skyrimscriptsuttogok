@@ -1,0 +1,26 @@
+@startuml rag
+
+title Rag
+
+participant Student as s
+participant Rag as r
+participant Room as room
+
+s->r : ProtectMe("professor")
+alt rag.activated == true
+
+r->s : getLocation()
+return Room
+
+s->room : paralyzeProfessors()
+return
+
+r-->s : true
+
+else
+
+r-->s : false
+
+end
+
+@enduml

@@ -2,8 +2,6 @@
 
 title Egy játékkör
 
-'Labvezt megkérdezni: A semmivel visszatérő nyilak okésak-e'
-
 participant GameEngine as g
 participant StartRoom as sz
 participant DestRoom as dsz
@@ -13,19 +11,7 @@ participant Door as a
 participant LowDurabilityItem as t2
 participant UsedItem as t
 
-note over g #LightCoral: Nem baj, ha nem actorokból indulnak a ki a diagramok?
-
-g -> h : decreaseDurabilities()
-loop for each item in inventory
-    alt activated == true
-        h->>t2 : decreaseDurability()
-
-        alt cooldown == 0
-            t2->>t2 !!: delete
-        end
-    end
-end
-h-->g
+'nem baj, ha nem aktorokból indulnak ki a diagramok?'
 
 g->sz : checkGas()
 group ref Gázosított Szoba
@@ -55,7 +41,6 @@ opt tárgyhasználat [actions>0]
 
     alt Cups
         group activate Cups
-            note over t #LightCoral : Labvezt megkérdezni, hogy az, \n hogy ez az ábrázolás (overridolt függvény miatt) helyes-e
             note over t : activated = true
         end
     else
@@ -79,6 +64,17 @@ opt tárgyhasználat [actions>0]
     t-->h
 
 end
+
+loop for each item in inventory
+    alt activated == true
+        h->>t2 : decreaseDurability()
+
+        alt durability == 0
+            t2->>t2 !!: delete
+        end
+    end
+end
+
 h-->g
 
 group ref Szobamanipuláció

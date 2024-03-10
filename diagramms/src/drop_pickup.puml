@@ -10,7 +10,6 @@ opt tárgyeldobás [actions>0]
     alt inventory contains Item
         char->>t : setLocation(Room)
         char->>sz : add(Item)
-        char->>char : decreaseActions()
     end
 end
 
@@ -25,19 +24,16 @@ participant Item as t
 participant Room as sz
 
 opt tárgyfelvétel [actions>0 && inventory.size()!=max]
-    char->sz : askForItem
-    'TODO: hogyan állapítjuk meg, hogy ez egy tranzisztor?'
-    'ötlet: legyen egy pickup függvény'
+    char->sz : getItems()
+    return ArrayList<Item>
 
-    note over char #LightCoral: TODO: hogyan állapítjuk meg, hogy ez egy tranzisztor? \n ötlet: legyen egy pickup függvény
+    char->>char : addItem(Item)
+    char->t : setLocation(null)
 
     alt a Tárgy egy aktivált tranzisztor
-        sz-->char : null
+        t-->char : false
     else
-        sz-->char : Item
-        char->>char : addItem(Item)
-        char->>t : setLocation(null)
-        char->>char : decreaseActions()
+        t-->char : true
     end
 end
 

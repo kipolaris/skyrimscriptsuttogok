@@ -10,7 +10,6 @@ h->tranz : activate()
 
 alt activated == true
 
-    'Labvezt megkérdezni: nem gond-e, ha ez nem külön szekvenciadiagram, hanem csak a része egynek.'
     group ref Move
         note over h : az ajtóellenőrzést kivéve a mozgás a megszokott módon történik.
     end
@@ -47,7 +46,6 @@ note over h : a hallgató tranzisztort dob el:\n erről a setLocation(Room) füg
 end
 
 alt pair != null
-    tranz1->tranz2 : isPlaced()
     alt tranz2.location != null
         tranz2-->tranz1 : true
         tranz1->>tranz2 : unpair()

@@ -5,19 +5,14 @@ title activate Camembert
 participant Student as s
 participant Camembert as c
 participant Room as r
-participant Professor as p
 
 s -> c ++: activate()
 
 c -> s ++: getLocation()
 s--> c --: Room
 
-c->r : paralyzeProfessors()
+c->r : setGassed()
 
-loop for each professor in room
-    r->p : paralyze()
-    p-->r
-end
 r-->c
 
 c-->s --:

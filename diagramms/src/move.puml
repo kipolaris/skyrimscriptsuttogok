@@ -18,8 +18,8 @@ opt #lightyellow Move [if character.skipturn==false]
     alt there is entrance
         alt DestRoom.capacity!=max
 
-            dsz->>dsz : setParticipants()
-            dsz->>sz : setParticipants()
+            dsz->>dsz : addCharacter(Character)
+            dsz->>sz : removeCharacter(Character)
 
             dsz-->char : true
             activate char

@@ -28,7 +28,7 @@ end
 
 opt szoba osztódás [GameEngine.Rooms.size()>=1]
 
-    ai->sz : split()
+    ai->sz : splitRoom()
     return
 
 end
