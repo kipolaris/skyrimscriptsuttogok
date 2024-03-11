@@ -2,66 +2,58 @@
 
 title Oktatói kör
 
-participant GameEngine as g
+participant "g : GameEngine" as g
 
-participant Room as sz
+participant "r : Room" as sz
 
-participant Student as h
-participant Professor as okt
-participant Item as t
+participant "s : Student" as h
+participant "p : Professor" as okt
+participant "i : Item" as t
 
-g->okt : doRound()
+g->okt ++: doRound()
 
-group ref Move
+group ref Oktatói Move
 note over okt : Az oktató lép
 end
 
-okt->sz : killStudents()
+okt->sz ++: killStudents()
 alt #LightPink van hallgató a szobában
     loop for each hallgató in szoba
 
-        sz -> h : die()
+        sz -> h ++: die()
 
         loop for each Item in inventory
             note over t : ha az adott védelmi tárgy a hiearchiában a következő
-            h->t : protectMe("professor")
+            h->t ++: protectMe("professor")
 
-            alt a tárgy védelmi
+            group ref Rag
+            end
 
-                alt Rag
-                    group ref Rag
-                    end
-                end
+            t-->h --: bool
 
-                t-->h : true
+            h->t ++: decreaseDurability()
+            return bool
 
-                alt védelemnek van durabilije
-                t->t : decreaseDurability()
-                    alt durability == 0
-                        t->>t !!: delete
-                    end
-                end
-                note over t : break loop
-
-                h-->sz
-            else
-                t-->h : false
-            end           
+            alt bool = false
+                h->>t !!: delete
+            end         
         end
 
         alt egyik tárgy sem tért vissza igazzal
-            h-->sz
-            h ->> h !!: delete 
+            h-->sz --: true
+            sz ->> h !!: delete 
+        else
+            h-->sz --: false
         end
     end
 end
 
-sz --> okt
+sz --> okt --:
 
-group ref tárgyfelvétel
+group ref oktatói tárgyfelvétel
 end
 
-group ref tárgyeldobás
+group ref oktatói tárgyeldobás
 end
 
 okt --> g

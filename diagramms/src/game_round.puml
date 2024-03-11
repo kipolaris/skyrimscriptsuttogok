@@ -6,8 +6,6 @@ participant "g : GameEngine" as g
 participant "s.location : Room" as sz
 participant "destroom : Room" as dsz
 participant "s : Student" as h
-participant "p: Professor" as okt
-participant "d : Door" as a
 participant "lowDurabilityItem : Item" as t2
 participant "usedItem : Item" as t
 
@@ -28,17 +26,18 @@ end
 
 
 
-group ref tárgyfelvétel
-end
+loop  max 3
 
-group ref tárgyeldobás
-end
+    group ref tárgyfelvétel
+    end
 
-opt tárgyhasználat [actions>0]
+    group ref tárgyeldobás
+    end
+
     h->t ++: activate()
 
     
-        group activate Cups
+        group ref activate Cups
         end
 
         group ref activate Rag

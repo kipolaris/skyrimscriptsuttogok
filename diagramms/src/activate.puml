@@ -1,0 +1,56 @@
+@startuml camembert
+
+title activate Camembert
+
+participant "s : Student" as s
+participant "c : Camembert" as c
+participant "s.location : Room" as r
+
+->s ++: useItem(c)
+
+s -> c ++: activate()
+
+c -> s ++: getLocation()
+s--> c --: s.location
+
+c->r : setGassed()
+
+r-->c
+
+c-->s --:
+
+<--s --:
+
+
+@enduml
+
+@startuml rag
+
+title activate Rag
+
+participant "r : Rag" as r
+
+->r ++: activate()
+
+alt activated == false
+    r->>r : r.activated = true
+end
+
+<--r --:
+
+@enduml
+
+@startuml cups
+
+title activate Cups
+
+participant "c : Cups" as c
+
+->c ++: activate()
+
+alt activated == false
+    c->>c : c.activated = true
+end
+
+<--c --:
+@enduml

@@ -1,44 +1,116 @@
 @startuml drop
 
-Title tárgyeldobás
+Title hallgatói tárgyeldobás
 
 actor "u: User" as u
 participant "c : Character" as char
 participant "i : Item" as t
-participant "r : Room" as sz
+participant "c.location : Room" as sz
 
 u->char ++: dropItem(i)
 
-opt tárgyeldobás [actions>0]
-    alt inventory contains Item
-        char->>t : setLocation(Room)
-        char->>sz : add(Item)
-    end
+alt inventory contains Item
+    char->t ++: setLocation(c.location)
+    return
+    char->sz ++: add(Item)
+    return
 end
+
 char-->u --:
 
 @enduml
 
 @startuml pickup
 
-title tárgyfelvétel
+title hallgatói tárgyfelvétel
 
-participant Character as char
-participant Item as t
-participant Room as sz
+actor "u : User" as u
+participant "c : Character" as char
+participant "i : Item" as t
+participant "r : Room" as sz
 
-opt tárgyfelvétel [actions>0 && inventory.size()!=max]
-    char->sz : getItems()
-    return ArrayList<Item>
+u->char ++: pickup(i)
 
-    char->>char : addItem(Item)
-    char->t : setLocation(null)
+alt actions>0 && inventory.size()!=max
+    char->sz ++: getItem(i)
 
-    alt a Tárgy egy aktivált tranzisztor
-        t-->char : false
-    else
-        t-->char : true
+    sz->t ++: setLocation(null)
+    
+    opt activeTransistorException
+        t-->sz --: activeTransistorException
+        sz-->char --: null
+        char-->u --: false
     end
+
+    t-->sz --:
+
+    sz-->char --: i
+
+    char->>char : addItem(i)
+
+    char-->u --: true
+else
+    char-->u --: false
+end
+
+
+@enduml
+
+@startuml okatoi_drop
+
+Title oktatói tárgyeldobás
+
+actor "u: Ai" as u
+participant "c : Character" as char
+participant "i : Item" as t
+participant "c.location : Room" as sz
+
+u->char ++: dropItem(i)
+
+alt inventory contains Item
+    char->t ++: setLocation(c.location)
+    return
+    char->sz ++: add(Item)
+    return
+end
+
+char-->u --:
+
+@enduml
+
+'----------------------------------------'
+
+@startuml oktatoi_pickup
+
+title oktatói tárgyfelvétel
+
+actor "u : AI" as u
+participant "c : Character" as char
+participant "i : Item" as t
+participant "r : Room" as sz
+
+u->char ++: pickup(i)
+
+alt actions>0 && inventory.size()!=max
+    char->sz ++: getItem(i)
+
+    sz->t ++: setLocation(null)
+    
+    opt activeTransistorException
+        t-->sz --: activeTransistorException
+        sz-->char --: null
+        char-->u --: false
+    end
+
+    t-->sz --:
+
+    sz-->char --: i
+
+    char->>char : addItem(i)
+
+    char-->u --: true
+else
+    char-->u --: false
 end
 
 

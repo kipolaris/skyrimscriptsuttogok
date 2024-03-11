@@ -41,28 +41,28 @@ opt szoba osztódás [GameEngine.Rooms.size()>=1]
 
 end
 
-opt szoba egyesítés [GameEngine.Rooms.size()>=2]
+opt szoba egyesítés [GameEngine.rooms.size()>=2]
 
     ai->g ++: getRooms()
     return rooms : ArrayList<Room>
 
-    ai->>ai : chooseTwoRooms()
-    ai->>ai ++: mergeRooms(Room, Room)
+    ai->ai ++: chooseTwoRooms()
+    return twoRooms : ArrayList<Room>
 
-    ai->g ++: addRoom(Room)
-    g->>sz3 **: create
-    g-->ai
-    deactivate g
-    deactivate ai
+    ai->ai ++: mergeRooms(r1, r2)
+    ai->>sz3 **: create
+    ai-->ai --:
 
-    ai->g ++: removeRoom(Room)
+    ai->g ++: addRoom(mergedRoom)
+    g-->ai --:
+
+    ai->g ++: removeRoom(r1)
     g->>sz1 !!: delete
-    g-->ai
-    deactivate g
-    ai->g ++: removeRoom(Room)
+    g-->ai --:
+
+    ai->g ++: removeRoom(r2)
     g->>sz2 !!: delete
-    g-->ai
-    deactivate g
+    g-->ai --:
 
 end
 ai-->g --:

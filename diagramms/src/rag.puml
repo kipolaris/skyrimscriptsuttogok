@@ -2,17 +2,17 @@
 
 title Rag
 
-participant Student as s
-participant Rag as r
-participant Room as room
+participant "s : Student" as s
+participant "r : Rag" as r
+participant "s.location : Room" as room
 
 s->r : ProtectMe("professor")
 alt rag.activated == true
 
 r->s : getLocation()
-return Room
+return s.location
 
-s->room : paralyzeProfessors()
+r->room : paralyzeProfessors()
 return
 
 r-->s : true

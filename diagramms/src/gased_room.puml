@@ -7,7 +7,7 @@ participant "r : Room" as sz
 
 alt #LightGreen gased = true
         sz->char ++: paralyze()
-        loop for each tárgy in inventory
+        loop for each item in inventory
             char->item ++: protectMe("gas")
 
             return f: bool
@@ -16,15 +16,14 @@ alt #LightGreen gased = true
 
                 alt védelemnek van durabilitije
                     char->item ++: decreaseDurability()
-                    return
+                    return bool
                 
-                    alt durability == 0
+                    alt bool == false
                         char->>item !!: delete
                     
                     end
                 end
-
-                note over item : break loop
+                
             else
                 char->>char : setParalyzed()
             end

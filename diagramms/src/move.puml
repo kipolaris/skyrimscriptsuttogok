@@ -1,30 +1,77 @@
 @startuml move
 
-Title Move
+Title Hallgatói Move
 
 actor "u : User" as u
 participant "c : Character" as char
-participant "s : StartRoom" as sz
-participant "d : DestRoom" as dsz
+participant "start : Room" as sz
+participant "dest : Room" as dsz
 participant "d : Door" as a
 
-opt #lightyellow Move [if character.skipturn==false]
+opt #lightyellow Move [if character.paralyzed==false]
     u->char ++: Move(d)
-    char->dsz ++: Move(d)
+    char->dsz ++: addCharacter(c)
 
     loop door_num of DestRoom
-        dsz->a : accept(c, s)
-        a-->dsz : f : bool
+        dsz->a ++: accept(c, s)
+        a-->dsz --: f : bool
     end
 
     alt f == true
         alt DestRoom.capacity!=max
 
-            dsz->>dsz : addCharacter(c)
             dsz->sz ++: removeCharacter(c)
             return
 
-            dsz->char ++: setLocation(d)
+            dsz->char ++: setLocation(dest)
+            return
+
+            alt d.gassed == true
+                dsz -> char ++: paralyze()
+                group ref Gázosított Szoba
+                end
+                return
+            end
+
+
+            dsz-->char --: true
+
+        else
+        end
+    else
+        dsz-->char --: false
+    end
+    char-->u --:
+end
+
+@enduml
+
+@startuml oktatoi move
+
+Title Oktatói Move
+
+actor "u : AI" as u
+participant "c : Character" as char
+participant "start : Room" as sz
+participant "dest : Room" as dsz
+participant "d : Door" as a
+
+opt #lightyellow Move [if character.skipturn==false]
+    u->char ++: Move(d)
+    char->dsz ++: addCharacter(c)
+
+    loop door_num of DestRoom
+        dsz->a ++: accept(c, s)
+        a-->dsz --: f : bool
+    end
+
+    alt f == true
+        alt DestRoom.capacity!=max
+
+            dsz->sz ++: removeCharacter(c)
+            return
+
+            dsz->char ++: setLocation(dest)
             return
 
             alt d.gassed == true

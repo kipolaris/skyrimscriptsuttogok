@@ -2,32 +2,39 @@
 
 Title activate Transistor
 
-Participant "Tranzistor A" as tranz
-participant "Tranzistor B" as tranz2
-Participant Student as h
+actor "u : User" as u
+Participant "t1 : Tranzistor" as tranz
+participant "t2 : Tranzistor" as tranz2
+participant "t.pair : Transistor" as p
+Participant "s : Student" as h
 
-h->tranz : activate()
+u->h ++: useItem(t)
+h->tranz ++: activate()
 
 alt activated == true
 
-    group ref Move
-        note over h : az ajtóellenőrzést kivéve a mozgás a megszokott módon történik.
-    end
+    tranz -> h ++: move(s, t2.location)
+    return
 
-    tranz->>tranz2 : unpair()
+    tranz->p ++: unpair()
+    return
+
 else activated == false
-    'Ez hogyan legyen pontosan?'
-    tranz->h : getActiveTranzistor()
-    alt van legalább egy másik nem aktív tranzisztor a hallgatónál
-        h-->tranz : Tranzistor
 
-        tranz->>tranz2 : pair(Tranzistor)
+    tranz->h ++: getActiveTranzistor()
+    alt van legalább egy másik nem aktív tranzisztor a hallgatónál
+        h-->tranz --: t2
+
+        tranz->tranz2 ++: pair(t2)
+        return
     else
         h-->tranz : null
-        tranz-->h : false
     end
 
 end
+
+tranz --> h --:
+h-->u --:
 
 @enduml
 
@@ -37,22 +44,20 @@ end
 
 title A tranzisztor elhelyezése
 
-Participant "Tranzistor" as tranz1
-Participant "Pair of Tranzistor" as tranz2
-participant Student as h
+Participant "t : Tranzistor" as tranz1
+Participant "t.pair : Transistor" as tranz2
 
-group ref tárgyletétel
-note over h : a hallgató tranzisztort dob el:\n erről a setLocation(Room) függvényen keresztül értesül a Tranzisztor
-end
+-> tranz1 ++: setLocation(r : Room)
 
 alt pair != null
-    alt tranz2.location != null
-        tranz2-->tranz1 : true
-        tranz1->>tranz2 : unpair()
-        note over tranz1 : az unpair() a pár mindkét tagját deaktiválja
-    else
-        tranz2-->tranz1 : false
+    alt tranz2.activated == true
+        tranz1->tranz2 ++: unpair()
+        return
     end
 end
+
+tranz1 ->> tranz1 : location = r
+
+<--tranz1 --:
 
 @enduml
