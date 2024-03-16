@@ -10,13 +10,11 @@ participant "r1 : Room" as r1
 participant "r3 : Room" as r3
 
 sk -> c ++: move(d1)
-'ennek a paraméterezése nem biztos, hogy jó'
-c->d ++: accept(c1, r3)
-d->c ++: getLocation()
-c-->d --: r1
+
+c->d ++: accept(c1, r1)
 d-->c --: true
 
-c -> d ++: getNeighbour(r3)
+c -> d ++: getNeighbour(r1)
 
 d-->c --: r3
 
