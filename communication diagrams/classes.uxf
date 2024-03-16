@@ -24,14 +24,14 @@ fontsize=10
 
 
 // This text will be stored with each diagram;  use it for notes.</help_text>
-  <zoom_level>11</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>176</x>
-      <y>0</y>
-      <w>231</w>
-      <h>220</h>
+      <x>296</x>
+      <y>8</y>
+      <w>168</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Character
 --
@@ -55,10 +55,10 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>275</y>
-      <w>165</w>
-      <h>66</h>
+      <x>408</x>
+      <y>208</y>
+      <w>120</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Professor
 --
@@ -70,14 +70,14 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>99</x>
-      <y>275</y>
-      <w>165</w>
-      <h>99</h>
+      <x>240</x>
+      <y>208</y>
+      <w>120</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Student
 --
-- alive: bool
+
 --
 + useItem(i: Item)
 + die(): bool
@@ -88,10 +88,10 @@ fontsize=10
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>297</x>
-      <y>209</y>
-      <w>132</w>
-      <h>88</h>
+      <x>384</x>
+      <y>160</y>
+      <w>96</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0;100.0;40.0;100.0;60.0</additional_attributes>
@@ -99,10 +99,10 @@ fontsize=10
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>143</x>
-      <y>209</y>
-      <w>187</w>
-      <h>88</h>
+      <x>272</x>
+      <y>160</y>
+      <w>136</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>150.0;10.0;150.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
@@ -110,10 +110,10 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>44</y>
-      <w>231</w>
-      <h>176</h>
+      <x>608</x>
+      <y>40</y>
+      <w>168</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>/Item/
 --
@@ -127,16 +127,17 @@ fontsize=10
 + pairable()
 + getLocation(): Room
 + setLocation(r: Room)
-+ protectMe(s: string): bool</panel_attributes>
++ protectFromKill(): bool
++ protectFromGas(): bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>825</y>
-      <w>242</w>
-      <h>121</h>
+      <x>824</x>
+      <y>568</y>
+      <w>176</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Door
 --
@@ -152,10 +153,10 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>517</x>
-      <y>693</y>
-      <w>286</w>
-      <h>242</h>
+      <x>544</x>
+      <y>472</y>
+      <w>208</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>Room
 --
@@ -167,7 +168,7 @@ fontsize=10
 + addItem(i: Item)
 + removeItem(i: Item)
 + getItems(): ArrayList&lt;Item&gt;
-+ addCharacter(c: Character)
++ addCharacter(c: Character): bool
 + removeCharacter(c: Character)
 + getStudents(): ArrayList&lt;Student&gt;
 + getProfessors(): ArrayList&lt;Professor&gt;
@@ -180,10 +181,10 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>693</y>
-      <w>242</w>
-      <h>121</h>
+      <x>824</x>
+      <y>472</y>
+      <w>176</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>BuildingAI
 --
@@ -199,10 +200,10 @@ fontsize=10
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>121</y>
-      <w>231</w>
-      <h>44</h>
+      <x>456</x>
+      <y>96</y>
+      <w>168</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=0.. 5
@@ -212,10 +213,10 @@ m2=0.. 5
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>319</x>
-      <y>704</y>
-      <w>220</w>
-      <h>44</h>
+      <x>400</x>
+      <y>480</y>
+      <w>160</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=0.. capacity
@@ -225,10 +226,10 @@ m2=0.. capacity
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>858</y>
-      <w>132</w>
-      <h>33</h>
+      <x>744</x>
+      <y>592</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=2
@@ -238,26 +239,26 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>11</y>
-      <w>242</w>
-      <h>77</h>
+      <x>824</x>
+      <y>16</y>
+      <w>176</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>FFP2
 --
 
 --
-+ protectMe(s: string): bool
++ protectFromGas(): bool
 + decreaseDurability(): bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>363</y>
-      <w>231</w>
-      <h>88</h>
+      <x>608</x>
+      <y>272</y>
+      <w>168</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>Transistor
 --
@@ -271,10 +272,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>341</y>
-      <w>242</w>
-      <h>77</h>
+      <x>824</x>
+      <y>256</y>
+      <w>176</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Rag
 --
@@ -287,10 +288,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>451</y>
-      <w>242</w>
-      <h>77</h>
+      <x>824</x>
+      <y>336</y>
+      <w>176</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Camembert
 --
@@ -301,10 +302,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>341</x>
-      <y>363</y>
-      <w>253</w>
-      <h>143</h>
+      <x>416</x>
+      <y>272</y>
+      <w>184</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>GameEngine
 --
@@ -321,10 +322,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>264</y>
-      <w>231</w>
-      <h>77</h>
+      <x>608</x>
+      <y>200</y>
+      <w>168</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>SlideRule
 --
@@ -335,42 +336,42 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>231</y>
-      <w>242</w>
-      <h>77</h>
+      <x>824</x>
+      <y>176</y>
+      <w>176</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>TVSZ
 --
 
 --
-+ protectMe(s: string): bool
++ protectFromKill(): bool
 + decreaseDurability(): bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>121</y>
-      <w>242</w>
-      <h>77</h>
+      <x>824</x>
+      <y>96</y>
+      <w>176</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Cups
 --
 
 --
-+ protectMe(s: string): bool
++ protectFromKill(): bool
 + decreaseDurability(): bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>737</y>
-      <w>132</w>
-      <h>33</h>
+      <x>744</x>
+      <y>504</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=*</panel_attributes>
@@ -379,22 +380,22 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>880</y>
-      <w>143</w>
-      <h>77</h>
+      <x>456</x>
+      <y>608</y>
+      <w>104</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=*</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
-      <y>308</y>
-      <w>99</w>
-      <h>165</h>
+      <x>360</x>
+      <y>232</y>
+      <w>72</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=*</panel_attributes>
@@ -403,10 +404,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>825</x>
-      <y>132</y>
-      <w>99</w>
-      <h>363</h>
+      <x>768</x>
+      <y>104</y>
+      <w>72</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;40.0;10.0;40.0;310.0;70.0;310.0</additional_attributes>
@@ -414,10 +415,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>858</x>
-      <y>66</y>
-      <w>66</w>
-      <h>99</h>
+      <x>792</x>
+      <y>56</y>
+      <w>48</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;70.0;10.0;10.0;40.0;10.0</additional_attributes>
@@ -425,10 +426,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>858</x>
-      <y>154</y>
-      <w>66</w>
-      <h>44</h>
+      <x>792</x>
+      <y>120</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -436,10 +437,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>858</x>
-      <y>253</y>
-      <w>66</w>
-      <h>44</h>
+      <x>792</x>
+      <y>192</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -447,10 +448,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>858</x>
-      <y>352</y>
-      <w>66</w>
-      <h>44</h>
+      <x>792</x>
+      <y>264</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -458,10 +459,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>825</x>
-      <y>286</y>
-      <w>66</w>
-      <h>44</h>
+      <x>768</x>
+      <y>216</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -469,10 +470,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>825</x>
-      <y>396</y>
-      <w>66</w>
-      <h>44</h>
+      <x>768</x>
+      <y>296</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
@@ -480,10 +481,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>726</x>
-      <y>440</y>
-      <w>110</w>
-      <h>55</h>
+      <x>696</x>
+      <y>328</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 - pair</panel_attributes>
@@ -492,10 +493,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>143</x>
-      <y>363</y>
-      <w>220</w>
-      <h>143</h>
+      <x>272</x>
+      <y>272</y>
+      <w>160</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=*</panel_attributes>
@@ -504,10 +505,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>451</x>
-      <y>495</y>
-      <w>176</w>
-      <h>77</h>
+      <x>496</x>
+      <y>368</y>
+      <w>128</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -516,44 +517,21 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>517</x>
-      <y>286</y>
-      <w>110</w>
-      <h>99</h>
+      <x>544</x>
+      <y>216</y>
+      <w>80</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>264</x>
-      <y>935</y>
-      <w>231</w>
-      <h>176</h>
-    </coordinates>
-    <panel_attributes>/Item/
---
-- activated: bool
-- defensive: bool
-- durability: int
-- location: Room
---
-/+ activate()/
-+ decreaseDurability()
-+ pairable()
-+ getLocation(): Room
-+ setLocation(r: Room)
-+ protectMe(s: string): bool</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>550</x>
-      <y>121</y>
-      <w>66</w>
-      <h>22</h>
+      <x>568</x>
+      <y>96</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- items</panel_attributes>
     <additional_attributes/>
@@ -561,10 +539,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>286</x>
-      <y>132</y>
-      <w>66</w>
-      <h>22</h>
+      <x>376</x>
+      <y>104</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -572,10 +550,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>550</x>
-      <y>528</y>
-      <w>66</w>
-      <h>22</h>
+      <x>568</x>
+      <y>392</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>_- builder_</panel_attributes>
     <additional_attributes/>
@@ -583,10 +561,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>99</x>
-      <y>374</y>
-      <w>66</w>
-      <h>22</h>
+      <x>240</x>
+      <y>280</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- students</panel_attributes>
     <additional_attributes/>
@@ -594,10 +572,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>264</x>
-      <y>297</y>
-      <w>66</w>
-      <h>22</h>
+      <x>360</x>
+      <y>224</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- professors</panel_attributes>
     <additional_attributes/>
@@ -605,10 +583,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>561</x>
-      <y>275</y>
-      <w>66</w>
-      <h>22</h>
+      <x>576</x>
+      <y>208</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- slide</panel_attributes>
     <additional_attributes/>
@@ -616,10 +594,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>341</x>
-      <y>704</y>
-      <w>66</w>
-      <h>22</h>
+      <x>416</x>
+      <y>480</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- characters</panel_attributes>
     <additional_attributes/>
@@ -627,10 +605,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>11</x>
-      <y>330</y>
-      <w>66</w>
-      <h>22</h>
+      <x>176</x>
+      <y>248</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -638,10 +616,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>363</x>
-      <y>891</y>
-      <w>66</w>
-      <h>22</h>
+      <x>432</x>
+      <y>616</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- items</panel_attributes>
     <additional_attributes/>
@@ -649,10 +627,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>858</x>
-      <y>847</y>
-      <w>66</w>
-      <h>22</h>
+      <x>792</x>
+      <y>584</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- doors</panel_attributes>
     <additional_attributes/>
@@ -660,10 +638,10 @@ m2=*</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>803</x>
-      <y>726</y>
-      <w>66</w>
-      <h>22</h>
+      <x>752</x>
+      <y>496</y>
+      <w>48</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>- labyrinth</panel_attributes>
     <additional_attributes/>
@@ -671,10 +649,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>99</x>
-      <y>693</y>
-      <w>231</w>
-      <h>220</h>
+      <x>240</x>
+      <y>472</y>
+      <w>168</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Character
 --
@@ -698,10 +676,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>495</y>
-      <w>242</w>
-      <h>121</h>
+      <x>608</x>
+      <y>368</y>
+      <w>176</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>BuildingAI
 --
@@ -712,6 +690,30 @@ m2=*</panel_attributes>
 + giveDoors(doors: ArrayList&lt;Door&gt;, r: Room)
 + addRoom(r: Room)
 + removeRoom(r: Room)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>352</x>
+      <y>640</y>
+      <w>168</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>/Item/
+--
+- activated: bool
+- defensive: bool
+- durability: int
+- location: Room
+--
+/+ activate()/
++ decreaseDurability(): bool
++ pairable()
++ getLocation(): Room
++ setLocation(r: Room)
++ protectFromKill(): bool
++ protectFromGas(): bool</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
