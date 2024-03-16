@@ -1,0 +1,28 @@
+@startuml oktato_tamad
+
+title 20
+
+actor Skeleton as sk
+participant "r20 : Room" as r
+participant "s20 : Student" as s
+participant "t20 : TVSZ" as t
+participant "t20 : Cups" as c
+
+sk->r ++: killStudents()
+
+r -> s ++: die()
+
+s->t ++: protectMe("professor")
+t-->s --: true
+
+s->c ++: protectMe("professor")
+c-->s --: true
+
+s->c ++: decreaseDurability()
+c-->s --: true
+
+s-->r --: false
+
+r-->sk --:
+
+@enduml

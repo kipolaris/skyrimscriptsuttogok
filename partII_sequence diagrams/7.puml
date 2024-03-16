@@ -1,0 +1,21 @@
+@startuml Targyfelvéte sikeres
+
+Title 7
+
+actor Skeleton as s
+participant "c7 : Character" as c
+participant "r7 : Room" as r4
+participant "f7 : FFP2" as i
+
+s->c ++: addItem(i)
+'Ez így még nem helyes'
+c -> r4 ++: removeItem(i)
+
+r4 -> i ++: setLocation(null)
+i-->r4 --:
+
+r4 --> c --:
+
+c-->s --:
+
+@enduml

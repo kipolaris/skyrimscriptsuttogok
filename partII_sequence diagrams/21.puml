@@ -1,0 +1,18 @@
+@startuml activate_Rag
+
+title 21
+
+actor Skeleton as sk
+participant "s21 : Student" as s
+participant "rg21 : Rag" as rg
+
+sk->s ++: useItem(rg21)
+s->rg ++: activate()
+
+rg->>rg : activated = true
+
+rg-->s --:
+
+s-->sk --:
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml Tárgyeldobás
+
+Title 9
+
+actor "Skeleton" as u
+participant "c9 : Character" as char
+participant "i9 : Item" as t
+participant "r9 : Room" as sz
+
+u->char ++: dropItem(i)
+
+char->t ++: setLocation(r5)
+return
+
+char->sz ++: add(i)
+return
+
+char-->u --:
+
+@enduml

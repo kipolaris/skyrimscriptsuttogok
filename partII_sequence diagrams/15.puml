@@ -1,0 +1,21 @@
+@startuml oktato_tamad
+
+actor Skeleton as sk
+participant "r15 : Room" as r
+participant "s15 : Student" as s
+participant "f15 : FFP2" as c
+
+sk->r ++: killStudents()
+
+r -> s ++: die()
+
+s->c ++: protectMe("professor")
+c-->s --: false
+
+s-->r --: true
+
+r->>s !!: delete
+
+r-->sk --:
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml gazed_room
+Title 11
+
+participant "f11 : FFP2" as f
+participant "c11 : Character" as char
+participant "r11 : Room" as sz
+
+sz->char ++: setParalyzed()
+
+char->f ++: protectMe("gas")
+return true
+
+char->f ++: decreaseDurability()
+
+return true
+
+char-->sz --:

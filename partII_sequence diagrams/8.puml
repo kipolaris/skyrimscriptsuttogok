@@ -1,0 +1,12 @@
+@startuml Targyfelvéte sikeres
+
+Title 8
+
+actor Skeleton as s
+participant "c8 : Character" as c
+
+s->c ++: addItem(i)
+
+c-->s --:
+
+@enduml

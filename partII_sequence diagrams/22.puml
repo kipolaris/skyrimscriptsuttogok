@@ -1,0 +1,32 @@
+@startuml rag_effect
+
+title 22
+
+actor Skeleton as sk
+participant "r22 : Room" as room
+participant "s22 : Student" as s
+participant "rg22 : Rag" as r
+participant "p22 : Professor" as p
+
+sk->room ++: killStudents()
+
+room->s ++: die()
+
+s->r ++: ProtectMe("professor")
+
+r->s ++: getLocation()
+return r22
+
+r->room ++: paralyzeProfessors()
+room->p ++: setParalyzed()
+return
+
+room-->r --:
+
+r-->s --: true
+
+s-->room --: false
+
+room-->sk --:
+
+@enduml

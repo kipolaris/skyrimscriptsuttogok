@@ -1,0 +1,26 @@
+@startuml sliderule
+
+title 26
+
+actor Skeleton as sk
+participant "sl26 : SlideRule" as sl
+participant "s26 : Student" as s
+participant "r26 : Room" as r
+participant "g26 : GameEngine" as g
+
+sk->s ++: addItem(sl)
+s->r ++: removeItem(sl)
+
+r->sl ++: setLocation(null)
+sl-->r --:
+
+r-->s --: sl
+
+s->g ++: endgame()
+
+g-->s --:
+
+s-->sk --:
+
+@enduml
+

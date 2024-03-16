@@ -1,0 +1,63 @@
+@startuml activate
+
+Title activate Transistor
+
+actor "u : User" as u
+Participant "t1 : Tranzistor" as tranz
+participant "t2 : Tranzistor" as tranz2
+participant "t.pair : Transistor" as p
+Participant "s : Student" as h
+
+u->h ++: useItem(t)
+h->tranz ++: activate()
+
+alt activated == true
+
+    tranz -> h ++: move(s, t2.location)
+    return
+
+    tranz->p ++: unpair()
+    return
+
+else activated == false
+
+    tranz->h ++: getActiveTranzistor()
+    alt van legalább egy másik nem aktív tranzisztor a hallgatónál
+        h-->tranz --: t2
+
+        tranz->tranz2 ++: pair(t2)
+        return
+    else
+        h-->tranz : null
+    end
+
+end
+
+tranz --> h --:
+h-->u --:
+
+@enduml
+
+'---------------------------------------------'
+
+@startuml place
+
+title A tranzisztor elhelyezése
+
+Participant "t : Tranzistor" as tranz1
+Participant "t.pair : Transistor" as tranz2
+
+-> tranz1 ++: setLocation(r : Room)
+
+alt pair != null
+    alt tranz2.activated == true
+        tranz1->tranz2 ++: unpair()
+        return
+    end
+end
+
+tranz1 ->> tranz1 : location = r
+
+<--tranz1 --:
+
+@enduml

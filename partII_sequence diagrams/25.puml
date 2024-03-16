@@ -1,0 +1,26 @@
+@startuml camembert
+
+title 25
+
+actor Skeleton as sk
+participant "s23 : Student" as s
+participant "c23 : Camembert" as c
+participant "r23 : Room" as r
+
+sk->s ++: useItem(c)
+
+s -> c ++: activate()
+
+c -> s ++: getLocation()
+s--> c --: r23
+
+c->r : setGassed()
+
+r-->c
+
+c-->s --:
+
+sk<--s --:
+
+
+@enduml

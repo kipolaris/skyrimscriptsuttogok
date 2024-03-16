@@ -1,0 +1,23 @@
+@startuml transistor place
+
+title 28
+
+actor Skeleton as sk
+participant "s28 : Student" as s
+participant "r28 : Room" as r
+Participant "t28 : Tranzistor" as tranz1
+
+sk->s ++: dropItem(i)
+
+s-> tranz1 ++: setLocation(r : Room)
+
+tranz1 ->> tranz1 : location = r28
+
+s <-- tranz1 --:
+
+s -> r ++: add(tranz1)
+r-->s --:
+
+s-->sk --:
+
+@enduml

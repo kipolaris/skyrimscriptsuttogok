@@ -1,0 +1,22 @@
+@startuml activate
+
+Title 27
+
+actor "Skeleton" as sk
+Participant "s27 : Student" as h
+Participant "t27 : Tranzistor" as tranz
+participant "pair27 : Tranzistor" as tranz2
+
+sk->h ++: useItem(t)
+h->tranz ++: activate()
+
+tranz->h ++: getActiveTranzistor()
+h-->tranz --: t2
+
+tranz->tranz2 ++: pair(t2)
+return
+
+tranz --> h --:
+h-->sk --:
+
+@enduml
