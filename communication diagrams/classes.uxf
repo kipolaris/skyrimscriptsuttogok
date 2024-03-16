@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=10
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>0</y>
+      <w>231</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Character
+--
+- paralyzed: bool
+- actions: int
+--
++ useItem(i: Item)
++ getLocation(): Room
++ setLocation(r: Room)
++ getItems(): ArrayList&lt;Item&gt;
++ addItem(i: Item)
++ dropItem(i: Item)
++ setParalyzed(b: bool)
++ move(d: Door)
++ skipTurn()
++ doRound()
++ getActiveTransistor(): Transistor
++ die(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>275</y>
+      <w>165</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Professor
+--
+
+--
++ doRound()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>275</y>
+      <w>165</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Student
+--
+- alive: bool
+--
++ useItem(i: Item)
++ die(): bool
++ doRound()
++ getActiveTransistor():</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>209</y>
+      <w>132</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;100.0;40.0;100.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>143</x>
+      <y>209</y>
+      <w>187</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;150.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>44</y>
+      <w>231</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>/Item/
+--
+- activated: bool
+- defensive: bool
+- durability: int
+- location: Room
+--
+/+ activate()/
++ decreaseDurability(): bool
++ pairable()
++ getLocation(): Room
++ setLocation(r: Room)
++ protectMe(s: string): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>825</y>
+      <w>242</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>Door
+--
+- from: Room
+- to: Room
+- bothWays: bool
+- visible: bool
+--
++ accept(c: Character, r: Room): bool
++ getNeighbour(r: Room): Room</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>517</x>
+      <y>693</y>
+      <w>286</w>
+      <h>242</h>
+    </coordinates>
+    <panel_attributes>Room
+--
+- capacity: int
+- gassed: bool
+- cursed: bool
+--
++ setDoors()
++ addItem(i: Item)
++ removeItem(i: Item)
++ getItems(): ArrayList&lt;Item&gt;
++ addCharacter(c: Character)
++ removeCharacter(c: Character)
++ getStudents(): ArrayList&lt;Student&gt;
++ getProfessors(): ArrayList&lt;Professor&gt;
++ paralyzeProfessors()
++ setGassed()
++ checkGas()
++ killStudents()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>693</y>
+      <w>242</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>BuildingAI
+--
+
+--
++ mergeRooms(r: Room, p: Room)
++ splitRoom(r: Room)
++ giveDoors(doors: ArrayList&lt;Door&gt;, r: Room)
++ addRoom(r: Room)
++ removeRoom(r: Room)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>121</y>
+      <w>231</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0.. 5
+</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>319</x>
+      <y>704</y>
+      <w>220</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0.. capacity
+</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>858</y>
+      <w>132</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=2
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>11</y>
+      <w>242</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>FFP2
+--
+
+--
++ protectMe(s: string): bool
++ decreaseDurability(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>363</y>
+      <w>231</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Transistor
+--
+
+--
++ pairable()
++ pair(t: Transistor)
++ unpair()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>341</y>
+      <w>242</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Rag
+--
+
+--
++ setLocation(r: Room)
++ decreaseDurability(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>451</y>
+      <w>242</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Camembert
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>341</x>
+      <y>363</y>
+      <w>253</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>GameEngine
+--
+
+--
++ initGame()
++ studentsExtinct(): bool
++ endgame()
++ refresh()
++ playOnePhase()
++ studentDied(s: Student)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>264</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>SlideRule
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>231</y>
+      <w>242</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>TVSZ
+--
+
+--
++ protectMe(s: string): bool
++ decreaseDurability(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>902</x>
+      <y>121</y>
+      <w>242</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Cups
+--
+
+--
++ protectMe(s: string): bool
++ decreaseDurability(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>737</y>
+      <w>132</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>880</y>
+      <w>143</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=*</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>308</y>
+      <w>99</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*</panel_attributes>
+    <additional_attributes>70.0;130.0;10.0;130.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>825</x>
+      <y>132</y>
+      <w>99</w>
+      <h>363</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0;40.0;310.0;70.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>66</y>
+      <w>66</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;70.0;10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>154</y>
+      <w>66</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>253</y>
+      <w>66</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>352</y>
+      <w>66</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>825</x>
+      <y>286</y>
+      <w>66</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>825</x>
+      <y>396</y>
+      <w>66</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>726</x>
+      <y>440</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+- pair</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0;80.0;30.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>143</x>
+      <y>363</y>
+      <w>220</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*</panel_attributes>
+    <additional_attributes>180.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>451</x>
+      <y>495</y>
+      <w>176</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;140.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>517</x>
+      <y>286</y>
+      <w>110</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>935</y>
+      <w>231</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>/Item/
+--
+- activated: bool
+- defensive: bool
+- durability: int
+- location: Room
+--
+/+ activate()/
++ decreaseDurability()
++ pairable()
++ getLocation(): Room
++ setLocation(r: Room)
++ protectMe(s: string): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>550</x>
+      <y>121</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- items</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>286</x>
+      <y>132</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>550</x>
+      <y>528</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>_- builder_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>99</x>
+      <y>374</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- students</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>264</x>
+      <y>297</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- professors</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>561</x>
+      <y>275</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- slide</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>341</x>
+      <y>704</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- characters</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>11</x>
+      <y>330</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>363</x>
+      <y>891</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- items</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>858</x>
+      <y>847</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- doors</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>803</x>
+      <y>726</y>
+      <w>66</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>- labyrinth</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>693</y>
+      <w>231</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Character
+--
+- paralyzed: bool
+- actions: int
+--
++ useItem(i: Item)
++ getLocation(): Room
++ setLocation(r: Room)
++ getItems(): ArrayList&lt;Item&gt;
++ addItem(i: Item)
++ dropItem(i: Item)
++ setParalyzed(b: bool)
++ move(d: Door)
++ skipTurn()
++ doRound()
++ getActiveTransistor(): Transistor
++ die(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>495</y>
+      <w>242</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>BuildingAI
+--
+
+--
++ mergeRooms(r: Room, p: Room)
++ splitRoom(r: Room)
++ giveDoors(doors: ArrayList&lt;Door&gt;, r: Room)
++ addRoom(r: Room)
++ removeRoom(r: Room)</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
