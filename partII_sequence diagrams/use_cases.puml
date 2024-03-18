@@ -1,0 +1,105 @@
+@startuml use-case diagram
+
+:Skeleton: as s
+:User: as u
+
+!$num = 0
+
+!function $printnum()
+!$num = $num+1
+!return "["+ $num + "]"
+!endfunction
+
+!$arrow = 0
+
+!function $str()
+
+!$str
+
+!$arrow = $arrow + 1
+
+!if $arrow == 4
+!$arrow = 0
+!endif
+
+!if $arrow == 0
+!$str = "left"
+!else
+
+!if $arrow == 1
+!$str = "right"
+!else
+
+!if $arrow == 2
+!$str = "up"
+!else
+
+!if $arrow == 3
+!$str = "down"
+!endif
+!endif
+!endif
+!endif
+
+!return $str
+
+!endfunction
+
+s -$str()-> (sima ajtó $printnum())
+s -$str()-> (egyirányú ajtó + sikeres lépés $printnum())
+s -$str()-> (egyirányú ajtó + sikertelen lépés $printnum())
+s -$str()-> (teli szobába lépés $printnum())
+s -$str()-> (FFP2+nem jár le az idő $printnum())
+s -$str()-> (Tárgyfelvétel sikeres $printnum())
+s -$str()-> (Tárgyfelvétel sikertelen $printnum())
+s -$str()-> (Tárgyeldobás $printnum())
+s -$str()-> (FFP2+lejár az idő $printnum())
+
+u -$str()-> (gáz ellen nem védő tárgyak $printnum())
+
+newpage
+
+s -$str()-> (tanár támad sikeresen $printnum())
+s -$str()-> (tanár támad sikertelenül $printnum())
+s -$str()-> (Cups + lejár az idő $printnum())
+s -$str()-> (Cups + nem jár le az idő $printnum())
+s -$str()-> (TVSZ + nem jár le az idő $printnum())
+s -$str()-> (TVSZ + lejár az idő $printnum())
+s -$str()-> (TVSZ vs Cups $printnum())
+s -$str()-> (Rag aktiválása $printnum())
+s -$str()-> (Rag decreaseDurability+paralyzeProfessors $printnum())
+s -$str()-> (Rag decreaseDurability+megsemmisülés $printnum())
+
+newpage
+
+s -$str()-> (oktató belép + aktív rag $printnum())
+s -$str()-> (Camembert felhasználása $printnum())
+s -$str()-> (SlideRule felvétele $printnum())
+s -$str()-> (Tranzisztor párosítás $printnum())
+s -$str()-> (Tranzisztor drop1 $printnum())
+s -$str()-> (Tranzisztor drop2 $printnum())
+s -$str()-> (Tranzisztor can't use $printnum())
+s -$str()-> (Tranzisztor use $printnum())
+s -$str()-> (Tranzisztor+gázos+bénul $printnum())
+s -$str()-> (Tranzisztor+gázos+védekezik $printnum())
+s -$str()-> (Szoba split sikeres $printnum())
+s -$str()-> (Szoba split sikeres, eredetileg gázos szobával $printnum())
+s -$str()-> (Szoba split sikeres, eredetileg elátkozott szobával $printnum())
+s -$str()-> (Szoba split sikeres, eredetileg elátkozott és gázos szobával $printnum())
+
+newpage
+
+s -$str()-> (Sikertelen merge $printnum())
+s -$str()-> (sima+sima $printnum())
+s -$str()-> (sima+gázos $printnum())
+s -$str()-> (sima+elátkozott $printnum())
+s -$str()-> (sima+gázos-elátkozott $printnum())
+s -$str()-> (gázos+gázos $printnum())
+s -$str()-> (gázos+elátkozott $printnum())
+s -$str()-> (gázos+gázos-elátkozott $printnum())
+s -$str()-> (elátkozott+elátkozott $printnum())
+s -$str()-> (elátkozott+gázos-elátkozott $printnum())
+s -$str()-> (gázos-elátkozott+gázos-elátkozott $printnum())
+s -$str()-> (kilépés $printnum())
+
+@enduml

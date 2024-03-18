@@ -1,20 +1,23 @@
-@startuml oktato_tamad
+@startuml tvsz + nem jár le az idő
+
+title 15
 
 actor Skeleton as sk
-participant "r15 : Room" as r
-participant "s15 : Student" as s
-participant "f15 : FFP2" as c
+participant "r1 : Room" as r
+participant "s1 : Student" as s
+participant "t1 : TVSZ" as c
 
 sk->r ++: killStudents()
 
 r -> s ++: die()
 
-s->c ++: protectMe("professor")
-c-->s --: false
+s->c ++: protectFromKill()
+c-->s --: true
 
-s-->r --: true
+s->c ++: decreaseDurability()
+c-->s --: true
 
-r->>s !!: delete
+s-->r --: false
 
 r-->sk --:
 

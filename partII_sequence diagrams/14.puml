@@ -1,15 +1,17 @@
-@startuml oktato_tamad
+@startuml Cups+nem jár le az idő
+
+title 14
 
 actor Skeleton as sk
-participant "r14 : Room" as r
-participant "s14 : Student" as s
-participant "c14 : Cups" as c
+participant "r1 : Room" as r
+participant "s1 : Student" as s
+participant "c1 : Cups" as c
 
 sk->r ++: killStudents()
 
 r -> s ++: die()
 
-s->c ++: protectMe("professor")
+s->c ++: protectFromKill()
 c-->s --: true
 
 s->c ++: decreaseDurability()

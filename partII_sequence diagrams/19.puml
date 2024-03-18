@@ -1,26 +1,20 @@
-@startuml oktato_tamad
+@startuml Rag decreaseDurability + paralyzeProfessors
 
 title 19
 
 actor Skeleton as sk
-participant "r19 : Room" as r
-participant "s19 : Student" as s
-participant "t19 : TVSZ" as c
+participant "g1 : gameEngine" as g
+participant "r1 : Room" as room
+participant "rg1 : Rag" as r
+participant "p1 : Professor" as p
 
-sk->r ++: killStudents()
+sk->g ++: playOnePhase()
+g->r ++: decreaseDurability()
 
-r -> s ++: die()
+r->room ++: paralyzeProfessors()
+return
 
-s->c ++: protectMe("professor")
-c-->s --: true
-
-s->c ++: decreaseDurability()
-c-->s --: false
-
-s->>c !!: delete
-
-s-->r --: false
-
-r-->sk --:
+r-->g --: true
+g-->sk --:
 
 @enduml

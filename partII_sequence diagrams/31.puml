@@ -1,0 +1,74 @@
+@startuml Szoba split sikeres
+
+title 31
+
+actor Skeleton as sk
+participant "b: Building AI" as ai
+
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
+participant "r3 : Room" as r3
+
+participant "t1 : Transistor" as t1
+participant "s1 : Student" as s1
+participant "sl1 : SlideRule" as sl
+participant "p1 : Professor" as p1
+
+
+
+sk->ai ++: splitRoom(r1)
+
+ai->r1 ++: getItems()
+r1-->ai --: t1, sl1
+
+ai->r1 ++: getStudents()
+r1-->ai --: p1, s1
+
+ai->r1 ++: getGassed()
+r1-->ai --: false
+
+ai->r1 ++: getCursed()
+r1-->ai --: false
+
+
+
+ai->>r2 **: create
+ai->>ai : addRoom(r2)
+ai->r2 ++: addItem(sl1)
+
+r2->sl ++: setLocation(r2)
+return
+
+r2-->ai --:
+ai->r2 ++: addCharacter(p1)
+
+r2->p1 ++: setLocation(r2)
+return
+
+r2-->ai --: true
+
+
+
+ai->>r3 **: create
+ai->>ai : addRoom(r3)
+ai->r3 ++: addItem(t1)
+
+r3->t1 ++: setLocation(r3)
+return
+
+r3-->ai --:
+
+ai->r3 ++: addCharacter(s1)
+
+r3->s1 ++: setLocation(r3)
+return
+
+r3-->ai --: true
+
+
+ai->>ai : removeRoom(r1)
+ai->>r1 !!: delete
+
+ai-->sk --:
+
+@enduml

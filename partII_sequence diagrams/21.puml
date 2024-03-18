@@ -1,18 +1,38 @@
-@startuml activate_Rag
+@startuml oktató belép + aktív rag
 
-title 21
+Title 21
 
 actor Skeleton as sk
-participant "s21 : Student" as s
-participant "rg21 : Rag" as rg
+participant "d1 : Door" as d
+participant "p1 : Professor" as c
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
 
-sk->s ++: useItem(rg21)
-s->rg ++: activate()
+sk -> c ++: move(d1)
 
-rg->>rg : activated = true
+c->d ++: accept(p1, r1)
 
-rg-->s --:
 
-s-->sk --:
+d-->c --: true
+
+c -> d ++: getNeighbour(r1)
+
+d-->c --: r2
+
+c->r2 ++: addCharacter(p1)
+
+r2 -> c ++: setLocation(r2)
+c --> r2 --:
+
+r2->c ++: setProfessorParalyzed()
+c->>c : paralyzed = true
+return
+
+r2 --> c --: true
+
+c->r1 ++: removeCharacter(p1)
+return
+
+c-->sk --:
 
 @enduml

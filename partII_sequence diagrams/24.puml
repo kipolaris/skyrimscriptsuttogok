@@ -1,0 +1,22 @@
+@startuml tranzisztor párosítás
+
+Title 24
+
+actor "Skeleton" as sk
+Participant "s1 : Student" as h
+Participant "t1 : Tranzistor" as tranz
+participant "t2 : Tranzistor" as tranz2
+
+sk->h ++: useItem(t1)
+h->tranz ++: activate()
+
+tranz->h ++: getActiveTranzistor()
+h-->tranz --: t2
+
+tranz->tranz2 ++: pair(t2)
+return
+
+tranz --> h --:
+h-->sk --:
+
+@enduml

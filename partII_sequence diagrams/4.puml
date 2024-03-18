@@ -1,0 +1,27 @@
+@startuml egyiranyu_ajto + sikertelen lépés
+
+Title 4
+
+actor Skeleton as sk
+participant "d1 : Door" as d
+participant "c1 : Character" as c
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
+
+sk -> c ++: move(d1)
+
+c->d ++: accept(c1, r1)
+d->c ++: getLocation()
+c-->d --: r1
+d-->c --: true
+
+c -> d ++: getNeighbour(r1)
+
+d-->c --: r2
+
+c->r2 ++: addCharacter(c)
+return false
+
+c-->sk --:
+
+@enduml

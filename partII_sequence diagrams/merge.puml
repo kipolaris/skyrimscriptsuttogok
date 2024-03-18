@@ -1,0 +1,131 @@
+@startuml
+
+t1->t2 : this is just for no error, pls delete me
+
+!startsub TEMPLATE
+
+!procedure $addChar($room, $c)
+ai->$room ++: addCharacter($c)
+return true
+!endprocedure
+
+!procedure $merge($r1_gassed, $r1_cursed, $r2_gassed, $r2_cursed, $num)
+
+title $num
+
+actor User as u
+
+participant "b1 : BuildingAI" as ai
+
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
+participant "r3 : Room" as r3
+
+'in room r1'
+participant "s1 : Student" as s1
+participant "s2 : Student" as s2
+participant "s3 : Student" as s3
+
+participant "t1 : Transistor" as t1
+
+'in room r2'
+participant "s4 : Student" as s4
+participant "s5 : Student" as s5
+
+participant "t2 : Transistor" as t2
+
+'ROOM1 ASK'
+
+u->ai ++: mergeRooms(r1, r2)
+
+ai->r1 ++: getStudents()
+return s1, s2, s3
+
+ai->r1 ++: getProfessors()
+return null
+
+ai->r1 ++: getItems()
+return t1
+
+
+ai->r1 ++: getGassed()
+!if $r1_gassed 
+return true
+!else
+return false
+!endif
+
+ai->r1 ++: getCursed()
+!if $r1_cursed
+return true
+!else
+return false
+!endif
+
+ai->r1 ++: getCursed()
+return false
+
+'ROOM2 ASK'
+
+ai->r2 ++: getStudents()
+return s4, s5
+
+ai->r2 ++: getProfessors()
+return null
+
+ai->r1 ++: getItems()
+return t2
+
+ai->r2 ++: getGassed()
+!if $r2_gassed 
+return true
+!else
+return false
+!endif
+
+ai->r2 ++: getCursed()
+!if $r2_cursed
+return true
+!else
+return false
+!endif
+
+'CREATE AND FILL R3'
+
+ai->r3 **: create
+ai->>ai : addRoom(r3)
+
+$addChar("r3", "s1")
+$addChar("r3", "s2")
+$addChar("r3", "s3")
+$addChar("r3", "s4")
+$addChar("r3", "s5")
+
+ai->r3 ++: addItem(t1)
+return
+
+ai->r3 ++: addItem(t2)
+return
+
+'GASED and CURSED LOGIC'
+
+!if $r1_gassed || $r2_gassed
+
+ai->r3 ++: setGassed()
+return
+
+!endif
+
+!if $r1_cursed || $r2_cursed
+
+ai->r3 ++: setCursed()
+return
+
+!endif
+
+ai-->u --:
+
+!endprocedure
+
+!endsub
+@enduml

@@ -1,40 +1,24 @@
-@startuml Gázos szoba nincs védelem
+@startuml Targyfelvétel sikeres
 
 Title 6
 
-actor Skeleton as sk
-participant "d1 : Door" as d
+actor Skeleton as s
 participant "c1 : Character" as c
-participant "t : TVSZ" as t
-participant "r1 : Room" as r1
-participant "r3 : Room" as r3
+participant "r1 : Room" as r4
+participant "f1 : FFP2" as i
 
-sk -> c ++: move(d1)
-'ennek a paraméterezése nem biztos, hogy jó'
-c->d ++: accept(c1, r3)
-d->c ++: getLocation()
-c-->d --: r1
-d-->c --: true
+s->c ++: addItem(f1)
 
-c -> d ++: getNeighbour(r3)
+c -> r4 ++: removeItem(f1)
 
-d-->c --: r3
+r4 -> i ++: setLocation(null)
+i-->r4 --:
 
-c->r3 ++: addCharacter(c)
+r4 --> c --: f1
 
-r3->c ++: setParalyzed()
-
-c->t ++: protectMe("gas")
-
-t-->c --: false
-
-c-->r3 --: true
-
-r3 -->c --:
-
-c->r1 ++: removeCharacter(c)
+c->i ++: setOwner(c1)
 return
 
-c-->sk --:
+c-->s --:
 
 @enduml

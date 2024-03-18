@@ -1,0 +1,97 @@
+@startuml sima+sima
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,0,0,0,36)
+
+@enduml
+
+'---------------------'
+
+@startuml sima+gázos
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,0,1,0,37)
+
+@enduml
+
+'---------------------'
+
+@startuml sima+elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,0,0,1,38)
+
+@enduml
+
+'---------------------'
+
+@startuml sima+gázos-elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,0,1,1,39)
+
+@enduml
+
+'---------------------'
+
+@startuml gázos+gázos
+
+!includesub merge.puml!TEMPLATE
+
+$merge(1,0,1,0,40)
+
+@enduml
+
+'---------------------'
+
+@startuml gázos+elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(1,0,0,1,41)
+
+@enduml
+
+'---------------------'
+
+@startuml gázos+gázos-elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(1,0,1,1,42)
+
+@enduml
+
+'---------------------'
+
+@startuml elátkozott+elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,1,0,1,43)
+
+@enduml
+
+'---------------------'
+
+@startuml elátkozott+gázos-elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,1,1,1,44)
+
+@enduml
+
+'---------------------'
+
+@startuml gázos-elátkozott+gázos-elátkozott
+
+!includesub merge.puml!TEMPLATE
+
+$merge(0,1,1,1,45)
+
+@enduml

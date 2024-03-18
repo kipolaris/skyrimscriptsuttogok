@@ -1,0 +1,34 @@
+@startuml Sima Ajtó
+
+Title 2
+
+actor Skeleton as sk
+participant "d1 : Door" as d
+participant "c1 : Character" as c
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
+
+sk -> c ++: move(d1)
+
+c->d ++: accept(c1, r1)
+
+
+d-->c --: true
+
+c -> d ++: getNeighbour(r1)
+
+d-->c --: r2
+
+c->r2 ++: addCharacter(c1)
+
+r2 -> c ++: setLocation(r2)
+c --> r2 --:
+
+r2 --> c --: true
+
+c->r1 ++: removeCharacter(c1)
+return
+
+c-->sk --:
+
+@enduml
