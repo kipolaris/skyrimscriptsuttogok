@@ -1,20 +1,38 @@
-@startuml Rag decreaseDurability + megsemmisülés
+@startuml oktató belép + aktív rag
 
-title 20
+Title 20
 
 actor Skeleton as sk
-participant "g1 : gameEngine" as g
-participant "r1 : Room" as room
-participant "rg1 : Rag" as r
-participant "p1 : Professor" as p
+participant "d1 : Door" as d
+participant "p1 : Professor" as c
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
 
-sk->g ++: playOnePhase()
-g->r ++: decreaseDurability()
+sk -> c ++: move(d1)
 
-r-->g --: false
+c->d ++: accept(p1, r1)
 
-g->>r !!: delete
 
-g-->sk --:
+d-->c --: true
+
+c -> d ++: getNeighbour(r1)
+
+d-->c --: r2
+
+c->r2 ++: addCharacter(p1)
+
+r2 -> c ++: setLocation(r2)
+c --> r2 --:
+
+r2->c ++: setProfessorParalyzed()
+c->>c : paralyzed = true
+return
+
+r2 --> c --: true
+
+c->r1 ++: removeCharacter(p1)
+return
+
+c-->sk --:
 
 @enduml

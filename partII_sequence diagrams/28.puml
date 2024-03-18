@@ -1,4 +1,4 @@
-@startuml transistor use
+@startuml transistor + gázos + bénul
 
 title 28
 
@@ -6,6 +6,7 @@ actor Skeleton as sk
 participant "s1 : Student" as s
 participant "t1 : Transistor" as t1
 participant "t2 : Transistor" as t2
+participant "tvsz1 : TVSZ" as f
 participant "r1 : Room" as r
 participant "s1.location : Room" as r2
 
@@ -24,16 +25,22 @@ t1 -> r ++: addCharacter(s1)
 r->s ++: setLocation(r1)
 s-->r --:
 
+r->s ++: setParalyzed()
+
+s->f ++: protectMe("gas")
+
+f-->s --: false
+
+s->>s : paralyzed = true
+
+s-->r --:
+
 r-->t1 --: true
 
 t1 -> r2 ++: removeCharacter(s1)
 r2 --> t1 --:
 
-'és akkor ide kéne még a gázos szoba lefutás, vagy kérdésként, vagy külön use-case-ben...'
-
-
-
-t1 --> s --: 
+t1-->s --:
 
 s-->sk --:
 

@@ -11,7 +11,7 @@ sk->r ++: killStudents()
 
 r -> s ++: die()
 
-s->c ++: protectMe("professor")
+s->c ++: protectFromKill()
 c-->s --: false
 
 s-->r --: true

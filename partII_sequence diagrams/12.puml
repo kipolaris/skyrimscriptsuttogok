@@ -1,10 +1,10 @@
-@startuml tanár támad sikertelenül
+@startuml Cups+lejár az idő
 
 title 12
 
 actor Skeleton as sk
 participant "r1 : Room" as r
-participant "c1 : Character" as s
+participant "s1 : Student" as s
 participant "c1 : Cups" as c
 
 sk->r ++: killStudents()
@@ -15,7 +15,9 @@ s->c ++: protectFromKill()
 c-->s --: true
 
 s->c ++: decreaseDurability()
-c-->s --: true
+c-->s --: false
+
+s->>c !!: delete
 
 s-->r --: false
 

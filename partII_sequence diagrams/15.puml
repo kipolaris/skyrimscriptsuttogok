@@ -1,4 +1,4 @@
-@startuml tvsz + nem jár le az idő
+@startuml tvsz + lejár az idő
 
 title 15
 
@@ -15,7 +15,9 @@ s->c ++: protectFromKill()
 c-->s --: true
 
 s->c ++: decreaseDurability()
-c-->s --: true
+c-->s --: false
+
+s->>c !!: delete
 
 s-->r --: false
 

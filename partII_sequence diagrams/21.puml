@@ -1,38 +1,31 @@
-@startuml oktató belép + aktív rag
+@startuml camembert
 
-Title 21
+title 21
 
 actor Skeleton as sk
-participant "d1 : Door" as d
-participant "p1 : Professor" as c
-participant "r1 : Room" as r1
-participant "r2 : Room" as r2
+participant "s1 : Student" as s
+participant "c1 : Camembert" as c
+participant "r1 : Room" as r
 
-sk -> c ++: move(d1)
+sk->s ++: useItem(c)
 
-c->d ++: accept(p1, r1)
+s -> c ++: activate()
 
+c -> s ++: getLocation()
+s--> c --: r1
 
-d-->c --: true
+c->r ++: setGassed()
 
-c -> d ++: getNeighbour(r1)
+r-->c --:
 
-d-->c --: r2
+c-->s --:
 
-c->r2 ++: addCharacter(p1)
+s->c ++: decreaseDurability()
+return false
 
-r2 -> c ++: setLocation(r2)
-c --> r2 --:
+s->>c !!: delete
 
-r2->c ++: setProfessorParalyzed()
-c->>c : paralyzed = true
-return
+sk<--s --:
 
-r2 --> c --: true
-
-c->r1 ++: removeCharacter(p1)
-return
-
-c-->sk --:
 
 @enduml

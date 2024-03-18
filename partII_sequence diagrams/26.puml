@@ -1,28 +1,20 @@
-@startuml transistor drop2
+@startuml transistor can't use
 
 title 26
 
 actor Skeleton as sk
 participant "s1 : Student" as s
-participant "r1 : Room" as r
-Participant "t1 : Tranzistor" as tranz1
-participant "t2 : Transistor" as tranz2
-participant "t2.location : Room" as r2
+participant "t1 : Transistor" as t1
+participant "t2 : Transistor" as t2
 
-sk->s ++: dropItem(i)
+sk -> s ++: useItem(t1)
 
-s-> tranz1 ++: setLocation(r)
+s->t1 ++: activate()
 
-tranz1->tranz2 ++: getLocation()
-tranz2-->tranz1 --: t2.location
+t1 -> t2 ++: getLocation()
+t2 --> t1 --: null
 
-tranz1 -> tranz2 ++: unpair()
-tranz2--> tranz1 --:
-
-s <-- tranz1 --:
-
-s -> r ++: add(t1)
-r-->s --:
+t1 --> s --:
 
 s-->sk --:
 

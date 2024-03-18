@@ -1,28 +1,29 @@
-@startuml oktato_tamad
+@startuml rag aktiválása
 
 title 17
 
 actor Skeleton as sk
-participant "r1 : Room" as r
 participant "s1 : Student" as s
-participant "t1 : TVSZ" as t
-participant "t1 : Cups" as c
+participant "rg1 : Rag" as rg
+participant "r1 : Room" as r
 
-sk->r ++: killStudents()
+sk->s ++: useItem(rg1)
+s->rg ++: activate()
 
-r -> s ++: die()
+rg->>rg : activated = true
 
-s->t ++: protectFromKill()
-t-->s --: true
+rg->s ++: dropItem(rg1)
 
-s->c ++: protectFromKill()
-c-->s --: true
+s -> r ++: addItem(rg)
+r-->s --:
 
-s->c ++: decreaseDurability()
-c-->s --: true
+s->rg ++: setLocation(r)
+rg-->s --:
 
-s-->r --: false
+s-->rg --:
 
-r-->sk --:
+rg-->s --:
+
+s-->sk --:
 
 @enduml

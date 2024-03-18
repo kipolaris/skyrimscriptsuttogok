@@ -1,29 +1,20 @@
-@startuml rag aktiválása
+@startuml Rag decreaseDurability + paralyzeProfessors
 
 title 18
 
 actor Skeleton as sk
-participant "s1 : Student" as s
-participant "rg1 : Rag" as rg
-participant "r1 : Room" as r
+participant "g1 : gameEngine" as g
+participant "r1 : Room" as room
+participant "rg1 : Rag" as r
+participant "p1 : Professor" as p
 
-sk->s ++: useItem(rg1)
-s->rg ++: activate()
+sk->g ++: playOnePhase()
+g->r ++: decreaseDurability()
 
-rg->>rg : activated = true
+r->room ++: paralyzeProfessors()
+return
 
-rg->s ++: dropItem(rg1)
-
-s -> r ++: addItem(rg)
-r-->s --:
-
-s->rg ++: setLocation(r)
-rg-->s --:
-
-s-->rg --:
-
-rg-->s --:
-
-s-->sk --:
+r-->g --: true
+g-->sk --:
 
 @enduml

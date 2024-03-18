@@ -1,4 +1,4 @@
-@startuml transistor drop 1
+@startuml transistor drop2
 
 title 25
 
@@ -7,15 +7,17 @@ participant "s1 : Student" as s
 participant "r1 : Room" as r
 Participant "t1 : Tranzistor" as tranz1
 participant "t2 : Transistor" as tranz2
+participant "t2.location : Room" as r2
 
 sk->s ++: dropItem(t1)
 
-s-> tranz1 ++: setLocation(r1)
+s-> tranz1 ++: setLocation(r)
 
 tranz1->tranz2 ++: getLocation()
-tranz2-->tranz1 --: null
+tranz2-->tranz1 --: t2.location
 
-tranz1 ->> tranz1 : location = r1
+tranz1 -> tranz2 ++: unpair()
+tranz2--> tranz1 --:
 
 s <-- tranz1 --:
 

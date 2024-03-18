@@ -1,31 +1,26 @@
-@startuml camembert
+@startuml sliderule
 
 title 22
 
 actor Skeleton as sk
+participant "sl1 : SlideRule" as sl
 participant "s1 : Student" as s
-participant "c1 : Camembert" as c
 participant "r1 : Room" as r
+participant "g1 : GameEngine" as g
 
-sk->s ++: useItem(c)
+sk->s ++: addItem(sl)
+s->r ++: removeItem(sl)
 
-s -> c ++: activate()
+r->sl ++: setLocation(null)
+sl-->r --:
 
-c -> s ++: getLocation()
-s--> c --: r23
+r-->s --: sl
 
-c->r ++: setGassed()
+s->g ++: endgame()
 
-r-->c --:
+g-->s --:
 
-c-->s --:
-
-s->c ++: decreaseDurability()
-return false
-
-s->>c !!: delete
-
-sk<--s --:
-
+s-->sk --:
 
 @enduml
+

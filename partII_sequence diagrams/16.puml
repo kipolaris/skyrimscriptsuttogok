@@ -1,23 +1,25 @@
-@startuml tvsz + lejár az idő
+@startuml oktato_tamad
 
 title 16
 
 actor Skeleton as sk
 participant "r1 : Room" as r
 participant "s1 : Student" as s
-participant "t1 : TVSZ" as c
+participant "t1 : TVSZ" as t
+participant "c1 : Cups" as c
 
 sk->r ++: killStudents()
 
 r -> s ++: die()
 
+s->t ++: protectFromKill()
+t-->s --: true
+
 s->c ++: protectFromKill()
 c-->s --: true
 
 s->c ++: decreaseDurability()
-c-->s --: false
-
-s->>c !!: delete
+c-->s --: true
 
 s-->r --: false
 

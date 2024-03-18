@@ -4,6 +4,9 @@ Title 9
 participant "f1 : FFP2" as f
 participant "c1 : Character" as char
 participant "r1 : Room" as sz
+actor Skeleton as sk
+
+sk->sz ++: checkGas()
 
 sz->char ++: setParalyzed()
 
@@ -17,3 +20,5 @@ return false
 char->>f !!: delete
 
 char-->sz --:
+
+sz-->sk --:

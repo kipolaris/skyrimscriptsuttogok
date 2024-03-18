@@ -55,12 +55,11 @@ s -$str()-> (Tárgyfelvétel sikertelen $printnum())
 s -$str()-> (Tárgyeldobás $printnum())
 s -$str()-> (FFP2+lejár az idő $printnum())
 
-u -$str()-> (gáz ellen nem védő tárgyak $printnum())
+s -$str()-> (gáz ellen nem védő tárgyak $printnum())
 
 newpage
 
 s -$str()-> (tanár támad sikeresen $printnum())
-s -$str()-> (tanár támad sikertelenül $printnum())
 s -$str()-> (Cups + lejár az idő $printnum())
 s -$str()-> (Cups + nem jár le az idő $printnum())
 s -$str()-> (TVSZ + nem jár le az idő $printnum())

@@ -1,4 +1,4 @@
-@startuml Szoba split sikeres eredetileg elátkozott szobával
+@startuml Szoba split sikeres eredetileg elátkozott és gázos szobával
 
 title 33
 
@@ -13,6 +13,7 @@ participant "t1 : Transistor" as t1
 participant "s1 : Student" as s1
 participant "sl1 : SlideRule" as sl
 participant "p1 : Professor" as p1
+participant "d1 : Door" as d1
 
 
 
@@ -25,15 +26,21 @@ ai->r1 ++: getStudents()
 r1-->ai --: p1, s1
 
 ai->r1 ++: getGassed()
-r1-->ai --: false
+r1-->ai --: true
 
 ai->r1 ++: getCursed()
 r1-->ai --: true
+
+ai->r1 ++: removeDoor()
+return d1
 
 ai->>r2 **: create
 ai->>ai : addRoom(r2)
 
 ai->r2 ++: setCursed()
+return
+
+ai->r2 ++: setGassed()
 return
 
 ai->r2 ++: addItem(sl1)
@@ -49,12 +56,18 @@ return
 
 r2-->ai --: true
 
+ai->r2 ++: setDoors(List(d1))
+return
+
 
 
 ai->>r3 **: create
 ai->>ai : addRoom(r3)
 
 ai->r3 ++: setCursed()
+return
+
+ai->r3 ++: setGassed()
 return
 
 ai->r3 ++: addItem(t1)
@@ -70,6 +83,9 @@ r3->s1 ++: setLocation(r3)
 return
 
 r3-->ai --: true
+
+ai->r3 ++: setDoors(List(d1))
+return
 
 
 ai->>ai : removeRoom(r1)

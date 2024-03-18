@@ -1,4 +1,4 @@
-@startuml Cups+lejár az idő
+@startuml Cups+nem jár le az idő
 
 title 13
 
@@ -15,9 +15,7 @@ s->c ++: protectFromKill()
 c-->s --: true
 
 s->c ++: decreaseDurability()
-c-->s --: false
-
-s->>c !!: delete
+c-->s --: true
 
 s-->r --: false
 

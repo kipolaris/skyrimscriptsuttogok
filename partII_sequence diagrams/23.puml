@@ -1,26 +1,22 @@
-@startuml sliderule
+@startuml tranzisztor párosítás
 
-title 23
+Title 23
 
-actor Skeleton as sk
-participant "sl1 : SlideRule" as sl
-participant "s1 : Student" as s
-participant "r1 : Room" as r
-participant "g1 : GameEngine" as g
+actor "Skeleton" as sk
+Participant "s1 : Student" as h
+Participant "t1 : Tranzistor" as tranz
+participant "t2 : Tranzistor" as tranz2
 
-sk->s ++: addItem(sl)
-s->r ++: removeItem(sl)
+sk->h ++: useItem(t1)
+h->tranz ++: activate()
 
-r->sl ++: setLocation(null)
-sl-->r --:
+tranz->h ++: getActiveTranzistor()
+h-->tranz --: t2
 
-r-->s --: sl
+tranz->tranz2 ++: pair(t2)
+return
 
-s->g ++: endgame()
-
-g-->s --:
-
-s-->sk --:
+tranz --> h --:
+h-->sk --:
 
 @enduml
-

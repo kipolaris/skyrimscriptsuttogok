@@ -1,4 +1,4 @@
-@startuml transistor can't use
+@startuml transistor use
 
 title 27
 
@@ -6,15 +6,34 @@ actor Skeleton as sk
 participant "s1 : Student" as s
 participant "t1 : Transistor" as t1
 participant "t2 : Transistor" as t2
+participant "r1 : Room" as r
+participant "s1.location : Room" as r2
 
 sk -> s ++: useItem(t1)
 
 s->t1 ++: activate()
 
 t1 -> t2 ++: getLocation()
-t2 --> t1 --: null
+t2 --> t1 --: r1
 
-t1 --> s --:
+t1 -> s ++: getLocation()
+s --> t1 --: s1.location
+
+t1 -> r ++: addCharacter(s1)
+
+r->s ++: setLocation(r1)
+s-->r --:
+
+r-->t1 --: true
+
+t1 -> r2 ++: removeCharacter(s1)
+r2 --> t1 --:
+
+'és akkor ide kéne még a gázos szoba lefutás, vagy kérdésként, vagy külön use-case-ben...'
+
+
+
+t1 --> s --: 
 
 s-->sk --:
 

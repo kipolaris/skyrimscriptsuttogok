@@ -19,7 +19,7 @@ c -> d ++: getNeighbour(r1)
 
 d-->c --: r2
 
-c->r2 ++: addCharacter(c)
+c->r2 ++: addCharacter(c1)
 return false
 
 c-->sk --:

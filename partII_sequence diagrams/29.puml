@@ -1,4 +1,4 @@
-@startuml transistor + gázos + bénul
+@startuml transistor + gázos + védekezik
 
 title 29
 
@@ -6,7 +6,7 @@ actor Skeleton as sk
 participant "s1 : Student" as s
 participant "t1 : Transistor" as t1
 participant "t2 : Transistor" as t2
-participant "tvsz1 : TVSZ" as f
+participant "f1 : FFP2" as f
 participant "r1 : Room" as r
 participant "s1.location : Room" as r2
 
@@ -27,11 +27,9 @@ s-->r --:
 
 r->s ++: setParalyzed()
 
-s->f ++: protectMe("gas")
+s->f ++: protectFromGas()
 
-f-->s --: false
-
-s->>s : paralyzed = true
+f-->s --: true
 
 s-->r --:
 

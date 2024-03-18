@@ -1,11 +1,13 @@
 @startuml
 
-t1->t2 : this is just for no error, pls delete me
+title hi im template, pls delete me
 
 !startsub TEMPLATE
 
 !procedure $addChar($room, $c)
 ai->$room ++: addCharacter($c)
+ai->$c ++: setLocation($room)
+return
 return true
 !endprocedure
 
@@ -21,7 +23,9 @@ participant "r1 : Room" as r1
 participant "r2 : Room" as r2
 participant "r3 : Room" as r3
 
+
 'in room r1'
+participant "d1 : Door" as d1
 participant "s1 : Student" as s1
 participant "s2 : Student" as s2
 participant "s3 : Student" as s3
@@ -29,6 +33,7 @@ participant "s3 : Student" as s3
 participant "t1 : Transistor" as t1
 
 'in room r2'
+participant "d2 : Door" as d2
 participant "s4 : Student" as s4
 participant "s5 : Student" as s5
 
@@ -48,6 +53,11 @@ ai->r1 ++: getItems()
 return t1
 
 
+ai->r1 ++: removeDoor()
+return d1
+
+
+
 ai->r1 ++: getGassed()
 !if $r1_gassed 
 return true
@@ -62,9 +72,6 @@ return true
 return false
 !endif
 
-ai->r1 ++: getCursed()
-return false
-
 'ROOM2 ASK'
 
 ai->r2 ++: getStudents()
@@ -73,8 +80,11 @@ return s4, s5
 ai->r2 ++: getProfessors()
 return null
 
-ai->r1 ++: getItems()
+ai->r2 ++: getItems()
 return t2
+
+ai->r1 ++: removeDoor()
+return d2
 
 ai->r2 ++: getGassed()
 !if $r2_gassed 
@@ -102,9 +112,21 @@ $addChar("r3", "s4")
 $addChar("r3", "s5")
 
 ai->r3 ++: addItem(t1)
+
+r3->t1 ++: setLocation(r3)
 return
 
+r3-->ai --:
+
 ai->r3 ++: addItem(t2)
+
+r3->t2 ++: setLocation(r3)
+return
+
+r3-->ai --:
+
+
+ai->r3 ++: setDoors(List(d1, d2))
 return
 
 'GASED and CURSED LOGIC'

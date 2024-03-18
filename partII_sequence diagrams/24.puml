@@ -1,22 +1,27 @@
-@startuml tranzisztor párosítás
+@startuml transistor drop 1
 
-Title 24
+title 24
 
-actor "Skeleton" as sk
-Participant "s1 : Student" as h
-Participant "t1 : Tranzistor" as tranz
-participant "t2 : Tranzistor" as tranz2
+actor Skeleton as sk
+participant "s1 : Student" as s
+participant "r1 : Room" as r
+Participant "t1 : Tranzistor" as tranz1
+participant "t2 : Transistor" as tranz2
 
-sk->h ++: useItem(t1)
-h->tranz ++: activate()
+sk->s ++: dropItem(t1)
 
-tranz->h ++: getActiveTranzistor()
-h-->tranz --: t2
+s-> tranz1 ++: setLocation(r1)
 
-tranz->tranz2 ++: pair(t2)
-return
+tranz1->tranz2 ++: getLocation()
+tranz2-->tranz1 --: null
 
-tranz --> h --:
-h-->sk --:
+tranz1 ->> tranz1 : location = r1
+
+s <-- tranz1 --:
+
+s -> r ++: add(t1)
+r-->s --:
+
+s-->sk --:
 
 @enduml

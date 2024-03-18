@@ -1,11 +1,11 @@
-@startuml Cups+nem jár le az idő
+@startuml tvsz + nem jár le az idő
 
 title 14
 
 actor Skeleton as sk
 participant "r1 : Room" as r
 participant "s1 : Student" as s
-participant "c1 : Cups" as c
+participant "t1 : TVSZ" as c
 
 sk->r ++: killStudents()
 

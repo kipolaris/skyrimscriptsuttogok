@@ -1,4 +1,4 @@
-@startuml Rag decreaseDurability + paralyzeProfessors
+@startuml Rag decreaseDurability + megsemmisülés
 
 title 19
 
@@ -11,10 +11,10 @@ participant "p1 : Professor" as p
 sk->g ++: playOnePhase()
 g->r ++: decreaseDurability()
 
-r->room ++: paralyzeProfessors()
-return
+r-->g --: false
 
-r-->g --: true
+g->>r !!: delete
+
 g-->sk --:
 
 @enduml
