@@ -1,19 +1,78 @@
-@startuml gazed_room
-Title 10
+@startuml gáz ellen nem védő tárgyak
 
-participant "f10 : FFP2" as f
-participant "c10 : Character" as char
-participant "r10 : Room" as sz
+title 10
 
-sz->char ++: setParalyzed()
+actor User as sk
+participant "r1 : Room" as r
+participant "c1 : Character" as s
+participant "c1 : Cups" as c
+participant "r1 : Rag" as rg
+participant "t1 : TVSZ" as tv
+participant "ca1 : Camembert" as ca
+participant "tr1 : Transistor" as tr
 
-char->f ++: protectMe("gas")
-return true
+!procedure $protectMe($obj)
 
-char->f ++: decreaseDurability()
+s->$obj ++: protectFromKill()
+$obj-->s --: true
 
-return false
+s->$obj ++: decreaseDurability()
+$obj-->s --: true
 
-char->>f !!: delete
+s-->r --: false
 
-char-->sz --:
+r-->sk --:
+
+sk->r ++: killStudents()
+
+r -> s ++: die()
+
+!endprocedure
+
+
+sk->r ++: killStudents()
+
+r -> s ++: die()
+
+group opt Melyik tárgy? [cups]
+
+$protectMe("c")
+
+    group opt Melyik tárgy? [rag]
+
+    $protectMe("rg")
+        group opt Melyik tárgy? [tvsz]
+
+        $protectMe("tv")
+
+            group opt Melyik tárgy? [camembert]
+
+            $protectMe("ca")
+
+                group opt Melyik tárgy? [transistor]
+
+                s->tr ++: protectFromKill()
+
+                tr-->s --: true
+
+                s->tr ++: decreaseDurability()
+                tr-->s --: true
+
+                s-->r --: false
+
+                r-->sk --:
+
+                end
+
+            end
+
+        end
+
+    end
+
+end
+
+
+
+
+@enduml

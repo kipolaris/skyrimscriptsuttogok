@@ -1,38 +1,39 @@
-@startuml Gázos szoba
+@startuml ffp2 + nem jár le az idő
 
 Title 5
 
 actor Skeleton as sk
 participant "d1 : Door" as d
 participant "c1 : Character" as c
-participant "f : FFP2" as f
+participant "f1 : FFP2" as f
 participant "r1 : Room" as r1
-participant "r3 : Room" as r3
+participant "r2 : Room" as r2
 
 sk -> c ++: move(d1)
-'ennek a paraméterezése nem biztos, hogy jó'
-c->d ++: accept(c1, r3)
-d->c ++: getLocation()
-c-->d --: r1
+
+c->d ++: accept(c1, r1)
 d-->c --: true
 
-c -> d ++: getNeighbour(r3)
+c -> d ++: getNeighbour(r1)
 
-d-->c --: r3
+d-->c --: r2
 
-c->r3 ++: addCharacter(c)
+c->r2 ++: addCharacter(c1)
 
-r3->c ++: setParalyzed()
+r2->c ++: setParalyzed()
 
-c->f ++: protectMe("gas")
+c->f ++: protectFromGas()
 
 f-->c --: true
 
-c-->r3 --: false
+c->f ++: decreaseDurability()
+return true
 
-r3 -->c --:
+c-->r2 --:
 
-c->r1 ++: removeCharacter(c)
+r2 -->c --:
+
+c->r1 ++: removeCharacter(c1)
 return
 
 c-->sk --:

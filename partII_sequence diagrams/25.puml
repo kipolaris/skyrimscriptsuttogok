@@ -1,26 +1,27 @@
-@startuml camembert
+@startuml transistor drop 1
 
 title 25
 
 actor Skeleton as sk
-participant "s23 : Student" as s
-participant "c23 : Camembert" as c
-participant "r23 : Room" as r
+participant "s1 : Student" as s
+participant "r1 : Room" as r
+Participant "t1 : Tranzistor" as tranz1
+participant "t2 : Transistor" as tranz2
 
-sk->s ++: useItem(c)
+sk->s ++: dropItem(t1)
 
-s -> c ++: activate()
+s-> tranz1 ++: setLocation(r1)
 
-c -> s ++: getLocation()
-s--> c --: r23
+tranz1->tranz2 ++: getLocation()
+tranz2-->tranz1 --: null
 
-c->r : setGassed()
+tranz1 ->> tranz1 : location = r1
 
-r-->c
+s <-- tranz1 --:
 
-c-->s --:
+s -> r ++: add(t1)
+r-->s --:
 
-sk<--s --:
-
+s-->sk --:
 
 @enduml

@@ -1,0 +1,24 @@
+@startuml tanár támad sikertelenül
+
+title 12
+
+actor Skeleton as sk
+participant "r1 : Room" as r
+participant "c1 : Character" as s
+participant "c1 : Cups" as c
+
+sk->r ++: killStudents()
+
+r -> s ++: die()
+
+s->c ++: protectFromKill()
+c-->s --: true
+
+s->c ++: decreaseDurability()
+c-->s --: true
+
+s-->r --: false
+
+r-->sk --:
+
+@enduml

@@ -1,26 +1,29 @@
-@startuml sliderule
+@startuml transistor drop2
 
 title 26
 
 actor Skeleton as sk
-participant "sl26 : SlideRule" as sl
-participant "s26 : Student" as s
-participant "r26 : Room" as r
-participant "g26 : GameEngine" as g
+participant "s1 : Student" as s
+participant "r1 : Room" as r
+Participant "t1 : Tranzistor" as tranz1
+participant "t2 : Transistor" as tranz2
+participant "t2.location : Room" as r2
 
-sk->s ++: addItem(sl)
-s->r ++: removeItem(sl)
+sk->s ++: dropItem(i)
 
-r->sl ++: setLocation(null)
-sl-->r --:
+s-> tranz1 ++: setLocation(r)
 
-r-->s --: sl
+tranz1->tranz2 ++: getLocation()
+tranz2-->tranz1 --: t2.location
 
-s->g ++: endgame()
+tranz1 -> tranz2 ++: unpair()
+tranz2--> tranz1 --:
 
-g-->s --:
+s <-- tranz1 --:
+
+s -> r ++: add(t1)
+r-->s --:
 
 s-->sk --:
 
 @enduml
-

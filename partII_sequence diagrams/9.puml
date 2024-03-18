@@ -1,20 +1,19 @@
-@startuml Tárgyeldobás
-
+@startuml ffp2 + lejár az idő
 Title 9
 
-actor "Skeleton" as u
-participant "c9 : Character" as char
-participant "i9 : Item" as t
-participant "r9 : Room" as sz
+participant "f1 : FFP2" as f
+participant "c1 : Character" as char
+participant "r1 : Room" as sz
 
-u->char ++: dropItem(i)
+sz->char ++: setParalyzed()
 
-char->t ++: setLocation(r5)
-return
+char->f ++: protectFromGas()
+return true
 
-char->sz ++: add(i)
-return
+char->f ++: decreaseDurability()
 
-char-->u --:
+return false
 
-@enduml
+char->>f !!: delete
+
+char-->sz --:

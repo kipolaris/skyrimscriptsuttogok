@@ -1,22 +1,21 @@
-@startuml activate
+@startuml transistor can't use
 
-Title 27
+title 27
 
-actor "Skeleton" as sk
-Participant "s27 : Student" as h
-Participant "t27 : Tranzistor" as tranz
-participant "pair27 : Tranzistor" as tranz2
+actor Skeleton as sk
+participant "s1 : Student" as s
+participant "t1 : Transistor" as t1
+participant "t2 : Transistor" as t2
 
-sk->h ++: useItem(t)
-h->tranz ++: activate()
+sk -> s ++: useItem(t1)
 
-tranz->h ++: getActiveTranzistor()
-h-->tranz --: t2
+s->t1 ++: activate()
 
-tranz->tranz2 ++: pair(t2)
-return
+t1 -> t2 ++: getLocation()
+t2 --> t1 --: null
 
-tranz --> h --:
-h-->sk --:
+t1 --> s --:
+
+s-->sk --:
 
 @enduml

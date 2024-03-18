@@ -1,28 +1,20 @@
-@startuml oktato_tamad
+@startuml Rag decreaseDurability + megsemmisülés
 
 title 20
 
 actor Skeleton as sk
-participant "r20 : Room" as r
-participant "s20 : Student" as s
-participant "t20 : TVSZ" as t
-participant "t20 : Cups" as c
+participant "g1 : gameEngine" as g
+participant "r1 : Room" as room
+participant "rg1 : Rag" as r
+participant "p1 : Professor" as p
 
-sk->r ++: killStudents()
+sk->g ++: playOnePhase()
+g->r ++: decreaseDurability()
 
-r -> s ++: die()
+r-->g --: false
 
-s->t ++: protectMe("professor")
-t-->s --: true
+g->>r !!: delete
 
-s->c ++: protectMe("professor")
-c-->s --: true
-
-s->c ++: decreaseDurability()
-c-->s --: true
-
-s-->r --: false
-
-r-->sk --:
+g-->sk --:
 
 @enduml

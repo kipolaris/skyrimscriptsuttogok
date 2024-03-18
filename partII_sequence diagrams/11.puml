@@ -1,17 +1,23 @@
-@startuml gazed_room
-Title 11
+@startuml tanár támad sikeresen
 
-participant "f11 : FFP2" as f
-participant "c11 : Character" as char
-participant "r11 : Room" as sz
+title 11
 
-sz->char ++: setParalyzed()
+actor Skeleton as sk
+participant "r1 : Room" as r
+participant "c1 : Character" as s
+participant "f1 : FFP2" as c
 
-char->f ++: protectMe("gas")
-return true
+sk->r ++: killStudents()
 
-char->f ++: decreaseDurability()
+r -> s ++: die()
 
-return true
+s->c ++: protectMe("professor")
+c-->s --: false
 
-char-->sz --:
+s-->r --: true
+
+r->>s !!: delete
+
+r-->sk --:
+
+@enduml

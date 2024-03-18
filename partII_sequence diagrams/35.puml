@@ -1,0 +1,64 @@
+@startuml sikertelen merge
+
+title 35
+
+actor Skeleton as sk
+
+participant "b1 : BuildingAI" as ai
+
+participant "r1 : Room" as r1
+participant "r2 : Room" as r2
+participant "r3 : Room" as r3
+
+'in room r1'
+participant "s1 : Student" as s1
+participant "s2 : Student" as s2
+participant "s3 : Student" as s3
+
+participant "t1 : Transistor" as t1
+
+'in room r2'
+participant "s4 : Student" as s4
+participant "s5 : Student" as s5
+participant "s6 : Student" as s6
+
+participant "t2 : Transistor" as t2
+
+!procedure $addChar($room, $c)
+ai->$room ++: addCharacter($c)
+return true
+!endprocedure
+
+sk->ai ++: mergeRooms(r1, r2)
+
+'ROOM1 ASK'
+
+ai->r1 ++: getStudents()
+return s1, s2, s3
+
+ai->r1 ++: getProfessors()
+return null
+
+ai->r1 ++: getItems()
+return t1
+
+ai->r1 ++: getGassed()
+return false
+
+ai->r1 ++: getCursed()
+return false
+
+'ROOM2 ASK'
+
+ai->r2 ++: getStudents()
+return s4, s5, s6
+
+ai-->sk --:
+
+
+
+
+
+
+
+@enduml

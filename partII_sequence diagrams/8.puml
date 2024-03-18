@@ -1,12 +1,20 @@
-@startuml Targyfelvéte sikeres
+@startuml Tárgyeldobás
 
 Title 8
 
-actor Skeleton as s
-participant "c8 : Character" as c
+actor "Skeleton" as u
+participant "c1 : Character" as char
+participant "f1 : FFP2" as t
+participant "r1 : Room" as sz
 
-s->c ++: addItem(i)
+u->char ++: dropItem(f1)
 
-c-->s --:
+char->t ++: setLocation(r1)
+return
+
+char->sz ++: addItem(f1)
+return
+
+char-->u --:
 
 @enduml

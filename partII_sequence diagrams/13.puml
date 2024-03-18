@@ -1,0 +1,26 @@
+@startuml Cups+lejár az idő
+
+title 13
+
+actor Skeleton as sk
+participant "r1 : Room" as r
+participant "s1 : Student" as s
+participant "c1 : Cups" as c
+
+sk->r ++: killStudents()
+
+r -> s ++: die()
+
+s->c ++: protectFromKill()
+c-->s --: true
+
+s->c ++: decreaseDurability()
+c-->s --: false
+
+s->>c !!: delete
+
+s-->r --: false
+
+r-->sk --:
+
+@enduml
