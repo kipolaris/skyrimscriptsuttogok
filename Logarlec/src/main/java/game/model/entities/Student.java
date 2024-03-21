@@ -1,4 +1,27 @@
 package game.model.entities;
 
-public class Student {
+import game.model.entities.items.Item;
+import game.model.entities.items.Transistor;
+
+public class Student extends Character{
+    @Override
+    public void addItem(Item item) {
+        //implement
+    }
+
+    @Override
+    public boolean die() {
+        //implement
+        return false;
+    }
+
+    @Override
+    public void doRound() {
+        //implement
+    }
+
+    public Transistor getActiveTransistor(){
+        //implement
+        return null;
+    }
 }
