@@ -3,6 +3,7 @@ package game.model.main;
 import game.model.entities.Professor;
 import game.model.entities.Student;
 import game.model.entities.building.BuildingAI;
+import game.model.entities.items.SlideRule;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class GameEngine {
 
     private BuildingAI builder;
 
+    private SlideRule slideRule;
 
     public void initGame(){
         //implement
