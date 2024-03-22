@@ -3,6 +3,7 @@ package game.model.entities;
 import game.model.entities.items.Item;
 import game.model.entities.items.Transistor;
 
+//#todo: implement class
 public class Student extends Character{
     @Override
     public void addItem(Item item) {

@@ -2,6 +2,7 @@ package game.model.entities.items;
 
 import game.model.entities.building.Room;
 
+//#todo: implement class
 public abstract class Item {
     protected boolean activated;
     protected boolean defensive;

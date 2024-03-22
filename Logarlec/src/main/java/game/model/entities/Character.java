@@ -6,11 +6,14 @@ import game.model.entities.items.*;
 
 import java.util.ArrayList;
 
+//#todo: implement class
 public class Character {
     protected boolean paralyzed;
 
     protected int actions;
     protected Room location;
+
+    protected ArrayList<Item> items;
 
     public Room getLocation() {
         return location;
