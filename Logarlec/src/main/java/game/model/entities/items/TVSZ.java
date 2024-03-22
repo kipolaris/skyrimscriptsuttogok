@@ -4,13 +4,20 @@ package game.model.entities.items;
 public class TVSZ extends Item{
     @Override
     public void activate() {
-        //implement
+        activated = true;
     }
 
     @Override
     public boolean decreaseDurability() {
-        return false;
+        durability--;
+
+        if (durability <= 0) {
+            //#todo: mivan ha elfogy a durability?
+            return false;
+        }
+        return true;
     }
+
 
     @Override
     public boolean isPairable() {
@@ -19,7 +26,7 @@ public class TVSZ extends Item{
 
     @Override
     public boolean protectFromKill() {
-        return false;
+        return true;
     }
 
     @Override

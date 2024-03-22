@@ -4,7 +4,8 @@ package game.model.entities.items;
 public class Camembert extends Item{
     @Override
     public void activate() {
-        //implement
+        location.setGassed(true);
+        //#todo removeItem
     }
 
     @Override

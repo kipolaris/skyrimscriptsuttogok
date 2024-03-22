@@ -1,5 +1,6 @@
 package game.model.entities.items;
 
+
 //#todo: implement class
 public class Transistor extends Item{
     @Override
@@ -14,7 +15,7 @@ public class Transistor extends Item{
 
     @Override
     public boolean isPairable() {
-        return false;
+        return true;
     }
 
     @Override
@@ -28,10 +29,11 @@ public class Transistor extends Item{
     }
 
     public void pair(Transistor t){
-        //implement
+
+        t.pair(this);
     }
 
     public void unpair(){
-        //implement
+        pair(null);
     }
 }

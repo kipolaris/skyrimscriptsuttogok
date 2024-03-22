@@ -4,12 +4,18 @@ package game.model.entities.items;
 public class FFP2 extends Item{
     @Override
     public void activate() {
-        //implement
+        this.activated = true;
     }
 
     @Override
     public boolean decreaseDurability() {
-        return false;
+        durability--;
+
+        if (durability <= 0) {
+        //#todo: mivan ha elfogy a durability?
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -24,6 +30,6 @@ public class FFP2 extends Item{
 
     @Override
     public boolean protectFromGas() {
-        return false;
+        return true;
     }
 }

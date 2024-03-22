@@ -4,13 +4,20 @@ package game.model.entities.items;
 public class Rag extends Item{
     @Override
     public void activate() {
-        //implement
+        activated = true;
     }
 
     @Override
-    public boolean decreaseDurability() {
-        return false;
+    public boolean decreaseDurability(){
+        durability--;
+
+        if (durability <= 0) {
+            //#todo: mivan ha elfogy a durability?
+            return false;
+        }
+        return true;
     }
+
 
     @Override
     public boolean isPairable() {
