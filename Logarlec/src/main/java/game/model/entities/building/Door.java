@@ -1,5 +1,7 @@
 package game.model.entities.building;
 
+import game.model.entities.Character;
+
 //#todo: implement class
 public class Door {
     private Room from;
@@ -9,8 +11,8 @@ public class Door {
 
     private boolean visible;
 
-    public void accept(Character c, Room r){
-        //implement
+    public boolean accept(Character c, Room r){
+        return false;
     }
 
     public Room getNeighbour(Room r){

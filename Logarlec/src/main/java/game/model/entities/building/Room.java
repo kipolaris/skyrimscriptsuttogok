@@ -1,6 +1,7 @@
 package game.model.entities.building;
 
 import game.model.entities.Professor;
+import game.model.entities.Character;
 import game.model.entities.Student;
 import game.model.entities.items.Item;
 
