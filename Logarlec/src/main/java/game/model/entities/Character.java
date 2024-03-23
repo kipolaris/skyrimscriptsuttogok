@@ -3,11 +3,14 @@ package game.model.entities;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
 //#todo: implement class
 public class Character {
+    private static final Logger logger = LogManager.getLogger();
     protected boolean paralyzed;
 
     protected int actions;

@@ -1,9 +1,13 @@
 package game.model.entities.items;
 
+import game.model.entities.Character;
 import game.model.entities.building.Room;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 //#todo: implement class
 public abstract class Item {
+    private static final Logger logger = LogManager.getLogger();
     protected boolean activated;
     protected boolean defensive;
     protected int durability;
