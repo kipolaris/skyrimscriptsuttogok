@@ -1,7 +1,12 @@
 package game.model.entities.items;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 //#todo: implement class
 public class Transistor extends Item{
+
+    private static final Logger logger = LogManager.getLogger();
     @Override
     public void activate() {
 
