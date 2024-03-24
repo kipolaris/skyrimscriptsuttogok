@@ -1,5 +1,4 @@
 package game.model.entities.items;
-
 import game.model.entities.Character;
 import game.model.entities.building.Room;
 import org.apache.logging.log4j.LogManager;
@@ -28,6 +27,10 @@ public abstract class Item {
     public void setLocation(Room room){
         this.location=room;
     }
+
+    public boolean getActivated() { return activated; }
+
+    public int getDurability(){ return durability; }
 
     public abstract boolean protectFromKill();
 
