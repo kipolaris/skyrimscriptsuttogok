@@ -1,8 +1,5 @@
 package game.model.entities.items;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 //#todo: implement class
 public class Transistor extends Item{
   private Transistor Pair;
@@ -10,8 +7,6 @@ public class Transistor extends Item{
     public int getPriority(){
         return -1;
     }
-
-    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void activate() {
