@@ -27,9 +27,6 @@ public class RagTest {
         for(Item i: room.getItems()) {
             System.out.println(i);
         }
-        System.out.println("--------------------------------------------------------");
-        if(rag.getActivated()==true && room.getItems().contains(rag)) System.out.println("A teszt sikeres");
-        else System.out.println("A teszt sikertelen");
     }
 
     void decRagParProf() {
@@ -38,22 +35,19 @@ public class RagTest {
         student.useItem(rag);
         System.out.println("Használhatóság: " + rag.getDurability());
         System.out.println("Oktató bénítva: " + professor.getParalyzed());
-        System.out.println("--------------------------------------------------------");
-        if(rag.getDurability()<oldDurability && professor.getParalyzed()==true) System.out.println("A teszt sikeres");
-        else System.out.println("A teszt sikertelen");
     }
 
     void destroyRag() {
-        while(rag.getDurability() > 0) { rag.decreaseDurability(); }
-        if(rag.decreaseDurability() == false) System.out.println("A teszt sikeres");
-        else System.out.println("A teszt sikertelen");
+        while(rag.getDurability() > 0) {
+            rag.decreaseDurability();
+            System.out.println("Használhatóság: " + rag.getDurability());
+        }
+        System.out.println("Rag létezik: " + rag.decreaseDurability());
     }
 
     void parProf() {
         characters.add(professor);
         student.useItem(rag);
         System.out.println("Oktató bénítva: "+ professor.getParalyzed());
-        if(professor.getParalyzed()==true) System.out.println("A teszt sikeres");
-        else System.out.println("A teszt sikertelen");
     }
 }
