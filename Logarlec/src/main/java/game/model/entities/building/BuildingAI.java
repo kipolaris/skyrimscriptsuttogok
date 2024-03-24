@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
-//#todo: implement class
 public class BuildingAI {
     private static final Logger logger = LogManager.getLogger();
     private ArrayList<Room> labyrinth;

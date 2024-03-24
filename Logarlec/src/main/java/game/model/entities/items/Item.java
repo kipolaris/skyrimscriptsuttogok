@@ -4,27 +4,35 @@ import game.model.entities.building.Room;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-//#todo: implement class
 public abstract class Item {
-    private static final Logger logger = LogManager.getLogger();
     protected boolean activated;
     protected boolean defensive;
-
-
 
     protected int durability;
     protected Room location;
     protected Character owner;
 
+    public Item() {}
+
+    public Item(boolean activated, boolean defensive, int durability, Room location, Character owner) {
+        this.activated = activated;
+        this.defensive = defensive;
+        this.durability = durability;
+        this.location = location;
+        this.owner = owner;
+    }
+
     // Abstract methods
     public abstract void activate();
 
-    //#todo: discuss with team
     public abstract int getPriority();
 
     public int getDurability() {
         return durability;
     }
+
+    public void setDurability(int durability) { this.durability = durability; }
+
     public abstract boolean decreaseDurability();
 
     public abstract boolean isPairable();

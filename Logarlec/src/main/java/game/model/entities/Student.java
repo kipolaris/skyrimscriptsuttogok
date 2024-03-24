@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.PriorityQueue;
 
-//#todo: implement class
 public class Student extends Character{
     private static final Logger logger = LogManager.getLogger();
 

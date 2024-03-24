@@ -21,7 +21,6 @@ public class TVSZ extends Item{
         return true;
     }
 
-
     @Override
     public boolean isPairable() {
         return false;

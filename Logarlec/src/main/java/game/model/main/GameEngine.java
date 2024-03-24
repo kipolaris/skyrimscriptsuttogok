@@ -9,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
-//#todo: implement class
 public class GameEngine {
     private static final Logger logger = LogManager.getLogger();
     private ArrayList<Student> students;

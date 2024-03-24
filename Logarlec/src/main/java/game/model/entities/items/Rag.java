@@ -1,6 +1,5 @@
 package game.model.entities.items;
 
-//#todo: implement class
 public class Rag extends Item{
 
     public int getPriority(){

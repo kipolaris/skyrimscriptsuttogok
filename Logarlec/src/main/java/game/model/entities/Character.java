@@ -63,14 +63,6 @@ public class Character {
         }
     }
 
-    /**
-     * Kérdés nélkül hozzáadja a tárgyat az inventory-hoz.
-     * @param item hozzáadandó item
-     */
-    public void addItemForTest(Item item){
-        items.add(item);
-    }
-
     public void dropItem(Item item) {
         if(items.contains(item)){
             item.setLocation(location);
@@ -129,7 +121,4 @@ public class Character {
     public boolean die() {
         throw new UnsupportedOperationException();
     }
-
-
 }
-//end class Character
