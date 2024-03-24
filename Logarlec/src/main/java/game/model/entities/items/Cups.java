@@ -4,15 +4,14 @@ package game.model.entities.items;
 public class Cups extends Item{
     @Override
     public void activate() {
-        activated = true;
+        this.activated = true;
     }
 
     @Override
     public boolean decreaseDurability() {
-        durability--;
+        this.durability--;
 
-        if (durability <= 0) {
-            //#todo: mivan ha elfogy a durability?
+        if (this.durability <= 0) {
             return false;
         }
         return true;
@@ -26,7 +25,10 @@ public class Cups extends Item{
 
     @Override
     public boolean protectFromKill() {
-        return true;
+        if(this.activated){
+            return true;
+        }
+        return false;
     }
 
     @Override

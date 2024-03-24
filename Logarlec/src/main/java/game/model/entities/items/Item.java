@@ -1,5 +1,5 @@
 package game.model.entities.items;
-
+import game.model.entities.Character;
 import game.model.entities.building.Room;
 
 //#todo: implement class

@@ -9,10 +9,9 @@ public class FFP2 extends Item{
 
     @Override
     public boolean decreaseDurability() {
-        durability--;
+        this.durability--;
 
-        if (durability <= 0) {
-        //#todo: mivan ha elfogy a durability?
+        if (this.durability <= 0) {
             return false;
         }
         return true;
@@ -30,6 +29,9 @@ public class FFP2 extends Item{
 
     @Override
     public boolean protectFromGas() {
-        return true;
+        if(activated) {
+            return true;
+        }
+        return false;
     }
 }

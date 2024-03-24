@@ -5,7 +5,7 @@ public class Camembert extends Item{
     @Override
     public void activate() {
         location.setGassed(true);
-        //#todo removeItem
+        durability = 0;
     }
 
     @Override

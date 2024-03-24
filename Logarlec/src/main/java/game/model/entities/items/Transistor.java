@@ -3,9 +3,11 @@ package game.model.entities.items;
 
 //#todo: implement class
 public class Transistor extends Item{
+    private Transistor Pair;
     @Override
     public void activate() {
-
+        Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
+        this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
     }
 
     @Override
@@ -15,7 +17,10 @@ public class Transistor extends Item{
 
     @Override
     public boolean isPairable() {
-        return true;
+        if (this.Pair == null) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -28,12 +33,18 @@ public class Transistor extends Item{
         return false;
     }
 
-    public void pair(Transistor t){
+    public void setPair(Transistor p){
+        this.Pair = p;
+    }
 
-        t.pair(this);
+    public void pair(Transistor t){
+        t.setPair(this);
+        this.setPair(t);
     }
 
     public void unpair(){
-        pair(null);
+        this.Pair.setPair(null);
+        this.setPair(null);
+
     }
 }
