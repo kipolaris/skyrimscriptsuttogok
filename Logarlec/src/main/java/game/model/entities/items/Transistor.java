@@ -7,6 +7,10 @@ import org.apache.logging.log4j.Logger;
 public class Transistor extends Item{
   private Transistor Pair;
 
+    public int getPriority(){
+        return -1;
+    }
+
     private static final Logger logger = LogManager.getLogger();
 
     @Override
