@@ -111,6 +111,8 @@ public class Room {
         gassed = g;
     }
 
+    public void setCursed(boolean c) { cursed = c; }
+
     public void checkGas() {
         if(gassed) {
             for (Character character : characters) {
