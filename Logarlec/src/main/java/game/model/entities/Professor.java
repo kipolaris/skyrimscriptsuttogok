@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 public class Professor extends Character{
     private static final Logger logger = LogManager.getLogger();
     public void doRound(){
-        //implement
+        //ezt akkor kéne megcsinálni, amikor már a grafikus interfésszel kapcsolatos event kezelés is tálalékon lesz,
+        //hiszen egy kör az tulajdonképpen egy loop lesz, eseményekkel.
+        throw new UnsupportedOperationException();
     }
 }
