@@ -3,7 +3,6 @@ package game.model.entities.building;
 import game.model.entities.Professor;
 import game.model.entities.Character;
 import game.model.entities.Student;
-import game.model.entities.Character;
 import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
@@ -83,8 +82,8 @@ public class Room {
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = null;
         for (Character character : characters) {
-            if (character instanceof Student s) {
-                students.add(s);
+            if (character instanceof Student) {
+                students.add((Student) character);
             }
         }
         return students;
@@ -93,8 +92,8 @@ public class Room {
     public ArrayList<Professor> getProfessors() {
         ArrayList<Professor> professors = null;
         for (Character character : characters) {
-            if (character instanceof Professor p) {
-                professors.add(p);
+            if (character instanceof Professor) {
+                professors.add((Professor) character);
             }
         }
         return professors;
