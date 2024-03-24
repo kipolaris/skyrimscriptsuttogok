@@ -18,8 +18,8 @@ public class Door {
     }
 
     public boolean accept(Character c, Room r){
-        if(r.getCharacters().size()+1 >= r.getCapacity()) return false;
-        else r.addCharacter(c);
+        if(r.getCharacters().size()+1 >= r.getCapacity() || !visible) return false;
+        r.addCharacter(c);
         return true;
     }
 
