@@ -3,7 +3,6 @@ package game.model.entities.building;
 import game.model.entities.Professor;
 import game.model.entities.Character;
 import game.model.entities.Student;
-import game.model.entities.Character;
 import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
@@ -50,6 +49,10 @@ public class Room {
     public Door removeDoor(Door door) {
         doors.remove(door);
         return null;
+    }
+
+    public ArrayList<Door> getDoors() {
+        return doors;
     }
 
     public void addItem(Item item) {
@@ -108,6 +111,8 @@ public class Room {
     public void setGassed(boolean g) {
         gassed = g;
     }
+
+    public void setCursed(boolean c) { cursed = c; }
 
     public void checkGas() {
         if(gassed) {

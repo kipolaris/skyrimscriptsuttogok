@@ -41,6 +41,8 @@ public class Transistor extends Item{
         this.Pair = p;
     }
 
+    public Transistor getPair() { return this.Pair; }
+
     public void pair(Transistor t){
         t.setPair(this);
         this.setPair(t);

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94e5a1f4-40a6-43b1-b82d-fdf6967638e7" name="Changes" comment="Rag teszt befejezve">
+    <list default="true" id="94e5a1f4-40a6-43b1-b82d-fdf6967638e7" name="Changes" comment="setCursed megírva">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Logarlec/src/main/resources/loggerconfig.xml" afterDir="false" />
@@ -144,7 +148,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711222929269</updated>
       <workItem from="1711222930422" duration="2806000" />
-      <workItem from="1711279038707" duration="9939000" />
+      <workItem from="1711279038707" duration="20906000" />
     </task>
     <task id="LOCAL-00001" summary="Door és Room befejezve, tesztek elkezdve">
       <created>1711284336379</created>
@@ -167,7 +171,35 @@
       <option name="project" value="LOCAL" />
       <updated>1711292187540</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rag teszt javítva, tranzisztor teszt elkezdve, Door konstruktor megírva">
+      <created>1711293235403</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711293235403</updated>
+    </task>
+    <task id="LOCAL-00005" summary="RagTest javítva, TransistorTest javítva, CamembertTest, SlideRuleTest, SplitTest elkészítve">
+      <created>1711313774256</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711313774256</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Room javítva">
+      <created>1711314120880</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711314120880</updated>
+    </task>
+    <task id="LOCAL-00007" summary="setCursed megírva">
+      <created>1711316178681</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711316178681</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +209,10 @@
     <MESSAGE value="Door és Room befejezve, tesztek elkezdve" />
     <MESSAGE value="Rag teszt frissítve" />
     <MESSAGE value="Rag teszt befejezve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rag teszt befejezve" />
+    <MESSAGE value="Rag teszt javítva, tranzisztor teszt elkezdve, Door konstruktor megírva" />
+    <MESSAGE value="RagTest javítva, TransistorTest javítva, CamembertTest, SlideRuleTest, SplitTest elkészítve" />
+    <MESSAGE value="Room javítva" />
+    <MESSAGE value="setCursed megírva" />
+    <option name="LAST_COMMIT_MESSAGE" value="setCursed megírva" />
   </component>
 </project>
