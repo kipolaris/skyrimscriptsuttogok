@@ -1,8 +1,12 @@
 package game.model.entities.items;
 
+<<<<<<< HEAD
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+=======
+//#todo: implement class
+>>>>>>> 9279b00d7d8c49bc963b757c4406c4a198153b4b
 public class Transistor extends Item{
   private Transistor Pair;
 
