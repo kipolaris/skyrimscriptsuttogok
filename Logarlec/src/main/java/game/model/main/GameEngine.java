@@ -45,16 +45,10 @@ public class GameEngine {
     }
 
     public void playOnePhase(){
-        for(Student s : students){
-            s.doRound();
-        }
-        for(Professor p : professors){
-            p.doRound();
-        }
-        builder.buildingChange();
+        //yet to be implemented
     }
 
-    public void studentDied(Student s){ //?
-        //implement
+    public void studentDied(Student s){
+        students.remove(s);
     }
 }

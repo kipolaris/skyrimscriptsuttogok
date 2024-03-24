@@ -25,8 +25,4 @@ public class BuildingAI {
     public void removeRoom(Room r1){
         //implement
     }
-
-    public void buildingChange(){
-        //implement
-    }
 }
