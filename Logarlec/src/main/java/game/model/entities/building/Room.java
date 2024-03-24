@@ -6,8 +6,6 @@ import game.model.entities.Student;
 import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
@@ -18,7 +16,6 @@ public class Room {
     public void setGameEngine(GameEngine gameEngine) {
         this.gameEngine = gameEngine;
     }
-    private static final Logger logger = LogManager.getLogger();
     private int capacity;
     private boolean gassed;
     private boolean cursed;
