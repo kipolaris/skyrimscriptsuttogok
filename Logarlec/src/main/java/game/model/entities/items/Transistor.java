@@ -5,15 +5,18 @@ import org.apache.logging.log4j.Logger;
 
 //#todo: implement class
 public class Transistor extends Item{
+  private Transistor Pair;
 
     public int getPriority(){
         return -1;
     }
 
     private static final Logger logger = LogManager.getLogger();
+
     @Override
     public void activate() {
-
+        Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
+        this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
     }
 
     @Override
@@ -23,6 +26,9 @@ public class Transistor extends Item{
 
     @Override
     public boolean isPairable() {
+        if (this.Pair == null) {
+            return true;
+        }
         return false;
     }
 
@@ -36,11 +42,18 @@ public class Transistor extends Item{
         return false;
     }
 
+    public void setPair(Transistor p){
+        this.Pair = p;
+    }
+
     public void pair(Transistor t){
-        //implement
+        t.setPair(this);
+        this.setPair(t);
     }
 
     public void unpair(){
-        //implement
+        this.Pair.setPair(null);
+        this.setPair(null);
+
     }
 }

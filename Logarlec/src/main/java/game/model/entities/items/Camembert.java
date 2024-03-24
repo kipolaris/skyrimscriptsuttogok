@@ -8,7 +8,8 @@ public class Camembert extends Item{
 
     @Override
     public void activate() {
-        //implement
+        location.setGassed(true);
+        durability = 0;
     }
 
     @Override

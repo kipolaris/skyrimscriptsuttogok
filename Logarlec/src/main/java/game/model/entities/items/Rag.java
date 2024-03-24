@@ -8,13 +8,21 @@ public class Rag extends Item{
     }
     @Override
     public void activate() {
-        //implement
+        this.activated = true;
+        this.location.paralyzeProfessors();
+        owner.dropItem(this);
     }
 
     @Override
-    public boolean decreaseDurability() {
-        return false;
+    public boolean decreaseDurability(){
+        this.durability--;
+
+        if (this.durability <= 0) {
+            return false;
+        }
+        return true;
     }
+
 
     @Override
     public boolean isPairable() {

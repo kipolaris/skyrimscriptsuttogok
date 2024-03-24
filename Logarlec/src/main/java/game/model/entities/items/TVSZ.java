@@ -1,6 +1,6 @@
 package game.model.entities.items;
 
-//#todo: implement class
+
 public class TVSZ extends Item{
 
     public int getPriority(){
@@ -8,13 +8,19 @@ public class TVSZ extends Item{
     }
     @Override
     public void activate() {
-        //implement
+        this.activated = true;
     }
 
     @Override
     public boolean decreaseDurability() {
-        return false;
+        this.durability--;
+
+        if (this.durability <= 0) {
+            return false;
+        }
+        return true;
     }
+
 
     @Override
     public boolean isPairable() {
@@ -23,6 +29,9 @@ public class TVSZ extends Item{
 
     @Override
     public boolean protectFromKill() {
+        if(this.activated) {
+            return true;
+        }
         return false;
     }
 

@@ -4,7 +4,7 @@ package game.model.entities.items;
 public class FFP2 extends Item{
     @Override
     public void activate() {
-        //implement
+        this.activated = true;
     }
 
     public int getPriority(){
@@ -13,7 +13,12 @@ public class FFP2 extends Item{
 
     @Override
     public boolean decreaseDurability() {
-        return false;
+        this.durability--;
+
+        if (this.durability <= 0) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -28,6 +33,9 @@ public class FFP2 extends Item{
 
     @Override
     public boolean protectFromGas() {
+        if(activated) {
+            return true;
+        }
         return false;
     }
 }
