@@ -20,23 +20,38 @@ public class GameEngine {
     private SlideRule slideRule;
 
     public void initGame(){
-        //implement
+        students = new ArrayList<>();
+        professors = new ArrayList<>();
+        builder = new BuildingAI();
+        slideRule = new SlideRule();
     }
 
     public boolean studentsExtinct(){
-        return false;
+        return students.isEmpty();
     }
 
     public void endGame(){
-        //implement
+        students.clear();
+        professors.clear();
+        builder = null;
+        slideRule = null;
     }
 
     public void refresh(){
-        //implement
+        students = new ArrayList<>();
+        professors = new ArrayList<>();
+        builder = new BuildingAI();
+        slideRule = new SlideRule();
     }
 
     public void playOnePhase(){
-        //implement
+        for(Student s : students){
+            s.doRound();
+        }
+        for(Professor p : professors){
+            p.doRound();
+        }
+        builder.buildingChange();
     }
 
     public void studentDied(Student s){ //?

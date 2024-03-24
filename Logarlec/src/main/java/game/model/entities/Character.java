@@ -116,40 +116,17 @@ public class Character {
     }
 
     public void doRound() {
-        // Method body to be implemented
+        throw new UnsupportedOperationException();
     }
 
     public Transistor getActiveTransistor() {
-        for(Item i : items){
-            if(i.isPairable()){
-                return (Transistor) i;
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     public boolean die() {
-        //#todo: ezt talán kiemelni, mert kódduplikáció?
-        PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
-
-        for (Item i : items) {
-            if (i.protectFromKill()) {
-                itemPriorityQueue.add(i);
-            }
-        }
-
-        //ha üres a prioritási sor, nincs professor ellen védő tárgy
-        Item chosen = itemPriorityQueue.poll();
-
-        if (chosen == null) {
-            return true;
-        } else {
-            if (!chosen.decreaseDurability()) {
-                items.remove(chosen);
-            }
-        }
-        return false;
+        throw new UnsupportedOperationException();
     }
+
 
 }
 //end class Character
