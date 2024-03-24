@@ -3,6 +3,7 @@ package game.model.entities;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.*;
+import game.model.logging.Suttogo;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -67,6 +68,7 @@ public class Character {
     }
 
     public void dropItem(Item item) {
+        Suttogo.info("message");
         if(items.contains(item)){
             item.setLocation(location);
             location.addItem(item);

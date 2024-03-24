@@ -22,14 +22,14 @@ public class Suttogo {
     }
 
     public static void info(String message) {
-        log(message, "INFO");
+        log(message);
     }
 
     public static void error(String message) {
-        log(message, "ERROR");
+        log(message);
     }
 
-    private static void log(String message, String logLevel) {
-        System.out.println("message"+logLevel);
+    private static void log(String message) {
+        System.out.println("message");
     }
 }
