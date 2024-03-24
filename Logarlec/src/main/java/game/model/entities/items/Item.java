@@ -7,8 +7,6 @@ public abstract class Item {
     protected boolean activated;
     protected boolean defensive;
 
-
-
     protected int durability;
     protected Room location;
     protected Character owner;
@@ -39,6 +37,10 @@ public abstract class Item {
 
     public void setOwner(Character character){
         this.owner = character;
+    }
+
+    public int getDurability(){
+        return durability;
     }
 }
 
