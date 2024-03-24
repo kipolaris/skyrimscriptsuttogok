@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94e5a1f4-40a6-43b1-b82d-fdf6967638e7" name="Changes" comment="Rag teszt frissítve">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+    <list default="true" id="94e5a1f4-40a6-43b1-b82d-fdf6967638e7" name="Changes" comment="Rag teszt befejezve">
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711222929269</updated>
       <workItem from="1711222930422" duration="2806000" />
-      <workItem from="1711279038707" duration="8686000" />
+      <workItem from="1711279038707" duration="9939000" />
     </task>
     <task id="LOCAL-00001" summary="Door és Room befejezve, tesztek elkezdve">
       <created>1711284336379</created>
@@ -85,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711289705451</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Rag teszt befejezve">
+      <created>1711292187540</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711292187540</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +95,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Door és Room befejezve, tesztek elkezdve" />
     <MESSAGE value="Rag teszt frissítve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rag teszt frissítve" />
+    <MESSAGE value="Rag teszt befejezve" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rag teszt befejezve" />
   </component>
 </project>

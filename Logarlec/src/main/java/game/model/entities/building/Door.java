@@ -10,6 +10,13 @@ public class Door {
 
     private boolean visible;
 
+    public Door(Room f, Room t, boolean bW, boolean v) {
+        from = f;
+        to = t;
+        bothWays = bW;
+        visible = v;
+    }
+
     public boolean accept(Character c, Room r){
         if(r.getCharacters().size()+1 >= r.getCapacity()) return false;
         else r.addCharacter(c);

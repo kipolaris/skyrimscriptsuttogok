@@ -4,7 +4,6 @@ import game.model.entities.*;
 import game.model.entities.Character;
 import game.model.entities.building.*;
 import game.model.entities.items.*;
-import game.model.main.*;
 import java.util.ArrayList;
 
 public class RagTest {
@@ -14,7 +13,7 @@ public class RagTest {
     private Rag rag = new Rag();
     ArrayList<Character> characters = new ArrayList<>();
 
-    void initialize() throws Exception {
+    void initialize() {
         characters.add(student);
         student.addItem(rag);
 
@@ -28,26 +27,33 @@ public class RagTest {
         for(Item i: room.getItems()) {
             System.out.println(i);
         }
+        System.out.println("--------------------------------------------------------");
+        if(rag.getActivated()==true && room.getItems().contains(rag)) System.out.println("A teszt sikeres");
+        else System.out.println("A teszt sikertelen");
     }
 
     void decRagParProf() {
         characters.add(professor);
+        int oldDurability = rag.getDurability();
         student.useItem(rag);
         System.out.println("Használhatóság: " + rag.getDurability());
-        System.out.println("Oktató bénítva: "+ professor.getParalyzed());
+        System.out.println("Oktató bénítva: " + professor.getParalyzed());
+        System.out.println("--------------------------------------------------------");
+        if(rag.getDurability()<oldDurability && professor.getParalyzed()==true) System.out.println("A teszt sikeres");
+        else System.out.println("A teszt sikertelen");
     }
 
     void destroyRag() {
         while(rag.getDurability() > 0) { rag.decreaseDurability(); }
-        System.out.println("Tárgyak a szobában: ");
-        for(Item i: room.getItems()) {
-            System.out.println(i);
-        }
+        if(rag.decreaseDurability() == false) System.out.println("A teszt sikeres");
+        else System.out.println("A teszt sikertelen");
     }
 
     void parProf() {
         characters.add(professor);
         student.useItem(rag);
         System.out.println("Oktató bénítva: "+ professor.getParalyzed());
+        if(professor.getParalyzed()==true) System.out.println("A teszt sikeres");
+        else System.out.println("A teszt sikertelen");
     }
 }
