@@ -6,8 +6,14 @@ public class Transistor extends Item{
     private Transistor Pair;
     @Override
     public void activate() {
-        Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
-        this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
+        if(this.Pair == null) {
+            Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
+            this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
+        }
+        else{
+            owner.setLocation(this.Pair.getLocation());
+            unpair();
+        }
     }
 
     @Override
