@@ -54,6 +54,10 @@ public class Room {
         return null;
     }
 
+    public ArrayList<Door> getDoors() {
+        return doors;
+    }
+
     public void addItem(Item item) {
         items.add(item);
     }

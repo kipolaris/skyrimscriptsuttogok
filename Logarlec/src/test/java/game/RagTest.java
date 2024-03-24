@@ -22,31 +22,21 @@ public class RagTest {
 
     void ActivateRag() {
         student.useItem(rag);
-        System.out.println("Aktivált rag: " + rag.getActivated());
-        System.out.println("Tárgyak a szobában: ");
-        for(Item i: room.getItems()) {
-            System.out.println(i);
-        }
     }
 
     void decRagParProf() {
         characters.add(professor);
         student.useItem(rag);
-        System.out.println("Használhatóság: " + rag.getDurability());
-        System.out.println("Oktató bénítva: " + professor.getParalyzed());
     }
 
     void destroyRag() {
         while(rag.getDurability() > 0) {
             rag.decreaseDurability();
-            System.out.println("Használhatóság: " + rag.getDurability());
         }
-        System.out.println("Rag létezik: " + rag.decreaseDurability());
     }
 
     void parProf() {
         characters.add(professor);
         student.useItem(rag);
-        System.out.println("Oktató bénítva: "+ professor.getParalyzed());
     }
 }

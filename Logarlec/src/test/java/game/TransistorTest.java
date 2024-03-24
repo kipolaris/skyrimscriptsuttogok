@@ -31,22 +31,17 @@ public class TransistorTest {
 
     void transistorPair(){
         student.useItem(trans1);
-        System.out.println("Trans1 párja: " + trans1.getPair());
     }
 
     void transistorPlace(){
         student.useItem(trans1);
         student.dropItem(trans1);
-        System.out.println("Trans1 lokációja: " + trans1.getLocation());
-        System.out.println("Trans1 párja: " + trans1.getPair());
     }
 
     void transistorUnpair(){
         student.useItem(trans1);
         student.dropItem(trans1);
         student.dropItem(trans2);
-        System.out.println("Trans1 párja: " + trans1.getPair());
-        System.out.println("Trans2 párja: " + trans1.getPair());
     }
 
     void transistorUnsuccessful(){
