@@ -9,8 +9,8 @@ public class Door {
 
     private boolean visible;
 
-    public void accept(Character c, Room r){
-        //implement
+    public boolean accept(Character c, Room r){
+        return false;
     }
 
     public Room getNeighbour(Room r){
