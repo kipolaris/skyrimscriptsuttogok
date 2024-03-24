@@ -4,14 +4,14 @@ import game.model.entities.Professor;
 import game.model.entities.Character;
 import game.model.entities.Student;
 import game.model.entities.Character;
+import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
+import java.util.*;
 
-//#todo: implement class
 public class Room {
 
     private GameEngine gameEngine;
@@ -31,81 +31,114 @@ public class Room {
     private ArrayList<Character> characters;
 
     // Constructor
-    public Room() {
-        // Initialization logic can be added here
+    public Room(int c, boolean g, boolean cu, ArrayList<Door> ds, ArrayList<Item> is, ArrayList<Character> cs) {
+        capacity = c;
+        gassed = g;
+        cursed = cu;
+        doors = ds != null ? new ArrayList<>(ds) : new ArrayList<>();
+        items = is != null ? new ArrayList<>(is) : new ArrayList<>();
+        characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
     }
-
-    // Methods with empty bodies
-    public void setDoors(ArrayList<Door> doors) {
-        // Method body to be implemented
+    
+    public void setDoors(ArrayList<Door> ds) {
+        for(Door d: ds) {
+            doors.add(d);
+        }
     }
 
     public void addDoor(Door door) {
-        // Method body to be implemented
+        doors.add(door);
     }
 
     public Door removeDoor(Door door) {
-        // Method body to be implemented
+        doors.remove(door);
         return null;
     }
 
     public void addItem(Item item) {
-        // Method body to be implemented
+        items.add(item);
     }
 
     public Item removeItem(Item item) {
-        // Method body to be implemented
+        items.remove(item);
         return null;
     }
 
     public ArrayList<Item> getItems() {
-        // Method body to be implemented
-        return null;
+        return items;
     }
 
-    public boolean addCharacter(Character character) {
-        // Method body to be implemented
-        return false;
+    public void addCharacter(Character character) {
+        characters.add(character);
     }
 
-    public boolean removeCharacter(Character character) {
-        // Method body to be implemented
-        return false;
+    public void removeCharacter(Character character) {
+        characters.remove(character);
+    }
+
+    public ArrayList<Character> getCharacters() {
+        return characters;
     }
 
     public ArrayList<Student> getStudents() {
-        // Method body to be implemented
-        return null;
+        ArrayList<Student> students = null;
+        for (Character character : characters) {
+            if (character instanceof Student s) {
+                students.add(s);
+            }
+        }
+        return students;
     }
 
     public ArrayList<Professor> getProfessors() {
-        // Method body to be implemented
-        return null;
+        ArrayList<Professor> professors = null;
+        for (Character character : characters) {
+            if (character instanceof Professor p) {
+                professors.add(p);
+            }
+        }
+        return professors;
     }
 
     public void paralyzeProfessors() {
-        // Method body to be implemented
+        for (Character character : characters) {
+            if (character instanceof Professor) {
+                character.setParalyzed(true);
+            }
+        }
     }
 
-    public void setGassed(boolean gassed) {
-        // Method body to be implemented
+    public void setGassed(boolean g) {
+        gassed = g;
     }
 
     public void checkGas() {
-        // Method body to be implemented
+        if(gassed) {
+            for (Character character : characters) {
+                if (character.getItems().stream().noneMatch(FFP2.class::isInstance)) {
+                    character.setParalyzed(true);
+                }
+            }
+        }
     }
 
     public void killStudents() {
-        // Method body to be implemented
+        for (Character character : characters) {
+            if (character instanceof Student) {
+                character.die();
+            }
+        }
     }
 
     public boolean getGassed() {
-        // Method body to be implemented
-        return false;
+        return gassed;
     }
 
     public boolean getCursed() {
-        // Method body to be implemented
-        return false;
+        return cursed;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 }

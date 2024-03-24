@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Logarlec/Logarlec.iml" filepath="$PROJECT_DIR$/Logarlec/Logarlec.iml" />
       <module fileurl="file://$PROJECT_DIR$/skyrimscriptsuttogok.iml" filepath="$PROJECT_DIR$/skyrimscriptsuttogok.iml" />
     </modules>
   </component>

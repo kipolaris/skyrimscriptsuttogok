@@ -37,6 +37,10 @@ public abstract class Item {
         this.location=room;
     }
 
+    public boolean getActivated() { return activated; }
+
+    public int getDurability(){ return durability; }
+
     public abstract boolean protectFromKill();
 
     public abstract boolean protectFromGas();

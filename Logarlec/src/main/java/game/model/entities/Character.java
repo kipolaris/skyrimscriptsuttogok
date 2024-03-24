@@ -44,6 +44,9 @@ public class Character {
         this.location = location;
     }
 
+    public boolean getParalyzed() {
+        return paralyzed;
+    }
 
     public void useItem(Item i) {
         i.activate();
