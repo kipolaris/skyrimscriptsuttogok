@@ -1,16 +1,14 @@
 package game.model.entities.items;
 
-<<<<<<< HEAD
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import game.model.logging.Suttogo;
 
-=======
-//#todo: implement class
->>>>>>> 9279b00d7d8c49bc963b757c4406c4a198153b4b
 public class Transistor extends Item{
   private Transistor Pair;
 
     public int getPriority(){
+        Suttogo.info("\tret -1");
         return -1;
     }
 
@@ -22,32 +20,38 @@ public class Transistor extends Item{
 
     @Override
     public boolean decreaseDurability() {
+        Suttogo.info("\tret false");
         return false;
     }
 
     @Override
     public boolean isPairable() {
         if (this.Pair == null) {
+            Suttogo.info("\tret true");
             return true;
         }
+        Suttogo.info("\tret false");
         return false;
     }
 
     @Override
     public boolean protectFromKill() {
+        Suttogo.info("\tret false");
         return false;
     }
 
     @Override
     public boolean protectFromGas() {
+        Suttogo.info("\tret false");
         return false;
     }
 
-    public void setPair(Transistor p){
-        this.Pair = p;
-    }
+    public void setPair(Transistor p){ this.Pair = p; }
 
-    public Transistor getPair() { return this.Pair; }
+    public Transistor getPair() {
+        Suttogo.info("\tret Transistor");
+        return this.Pair;
+    }
 
     public void pair(Transistor t){
         t.setPair(this);

@@ -1,6 +1,7 @@
 package game.model.entities.items;
 
 public class Camembert extends Item{
+
     public int getPriority(){
         return -1;
     }

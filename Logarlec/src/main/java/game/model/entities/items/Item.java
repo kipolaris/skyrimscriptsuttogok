@@ -51,5 +51,9 @@ public abstract class Item {
     public void setOwner(Character character){
         this.owner = character;
     }
+
+    public int getDurability(){
+        return durability;
+    }
 }
 
