@@ -3,12 +3,9 @@ package game.model.entities.building;
 import game.model.entities.Professor;
 import game.model.entities.Character;
 import game.model.entities.Student;
-import game.model.entities.Character;
 import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
@@ -19,7 +16,6 @@ public class Room {
     public void setGameEngine(GameEngine gameEngine) {
         this.gameEngine = gameEngine;
     }
-    private static final Logger logger = LogManager.getLogger();
     private int capacity;
     private boolean gassed;
     private boolean cursed;
@@ -55,6 +51,10 @@ public class Room {
         return null;
     }
 
+    public ArrayList<Door> getDoors() {
+        return doors;
+    }
+
     public void addItem(Item item) {
         items.add(item);
     }
@@ -83,8 +83,8 @@ public class Room {
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = null;
         for (Character character : characters) {
-            if (character instanceof Student s) {
-                students.add(s);
+            if (character instanceof Student) {
+                students.add((Student) character);
             }
         }
         return students;
@@ -93,8 +93,8 @@ public class Room {
     public ArrayList<Professor> getProfessors() {
         ArrayList<Professor> professors = null;
         for (Character character : characters) {
-            if (character instanceof Professor p) {
-                professors.add(p);
+            if (character instanceof Professor) {
+                professors.add((Professor) character);
             }
         }
         return professors;
@@ -111,6 +111,8 @@ public class Room {
     public void setGassed(boolean g) {
         gassed = g;
     }
+
+    public void setCursed(boolean c) { cursed = c; }
 
     public void checkGas() {
         if(gassed) {
