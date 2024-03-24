@@ -6,6 +6,7 @@ public class Rag extends Item{
     public void activate() {
         this.activated = true;
         this.location.paralyzeProfessors();
+        owner.dropItem(this);
     }
 
     @Override
