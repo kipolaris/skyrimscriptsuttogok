@@ -7,7 +7,6 @@ import game.model.entities.items.SlideRule;
 
 import java.util.ArrayList;
 
-//#todo: implement class
 public class GameEngine {
     private ArrayList<Student> students;
     private ArrayList<Professor> professors;

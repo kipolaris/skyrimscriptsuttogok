@@ -4,7 +4,6 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.main.GameEngine;
 
-//#todo: implement class
 public class SlideRule extends Item{
 
     private game.model.main.GameEngine engine;

@@ -1,8 +1,9 @@
 package game.model.entities.items;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import game.model.logging.Suttogo;
 
-//#todo: implement class
 public class Transistor extends Item{
   private Transistor Pair;
 
@@ -13,8 +14,8 @@ public class Transistor extends Item{
 
     @Override
     public void activate() {
-        Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
-        this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
+        Transistor otherTransistor = owner.getActiveTransistor();
+        this.pair(otherTransistor);
     }
 
     @Override

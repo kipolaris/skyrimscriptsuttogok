@@ -6,7 +6,6 @@ import game.model.entities.items.Item;
 import java.sql.Array;
 import java.util.ArrayList;
 
-//#todo: implement class
 public class BuildingAI {
     private ArrayList<Room> labyrinth;
 

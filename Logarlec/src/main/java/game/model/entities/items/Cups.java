@@ -1,6 +1,5 @@
 package game.model.entities.items;
 
-//#todo: implement class
 public class Cups extends Item{
 
     public int getPriority(){
@@ -20,7 +19,6 @@ public class Cups extends Item{
         }
         return true;
     }
-
 
     @Override
     public boolean isPairable() {
