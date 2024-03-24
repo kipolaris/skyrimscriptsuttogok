@@ -39,8 +39,6 @@ public abstract class Item {
 
     public boolean getActivated() { return activated; }
 
-    public int getDurability(){ return durability; }
-
     public abstract boolean protectFromKill();
 
     public abstract boolean protectFromGas();

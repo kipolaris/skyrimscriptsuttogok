@@ -12,19 +12,21 @@ public class TransistorTest {
     private Transistor trans2 = new Transistor();
     private Room room1;
     private Room room2;
-    private TVSZ t = new TVSZ();
+    private Door door;
     private FFP2 ffp2 = new FFP2();
-    private ArrayList<Character> r1characters = new ArrayList<Character>();
+    private ArrayList<Character> r1characters = new ArrayList<>();
+    private ArrayList<Door> doors = new ArrayList<>();
 
 
     void initialize() {
+        doors.add(door);
+        door = new Door(room1, room2,true,true);
         r1characters.add(student);
         student.addItem(trans1);
         student.addItem(trans2);
-        student.addItem(t);
-        student.addItem(ffp2);
 
-        room1 = new Room(2,false,false,null,null,r1characters);
+        room1 = new Room(2,false,false,doors,null,r1characters);
+        room2 = new Room(2,false,false,doors,null,null);
     }
 
     void transistorPair(){
@@ -52,5 +54,32 @@ public class TransistorTest {
         student.useItem(trans1);
     }
 
+    void transistorSuccesful(){
+        student.useItem(trans1);
+        student.dropItem(trans1);
 
+        student.move(door);
+        student.useItem(trans2);
+    }
+
+    void transToGasParalyze() {
+        student.useItem(trans1);
+        student.dropItem(trans1);
+
+        student.move(door);
+        room1.setGassed(true);
+
+        student.useItem(trans2);
+    }
+
+    void transToGasProt() {
+        student.addItem(ffp2);
+        student.useItem(trans1);
+        student.dropItem(trans1);
+
+        student.move(door);
+        room1.setGassed(true);
+
+        student.useItem(trans2);
+    }
 }

@@ -31,7 +31,6 @@ public class RagTest {
 
     void decRagParProf() {
         characters.add(professor);
-        int oldDurability = rag.getDurability();
         student.useItem(rag);
         System.out.println("Használhatóság: " + rag.getDurability());
         System.out.println("Oktató bénítva: " + professor.getParalyzed());
