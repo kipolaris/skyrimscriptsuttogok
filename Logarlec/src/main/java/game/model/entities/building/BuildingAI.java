@@ -1,23 +1,113 @@
 package game.model.entities.building;
 
+import game.model.entities.Character;
+import game.model.entities.items.Item;
+
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class BuildingAI {
     private ArrayList<Room> labyrinth;
 
     public void mergeRooms(Room r1, Room r2){
-        //implement
+        int ossz = r1.getCharacters().size()+r2.getCharacters().size();
+        int max = 0;
+        if (r1.getCapacity() > r2.getCapacity())
+            max = r1.getCapacity();
+        else max = r2.getCapacity();
+
+        if (ossz <= max) {
+            ArrayList<Door> ajtok = new ArrayList<>(r1.getDoors());
+            ArrayList<Item> targyak = new ArrayList<>(r1.getItems());
+            ArrayList<Character> karakter = new ArrayList<>(r1.getCharacters());
+
+            for (Item i : r2.getItems()) {
+                targyak.add(i);
+            }
+            for (Character c : r2.getCharacters()) {
+                karakter.add(c);
+            }
+
+            ArrayList<Door> rossz = new ArrayList<>();
+
+            for (Door d1 : ajtok) {
+                for (Door d2 : r2.getDoors()) {
+                    if (d1.getNeighbour(r1) == d2.getNeighbour(r2)) {
+                        rossz.add(d2);
+                    }
+                }
+            }
+
+            for (Door egy : r2.getDoors()) {
+                boolean van = false;
+                for (Door ketto : rossz) {
+                    if (egy.getNeighbour(r2) == ketto.getNeighbour(r2))
+                        van = true;
+                }
+                if (!van) ajtok.add(egy);
+            }
+
+            boolean gaz = false;
+            boolean atok = false;
+
+            if (r1.getCursed()) atok = true;
+            else if (r2.getCursed()) atok = true;
+
+            if (r1.getGassed()) gaz = true;
+            else if (r2.getGassed()) gaz = true;
+
+            Room uj = new Room(max, gaz, atok, ajtok, targyak, karakter);
+
+            this.addRoom(uj);
+            this.removeRoom(r1);
+            this.removeRoom(r2);
+        }
     }
 
     public void splitRoom(Room r1){
-        //implement
+        if (!(r1.getDoors().size() < 2)){
+            ArrayList<Door> ajto1 = new ArrayList<>();
+            ArrayList<Door> ajto2 = new ArrayList<>();
+            ArrayList<Item> targy1 = new ArrayList<>();
+            ArrayList<Item> targy2 = new ArrayList<>();
+            ArrayList<Character> ember1 = new ArrayList<>();
+            ArrayList<Character> ember2 = new ArrayList<>();
+
+            int n=0;
+            for (Door d : r1.getDoors()){
+                if (n%2 == 0) ajto1.add(d);
+                else ajto2.add(d);
+                n++;
+            }
+
+            n=0;
+            for (Item i : r1.getItems()){
+                if (n%2 == 0) targy1.add(i);
+                else targy2.add(i);
+                n++;
+            }
+
+            n=0;
+            for (Character c : r1.getCharacters()){
+                if (n%2 == 0) ember1.add(c);
+                else ember2.add(c);
+                n++;
+            }
+
+            Room uj1 = new Room(r1.getCapacity()/2, r1.getGassed(), r1.getCursed(), ajto1, targy1, ember1);
+            Room uj2 = new Room(r1.getCapacity()/2, r1.getGassed(), r1.getCursed(), ajto2, targy2, ember2);
+
+            this.addRoom(uj1);
+            this.addRoom(uj2);
+            this.removeRoom(r1);
+        }
     }
 
     public void addRoom(Room r1){
-        //implement
+        labyrinth.add(0, r1);
     }
 
     public void removeRoom(Room r1){
-        //implement
+        labyrinth.remove(r1);
     }
 }
