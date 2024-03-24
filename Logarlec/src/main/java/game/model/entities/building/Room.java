@@ -37,6 +37,7 @@ public class Room {
         characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
     }
     
+    public ArrayList<Door> getDoors(){return doors;}
     public void setDoors(ArrayList<Door> ds) {
         for(Door d: ds) {
             doors.add(d);
