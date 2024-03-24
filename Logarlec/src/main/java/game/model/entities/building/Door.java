@@ -1,6 +1,7 @@
 package game.model.entities.building;
 
-//#todo: implement class
+import game.model.entities.Character;
+
 public class Door {
     private Room from;
     private Room to;
@@ -10,10 +11,13 @@ public class Door {
     private boolean visible;
 
     public boolean accept(Character c, Room r){
-        return false;
+        if(r.getCharacters().size()+1 >= r.getCapacity()) return false;
+        else r.addCharacter(c);
+        return true;
     }
 
     public Room getNeighbour(Room r){
-        return null;
+        if(r==from) return to;
+        else return from;
     }
 }
