@@ -5,7 +5,6 @@ import game.model.entities.building.Room;
 public abstract class Item {
     protected boolean activated;
     protected boolean defensive;
-
     protected int durability;
     protected Room location;
     protected Character owner;
@@ -25,15 +24,12 @@ public abstract class Item {
 
     public abstract int getPriority();
 
-<<<<<<< HEAD
     public int getDurability() {
         return durability;
     }
 
     public void setDurability(int durability) { this.durability = durability; }
 
-=======
->>>>>>> 9279b00d7d8c49bc963b757c4406c4a198153b4b
     public abstract boolean decreaseDurability();
 
     public abstract boolean isPairable();
