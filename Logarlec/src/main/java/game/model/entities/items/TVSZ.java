@@ -2,6 +2,10 @@ package game.model.entities.items;
 
 
 public class TVSZ extends Item{
+
+    public int getPriority(){
+        return 2;
+    }
     @Override
     public void activate() {
         this.activated = true;
@@ -16,7 +20,6 @@ public class TVSZ extends Item{
         }
         return true;
     }
-
 
     @Override
     public boolean isPairable() {

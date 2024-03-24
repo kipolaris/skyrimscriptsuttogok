@@ -4,14 +4,10 @@ import game.model.entities.Professor;
 import game.model.entities.Student;
 import game.model.entities.building.BuildingAI;
 import game.model.entities.items.SlideRule;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
-//#todo: implement class
 public class GameEngine {
-    private static final Logger logger = LogManager.getLogger();
     private ArrayList<Student> students;
     private ArrayList<Professor> professors;
 
@@ -20,26 +16,35 @@ public class GameEngine {
     private SlideRule slideRule;
 
     public void initGame(){
-        //implement
+        students = new ArrayList<>();
+        professors = new ArrayList<>();
+        builder = new BuildingAI();
+        slideRule = new SlideRule();
     }
 
     public boolean studentsExtinct(){
-        return false;
+        return students.isEmpty();
     }
 
     public void endGame(){
-        //implement
+        students.clear();
+        professors.clear();
+        builder = null;
+        slideRule = null;
     }
 
     public void refresh(){
-        //implement
+        students = new ArrayList<>();
+        professors = new ArrayList<>();
+        builder = new BuildingAI();
+        slideRule = new SlideRule();
     }
 
     public void playOnePhase(){
-        //implement
+        //yet to be implemented
     }
 
-    public void studentDied(Student s){ //?
-        //implement
+    public void studentDied(Student s){
+        students.remove(s);
     }
 }

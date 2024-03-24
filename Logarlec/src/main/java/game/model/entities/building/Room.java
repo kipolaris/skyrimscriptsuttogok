@@ -1,17 +1,22 @@
 package game.model.entities.building;
 
 import game.model.entities.Professor;
-import game.model.entities.Student;
 import game.model.entities.Character;
+import game.model.entities.Student;
+import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import game.model.logging.Suttogo;
+import game.model.main.GameEngine;
 
-import java.util.ArrayList;
+import java.util.*;
 
-//#todo: implement class
 public class Room {
-    private static final Logger logger = LogManager.getLogger();
+
+    private GameEngine gameEngine;
+
+    public void setGameEngine(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
+    }
     private int capacity;
     private boolean gassed;
     private boolean cursed;
@@ -23,81 +28,131 @@ public class Room {
     private ArrayList<Character> characters;
 
     // Constructor
-    public Room() {
-        // Initialization logic can be added here
+    public Room(int c, boolean g, boolean cu, ArrayList<Door> ds, ArrayList<Item> is, ArrayList<Character> cs) {
+        capacity = c;
+        gassed = g;
+        cursed = cu;
+        doors = ds != null ? new ArrayList<>(ds) : new ArrayList<>();
+        items = is != null ? new ArrayList<>(is) : new ArrayList<>();
+        characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
     }
-
-    // Methods with empty bodies
-    public void setDoors(ArrayList<Door> doors) {
-        // Method body to be implemented
+    
+    public ArrayList<Door> getDoors(){return doors;}
+    public void setDoors(ArrayList<Door> ds) {
+        for(Door d: ds) {
+            doors.add(d);
+        }
     }
 
     public void addDoor(Door door) {
-        // Method body to be implemented
+        doors.add(door);
     }
 
     public Door removeDoor(Door door) {
-        // Method body to be implemented
+        doors.remove(door);
+        Suttogo.info("\tret null");
         return null;
     }
 
+    public ArrayList<Door> getDoors() {
+        Suttogo.info("\tret ArrayList<Door>");
+        return doors;
+    }
+
     public void addItem(Item item) {
-        // Method body to be implemented
+        items.add(item);
     }
 
     public Item removeItem(Item item) {
-        // Method body to be implemented
+        items.remove(item);
+        Suttogo.info("\tret null");
         return null;
     }
 
     public ArrayList<Item> getItems() {
-        // Method body to be implemented
-        return null;
+        Suttogo.info("\tret ArrayList<Item>");
+        return items;
     }
 
-    public boolean addCharacter(Character character) {
-        // Method body to be implemented
-        return false;
+    public void addCharacter(Character character) {
+        characters.add(character);
     }
 
-    public boolean removeCharacter(Character character) {
-        // Method body to be implemented
-        return false;
+    public void removeCharacter(Character character) {
+        characters.remove(character);
+    }
+
+    public ArrayList<Character> getCharacters() {
+        Suttogo.info("\tret ArrayList<Character>");
+        return characters;
     }
 
     public ArrayList<Student> getStudents() {
-        // Method body to be implemented
-        return null;
+        ArrayList<Student> students = null;
+        for (Character character : characters) {
+            if (character instanceof Student) {
+                students.add((Student) character);
+            }
+        }
+        Suttogo.info("\tret ArrayList<Student>");
+        return students;
     }
 
     public ArrayList<Professor> getProfessors() {
-        // Method body to be implemented
-        return null;
+        ArrayList<Professor> professors = null;
+        for (Character character : characters) {
+            if (character instanceof Professor) {
+                professors.add((Professor) character);
+            }
+        }
+        Suttogo.info("\tret ArrayList<Professor>");
+        return professors;
     }
 
     public void paralyzeProfessors() {
-        // Method body to be implemented
+        for (Character character : characters) {
+            if (character instanceof Professor) {
+                character.setParalyzed(true);
+            }
+        }
     }
 
-    public void setGassed(boolean gassed) {
-        // Method body to be implemented
+    public void setGassed(boolean g) {
+        gassed = g;
     }
+
+    public void setCursed(boolean c) { cursed = c; }
 
     public void checkGas() {
-        // Method body to be implemented
+        if(gassed) {
+            for (Character character : characters) {
+                if (character.getItems().stream().noneMatch(FFP2.class::isInstance)) {
+                    character.setParalyzed(true);
+                }
+            }
+        }
     }
 
     public void killStudents() {
-        // Method body to be implemented
+        for (Character character : characters) {
+            if (character instanceof Student) {
+                character.die();
+            }
+        }
     }
 
     public boolean getGassed() {
-        // Method body to be implemented
-        return false;
+        Suttogo.info("\tret boolean");
+        return gassed;
     }
 
     public boolean getCursed() {
-        // Method body to be implemented
-        return false;
+        Suttogo.info("\tret boolean");
+        return cursed;
+    }
+
+    public int getCapacity() {
+        Suttogo.info("\tret int");
+        return capacity;
     }
 }
