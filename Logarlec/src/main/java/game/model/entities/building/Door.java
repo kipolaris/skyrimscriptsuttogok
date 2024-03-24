@@ -19,17 +19,12 @@ public class Door {
     }
 
     public boolean accept(Character c, Room r){
-<<<<<<< HEAD
-        if(r.getCharacters().size()+1 >= r.getCapacity() || !visible) return false;
-        r.addCharacter(c);
-=======
-        if(r.getCharacters().size()+1 >= r.getCapacity()) {
+        if(r.getCharacters().size()+1 >= r.getCapacity() || !visible) {
             Suttogo.info("\tret false");
             return false;
         }
         else r.addCharacter(c);
         Suttogo.info("\tret true");
->>>>>>> a92a24f30876e4bf858951c8f10c43766539e4cd
         return true;
     }
 
