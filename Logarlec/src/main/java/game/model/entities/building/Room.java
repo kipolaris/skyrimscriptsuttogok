@@ -1,9 +1,11 @@
 package game.model.entities.building;
 
 import game.model.entities.Professor;
+import game.model.entities.Character;
 import game.model.entities.Student;
 import game.model.entities.Character;
 import game.model.entities.items.Item;
+import game.model.main.GameEngine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,6 +13,12 @@ import java.util.ArrayList;
 
 //#todo: implement class
 public class Room {
+
+    private GameEngine gameEngine;
+
+    public void setGameEngine(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
+    }
     private static final Logger logger = LogManager.getLogger();
     private int capacity;
     private boolean gassed;

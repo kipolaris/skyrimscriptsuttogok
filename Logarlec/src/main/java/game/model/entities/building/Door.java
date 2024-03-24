@@ -1,5 +1,7 @@
 package game.model.entities.building;
 
+import game.model.entities.Character;
+
 //#todo: implement class
 public class Door {
     private Room from;

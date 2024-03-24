@@ -2,6 +2,10 @@ package game.model.entities.items;
 
 //#todo: implement class
 public class Cups extends Item{
+
+    public int getPriority(){
+        return 1;
+    }
     @Override
     public void activate() {
         this.activated = true;
