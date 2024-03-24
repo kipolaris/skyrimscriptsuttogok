@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94e5a1f4-40a6-43b1-b82d-fdf6967638e7" name="Changes" comment="Rag teszt befejezve">
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/GasTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/InventoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/KillTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/MergeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/MoveTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Flow",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
