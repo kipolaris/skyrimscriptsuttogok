@@ -2,6 +2,10 @@ package game.model.entities.items;
 
 //#todo: implement class
 public class TVSZ extends Item{
+
+    public int getPriority(){
+        return 2;
+    }
     @Override
     public void activate() {
         //implement

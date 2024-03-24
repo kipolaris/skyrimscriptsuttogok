@@ -7,6 +7,10 @@ public class FFP2 extends Item{
         //implement
     }
 
+    public int getPriority(){
+        return 1;
+    }
+
     @Override
     public boolean decreaseDurability() {
         return false;
