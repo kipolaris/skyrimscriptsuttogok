@@ -5,6 +5,7 @@ import game.model.entities.Character;
 import game.model.entities.Student;
 import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 
 import java.util.*;
@@ -48,10 +49,12 @@ public class Room {
 
     public Door removeDoor(Door door) {
         doors.remove(door);
+        Suttogo.info("\tret null");
         return null;
     }
 
     public ArrayList<Door> getDoors() {
+        Suttogo.info("\tret ArrayList<Door>");
         return doors;
     }
 
@@ -61,10 +64,12 @@ public class Room {
 
     public Item removeItem(Item item) {
         items.remove(item);
+        Suttogo.info("\tret null");
         return null;
     }
 
     public ArrayList<Item> getItems() {
+        Suttogo.info("\tret ArrayList<Item>");
         return items;
     }
 
@@ -77,6 +82,7 @@ public class Room {
     }
 
     public ArrayList<Character> getCharacters() {
+        Suttogo.info("\tret ArrayList<Character>");
         return characters;
     }
 
@@ -87,6 +93,7 @@ public class Room {
                 students.add((Student) character);
             }
         }
+        Suttogo.info("\tret ArrayList<Student>");
         return students;
     }
 
@@ -97,6 +104,7 @@ public class Room {
                 professors.add((Professor) character);
             }
         }
+        Suttogo.info("\tret ArrayList<Professor>");
         return professors;
     }
 
@@ -133,14 +141,17 @@ public class Room {
     }
 
     public boolean getGassed() {
+        Suttogo.info("\tret boolean");
         return gassed;
     }
 
     public boolean getCursed() {
+        Suttogo.info("\tret boolean");
         return cursed;
     }
 
     public int getCapacity() {
+        Suttogo.info("\tret int");
         return capacity;
     }
 }
