@@ -1,7 +1,4 @@
 package game.model.entities.items;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import game.model.logging.Suttogo;
 
 public class Transistor extends Item{
