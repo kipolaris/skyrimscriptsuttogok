@@ -1,5 +1,4 @@
 package game.model.entities.items;
-
 import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
