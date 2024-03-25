@@ -27,10 +27,10 @@ g
 7Logarlec/src/main/java/game/model/entities/Student.java,b\f\bfebdb3070b6050b73a59ff8e4cf90211afa2653
 i
 9Logarlec/src/main/java/game/model/entities/Character.java,c\4\c451c3095eccc68fb19521c4de61b34a9672a1e7
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 j
 :Logarlec/src/main/java/game/model/entities/items/Item.java,3\5\35fd783345d9f83943bbf54cd45270e216e56827
 i
 9Logarlec/src/main/java/game/model/entities/items/Rag.java,9\8\982ce136f05a7049c24d0412bf480da3b09702fc
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

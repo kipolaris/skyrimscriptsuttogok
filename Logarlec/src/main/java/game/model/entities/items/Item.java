@@ -25,7 +25,10 @@ public abstract class Item {
 
     public abstract int getPriority();
 
-    public void setDurability(int durability) { this.durability = durability; }
+    public void setDurability(int durability) {
+        Suttogo.info("setDurability(int)");
+        this.durability = durability;
+    }
 
     public abstract boolean decreaseDurability();
 
@@ -38,6 +41,7 @@ public abstract class Item {
     }
 
     public void setLocation(Room room){
+        Suttogo.info("setLocation(Room)");
         this.location=room;
     }
 

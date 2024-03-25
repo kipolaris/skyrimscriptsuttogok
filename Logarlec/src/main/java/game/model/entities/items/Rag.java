@@ -1,8 +1,7 @@
 package game.model.entities.items;
 
 import game.model.logging.Suttogo;
-
-//#todo: implement class
+g
 public class Rag extends Item{
 
     public int getPriority(){
