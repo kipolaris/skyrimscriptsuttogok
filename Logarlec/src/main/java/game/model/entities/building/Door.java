@@ -11,8 +11,11 @@ public class Door {
 
     private boolean visible;
 
+<<<<<<< HEAD
     //Konstruktor: Létrehozza az ajtót, beállítja, hogy melyik szobák tartoznak hozzá,
     //hogy mindkét irányból lehet-e használni, és hogy látható-e
+=======
+>>>>>>> 4a0a2b0d236c5c3f561ee41dd7a75984b397d749
     public Door(Room f, Room t, boolean bW, boolean v) {
         from = f;
         to = t;
@@ -20,20 +23,20 @@ public class Door {
         visible = v;
     }
 
-    //Visszaadja, hogy egy karakter be tud-e lépni az adott szobába. Ha be tud lépni akkor be is lépteti
     public boolean accept(Character c, Room r){
-        if(r.getCharacters().size()+1 >= r.getCapacity() || !visible) {
-            Suttogo.info("\tret false");
+        Suttogo.info("accept(Character, Room)");
+        if(r.getCharacters().size()+1 >= r.getCapacity()) {
+            Suttogo.info("\treturn false");
             return false;
         }
         else r.addCharacter(c);
-        Suttogo.info("\tret true");
+        Suttogo.info("\treturn true");
         return true;
     }
 
-    //Lekéri az ajtó adott szobájának a szomszédját
     public Room getNeighbour(Room r){
-        Suttogo.info("\tret Room");
+        Suttogo.info("getNeighbour(Room)");
+        Suttogo.info("\treturn Room");
         if(r==from) return to;
         else return from;
     }
