@@ -8,6 +8,8 @@ import java.util.PriorityQueue;
 //#todo: implement class
 public class Student extends Character{
 
+    //Ha a hallgatót egy tanár megpróbálja megölni. Itt esik sor a védelmi tárgyak
+    //leellenőrzésére, és ha nincs, akkor a hallgató meghal
     @Override
     public boolean die() {
         PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
@@ -31,6 +33,7 @@ public class Student extends Character{
         return false;
     }
 
+    //Hallgató egy köre
     @Override
     public void doRound() {
         //ezt akkor kéne megcsinálni, amikor már a grafikus interfésszel kapcsolatos event kezelés is tálalékon lesz,
@@ -39,6 +42,7 @@ public class Student extends Character{
         throw new UnsupportedOperationException();
     }
 
+    //Ha van egy tranzisztora a hallgatónak, ezáltal tudja azt lekérdezni
     public Transistor getActiveTransistor(){
         for(Item i : items){
             if(i.isPairable()){

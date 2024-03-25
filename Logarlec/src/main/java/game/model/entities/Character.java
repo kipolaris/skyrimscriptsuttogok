@@ -32,26 +32,32 @@ public class Character {
         return Integer.compare(o1.getDurability(), o1.getDurability());
     };
 
+    //Szoba/helyszín lekérdezése
     public Room getLocation() {
         return location;
     }
 
+    //Tartózkodási szoba beállítása
     public void setLocation(Room location) {
         this.location = location;
     }
 
+    //A karakter paralizáltságát mutatja meg
     public boolean getParalyzed() {
         return paralyzed;
     }
 
+    //Ha egy tárgyat fel akar valaki használni, akkor ez a függvény azt lekezeli
     public void useItem(Item i) {
         i.activate();
     }
 
+    //Visszaadja a karakternél levő tárgyakat
     public ArrayList<Item> getItems() {
         return items;
     }
 
+    //Tárgy felvétele
     public void addItem(Item item) {
         if(actions>0 && items.size()<maxInventorySize){
             location.removeItem(item);
@@ -67,6 +73,7 @@ public class Character {
         items.add(item);
     }
 
+    //Tárgy eldobása
     public void dropItem(Item item) {
         Suttogo.info("message");
         if(items.contains(item)){
@@ -75,6 +82,7 @@ public class Character {
         }
     }
 
+    //A karakter paralizáltságának beállítása
     public void setParalyzed(boolean b) {
         if(b) {
             PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
@@ -100,6 +108,7 @@ public class Character {
         }
     }
 
+    //Oktató bénítása
     public void setProfessorParalyzed(boolean b) {
         throw new UnsupportedOperationException();
     }
@@ -111,18 +120,22 @@ public class Character {
         }
     }
 
+    //Passzolás
     public void skipTurn() {
         throw new UnsupportedOperationException();
     }
 
+    //Kör lejátszása
     public void doRound() {
         throw new UnsupportedOperationException();
     }
 
+    //Aktív tranzisztor meghatározása
     public Transistor getActiveTransistor() {
         throw new UnsupportedOperationException();
     }
 
+    //Így nem lehet meghalni csak úgy
     public boolean die() {
         throw new UnsupportedOperationException();
     }
