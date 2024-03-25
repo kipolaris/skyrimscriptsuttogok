@@ -20,6 +20,8 @@ public class SlideRuleTest {
         characters.add(student);
         items.add(slideRule);
         room = new Room(2,false,false,null,items,characters);
+        slideRule.setLocation(room);
+        student.setLocation(room);
     }
 
     public void slideRuleFound() {

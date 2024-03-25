@@ -23,8 +23,8 @@ public class Rag extends Item{
     public void activate() {
         Suttogo.info("activate()");
         this.activated = true;
-        this.location.paralyzeProfessors();
         owner.dropItem(this);
+        this.location.paralyzeProfessors();
     }
 
     //A tárgy élettartamát csökkenti. Ha aktív a tárgy, akkor körönként egy életet veszt.

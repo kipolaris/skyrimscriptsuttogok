@@ -3,6 +3,8 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import java.util.ArrayList;
+
 public abstract class Item {// tárgy ősosztály
     protected boolean activated;
     protected boolean defensive;

@@ -12,8 +12,8 @@ public class TransistorTest {
     private Student student = new Student();
     private Room room1;
     private Room room2;
-    private Transistor trans1 = new Transistor(false, false, 1, room1, null);
-    private Transistor trans2 = new Transistor(false, false, 1, room2, null);
+    private Transistor trans1;
+    private Transistor trans2;
     private Door door;
     private FFP2 ffp2 = new FFP2(false, false, 1, room1, null);
     private ArrayList<Character> r1characters = new ArrayList<>();
@@ -21,14 +21,20 @@ public class TransistorTest {
 
 
     public void initialize() {
+        room1 = new Room(2,false,false,doors,null,r1characters);
+        room2 = new Room(2,false,false,doors,null,null);
+
+        trans1 = new Transistor(false, false, 1, room1, null);
+        trans2 = new Transistor(false, false, 1, room1, null);
+
+
         doors.add(door);
         door = new Door(room1, room2,true,true);
         r1characters.add(student);
+
+        student.setLocation(room1);
         student.addItem(trans1);
         student.addItem(trans2);
-
-        room1 = new Room(2,false,false,doors,null,r1characters);
-        room2 = new Room(2,false,false,doors,null,null);
     }
 
     public void transistorPair(){
@@ -43,6 +49,7 @@ public class TransistorTest {
         Suttogo.info("TEST: Placing a transistor");
         student.useItem(trans1);
         student.dropItem(trans1);
+
         Suttogo.info("--------------------------------------------------------");
     }
 

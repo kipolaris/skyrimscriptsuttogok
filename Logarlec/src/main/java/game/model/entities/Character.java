@@ -13,7 +13,7 @@ public class Character {
     public static int maxInventorySize = 5;
     protected boolean paralyzed;
 
-    protected int actions;
+    protected int actions = 3;
     protected Room location;
 
     protected ArrayList<Item> items = new ArrayList<>();
@@ -59,6 +59,7 @@ public class Character {
     public void useItem(Item i) {
         Suttogo.info("useItem(Item)");
         i.activate();
+        i.decreaseDurability();
     }
 
     //Visszaadja a karakternél levő tárgyakat
@@ -74,6 +75,7 @@ public class Character {
         if(actions>0 && items.size()<maxInventorySize){
             location.removeItem(item);
             items.add(item);
+            item.setOwner(this);
         }
     }
 

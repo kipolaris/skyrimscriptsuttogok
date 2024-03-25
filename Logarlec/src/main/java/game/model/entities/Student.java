@@ -13,7 +13,7 @@ public class Student extends Character{
     @Override
     public boolean die() {
         Suttogo.info("die()");
-        Suttogo.info("\treturn boolean");
+
         PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
 
         for (Item i : items) {
@@ -26,12 +26,14 @@ public class Student extends Character{
         Item chosen = itemPriorityQueue.poll();
 
         if (chosen == null) {
+            Suttogo.info("\treturn true");
             return true;
         } else {
             if (!chosen.decreaseDurability()) {
                 items.remove(chosen);
             }
         }
+        Suttogo.info("\treturn false");
         return false;
     }
 

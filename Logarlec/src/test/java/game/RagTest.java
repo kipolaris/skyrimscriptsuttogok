@@ -12,14 +12,17 @@ public class RagTest {
     private Room room;
     private Student student = new Student();
     private Professor professor = new Professor();
-    private Rag rag = new Rag(false, false, 2, null, student);
+    private Rag rag = new Rag(false, false, 2, null, null);
     ArrayList<Character> characters = new ArrayList<>();
 
     public void initialize() {
+        room = new Room(2,false,false,null,null,characters);
+
+        rag.setOwner(student);
+        student.setLocation(room);
+
         characters.add(student);
         student.addItem(rag);
-
-        room = new Room(2,false,false,null,null,characters);
     }
 
     public void ActivateRag() {

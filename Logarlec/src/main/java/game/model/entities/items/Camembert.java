@@ -21,7 +21,8 @@ public class Camembert extends Item{
     public void activate() { // ezzel lehet aktiválni a tárgyat, ezután a szoba mérgesgázzal teli lesz
 
         Suttogo.info("activate()");
-        location.setGassed(true);
+        Room loc = owner.getLocation();
+        loc.setGassed(true);
         durability = 0;
     }
 

@@ -18,6 +18,7 @@ public class CamembertTest {
         characters.add(student);
         room = new Room(2,false,false,null,null,characters);
         room.addCharacter(student);
+        student.setLocation(room);
         student.addItem(camembert);
     }
 

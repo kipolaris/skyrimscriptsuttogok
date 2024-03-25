@@ -20,15 +20,15 @@ public class KillTest {
         r1 = new Room(1, false, false, null, null, null);
         s1 = new Student();
         p1 = new Professor();
-        f1 = new FFP2(true, true, 2, null, s1);
+        f1 = new FFP2(true, true, 2, null, null);
 
         r1.addCharacter(s1);
         r1.addCharacter(p1);
         s1.setLocation(r1);
         p1.setLocation(r1);
-        s1.addItem(f1);
     }
     public void NoProtection() {
+        s1.addItem(f1);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Professor attacks a defenseless student");
         p1.getLocation().killStudents();
@@ -36,7 +36,7 @@ public class KillTest {
     }
 
     public void CupsDontBreak() {
-        c1 = new Cups(true, true, 2, null, s1);
+        c1 = new Cups(true, true, 2, null, null);
         s1.addItem(c1);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Professor attacks a student who has a cups that break");

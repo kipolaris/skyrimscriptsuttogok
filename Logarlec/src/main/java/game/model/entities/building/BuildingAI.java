@@ -8,7 +8,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 
 public class BuildingAI {
-    private ArrayList<Room> labyrinth;
+    private ArrayList<Room> labyrinth = new ArrayList<>();
 
     //Összeolvaszt két szobát a labirintusban
     public void mergeRooms(Room r1, Room r2){
