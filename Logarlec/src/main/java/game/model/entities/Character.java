@@ -135,7 +135,4 @@ public class Character {
     public boolean die() {
         throw new UnsupportedOperationException();
     }
-
-
 }
-//end class Character

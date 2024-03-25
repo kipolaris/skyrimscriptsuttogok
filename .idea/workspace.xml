@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94e5a1f4-40a6-43b1-b82d-fdf6967638e7" name="Changes" comment="Rag teszt befejezve">
+    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Door javítása">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +29,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2e6REEsGzhU1HuVi6AnJK1Vrfcz" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -38,28 +40,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ArmandLog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Flow&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711222929269</updated>
       <workItem from="1711222930422" duration="2806000" />
-      <workItem from="1711279038707" duration="9939000" />
+      <workItem from="1711279038707" duration="21726000" />
     </task>
     <task id="LOCAL-00001" summary="Door és Room befejezve, tesztek elkezdve">
       <created>1711284336379</created>
@@ -92,7 +95,49 @@
       <option name="project" value="LOCAL" />
       <updated>1711292187540</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rag teszt javítva, tranzisztor teszt elkezdve, Door konstruktor megírva">
+      <created>1711293235403</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711293235403</updated>
+    </task>
+    <task id="LOCAL-00005" summary="RagTest javítva, TransistorTest javítva, CamembertTest, SlideRuleTest, SplitTest elkészítve">
+      <created>1711313774256</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711313774256</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Room javítva">
+      <created>1711314120880</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711314120880</updated>
+    </task>
+    <task id="LOCAL-00007" summary="setCursed megírva">
+      <created>1711316178681</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711316178681</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Tesztek és Room frissítve">
+      <created>1711316872472</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711316872472</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Door javítása">
+      <created>1711323792545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711323792545</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +147,12 @@
     <MESSAGE value="Door és Room befejezve, tesztek elkezdve" />
     <MESSAGE value="Rag teszt frissítve" />
     <MESSAGE value="Rag teszt befejezve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rag teszt befejezve" />
+    <MESSAGE value="Rag teszt javítva, tranzisztor teszt elkezdve, Door konstruktor megírva" />
+    <MESSAGE value="RagTest javítva, TransistorTest javítva, CamembertTest, SlideRuleTest, SplitTest elkészítve" />
+    <MESSAGE value="Room javítva" />
+    <MESSAGE value="setCursed megírva" />
+    <MESSAGE value="Tesztek és Room frissítve" />
+    <MESSAGE value="Door javítása" />
+    <option name="LAST_COMMIT_MESSAGE" value="Door javítása" />
   </component>
 </project>

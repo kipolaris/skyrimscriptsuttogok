@@ -1,7 +1,12 @@
 package game.model.entities.items;
 
-//#todo: implement class
+import game.model.entities.Character;
+import game.model.entities.building.Room;
+import game.model.main.GameEngine;
+
 public class SlideRule extends Item{
+
+    private game.model.main.GameEngine engine;
 
     public int getPriority(){
         return -1;
@@ -29,5 +34,15 @@ public class SlideRule extends Item{
     @Override
     public boolean protectFromGas() {
         return false;
+    }
+    @Override
+    public void setLocation(Room room){
+        if(room==null){
+            engine.endGame();
+        }
+        this.location=room;
+    }
+    public void setGameEngine(GameEngine e){
+        this.engine = e;
     }
 }

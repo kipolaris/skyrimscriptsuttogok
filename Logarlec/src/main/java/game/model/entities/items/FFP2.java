@@ -1,6 +1,5 @@
 package game.model.entities.items;
 
-//#todo: implement class
 public class FFP2 extends Item{
     @Override
     public void activate() {

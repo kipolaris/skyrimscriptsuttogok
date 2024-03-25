@@ -6,7 +6,6 @@ import game.model.logging.Suttogo;
 
 import java.util.PriorityQueue;
 
-//#todo: implement class
 public class Student extends Character{
 
     @Override
