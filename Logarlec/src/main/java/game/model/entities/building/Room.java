@@ -27,12 +27,8 @@ public class Room {
 
     private ArrayList<Character> characters;
 
-<<<<<<< HEAD
     // Konstruktor: létrehoz egy szobát, beállítja a tulajdonságait,
     // és inicializálja a szobához tartozó entitások és ajtók listáit
-=======
-    // Constructor
->>>>>>> 4a0a2b0d236c5c3f561ee41dd7a75984b397d749
     public Room(int c, boolean g, boolean cu, ArrayList<Door> ds, ArrayList<Item> is, ArrayList<Character> cs) {
         capacity = c;
         gassed = g;
@@ -41,6 +37,8 @@ public class Room {
         items = is != null ? new ArrayList<>(is) : new ArrayList<>();
         characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
     }
+
+    //Beállítja a szoba ajtajait
     public void setDoors(ArrayList<Door> ds) {
         Suttogo.info("setDoors(ArrayList<Door>)");
         for(Door d: ds) {
@@ -48,11 +46,13 @@ public class Room {
         }
     }
 
+    //Hozzáad egy ajtót a szobához
     public void addDoor(Door door) {
         Suttogo.info("addDoor(Door)");
         doors.add(door);
     }
 
+    //Eltávolítja a szoba egyik ajtaját
     public Door removeDoor(Door door) {
         doors.remove(door);
         Suttogo.info("removeDoor(Door)");
@@ -60,17 +60,20 @@ public class Room {
         return null;
     }
 
+    //Lekérdezi a szoba ajtóit
     public ArrayList<Door> getDoors() {
         Suttogo.info("getDoors()");
         Suttogo.info("\treturn ArrayList<Door>");
         return doors;
     }
 
+    //Lehelyez egy tárgyat a szobában
     public void addItem(Item item) {
         Suttogo.info("addDoor(Item)");
         items.add(item);
     }
 
+    //Eltávolít egy tárgyat a szobából
     public Item removeItem(Item item) {
         items.remove(item);
         Suttogo.info("removeItem(Item)");
@@ -78,28 +81,33 @@ public class Room {
         return null;
     }
 
+    //Lekérdezi a szobában lévő tárgyakat
     public ArrayList<Item> getItems() {
         Suttogo.info("getItems()");
         Suttogo.info("\treturn ArrayList<Item>");
         return items;
     }
 
+    //Hozzáad egy karaktert a szobához
     public void addCharacter(Character character) {
         Suttogo.info("addCharacter(Character)");
         characters.add(character);
     }
 
+    //Eltávolít egy karaktert a szobából
     public void removeCharacter(Character character) {
         Suttogo.info("removeCharacter(Character)");
         characters.remove(character);
     }
 
+    //Lekérdezi a szobában lévő karaktereket
     public ArrayList<Character> getCharacters() {
         Suttogo.info("getCharacters()");
         Suttogo.info("\treturn ArrayList<Character>");
         return characters;
     }
 
+    //Lekérdezi a szobában lévő hallgatókat
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = null;
         for (Character character : characters) {
@@ -112,6 +120,7 @@ public class Room {
         return students;
     }
 
+    //Lekérdezi a szobában lévő oktatókat
     public ArrayList<Professor> getProfessors() {
         ArrayList<Professor> professors = null;
         for (Character character : characters) {
@@ -124,6 +133,7 @@ public class Room {
         return professors;
     }
 
+    //Megbénítja a szobában lévő oktatókat
     public void paralyzeProfessors() {
         Suttogo.info("paralyzeProfessors()");
         for (Character character : characters) {
@@ -133,16 +143,20 @@ public class Room {
         }
     }
 
+    //Elgázosítja a szobát
     public void setGassed(boolean g) {
         Suttogo.info("setGassed()");
         gassed = g;
     }
 
+    //Elátkozza a szobát
     public void setCursed(boolean c) {
         Suttogo.info("setCursed()");
         cursed = c;
     }
 
+    //Megpróbálja megbénítani a szobában tartozkodó karaktereket,
+    //és ha nincs védelmük meg is bénítja
     public void checkGas() {
         Suttogo.info("checkGas()");
         if(gassed) {
@@ -154,6 +168,7 @@ public class Room {
         }
     }
 
+    //Megöli a szobában tartozkodó hallgatókat
     public void killStudents() {
         Suttogo.info("killStudents()");
         for (Character character : characters) {
@@ -163,18 +178,21 @@ public class Room {
         }
     }
 
+    //Lekérdezi, hogy gázos-e a szoba
     public boolean getGassed() {
         Suttogo.info("getGassed()");
         Suttogo.info("\treturn boolean");
         return gassed;
     }
 
+    //Lekérdezi, hogy átkozott-e a szoba
     public boolean getCursed() {
         Suttogo.info("getCursed()");
         Suttogo.info("\treturn boolean");
         return cursed;
     }
 
+    //Lekérdezi a szoba kapacitását
     public int getCapacity() {
         Suttogo.info("getCapacity()");
         Suttogo.info("\treturn int");
