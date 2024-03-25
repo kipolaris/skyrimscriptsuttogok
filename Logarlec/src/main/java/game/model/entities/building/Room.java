@@ -36,15 +36,15 @@ public class Room {
         items = is != null ? new ArrayList<>(is) : new ArrayList<>();
         characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
     }
-    
-    public ArrayList<Door> getDoors(){return doors;}
     public void setDoors(ArrayList<Door> ds) {
+        Suttogo.info("setDoors(ArrayList<Door>)");
         for(Door d: ds) {
             doors.add(d);
         }
     }
 
     public void addDoor(Door door) {
+        Suttogo.info("addDoor(Door)");
         doors.add(door);
     }
 
@@ -62,6 +62,7 @@ public class Room {
     }
 
     public void addItem(Item item) {
+        Suttogo.info("addDoor(Item)");
         items.add(item);
     }
 
@@ -79,10 +80,12 @@ public class Room {
     }
 
     public void addCharacter(Character character) {
+        Suttogo.info("addCharacter(Character)");
         characters.add(character);
     }
 
     public void removeCharacter(Character character) {
+        Suttogo.info("removeCharacter(Character)");
         characters.remove(character);
     }
 
@@ -117,6 +120,7 @@ public class Room {
     }
 
     public void paralyzeProfessors() {
+        Suttogo.info("paralyzeProfessors()");
         for (Character character : characters) {
             if (character instanceof Professor) {
                 character.setParalyzed(true);
@@ -125,12 +129,17 @@ public class Room {
     }
 
     public void setGassed(boolean g) {
+        Suttogo.info("setGassed()");
         gassed = g;
     }
 
-    public void setCursed(boolean c) { cursed = c; }
+    public void setCursed(boolean c) {
+        Suttogo.info("setCursed()");
+        cursed = c;
+    }
 
     public void checkGas() {
+        Suttogo.info("checkGas()");
         if(gassed) {
             for (Character character : characters) {
                 if (character.getItems().stream().noneMatch(FFP2.class::isInstance)) {
@@ -141,6 +150,7 @@ public class Room {
     }
 
     public void killStudents() {
+        Suttogo.info("killStudents()");
         for (Character character : characters) {
             if (character instanceof Student) {
                 character.die();

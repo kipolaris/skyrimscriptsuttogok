@@ -2,8 +2,6 @@ package game.model.entities.items;
 
 import game.model.entities.Character;
 import game.model.entities.building.Room;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import game.model.logging.Suttogo;
 
 public class Transistor extends Item{
@@ -19,6 +17,7 @@ public class Transistor extends Item{
 
     @Override
     public void activate() {
+        Suttogo.info("activate()");
         if(this.Pair == null) {
             Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
             this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
@@ -61,7 +60,10 @@ public class Transistor extends Item{
         return false;
     }
 
-    public void setPair(Transistor p){ this.Pair = p; }
+    public void setPair(Transistor p){
+      Suttogo.info("setPair(Transistor)");
+      this.Pair = p;
+    }
 
     public Transistor getPair() {
         Suttogo.info("getPair()");
@@ -70,11 +72,13 @@ public class Transistor extends Item{
     }
 
     public void pair(Transistor t){
+        Suttogo.info("pair(Transistor)");
         t.setPair(this);
         this.setPair(t);
     }
 
     public void unpair(){
+        Suttogo.info("unpair()");
         this.Pair.setPair(null);
         this.setPair(null);
 
