@@ -6,20 +6,27 @@ import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
 public class TVSZ extends Item{
+
+    //Konstruktor: ltrehozza a tárgyat, és inicializálja az értékeit
     public TVSZ(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super(activated, defensive, durability, location, owner);
     }
+
+    //A prioritási listán szerepet tölt be, értéke 2
     public int getPriority(){
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn 2");
         return 2;
     }
+
+    //Aktiválás esetén
     @Override
     public void activate() {
         Suttogo.info("activate()");
         this.activated = true;
     }
 
+    //Ha hsználjuk, csökken az élettartama eggyel a kezdő 3-ból
     @Override
     public boolean decreaseDurability() {
         Suttogo.info("decreaseDurability()");
@@ -33,6 +40,7 @@ public class TVSZ extends Item{
         return true;
     }
 
+    //Nem párosítható
     @Override
     public boolean isPairable() {
         Suttogo.info("isPairable()");
@@ -40,6 +48,7 @@ public class TVSZ extends Item{
         return false;
     }
 
+    //Meg tud védeni a tanártól, de csak akkor, ha aktiválva van
     @Override
     public boolean protectFromKill() {
         Suttogo.info("protectFromKill()");
@@ -51,6 +60,7 @@ public class TVSZ extends Item{
         return false;
     }
 
+    //Gáz ellen nem tud védeni
     @Override
     public boolean protectFromGas() {
         Suttogo.info("protectFromGas()");
