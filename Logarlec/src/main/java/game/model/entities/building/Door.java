@@ -11,7 +11,7 @@ public class Door {
 
     private boolean visible;
 
-    //Létrehozza az ajtót, beállítja, hogy melyik szobák tartoznak hozzá,
+    //Konstruktor: Létrehozza az ajtót, beállítja, hogy melyik szobák tartoznak hozzá,
     //hogy mindkét irányból lehet-e használni, és hogy látható-e
     public Door(Room f, Room t, boolean bW, boolean v) {
         from = f;

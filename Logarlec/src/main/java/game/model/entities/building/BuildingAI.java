@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class BuildingAI {
     private ArrayList<Room> labyrinth;
 
-    //Összeolvaszt két szobát a labirintusban.
+    //Összeolvaszt két szobát a labirintusban
     public void mergeRooms(Room r1, Room r2){
         int ossz = r1.getCharacters().size()+r2.getCharacters().size();
         int max = 0;

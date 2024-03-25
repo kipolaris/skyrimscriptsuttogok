@@ -28,7 +28,7 @@ public class Room {
     private ArrayList<Character> characters;
 
     // Konstruktor: létrehoz egy szobát, beállítja a tulajdonságait,
-    // és inicializálja a szobához tartozó entitások listáit
+    // és inicializálja a szobához tartozó entitások és ajtók listáit
     public Room(int c, boolean g, boolean cu, ArrayList<Door> ds, ArrayList<Item> is, ArrayList<Character> cs) {
         capacity = c;
         gassed = g;
