@@ -5,13 +5,14 @@ import game.model.entities.Student;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.entities.items.SlideRule;
+import game.model.logging.Suttogo;
 
 import java.util.ArrayList;
 
 public class SlideRuleTest {
     private Student student = new Student();
     private Room room;
-    private SlideRule slideRule = new SlideRule();
+    private SlideRule slideRule = new SlideRule(false, false, 1, room, null);
     private ArrayList<Character> characters = new ArrayList<Character>();
     private ArrayList<Item> items = new ArrayList<Item>();
 
@@ -22,6 +23,9 @@ public class SlideRuleTest {
     }
 
     public void slideRuleFound() {
+        Suttogo.info("--------------------------------------------------------");
+        Suttogo.info("TEST: Picking up the sliderule");
         student.addItem(slideRule);
+        Suttogo.info("--------------------------------------------------------");
     }
 }
