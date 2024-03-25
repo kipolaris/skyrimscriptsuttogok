@@ -11,6 +11,11 @@ public class Door {
 
     private boolean visible;
 
+<<<<<<< HEAD
+    //Konstruktor: Létrehozza az ajtót, beállítja, hogy melyik szobák tartoznak hozzá,
+    //hogy mindkét irányból lehet-e használni, és hogy látható-e
+=======
+>>>>>>> 4a0a2b0d236c5c3f561ee41dd7a75984b397d749
     public Door(Room f, Room t, boolean bW, boolean v) {
         from = f;
         to = t;

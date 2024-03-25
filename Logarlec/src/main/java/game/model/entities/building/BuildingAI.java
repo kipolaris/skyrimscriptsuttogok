@@ -10,6 +10,10 @@ import java.util.ArrayList;
 public class BuildingAI {
     private ArrayList<Room> labyrinth;
 
+<<<<<<< HEAD
+    //Összeolvaszt két szobát a labirintusban
+=======
+>>>>>>> 4a0a2b0d236c5c3f561ee41dd7a75984b397d749
     public void mergeRooms(Room r1, Room r2){
         Suttogo.info("mergeRooms(Room, Room)");
         int ossz = r1.getCharacters().size()+r2.getCharacters().size();

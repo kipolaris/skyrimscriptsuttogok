@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz" />
+=======
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Door javítása">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -22,6 +25,7 @@
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
     </list>
+>>>>>>> 4a0a2b0d236c5c3f561ee41dd7a75984b397d749
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711325044290</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Javadoc kommentek a buildinges osztályokhoz">
+      <created>1711356138299</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711356138299</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
