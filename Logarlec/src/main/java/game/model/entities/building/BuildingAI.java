@@ -2,6 +2,7 @@ package game.model.entities.building;
 
 import game.model.entities.Character;
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -9,8 +10,8 @@ import java.util.ArrayList;
 public class BuildingAI {
     private ArrayList<Room> labyrinth;
 
-    //Összeolvaszt két szobát a labirintusban.
     public void mergeRooms(Room r1, Room r2){
+        Suttogo.info("mergeRooms(Room, Room)");
         int ossz = r1.getCharacters().size()+r2.getCharacters().size();
         int max = 0;
         if (r1.getCapacity() > r2.getCapacity())
@@ -65,8 +66,8 @@ public class BuildingAI {
         }
     }
 
-    //Egy megadott szobát a labirintusban két szobára oszt
     public void splitRoom(Room r1){
+        Suttogo.info("splitRoom(Room)");
         if (!(r1.getDoors().size() < 2)){
             ArrayList<Door> ajto1 = new ArrayList<>();
             ArrayList<Door> ajto2 = new ArrayList<>();
@@ -105,13 +106,13 @@ public class BuildingAI {
         }
     }
 
-    //Hozzáad egy szobát a labirintushoz
     public void addRoom(Room r1){
+        Suttogo.info("addRoom(Room)");
         labyrinth.add(0, r1);
     }
 
-    //Eltávolít egy szobát a labirintusból
     public void removeRoom(Room r1){
+        Suttogo.info("removeRoom(Room)");
         labyrinth.remove(r1);
     }
 }
