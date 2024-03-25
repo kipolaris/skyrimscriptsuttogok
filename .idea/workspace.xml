@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Door javítása">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711316872472</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Door javítása">
+      <created>1711323792545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711323792545</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +152,7 @@
     <MESSAGE value="Room javítva" />
     <MESSAGE value="setCursed megírva" />
     <MESSAGE value="Tesztek és Room frissítve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tesztek és Room frissítve" />
+    <MESSAGE value="Door javítása" />
+    <option name="LAST_COMMIT_MESSAGE" value="Door javítása" />
   </component>
 </project>
