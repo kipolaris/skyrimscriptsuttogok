@@ -5,14 +5,20 @@ import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
 public class Rag extends Item{
+
+    //Konstruktor: létrehozza a tárgyat és inicializálja az értékeit
     public Rag(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super(activated, defensive, durability, location, owner);
     }
+
+    //Prioritási listán nem számít
     public int getPriority(){
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn -1");
         return -1;
     }
+
+    //Aktiválja a tárgyat, eldobódik, és a tanárokra ezután veszélyes lesz
     @Override
     public void activate() {
         Suttogo.info("activate()");
@@ -21,6 +27,7 @@ public class Rag extends Item{
         owner.dropItem(this);
     }
 
+    //A tárgy élettartamát csökkenti. Ha aktív a tárgy, akkor körönként egy életet veszt.
     @Override
     public boolean decreaseDurability(){
         Suttogo.info("decreaseDurability()");
@@ -34,6 +41,7 @@ public class Rag extends Item{
         return true;
     }
 
+    //Párosíthatóság lekérdezése. Nem párosítható.
     @Override
     public boolean isPairable() {
         Suttogo.info("isPairable()");
@@ -41,6 +49,7 @@ public class Rag extends Item{
         return false;
     }
 
+    //Védelem lekérdezése tanárok ellen. Ilyen esetben nem felhasználható.
     @Override
     public boolean protectFromKill() {
         Suttogo.info("protectFromKill()");
@@ -48,6 +57,7 @@ public class Rag extends Item{
         return false;
     }
 
+    //Védelem lekérdezése gáz ellen. Ilyen esetben nem felhasználható.
     @Override
     public boolean protectFromGas() {
         Suttogo.info("protectFromGas()");
