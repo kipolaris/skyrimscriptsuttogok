@@ -4,19 +4,21 @@ import game.model.logging.Suttogo;
 
 public class TVSZ extends Item{
 
-    @Override
+    //Prioritási listán levő pozíciója
     public int getPriority(){
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn 2");
         return 2;
     }
 
+    //Aktiválás esetén
     @Override
     public void activate() {
         Suttogo.info("activate()");
         this.activated = true;
     }
 
+    //Használat esetén csökkenti az élettartamát
     @Override
     public boolean decreaseDurability() {
         Suttogo.info("decreaseDurability()");
@@ -30,6 +32,7 @@ public class TVSZ extends Item{
         return true;
     }
 
+    //Nem párosítható
     @Override
     public boolean isPairable() {
         Suttogo.info("isPairable()");
@@ -37,6 +40,7 @@ public class TVSZ extends Item{
         return false;
     }
 
+    //Meg tud védeni a tanártól, és meg is véd, ha aktiválva van
     @Override
     public boolean protectFromKill() {
         Suttogo.info("protectFromKill()");
@@ -48,6 +52,7 @@ public class TVSZ extends Item{
         return false;
     }
 
+    //Nem véd gáz ellen
     @Override
     public boolean protectFromGas() {
         Suttogo.info("protectFromGas()");

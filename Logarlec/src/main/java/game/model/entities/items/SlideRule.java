@@ -5,22 +5,22 @@ import game.model.main.GameEngine;
 import game.model.logging.Suttogo;
 
 public class SlideRule extends Item{
-
     private GameEngine engine;
-
-    @Override
+    //A prioritási listán nem élvez előnyt
     public int getPriority(){
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn -1");
         return -1;
     }
 
+    //A tárgy felvételekor hívódik meg a függvény. Ekkor a hallgatók megnyerték a játékot..
     @Override
     public void activate() {
         Suttogo.info("activate()");
         // Implementation details here
     }
 
+    //Élettartama nincs
     @Override
     public boolean decreaseDurability() {
         Suttogo.info("decreaseDurability()");
@@ -28,6 +28,7 @@ public class SlideRule extends Item{
         return false;
     }
 
+    //Nem párosítható
     @Override
     public boolean isPairable() {
         Suttogo.info("isPairable()");
@@ -35,6 +36,7 @@ public class SlideRule extends Item{
         return false;
     }
 
+    //Nem tud megvédeni tanártól
     @Override
     public boolean protectFromKill() {
         Suttogo.info("protectFromKill()");
@@ -42,6 +44,7 @@ public class SlideRule extends Item{
         return false;
     }
 
+    //Nem tud megvédeni gáztól
     @Override
     public boolean protectFromGas() {
         Suttogo.info("protectFromGas()");
