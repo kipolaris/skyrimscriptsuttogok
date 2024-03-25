@@ -33,18 +33,24 @@ public class Character {
     };
 
     public Room getLocation() {
+        Suttogo.info("getLocation()");
+        Suttogo.info("\treturn Room");
         return location;
     }
 
     public void setLocation(Room location) {
+        Suttogo.info("setLocation(Room)");
         this.location = location;
     }
 
     public boolean getParalyzed() {
+        Suttogo.info("getParalyzed()");
+        Suttogo.info("\treturn boolean");
         return paralyzed;
     }
 
     public void useItem(Item i) {
+        Suttogo.info("useItem(Item)");
         i.activate();
     }
 
@@ -53,14 +59,24 @@ public class Character {
     }
 
     public void addItem(Item item) {
+        Suttogo.info("addItem(Item)");
         if(actions>0 && items.size()<maxInventorySize){
             location.removeItem(item);
             items.add(item);
         }
     }
 
+    /**
+     * Kérdés nélkül hozzáadja a tárgyat az inventory-hoz.
+     * @param item hozzáadandó item
+     */
+    public void addItemForTest(Item item){
+        Suttogo.info("addItemForTest(Item)");
+        items.add(item);
+    }
+
     public void dropItem(Item item) {
-        Suttogo.info("message");
+        Suttogo.info("dropItem(Item)");
         if(items.contains(item)){
             item.setLocation(location);
             location.addItem(item);
@@ -68,6 +84,7 @@ public class Character {
     }
 
     public void setParalyzed(boolean b) {
+        Suttogo.info("setParalyzed(boolean)");
         if(b) {
             PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
 

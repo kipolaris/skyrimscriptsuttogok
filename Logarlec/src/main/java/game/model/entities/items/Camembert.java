@@ -1,35 +1,49 @@
 package game.model.entities.items;
 
+import game.model.logging.Suttogo;
+
 public class Camembert extends Item{
 
-    public int getPriority(){ // visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál
-
+    @Override
+    public int getPriority(){
+        Suttogo.info("getPriority()");
+        Suttogo.info("return -1");
         return -1;
     }
 
     @Override
-    public void activate() { // ezzel lehet aktiválni a tárgyat, ezután a szoba mérgesgázzal teli lesz
+    public void activate() {
+        Suttogo.info("activate()");
         location.setGassed(true);
         durability = 0;
     }
 
     @Override
     public boolean decreaseDurability() {
-        return false;
-    } // hátralévő élettartam csökkentése 1 körrel
-
-    @Override
-    public boolean isPairable() { // megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)
+        Suttogo.info("decreaseDurability()");
+        Suttogo.info("\treturn false");
         return false;
     }
 
     @Override
-    public boolean protectFromKill() {// ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól
+    public boolean isPairable() {
+        Suttogo.info("isPairable()");
+        Suttogo.info("\treturn false");
         return false;
     }
 
     @Override
-    public boolean protectFromGas() {// ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól
+    public boolean protectFromKill() {
+        Suttogo.info("protectFromKill()");
+        Suttogo.info("\treturn false");
+        return false;
+    }
+
+    @Override
+    public boolean protectFromGas() {
+        Suttogo.info("protectFromGas()");
+        Suttogo.info("\treturn false");
         return false;
     }
 }
+
