@@ -1,16 +1,22 @@
 package game.model.entities.items;
 
+import game.model.entities.Character;
+import game.model.entities.building.Room;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import game.model.logging.Suttogo;
 
 public class Transistor extends Item{
   private Transistor Pair;
-
-    //Prioritási listán betöltött fontosságával tér vissza. Nem élvez előnyt ez a tárgy.
+  public Transistor(boolean activated, boolean defensive, int durability, Room location, Character owner) {
+      super(activated, defensive, durability, location, owner);
+  }
     public int getPriority(){
+        Suttogo.info("getPriority()");
+        Suttogo.info("\treturn -1");
         return -1;
     }
 
-    //Tranzisztor aktiválása
     @Override
     public void activate() {
         if(this.Pair == null) {
@@ -23,48 +29,51 @@ public class Transistor extends Item{
         }
     }
 
-    //Nincs élettartama, nem tud lejárni
     @Override
     public boolean decreaseDurability() {
+        Suttogo.info("decreaseDurability()");
+        Suttogo.info("\treturn false");
         return false;
     }
 
-    //Párosíthatóságot tudatja. Ha már van párja, akkor nem párosítható, amúgy meg igen.
     @Override
     public boolean isPairable() {
+        Suttogo.info("isPairable()");
         if (this.Pair == null) {
+            Suttogo.info("\treturn true");
             return true;
         }
+        Suttogo.info("\treturn false");
         return false;
     }
 
-    //Nem véd tanárok ellen
     @Override
     public boolean protectFromKill() {
+        Suttogo.info("protectFromKill()");
+        Suttogo.info("\treturn false");
         return false;
     }
 
-    //Nem véd gáz ellen
     @Override
     public boolean protectFromGas() {
+        Suttogo.info("protectFromGas()");
+        Suttogo.info("\treturn false");
         return false;
     }
 
-    //Ezáltal lehet a tranzisztor párját párosítás esetén beállítani
     public void setPair(Transistor p){ this.Pair = p; }
 
-    //Visszatér a párosított tranzisztor párjával
     public Transistor getPair() {
+        Suttogo.info("getPair()");
+        Suttogo.info("\treturn Transistor");
         return this.Pair;
     }
 
-    //Párosítási folyamat, melyben mindkét tranzisztornál beállítja, hogy összepárosodtak
     public void pair(Transistor t){
         t.setPair(this);
         this.setPair(t);
     }
 
-    //Szétkapcsolási folyamat, melyben mindkét tranzisztornál beállítja, hogy szétkapcsolódtak
     public void unpair(){
         this.Pair.setPair(null);
         this.setPair(null);

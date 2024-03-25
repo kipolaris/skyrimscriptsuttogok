@@ -2,7 +2,6 @@ package game.model.entities.items;
 import game.model.entities.Character;
 import game.model.entities.building.Room;
 
-import game.model.logging.Suttogo;
 public abstract class Item {
     protected boolean activated;
     protected boolean defensive;
@@ -25,46 +24,36 @@ public abstract class Item {
 
     public abstract int getPriority();
 
-    public void setDurability(int durability) {
-        Suttogo.info("setDurability(int)");
-        this.durability = durability;
+    public int getDurability() {
+        return durability;
     }
+
+    public void setDurability(int durability) { this.durability = durability; }
 
     public abstract boolean decreaseDurability();
 
     public abstract boolean isPairable();
 
     public Room getLocation(){
-        Suttogo.info("getLocation()");
-        Suttogo.info("\treturn Room");
         return location;
     }
 
     public void setLocation(Room room){
-        Suttogo.info("setLocation(Room)");
         this.location=room;
     }
 
-    public boolean getActivated() {
-        Suttogo.info("getActivated()");
-        Suttogo.info("\treturn boolean");
-        return activated;
-    }
-
-    public int getDurability(){
-        Suttogo.info("getDurability()");
-        Suttogo.info("\treturn int");
-        return durability;
-    }
+    public boolean getActivated() { return activated; }
 
     public abstract boolean protectFromKill();
 
     public abstract boolean protectFromGas();
 
     public void setOwner(Character character){
-        Suttogo.info("setOwner(Character)");
-        Suttogo.info("\treturn Character");
         this.owner = character;
+    }
+
+    public int getDurability(){
+        return durability;
     }
 }
 
