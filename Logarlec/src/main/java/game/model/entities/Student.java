@@ -8,6 +8,8 @@ import java.util.PriorityQueue;
 
 public class Student extends Character{
 
+    //Ha a hallgatót egy tanár megpróbálja megölni. Itt esik sor a védelmi tárgyak
+    //leellenőrzésére, és ha nincs, akkor a hallgató meghal
     @Override
     public boolean die() {
         Suttogo.info("die()");
@@ -33,6 +35,7 @@ public class Student extends Character{
         return false;
     }
 
+    //Hallgató egy köre
     @Override
     public void doRound() {
         Suttogo.info("doRound()");
@@ -42,6 +45,7 @@ public class Student extends Character{
         throw new UnsupportedOperationException();
     }
 
+    //A hallgató ezáltal tudja meg, hogy van-e aktív tranzisztora, és ha van, akkor az melyik
     public Transistor getActiveTransistor(){
         Suttogo.info("getActiveTransistor()");
         Suttogo.info("\treturn Transistor");
