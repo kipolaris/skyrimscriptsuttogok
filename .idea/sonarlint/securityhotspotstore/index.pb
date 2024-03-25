@@ -34,3 +34,5 @@ j
 :Logarlec/src/main/java/game/model/entities/items/Item.java,3\5\35fd783345d9f83943bbf54cd45270e216e56827
 i
 9Logarlec/src/main/java/game/model/entities/items/Rag.java,9\8\982ce136f05a7049c24d0412bf480da3b09702fc
+_
+/Logarlec/src/test/java/game/TransistorTest.java,c\e\cea72052dd03bbead24ebbb034594a89fbff2848
