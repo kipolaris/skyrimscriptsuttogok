@@ -2,7 +2,7 @@ package game.model.entities.items;
 import game.model.entities.Character;
 import game.model.entities.building.Room;
 
-//#todo: implement class
+import game.model.logging.Suttogo;
 public abstract class Item {
     protected boolean activated;
     protected boolean defensive;
@@ -16,7 +16,6 @@ public abstract class Item {
     // Abstract methods
     public abstract void activate();
 
-    //#todo: discuss with team
     public abstract int getPriority();
 
     public abstract boolean decreaseDurability();
@@ -24,6 +23,8 @@ public abstract class Item {
     public abstract boolean isPairable();
 
     public Room getLocation(){
+        Suttogo.info("getLocation()");
+        Suttogo.info("\treturn Room");
         return location;
     }
 
@@ -31,15 +32,25 @@ public abstract class Item {
         this.location=room;
     }
 
-    public boolean getActivated() { return activated; }
+    public boolean getActivated() {
+        Suttogo.info("getActivated()");
+        Suttogo.info("\treturn boolean");
+        return activated;
+    }
 
-    public int getDurability(){ return durability; }
+    public int getDurability(){
+        Suttogo.info("getDurability()");
+        Suttogo.info("\treturn int");
+        return durability;
+    }
 
     public abstract boolean protectFromKill();
 
     public abstract boolean protectFromGas();
 
     public void setOwner(Character character){
+        Suttogo.info("setOwner(Character)");
+        Suttogo.info("\treturn Character");
         this.owner = character;
     }
 }

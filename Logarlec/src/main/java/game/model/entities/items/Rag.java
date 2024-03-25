@@ -1,5 +1,7 @@
 package game.model.entities.items;
 
+import game.model.logging.Suttogo;
+
 //#todo: implement class
 public class Rag extends Item{
 

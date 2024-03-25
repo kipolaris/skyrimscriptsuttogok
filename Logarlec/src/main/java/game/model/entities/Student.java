@@ -2,6 +2,7 @@ package game.model.entities;
 
 import game.model.entities.items.Item;
 import game.model.entities.items.Transistor;
+import game.model.logging.Suttogo;
 
 import java.util.PriorityQueue;
 
@@ -10,6 +11,7 @@ public class Student extends Character{
 
     @Override
     public boolean die() {
+        Suttogo.info("die()");
         PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
 
         for (Item i : items) {
@@ -22,29 +24,32 @@ public class Student extends Character{
         Item chosen = itemPriorityQueue.poll();
 
         if (chosen == null) {
+            Suttogo.info("return true");
             return true;
         } else {
             if (!chosen.decreaseDurability()) {
                 items.remove(chosen);
             }
         }
+        Suttogo.info("return false");
         return false;
     }
 
     @Override
     public void doRound() {
-        //ezt akkor kéne megcsinálni, amikor már a grafikus interfésszel kapcsolatos event kezelés is tálalékon lesz,
-        //hiszen egy kör az tulajdonképpen egy loop lesz, eseményekkel.
-        //egy állapotgép kéne ide, és egy enum: kezdjük el ezt megvalósítani?
+        Suttogo.info("doRound()");
         throw new UnsupportedOperationException();
     }
 
     public Transistor getActiveTransistor(){
+        Suttogo.info("getActiveTransistor()");
         for(Item i : items){
             if(i.isPairable()){
+                Suttogo.info("return Transistor");
                 return (Transistor) i;
             }
         }
+        Suttogo.info("return null");
         return null;
     }
 }
