@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="skyrimscriptsuttogok:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/CamembertTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/CamembertTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/KillTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/KillTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/SlideRuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/SlideRuleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
-    <list id="88876eba-bba0-45bb-bb3e-27fa06fdebc5" name="Changes by Balázs" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +49,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
@@ -67,7 +61,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
