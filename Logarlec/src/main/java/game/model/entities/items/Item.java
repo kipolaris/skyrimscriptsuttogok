@@ -51,6 +51,5 @@ public abstract class Item {
     public void setOwner(Character character){ // ez a függvény állítja be, hogy kinél van a tárgy
         this.owner = character;
     }
-
 }
 
