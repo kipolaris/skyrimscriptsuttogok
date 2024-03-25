@@ -12,7 +12,7 @@ public class GasTest {
     FFP2 f1;
     Room r1, r2;
 
-    void initialize() throws Exception {
+    public void initialize() throws Exception {
         r1 = new Room(1, false, false, null, null, null);
         r2 = new Room(1, true, false, null, null, null);
         c1 = new Character();
@@ -26,14 +26,14 @@ public class GasTest {
         c1.addItem(f1);
     }
 
-    void MaskDoesntBreak() {
+    public void MaskDoesntBreak() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: FFP2 protects from gas and doesn't break");
         c1.move(d1);
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void MaskBreaks() {
+    public void MaskBreaks() {
         f1.setDurability(1);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: FFP2 protects from gas and breaks");
@@ -41,7 +41,7 @@ public class GasTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void NoMask() {
+    public void NoMask() {
         c1.dropItem(f1);
         c1.addItem(new TVSZ(true, true, 2, null, c1));
         Suttogo.info("--------------------------------------------------------");

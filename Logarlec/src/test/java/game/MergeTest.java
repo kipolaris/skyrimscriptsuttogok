@@ -14,7 +14,7 @@ public class MergeTest {
     Transistor t1, t2;
     Door d1, d2;
 
-    void initialize() throws Exception {
+    public void initialize() throws Exception {
         b1 = new BuildingAI();
         r1 = new Room(5, false, false, null, null, null);
         r2 = new Room(3, false, false, null, null, null);
@@ -53,7 +53,7 @@ public class MergeTest {
         r4.addDoor(d2);
     }
 
-    void CapacityOverload() {
+    public void CapacityOverload() {
         r2.addCharacter(s6);
         s6.setLocation(r2);
         Suttogo.info("--------------------------------------------------------");
@@ -62,14 +62,14 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void TwoOrdinary() {
+    public void TwoOrdinary() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Merging two ordinary rooms");
         b1.mergeRooms(r1, r2);
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void OrdinaryAndGassed() {
+    public void OrdinaryAndGassed() {
         r2.setGassed(true);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Merging a gassed room with an ordinary room");
@@ -77,7 +77,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void OrdinaryAndCursed() {
+    public void OrdinaryAndCursed() {
         r2.setCursed(true);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Merging a cursed room with an ordinary room");
@@ -85,7 +85,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void OrdinaryAndGassedCursed() {
+    public void OrdinaryAndGassedCursed() {
         r2.setGassed(true);
         r2.setCursed(true);
         Suttogo.info("--------------------------------------------------------");
@@ -94,7 +94,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void TwoGassed() {
+    public void TwoGassed() {
         r1.setGassed(true);
         r2.setGassed(true);
         Suttogo.info("--------------------------------------------------------");
@@ -103,7 +103,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void GassedAndCursed() {
+    public void GassedAndCursed() {
         r1.setGassed(true);
         r2.setCursed(true);
         Suttogo.info("--------------------------------------------------------");
@@ -112,7 +112,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void GassedAndGassedCursed() {
+    public void GassedAndGassedCursed() {
         r1.setGassed(true);
         r2.setGassed(true);
         r2.setCursed(true);
@@ -122,7 +122,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void TwoCursed() {
+    public void TwoCursed() {
         r1.setCursed(true);
         r2.setCursed(true);
         Suttogo.info("--------------------------------------------------------");
@@ -131,7 +131,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void CursedAndGassedCursed() {
+    public void CursedAndGassedCursed() {
         r1.setCursed(true);
         r2.setGassed(true);
         r2.setCursed(true);
@@ -141,7 +141,7 @@ public class MergeTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void TwoGassedCursed() {
+    public void TwoGassedCursed() {
         r1.setGassed(true);
         r1.setCursed(true);
         r2.setGassed(true);

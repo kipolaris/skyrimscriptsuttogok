@@ -11,7 +11,7 @@ public class InventoryTest {
     Room r1;
     FFP2 f1;
 
-    void initialize() throws Exception {
+    public void initialize() throws Exception {
         r1 = new Room(1, false, false, null, null, null);
         c1 = new Character();
         f1 = new FFP2(true, true, 2, r1, null);
@@ -21,14 +21,14 @@ public class InventoryTest {
         r1.addItem(f1);
     }
 
-    void PicksUp() {
+    public void PicksUp() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Picking up an item");
         c1.addItem(f1);
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void CantPickUp() {
+    public void CantPickUp() {
         c1.addItem(new Cups(true, true, 2, null, c1));
         c1.addItem(new Cups(true, true, 2, null, c1));
         c1.addItem(new Cups(true, true, 2, null, c1));
@@ -40,7 +40,7 @@ public class InventoryTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void Drops() {
+    public void Drops() {
         f1.setLocation(null);
         r1.removeItem(f1);
         f1.setOwner(c1);

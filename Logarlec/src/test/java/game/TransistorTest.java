@@ -20,7 +20,7 @@ public class TransistorTest {
     private ArrayList<Door> doors = new ArrayList<>();
 
 
-    void initialize() {
+    public void initialize() {
         doors.add(door);
         door = new Door(room1, room2,true,true);
         r1characters.add(student);
@@ -31,14 +31,14 @@ public class TransistorTest {
         room2 = new Room(2,false,false,doors,null,null);
     }
 
-    void transistorPair(){
+    public void transistorPair(){
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Pairing two transistors");
         student.useItem(trans1);
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void transistorPlace(){
+    public void transistorPlace(){
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Placing a transistor");
         student.useItem(trans1);
@@ -46,7 +46,7 @@ public class TransistorTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void transistorUnpair(){
+    public void transistorUnpair(){
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: ... ");
         student.useItem(trans1);
@@ -55,7 +55,7 @@ public class TransistorTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void transistorUnsuccessful(){
+    public void transistorUnsuccessful(){
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: ... ");
         student.useItem(trans1);
@@ -63,7 +63,7 @@ public class TransistorTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void transistorSuccesful(){
+    public void transistorSuccesful(){
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: ... ");
         student.useItem(trans1);
@@ -74,7 +74,7 @@ public class TransistorTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void transToGasParalyze() {
+    public void transToGasParalyze() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: ... ");
         student.useItem(trans1);
@@ -87,7 +87,7 @@ public class TransistorTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void transToGasProt() {
+    public void transToGasProt() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: ... ");
         student.addItem(ffp2);

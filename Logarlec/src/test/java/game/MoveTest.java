@@ -9,7 +9,7 @@ public class MoveTest {
     Character c1;
     Room r1, r2;
 
-    void initialize() throws Exception {
+    public void initialize() throws Exception {
         r1 = new Room(1, false, false, null, null, null);
         r2 = new Room(1, false, false, null, null, null);
         c1 = new Character();
@@ -21,7 +21,7 @@ public class MoveTest {
         c1.setLocation(r1);
     }
 
-    void WorksBothWays() {
+    public void WorksBothWays() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Using a door from both ways");
         c1.move(d1);
@@ -29,7 +29,7 @@ public class MoveTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void OneWayOnly() {
+    public void OneWayOnly() {
         d1 = new Door(r1, r2, false, true);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Trying to use a oneway door both ways");
@@ -38,7 +38,7 @@ public class MoveTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void FullRoom() {
+    public void FullRoom() {
         r2.addCharacter(new Character());
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Trying to get into a room which is full");

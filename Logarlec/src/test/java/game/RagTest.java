@@ -15,21 +15,21 @@ public class RagTest {
     private Rag rag = new Rag(false, false, 2, null, student);
     ArrayList<Character> characters = new ArrayList<>();
 
-    void initialize() {
+    public void initialize() {
         characters.add(student);
         student.addItem(rag);
 
         room = new Room(2,false,false,null,null,characters);
     }
 
-    void ActivateRag() {
+    public void ActivateRag() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Placing a rag");
         student.useItem(rag);
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void decRagParProf() {
+    public void decRagParProf() {
         characters.add(professor);
         rag.setDurability(1);
         Suttogo.info("--------------------------------------------------------");
@@ -38,7 +38,7 @@ public class RagTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void destroyRag() {
+    public void destroyRag() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: A rag breaks");
         while(0 < rag.getDurability()) {
@@ -47,7 +47,7 @@ public class RagTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void parProf() {
+    public void parProf() {
         characters.add(professor);
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: A rag paralyses a professor but doesn't break");

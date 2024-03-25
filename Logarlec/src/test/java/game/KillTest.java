@@ -16,7 +16,7 @@ public class KillTest {
     Cups c1;
     TVSZ t1;
 
-    void initialize() throws Exception {
+    public void initialize() throws Exception {
         r1 = new Room(1, false, false, null, null, null);
         s1 = new Student();
         p1 = new Professor();
@@ -28,14 +28,14 @@ public class KillTest {
         p1.setLocation(r1);
         s1.addItem(f1);
     }
-    void NoProtection() {
+    public void NoProtection() {
         Suttogo.info("--------------------------------------------------------");
         Suttogo.info("TEST: Professor attacks a defenseless student");
         p1.getLocation().killStudents();
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void CupsDontBreak() {
+    public void CupsDontBreak() {
         c1 = new Cups(true, true, 2, null, s1);
         s1.addItem(c1);
         Suttogo.info("--------------------------------------------------------");
@@ -44,7 +44,7 @@ public class KillTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void CupsBreak() {
+    public void CupsBreak() {
         c1 = new Cups(true, true, 1, null, s1);
         s1.addItem(c1);
         Suttogo.info("--------------------------------------------------------");
@@ -53,7 +53,7 @@ public class KillTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void TVSZDontBreaks() {
+    public void TVSZDontBreaks() {
         t1 = new TVSZ(true, true, 2, null, s1);
         s1.addItem(t1);
         Suttogo.info("--------------------------------------------------------");
@@ -62,7 +62,7 @@ public class KillTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void TVSZDBreaks() {
+    public void TVSZDBreaks() {
         t1 = new TVSZ(true, true, 1, null, s1);
         s1.addItem(t1);
         Suttogo.info("--------------------------------------------------------");
@@ -71,7 +71,7 @@ public class KillTest {
         Suttogo.info("--------------------------------------------------------");
     }
 
-    void CupsAndTVSZ() {
+    public void CupsAndTVSZ() {
         c1 = new Cups(true, true, 2, null, s1);
         t1 = new TVSZ(true, true, 2, null, s1);
         s1.addItem(c1);

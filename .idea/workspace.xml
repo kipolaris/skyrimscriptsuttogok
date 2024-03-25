@@ -4,28 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz" />
-=======
-    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Door javítása">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/GasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/GasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/InventoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/InventoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/KillTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/KillTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/MergeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/MergeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/MoveTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/MoveTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/RagTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/java/game/TransistorTest.java" afterDir="false" />
     </list>
->>>>>>> 4a0a2b0d236c5c3f561ee41dd7a75984b397d749
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Flow",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
