@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class BuildingAI {
     private ArrayList<Room> labyrinth = new ArrayList<>();
 
-    //Összeolvaszt két szobát a labirintusban
+    /**Összeolvaszt két szobát a labirintusban
+     */
     public void mergeRooms(Room r1, Room r2){
         Suttogo.info("mergeRooms(Room, Room)");
         int ossz = r1.getCharacters().size()+r2.getCharacters().size();
@@ -67,7 +68,7 @@ public class BuildingAI {
         }
     }
 
-    //Szétválasztunk egy adott szobát a labirintusból két szobára
+    /**Szétválasztunk egy adott szobát a labirintusból két szobára*/
     public void splitRoom(Room r1){
         Suttogo.info("splitRoom(Room)");
         if (!(r1.getDoors().size() < 2)){
@@ -108,13 +109,13 @@ public class BuildingAI {
         }
     }
 
-    //Hozzáadunk egy szobát a labirintushoz
+    /**Hozzáadunk egy szobát a labirintushoz*/
     public void addRoom(Room r1){
         Suttogo.info("addRoom(Room)");
         labyrinth.add(0, r1);
     }
 
-    //Eltávolítunk egy szobát a labirintusból
+    /**Eltávolítunk egy szobát a labirintusból*/
     public void removeRoom(Room r1){
         Suttogo.info("removeRoom(Room)");
         labyrinth.remove(r1);

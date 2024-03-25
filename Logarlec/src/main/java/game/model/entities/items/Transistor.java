@@ -6,7 +6,9 @@ import game.model.logging.Suttogo;
 public class Transistor extends Item{
   private Transistor Pair;
 
-  //Konstruktor: létrehozza a tárgyat, és inicializálja a kezdőértékeket
+    /**
+     * Konstruktor: létrehozza a tárgyat, és inicializálja a kezdőértékeket
+     */
   public Transistor(boolean activated, boolean defensive, int durability, Room location, Character owner) {
       super(activated, defensive, durability, location, owner);
   }
@@ -16,8 +18,10 @@ public class Transistor extends Item{
         return -1;
     }
 
-  //Aktiválás esetén, ha még nincs párosítva, akkor párosítjuk
-  //Ha már párosítva van, akkor letesszük egy szobába
+    /**
+     * Aktiválás esetén, ha még nincs párosítva, akkor párosítjuk
+     * Ha már párosítva van, akkor letesszük egy szobába
+     */
     @Override
     public void activate() {
         Suttogo.info("activate()");
@@ -31,7 +35,10 @@ public class Transistor extends Item{
         }
     }
 
-  //Nincs élettartama
+    /**
+     * Nincs élettartama
+     * @return
+     */
     @Override
     public boolean decreaseDurability() {
         Suttogo.info("decreaseDurability()");
@@ -39,8 +46,10 @@ public class Transistor extends Item{
         return false;
     }
 
-  //Párosítható, ha még nincsen párja
-  //Ha már van, akkor nem párosítható
+    /**
+     * Párosítható, ha még nincsen párja
+     * Ha már van, akkor nem párosítható
+     */
     @Override
     public boolean isPairable() {
         Suttogo.info("isPairable()");
@@ -52,7 +61,9 @@ public class Transistor extends Item{
         return false;
     }
 
-  //Nem tud gyilkolás ellen megvédeni
+    /**
+     * Nem tud gyilkolás ellen megvédeni
+     */
     @Override
     public boolean protectFromKill() {
         Suttogo.info("protectFromKill()");
@@ -60,7 +71,9 @@ public class Transistor extends Item{
         return false;
     }
 
-  //Gáz ellen nem véd
+    /**
+     * Gáz ellen nem véd
+     */
     @Override
     public boolean protectFromGas() {
         Suttogo.info("protectFromGas()");
@@ -68,27 +81,35 @@ public class Transistor extends Item{
         return false;
     }
 
-  //Beállítjuk a párjának a másik tranzisztort
+    /**
+     * Beállítjuk a párjának a másik tranzisztort
+     */
     public void setPair(Transistor p){
       Suttogo.info("setPair(Transistor)");
       this.Pair = p;
     }
 
-  //Párjának lekérdezése
+    /**
+     * Párjának lekérdezése
+     */
     public Transistor getPair() {
         Suttogo.info("getPair()");
         Suttogo.info("\treturn Transistor");
         return this.Pair;
     }
 
-  //Másik tranzisztorra és saját magára is beállítja, hogy összepárosodtak
+    /**
+     * Másik tranzisztorra és saját magára is beállítja, hogy összepárosodtak
+     */
     public void pair(Transistor t){
         Suttogo.info("pair(Transistor)");
         t.setPair(this);
         this.setPair(t);
     }
 
-  //Az adott tranzisztor és párjának kapcsolatát felbontja
+    /**
+     * Az adott tranzisztor és párjának kapcsolatát felbontja
+     */
     public void unpair(){
         Suttogo.info("unpair()");
         this.Pair.setPair(null);

@@ -34,42 +34,54 @@ public class Character {
         return Integer.compare(o1.getDurability(), o1.getDurability());
     };
 
-    //Szoba/karakter tartózkodási helyének lekérdezése
+    /**
+     * Szoba/karakter tartózkodási helyének lekérdezése
+     */
     public Room getLocation() {
         Suttogo.info("getLocation()");
         Suttogo.info("\treturn Room");
         return location;
     }
 
-    //Tartózkodási hely beállítása
+    /**
+     * Tartózkodási hely beállítása
+     */
     public void setLocation(Room location) {
         Suttogo.info("setLocation(Room)");
         this.location = location;
     }
 
-    //A karakter bénítottságát kérdezi le
+    /**
+     * A karakter bénítottságát kérdezi le
+     */
     public boolean getParalyzed() {
         Suttogo.info("getParalyzed()");
         Suttogo.info("\treturn boolean");
         return paralyzed;
     }
 
-    //Ha egy tárgyat fel akar valaki használni, akkor ez a függvény
-    //hívódik meg az adott tárgyra
+    /**
+     * Ha egy tárgyat fel akar valaki használni, akkor ez a függvény
+     * hívódik meg az adott tárgyra
+     */
     public void useItem(Item i) {
         Suttogo.info("useItem(Item)");
         i.activate();
         i.decreaseDurability();
     }
 
-    //Visszaadja a karakternél levő tárgyakat
+    /**
+     * Visszaadja a karakternél levő tárgyakat
+     */
     public ArrayList<Item> getItems() {
         Suttogo.info("getItems()");
         Suttogo.info("\treturn ArrayList<Item>");
         return items;
     }
 
-    //Tárgy felvétele
+    /**
+     * Tárgy felvétele
+     */
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
         if(actions>0 && items.size()<maxInventorySize){
@@ -79,7 +91,9 @@ public class Character {
         }
     }
 
-    //Tárgy eldobása
+    /**
+     * Tárgy eldobása
+     */
     public void dropItem(Item item) {
         Suttogo.info("dropItem(Item)");
         if(items.contains(item)){
@@ -88,7 +102,9 @@ public class Character {
         }
     }
 
-    //Karakter bénítása, ha nincs gáz ellen védő tárgya
+    /**
+     * Karakter bénítása, ha nincs gáz ellen védő tárgya
+     */
     public void setParalyzed(boolean b) {
         Suttogo.info("setParalyzed(boolean)");
         if(b) {
@@ -115,13 +131,17 @@ public class Character {
         }
     }
 
-    //Oktató bénítása
+    /**
+     * Oktató bénítása
+     */
     public void setProfessorParalyzed(boolean b) {
         Suttogo.info("setProfessorParalyzed(boolean)");
         throw new UnsupportedOperationException();
     }
 
-    //Másik szobába való átlépés
+    /**
+     * Másik szobába való átlépés
+     */
     public void move(Door d) {
         Suttogo.info("move(Door)");
         if(d.accept(this, location)){
@@ -130,19 +150,25 @@ public class Character {
         }
     }
 
-    //Passz, üres kör alkalmazása
+    /**
+     * Passz, üres kör alkalmazása
+     */
     public void skipTurn() {
         Suttogo.info("skipTurn()");
         throw new UnsupportedOperationException();
     }
 
-    //Kör lejátszása
+    /**
+     * Kör lejátszása
+     */
     public void doRound() {
         Suttogo.info("doRound()");
         throw new UnsupportedOperationException();
     }
 
-    //Aktív tranzisztorok lekérdezése
+    /**
+     * Aktív tranzisztorok lekérdezése
+     */
     public Transistor getActiveTransistor() {
         Suttogo.info("getActiveTransistor()");
         Suttogo.info("\treturn Transistor");

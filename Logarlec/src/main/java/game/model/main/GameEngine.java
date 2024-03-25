@@ -16,6 +16,9 @@ public class GameEngine {
 
     private SlideRule slideRule;
 
+    /**
+     * inicializálja a játékot
+     */
     public void initGame(){
         Suttogo.info("initGame()");
         students = new ArrayList<>();
@@ -24,6 +27,9 @@ public class GameEngine {
         slideRule = new SlideRule(false, false, 1, null, null);
     }
 
+    /**
+     * Ellenőrzi, hogy kihaltak-e a Studentek
+     */
     public boolean studentsExtinct(){
         Suttogo.info("studentsExtinct()");
         Suttogo.info("\treturn boolean");
