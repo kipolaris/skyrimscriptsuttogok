@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
         public static void main(String[] args) throws Exception {
-            Scanner scanner = new Scanner(System.in);
+            /*Scanner scanner = new Scanner(System.in);
             CamembertTest camembertTest = new CamembertTest();
             GasTest gasTest = new GasTest();
             InventoryTest inventoryTest = new InventoryTest();
@@ -118,6 +118,33 @@ public class Main {
                 }
             } while (choice != 0);
 
-            scanner.close();
+            scanner.close();*/
+            static Deque<Integer> stack = new ArrayDeque<>();
+
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+
+                HashMap<String, iCommand> map = new HashMap<>();
+                /*map.put("exit", new Exit());
+                map.put("list", new List());
+                map.put("push", new Push());
+                map.put("pop", new Pop());
+                map.put("dup", new Dup());
+                map.put("read", new Read());
+                map.put("write", new Write());
+                map.put("+", new Add());
+                map.put("-", new Sub());
+                map.put("*", new Mult());
+                map.put("/", new Div());*/
+
+                while (sc.hasNextLine()) {
+                    String line = sc.nextLine();
+                    String[] cmd = line.split(" ");
+                    Command command = map.get(cmd[0]);
+                    if (command != null) {
+                        command.execute(cmd);
+                    }
+                }
+            }
         }
     }
