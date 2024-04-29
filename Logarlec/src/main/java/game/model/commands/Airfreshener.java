@@ -1,6 +1,6 @@
 package game.model.commands;
 
-public class Kill implements iCommand{
+public class Airfreshener implements iCommand{
     @Override
     public void execute(String[] cmd) {
 

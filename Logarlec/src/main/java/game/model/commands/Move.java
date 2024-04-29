@@ -1,6 +1,6 @@
 package game.model.commands;
 
-public class Kill implements iCommand{
+public class Move implements iCommand{
     @Override
     public void execute(String[] cmd) {
 
