@@ -56,3 +56,5 @@ X
 .Logarlec/src/test/java/game/SlideRuleTest.java,9\b\9b3b08380cbb29b4cf91d7be56fabb122e9beccd
 Z
 *Logarlec/src/test/java/game/SplitTest.java,4\5\45b8947ab8377028cd415b86febf46cb3438a5a5
+h
+8Logarlec/src/main/java/game/model/commands/iCommand.java,4\6\4666ea4114459708e57956334fd80707af11d387
