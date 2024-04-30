@@ -13,14 +13,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/CamembertTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
     </list>
-    <list id="6b6830cc-8fde-4317-950b-f7b1203e98cb" name="Changes by Balázs" comment="">
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" afterDir="false" />
-    </list>
+    <list id="6b6830cc-8fde-4317-950b-f7b1203e98cb" name="Changes by Balázs" comment="" />
     <list id="38865770-14b2-4dfc-b41b-bd9704d148fe" name="Changes by fdorii" comment="" />
     <list id="e8d01744-72ac-4b14-9923-dba98c7a1ad0" name="Changes by User" comment="" />
     <option name="SHOW_DIALOG" value="false" />

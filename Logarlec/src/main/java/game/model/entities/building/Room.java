@@ -292,6 +292,16 @@ public class Room {
                 }
             }
         }
+        for(Professor professor : professors) {
+            if(!professor.getParalyzed()) {
+                professor.getLocation().removeCharacter(professor);
+                Room destination = gameEngine.getBuilder().getFreeRoom(this);
+                if(destination!=null) {
+                    professor.setLocation(destination);
+                    destination.addCharacter(professor);
+                }
+            }
+        }
     }
 
     /**Igazra állítja a hasAirFreshener értékét*/

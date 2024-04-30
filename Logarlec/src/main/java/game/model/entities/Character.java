@@ -23,6 +23,9 @@ public class Character {
     protected Map<String, Item> items = new HashMap<>();
 
     private int itemID = 0;
+
+    boolean moved = false;
+
     public String getKey(Item item) {
         for (Map.Entry<String, Item> entry : items.entrySet()) {
             if (item.equals(entry.getValue())) { return entry.getKey(); }
@@ -86,8 +89,11 @@ public class Character {
      */
     public void useItem(Item i) {
         Suttogo.info("useItem(Item)");
-        i.activate();
-        i.decreaseDurability();
+        if(!paralyzed && actions>0 && items.containsValue(i)) {
+            i.activate();
+            i.decreaseDurability();
+            actions--;
+        }
     }
 
     /**
@@ -104,10 +110,12 @@ public class Character {
      */
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
-        if(actions>0 && items.size()<maxInventorySize){
+        if(actions>0 && items.size()<maxInventorySize && !paralyzed && item.getLocation().equals(location) && !location.getSticky()){
             location.removeItem(item);
             items.put(Integer.toString(itemID++),item);
             item.setOwner(this);
+            item.setLocation(null);
+            actions--;
         }
     }
 
@@ -116,9 +124,12 @@ public class Character {
      */
     public void dropItem(Item item) {
         Suttogo.info("dropItem(Item)");
-        if(items.containsValue(item)){
+        if(actions>0 && !paralyzed && items.containsValue(item)){
+            items.remove(item.getId());
+            item.setOwner(null);
             item.setLocation(location);
             location.addItem(item);
+            actions--;
         }
     }
 
@@ -164,12 +175,12 @@ public class Character {
      */
     public void move(Door d) {
         Suttogo.info("move(Door)");
-
-        if(d.accept(this, location)){
+        if(!paralyzed && d.accept(this, location) && !moved){
             Room dest = d.getNeighbour(location);
             if(dest.addCharacter(this)){
                 this.location.removeCharacter(this);
                 this.location = dest;
+                moved = true;
             }
         }
     }
@@ -178,6 +189,8 @@ public class Character {
      * Passz, üres kör alkalmazása
      */
     public void skipTurn() {
+        setActions(-3);
+        moved = true;
         Suttogo.info("skipTurn()");
         throw new UnsupportedOperationException();
     }
@@ -186,6 +199,8 @@ public class Character {
      * Kör lejátszása
      */
     public void doRound() {
+        setActions(3);
+        moved = false;
         Suttogo.info("doRound()");
         throw new UnsupportedOperationException();
     }
