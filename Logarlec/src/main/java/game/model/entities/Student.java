@@ -58,9 +58,7 @@ public class Student extends Character{
     @Override
     public void doRound() {
         Suttogo.info("doRound()");
-        //ezt akkor kéne megcsinálni, amikor már a grafikus interfésszel kapcsolatos event kezelés is tálalékon lesz,
-        //hiszen egy kör az tulajdonképpen egy loop lesz, eseményekkel.
-        //egy állapotgép kéne ide, és egy enum: kezdjük el ezt megvalósítani?
+        //NEM HASZNÁLJUK
         throw new UnsupportedOperationException();
     }
 
@@ -76,5 +74,10 @@ public class Student extends Character{
             }
         }
         return null;
+    }
+
+    public void resetActions(){
+        actions = 3;
+        isMoved = false;
     }
 }

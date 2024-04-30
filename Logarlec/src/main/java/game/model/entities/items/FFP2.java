@@ -20,7 +20,7 @@ public class FFP2 extends Item{
     @Override
     public void activate() { /**ezzel lehet aktiválni a maszkot, innentől megvédi használóját a mérges gáztól*/
         Suttogo.info("activate()");
-        this.activated = true;
+        if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
     }

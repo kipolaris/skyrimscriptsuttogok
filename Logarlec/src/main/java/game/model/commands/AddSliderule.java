@@ -17,7 +17,7 @@ public class AddSliderule implements iCommand{
                     break;
             }
         }
-        sliderule = new SlideRule(false, false, 1, null, null, false);
+        else sliderule = new SlideRule(false, false, 1, null, null, false);
         Main.gameEngine.addItem(sliderule);
     }
 

@@ -13,7 +13,7 @@ public class StudPickup implements iCommand{
 
             if(gameEngine.areActionsLeft(s)) {
 
-                String[] ns = new String[]{s.getId() + cmd};
+                String[] ns = new String[]{cmd[0],cmd[1], s.getId()};
 
                 c.execute(ns);
             }

@@ -13,6 +13,10 @@ import static game.model.main.Main.gameEngine;
 public class Unpair implements iCommand{
     @Override
     public void execute(String[] cmd) {
+        if(cmd.length < 3) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         Map<String, Student> students = Main.gameEngine.getStudents();
         Student student = students.get(cmd[1]);
         Map<String, Item> items = student.getItems();

@@ -7,9 +7,13 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.Main.gameEngine;
 
+//pickup <item> <character>
 public class Pickup implements iCommand{
     public void execute(String[] cmd) {
-
+        if(cmd.length < 3) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         BuildingAI builder = gameEngine.getBuilder();
         Character c = gameEngine.findCharacter(cmd[2]);
 

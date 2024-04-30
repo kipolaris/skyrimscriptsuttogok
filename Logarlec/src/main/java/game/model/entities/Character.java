@@ -8,6 +8,11 @@ import game.model.logging.Suttogo;
 import java.util.*;
 
 public class Character {
+
+    /**
+     * ezt csak a Studentek használják
+     */
+    protected boolean isMoved = false;
     protected final String id;
     public static int maxInventorySize = 5;
     protected boolean paralyzed;
@@ -88,6 +93,8 @@ public class Character {
         Suttogo.info("useItem(Item)");
         i.activate();
         i.decreaseDurability();
+
+        actions--;
     }
 
     /**
@@ -104,11 +111,14 @@ public class Character {
      */
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
-        if(actions>0 && items.size()<maxInventorySize){
+        if(actions>0 && items.size()<maxInventorySize && !isMoved){
             location.removeItem(item);
             items.put(Integer.toString(itemID++),item);
             item.setOwner(this);
+            isMoved = true;
         }
+
+        actions--;
     }
 
     /**
@@ -120,6 +130,8 @@ public class Character {
             item.setLocation(location);
             location.addItem(item);
         }
+
+        actions--;
     }
 
     /**
@@ -164,14 +176,15 @@ public class Character {
      */
     public void move(Door d) {
         Suttogo.info("move(Door)");
-
-        if(d.accept(this, location)){
+        if(!isMoved && d.accept(this, location)){
             Room dest = d.getNeighbour(location);
             if(dest.addCharacter(this)){
                 this.location.removeCharacter(this);
                 this.location = dest;
             }
+            isMoved = true;
         }
+
     }
 
     /**

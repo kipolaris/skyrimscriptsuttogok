@@ -12,6 +12,10 @@ public class Pair implements iCommand{
 
     @Override
     public void execute(String[] cmd) {
+        if(cmd.length < 4) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         Map<String, Student> students = Main.gameEngine.getStudents();
         Student student = students.get(cmd[1]);
 

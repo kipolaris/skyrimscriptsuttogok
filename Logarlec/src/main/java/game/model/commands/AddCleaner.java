@@ -8,7 +8,7 @@ public class AddCleaner implements iCommand{
     @Override
     public void execute(String[] cmd) {
         boolean paralyzed = false;
-        if(cmd.length>1) { paralyzed = Boolean.parseBoolean(cmd[2]); }
+        if(cmd.length>1) { paralyzed = Boolean.parseBoolean(cmd[1]); }
         Main.gameEngine.addCleaner(new Cleaner(paralyzed));
     }
 

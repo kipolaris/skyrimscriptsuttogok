@@ -19,7 +19,7 @@ public class AddFFP2 implements iCommand{
                     break;
             }
         }
-        ffp2 = new FFP2(false, false, durability, null, null, false);
+        else ffp2 = new FFP2(false, false, durability, null, null, false);
         Main.gameEngine.addItem(ffp2);
     }
 

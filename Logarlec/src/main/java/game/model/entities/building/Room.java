@@ -155,6 +155,8 @@ public class Room {
         if(!isFull()){
             characters.add(character);
 
+            character.setLocation(this);
+
             if(wasCleaned && (++visitors > 4)) { sticky = true; }
 
             return true;
@@ -266,6 +268,11 @@ public class Room {
         Suttogo.info("\treturn int");
         return capacity;
     }
+
+    public void setSticky(boolean s){
+        this.sticky = s;
+    }
+
 
     /**Beállítja a wasCleaned és a sticky értékét*/
     public void setWasCleaned() {

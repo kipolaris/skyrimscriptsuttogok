@@ -1,9 +1,11 @@
 package game.model.main;
 
+import game.model.commands.*;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
 import game.model.entities.building.BuildingAI;
+import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.entities.items.SlideRule;
@@ -22,8 +24,6 @@ public class GameEngine {
     }
 
     private Character current;
-
-    private boolean isStudentsTurn;
 
     private Queue<Character> currentQueue;
 
@@ -56,7 +56,7 @@ public class GameEngine {
     }
 
     @XmlElement
-    private boolean random = false;
+    private boolean random = false; //<-------------------------------------------------------------------------HERE IS RANDOM
     @XmlElement
     private static int studentID = 0;
     @XmlElement
@@ -75,9 +75,7 @@ public class GameEngine {
     @XmlElement
     private static int cleanerID = 0;
     @XmlElement
-    private BuildingAI builder;
-    @XmlElement
-    private SlideRule slideRule;
+    private BuildingAI builder = new BuildingAI();
 
     //GETTERS - SETTERS -----------------------------
 
@@ -165,10 +163,20 @@ public class GameEngine {
                 if(p.test(true)){
                     builder.splitRoom(r3);
                 }
-                //#todo: eltűnő ajtók...
+                ArrayList<Door> alldoors = new ArrayList<>();
+                for(Room room : allrooms) {
+                    ArrayList<Door> group = room.getDoors();
+                    for(Door door : group) {
+                        if(!alldoors.contains(door)) {
+                            alldoors.add(door);
+                            door.setVisible(r.nextInt(1) == 1);
+                        }
+                    }
+                }
             }else{
                 //#todo: manuális parancsok mergere és splitre!
             }
+            playOnePhase();
         }
     }
 
@@ -179,9 +187,27 @@ public class GameEngine {
         Suttogo.info("initGame()");
         students = new HashMap<>();
         professors = new HashMap<>();
-
         builder = new BuildingAI();
-        slideRule = new SlideRule(false, false, 1, null, null, false);
+        if(random) {
+            Main.perform("room 10");
+            Main.perform("room 5");
+            Main.perform("neighbour Room0 Room1");
+
+            Main.perform("student");
+            Main.perform("roomaddchar Student0 Room0");
+
+            Main.perform("professor");
+            Main.perform("roomaddchar Professor0 Room1");
+
+            Main.perform("ffp2");
+            Main.perform("roomadditem FFP20 Room0");
+            Main.perform("sliderule");
+            Main.perform("roomadditem SlideRule1 Room1");
+
+            Main.perform("startGame");
+
+            Main.printOut();
+        }
     }
 
     /**
@@ -198,7 +224,6 @@ public class GameEngine {
         students.clear();
         professors.clear();
         builder = null;
-        slideRule = null;
     }
 
     public void refresh(){
@@ -206,25 +231,37 @@ public class GameEngine {
         students = new HashMap<>();
         professors = new HashMap<>();
         builder = new BuildingAI();
-        slideRule = new SlideRule(false, false, 1, slideRule.getLocation(), null, false);
     }
 
     public void playOnePhase(){
-        //Suttogo.info("playOnePhase()");
-        turns = new ArrayDeque<>();
+        if(!studentsExtinct()) {
+            Suttogo.info("playOnePhase()");
 
-        turns.add(studentTurns);
-        turns.add(aiTurns);
+            for(Student s : students.values()){
+                s.resetActions();
+            }
 
-        studentTurns.addAll(students.values());
-        aiTurns.addAll(cleaners.values());
-        aiTurns.addAll(professors.values());
+            turns = new ArrayDeque<>();
 
-        ct = turns.iterator();
+            studentTurns = new ArrayDeque<>();
+            aiTurns = new ArrayDeque<>();
 
-        chart = studentTurns.iterator();
+            turns.add(studentTurns);
+            turns.add(aiTurns);
 
-        nextQueue();
+            studentTurns.addAll(students.values());
+            aiTurns.addAll(cleaners.values());
+            aiTurns.addAll(professors.values());
+
+            ct = turns.iterator();
+
+            chart = studentTurns.iterator();
+
+            nextQueue();
+        }else{
+            endGame();
+            Suttogo.info("You lost!");
+        }
     }
 
     public void studentDied(Student s){

@@ -11,6 +11,10 @@ import static game.model.main.Main.gameEngine;
 public class Roomadditem implements iCommand{
     @Override
     public void execute(String[] cmd) {
+        if(cmd.length < 3) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         Item i = gameEngine.getItems().get(cmd[1]);
         BuildingAI builder = gameEngine.getBuilder();
         Room r = builder.getLabyrinth().get(cmd[2]);

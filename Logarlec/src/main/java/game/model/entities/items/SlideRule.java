@@ -18,6 +18,7 @@ public class SlideRule extends Item{
     public SlideRule(boolean activated, boolean defensive, int durability, Room location, Character owner, boolean f) {
         super("SlideRule"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
         fake = f;
+        gameEngine.addItem(this);
     }
     private game.model.main.GameEngine engine;
 
@@ -36,9 +37,6 @@ public class SlideRule extends Item{
     @Override
     public void activate() {
         Suttogo.info("activate()");
-        //implement
-        String s = this.getId() + " used. " + getEffect();
-        Suttogo.info(s);
     }
 
     /**
@@ -66,9 +64,10 @@ public class SlideRule extends Item{
     public void setLocation(Room room){
         Suttogo.info("setLocation(Room)");
         if(room==null){
-            engine.endGame();
+            String s = this.getId() + " picked up. " + getEffect();
+            Suttogo.info(s);
+            if(!fake) engine.endGame();
         }
-        this.location=room;
     }
 
     /**A játékhoz való csatolása*/

@@ -34,11 +34,10 @@ public class Door {
      */
     public boolean accept(Character c, Room r){
         Suttogo.info("accept(Character, Room)");
-        if(r.getCharacters().size()+1 >= r.getCapacity()) {
+        if((!bothWays && !from.equals(r)) || to.getCharacters().size()+1 >= to.getCapacity()) {
             Suttogo.info("\treturn false");
             return false;
         }
-        else r.addCharacter(c);
         Suttogo.info("\treturn true");
         return true;
     }
@@ -49,5 +48,10 @@ public class Door {
         Suttogo.info("\treturn Room");
         if(r==from) return to;
         else return from;
+    }
+
+    /**Beállítja az ajtó láthatóságát*/
+    public void setVisible(boolean v) {
+        visible = v;
     }
 }

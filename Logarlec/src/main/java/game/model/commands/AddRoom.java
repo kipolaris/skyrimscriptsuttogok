@@ -7,11 +7,10 @@ import static game.model.main.Main.gameEngine;
 public class AddRoom implements iCommand{
     @Override
     public void execute(String[] cmd) {
-        int capacity = Integer.parseInt(cmd[1]);
+        int capacity = 1;
+        if(cmd.length > 1) capacity = Integer.parseInt(cmd[1]);
         boolean isGassed = false;
         boolean isCursed = false;
-
-
         if(cmd.length>2){
             isGassed = Boolean.parseBoolean(cmd[2]);
         }

@@ -13,7 +13,7 @@ public class Suttogo {
     public enum Level {
         INFO, ERROR, NONE
     }
-    private static Level level = Level.INFO;
+    private static Level level = Level.NONE;
     private static final Set<String> enabledClasses = new HashSet<>();
     private static final Queue<String> messageQueue = new LinkedList<>();
 
@@ -22,7 +22,8 @@ public class Suttogo {
     }
 
     public static void info(String message) {
-        log(message);
+        if(level == Level.INFO)
+                log(message);
     }
 
     public static void error(String message) {

@@ -3,12 +3,17 @@ package game.model.commands;
 import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
+import game.model.logging.Suttogo;
 
 import static game.model.main.Main.gameEngine;
 
 public class Neighbour implements iCommand{
     @Override
     public void execute(String[] cmd) {
+        if(cmd.length < 3) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         BuildingAI builder = gameEngine.getBuilder();
         Room room1 = builder.getLabyrinth().get(cmd[1]);
         Room room2 = builder.getLabyrinth().get(cmd[2]);

@@ -14,12 +14,12 @@ import static game.model.main.Main.gameEngine;
 public class Cleaner extends Character {
 
     public Cleaner(){
-        super("Cleaner"+ GameEngine.getProfessorID());
+        super("Cleaner"+ GameEngine.getCleanerID());
         gameEngine.addCleaner(this);
     }
 
     public Cleaner(boolean paralyzed){
-        super("Cleaner"+ GameEngine.getProfessorID());
+        super("Cleaner"+ GameEngine.getCleanerID());
         gameEngine.addCleaner(this);
 
         this.paralyzed = paralyzed;

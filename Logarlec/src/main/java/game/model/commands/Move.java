@@ -11,7 +11,10 @@ import static game.model.main.Main.gameEngine;
 
 public class Move implements iCommand{
     public void execute(String[] cmd) {
-
+        if(cmd.length < 3) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         BuildingAI builder = gameEngine.getBuilder();
         Character c = gameEngine.findCharacter(cmd[1]);
 

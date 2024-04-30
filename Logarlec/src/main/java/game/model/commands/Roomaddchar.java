@@ -9,6 +9,10 @@ import game.model.logging.Suttogo;
 public class Roomaddchar implements iCommand{
     @Override
     public void execute(String[] cmd) {
+        if(cmd.length < 3) {
+            Suttogo.error("Too few arguments!");
+            return;
+        }
         Character c = gameEngine.findCharacter(cmd[1]);
         BuildingAI builder = gameEngine.getBuilder();
         Room r = builder.getLabyrinth().get(cmd[2]);
