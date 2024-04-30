@@ -1,5 +1,6 @@
 package game.model.commands;
 
+import game.model.commands.base.Move;
 import game.model.entities.Student;
 
 import static game.model.main.Main.gameEngine;
@@ -13,7 +14,7 @@ public class StudMove implements iCommand{
 
             if(gameEngine.areActionsLeft(s)) {
 
-                String[] ns = new String[]{s.getId() + cmd};
+                String[] ns = new String[]{cmd[0], s.getId(), cmd[1]};
 
                 c.execute(ns);
             }

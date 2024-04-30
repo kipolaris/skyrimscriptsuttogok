@@ -111,11 +111,11 @@ public class Character {
      */
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
-        if(actions>0 && items.size()<maxInventorySize && !isMoved){
+        if(actions>0 && items.size()<maxInventorySize){
             location.removeItem(item);
-            items.put(Integer.toString(itemID++),item);
+            items.put(item.getId(), item);
+            item.setLocation(null);
             item.setOwner(this);
-            isMoved = true;
         }
 
         actions--;
@@ -129,6 +129,7 @@ public class Character {
         if(items.containsValue(item)){
             item.setLocation(location);
             location.addItem(item);
+            this.items.remove(item.getId());
         }
 
         actions--;

@@ -1,5 +1,6 @@
 package game.model.commands;
 
+import game.model.commands.base.Pickup;
 import game.model.entities.Student;
 
 import static game.model.main.Main.gameEngine;

@@ -13,92 +13,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/MergeRooms.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/SplitRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddSliderule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddSliderule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddAirfreshener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddAirfreshener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCamembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddCamembert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddCleaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddCups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddFFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddFFP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddProfessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddProfessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddRag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddSliderule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddSliderule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddTransistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddTransistor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddTvsz.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/AddTvsz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Charadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/Charadditem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanermove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/Cleanermove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanerpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/Cleanerpickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/base/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/Kill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/Load.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/MergeRooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/MergeRooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/base/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/Neighbour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Newgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/Newgame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/base/Pickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profmove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/Profmove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/Profpickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/RandomGo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomNogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/RandomNogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomaddchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/Roomaddchar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/builders/Roomadditem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Runtests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/Runtests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/SplitRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/godmode/SplitRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudPickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/help.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/general/help.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Cleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Cleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddCleaner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddCleaner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddCups.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddCups.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddFFP2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddFFP2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddProfessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddProfessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddRag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddRag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Charadditem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Charadditem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Cleanermove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Cleanermove.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Drop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Drop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Kill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Kill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Load.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Load.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Move.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Neighbour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Neighbour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pickup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pickup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Profmove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Profmove.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Profpickup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Profpickup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Roomaddchar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Roomaddchar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Roomadditem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Roomadditem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Save.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Save.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Skip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Skip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Unpair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Unpair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Use.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Use.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddCleaner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddCups.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddFFP2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddProfessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddRag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/AddSliderule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Charadditem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Cleanermove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Drop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Kill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Load.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/MergeRooms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Move.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Neighbour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pickup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Profmove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Profpickup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Roomaddchar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Roomadditem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Save.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/SplitRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StartGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StudDrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StudDrop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StudMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StudMove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StudPickup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/StudPickup.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Cleaner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Cleaner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/building/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/building/Door.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/building/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/building/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/FFP2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/FFP2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/SlideRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/SlideRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/TVSZ.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/items/TVSZ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/GameEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/Main.class" afterDir="false" />
     </list>
-    <list id="1692ffd0-aaa3-45a2-8267-015bae2c8d57" name="Changes by Balázs" comment="">
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
-    </list>
     <list id="38865770-14b2-4dfc-b41b-bd9704d148fe" name="Changes by fdorii" comment="" />
-    <list id="e8d01744-72ac-4b14-9923-dba98c7a1ad0" name="Changes by User" comment="">
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddFFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddFFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddProfessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddProfessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Charadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Charadditem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanermove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanermove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Kill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Load.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profmove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profmove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomaddchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomaddchar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomadditem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Save.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
-    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,61 +107,19 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java">
-      <ranges>
-        <range start1="156" end1="156" start2="156" end2="158" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="269" end1="269" start2="271" end2="276" changelist="1692ffd0-aaa3-45a2-8267-015bae2c8d57" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java">
-      <ranges>
-        <range start1="9" end1="9" start2="9" end2="10" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="11" end1="12" start2="12" end2="16" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="6" end1="6" start2="7" end2="8" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="24" end1="26" start2="26" end2="26" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="58" end1="59" start2="58" end2="59" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="77" end1="80" start2="77" end2="78" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="167" end1="168" start2="165" end2="175" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="171" end1="171" start2="178" end2="179" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="181" end1="182" start2="189" end2="189" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="183" end1="184" start2="190" end2="210" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="200" end1="201" start2="226" end2="226" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="208" end1="209" start2="233" end2="233" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="212" end1="214" start2="236" end2="244" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="215" end1="217" start2="245" end2="250" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="218" end1="221" start2="251" end2="254" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="222" end1="223" start2="255" end2="256" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="224" end1="225" start2="257" end2="258" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="226" end1="227" start2="259" end2="264" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="15" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="90" end1="90" start2="95" end2="97" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="106" end1="107" start2="113" end2="114" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="110" end1="110" start2="117" end2="118" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="111" end1="111" start2="119" end2="121" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="122" end1="122" start2="132" end2="134" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="166" end1="168" start2="178" end2="179" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="173" end1="173" start2="184" end2="185" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="174" end1="174" start2="186" end2="187" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java">
-      <ranges>
-        <range start1="20" end1="20" start2="20" end2="21" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="38" end1="41" start2="39" end2="39" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="68" end1="69" start2="66" end2="69" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="70" end1="71" start2="70" end2="70" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "FrighteningFunction"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="06730f69-241c-4cbd-893c-69a47e34611a" />
+        <option name="url" value="https://github.com/kipolaris/skyrimscriptsuttogok.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -214,7 +160,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "CodeWithMe",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -222,6 +168,9 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="game.model.main" />
       <recent name="game.model.commands" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\szoko\IdeaProjects\skyrimscriptsuttogok\Logarlec\src\main\java\game\model\commands\general" />
     </key>
   </component>
   <component name="RunManager">
@@ -243,7 +192,7 @@
       <updated>1711222929269</updated>
       <workItem from="1711222930422" duration="2806000" />
       <workItem from="1711279038707" duration="21726000" />
-      <workItem from="1714464638583" duration="11772000" />
+      <workItem from="1714464638583" duration="18450000" />
     </task>
     <task id="LOCAL-00001" summary="Door és Room befejezve, tesztek elkezdve">
       <created>1711284336379</created>
@@ -351,5 +300,9 @@
     <MESSAGE value="Door javítása" />
     <MESSAGE value="Javadoc kommentek a buildinges osztályokhoz" />
     <option name="LAST_COMMIT_MESSAGE" value="Javadoc kommentek a buildinges osztályokhoz" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

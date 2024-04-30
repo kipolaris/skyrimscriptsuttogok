@@ -115,6 +115,12 @@ public class GameEngine {
         return c.equals(current);
     }
 
+    /**
+     * Ellenőrzi, hogy van-e még akciója a karakternek a körben.
+     * Ha nincs, akkor meghívja a next() függvényt.
+     * @param c
+     * @return
+     */
     public boolean areActionsLeft(Character c){
         if(c.getActions() > 0){
             return true;
@@ -124,6 +130,10 @@ public class GameEngine {
         }
     }
 
+    /**
+     * lépteti az aktuális queue következő karakterére az iteratort, beállítja
+     * az aktuális karaktert, akinek a köre jön.
+     */
     public void next(){
         if(chart.hasNext()){
             current = chart.next();
@@ -135,6 +145,10 @@ public class GameEngine {
         }
     }
 
+    /**
+     * A Control flow-hoz kell. Átvált Studentekről ai-okra, ha ők jönnek,
+     * majd a buildingai-t levezényli.
+     */
     public void nextQueue(){
         if(ct.hasNext()){
             currentQueue = ct.next();
@@ -181,7 +195,7 @@ public class GameEngine {
     }
 
     /**
-     * inicializálja a játékot
+     * inicializálja a játékot, pályaépítő parancsok segítségével.
      */
     public void initGame(){
         Suttogo.info("initGame()");
@@ -233,6 +247,12 @@ public class GameEngine {
         builder = new BuildingAI();
     }
 
+    /**
+     * Lejátszik egy kört, inicializálja azt. Ehhez felépít 2 queue-t, egyet a Studentseknek, egyet
+     * az aioknak. A 3. a 2 queue queue-je.
+     * Ez ahhoz kell, hogy követni tudjuk, hogy mikor kell az ai-ok doRound() függvényét meghívni, ha a random flag
+     * aktiválva van.
+     */
     public void playOnePhase(){
         if(!studentsExtinct()) {
             Suttogo.info("playOnePhase()");

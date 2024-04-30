@@ -1,6 +1,9 @@
 package game.model.main;
 
 import game.model.commands.*;
+import game.model.commands.builders.*;
+import game.model.commands.general.*;
+import game.model.commands.godmode.*;
 import game.model.commands.iCommand;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
