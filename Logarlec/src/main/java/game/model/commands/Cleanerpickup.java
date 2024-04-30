@@ -5,4 +5,9 @@ public class Cleanerpickup implements iCommand{
     public void execute(String[] cmd) {
 
     }
+
+    @Override
+    public String getName() {
+        return "cleanerpickup";
+    }
 }

@@ -5,13 +5,20 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import javax.xml.bind.annotation.XmlElement;
+
+import static game.model.main.Main.gameEngine;
+
 public class TVSZ extends Item{
+    @XmlElement
+    boolean fake;
 
     /**
      * Konstruktor: ltrehozza a tárgyat, és inicializálja az értékeit
      */
-    public TVSZ(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-        super(activated, defensive, durability, location, owner);
+    public TVSZ(boolean activated, boolean defensive, int durability, Room location, Character owner, boolean f) {
+        super("TVSZ"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
+        fake = f;
     }
 
     /**
@@ -30,6 +37,8 @@ public class TVSZ extends Item{
     public void activate() {
         Suttogo.info("activate()");
         this.activated = true;
+        String s = this.getId() + " used. " + getEffect();
+        Suttogo.info(s);
     }
 
     /**
@@ -72,13 +81,9 @@ public class TVSZ extends Item{
         return false;
     }
 
-    /**
-     * Gáz ellen nem tud védeni
-     */
     @Override
-    public boolean protectFromGas() {
-        Suttogo.info("protectFromGas()");
-        Suttogo.info("\treturn false");
-        return false;
+    public String getEffect() {
+        if(fake) return "Rules have no power here.";
+        return "Your life is saved.";
     }
 }

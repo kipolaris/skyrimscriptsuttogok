@@ -4,14 +4,25 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import javax.xml.bind.annotation.XmlElement;
+
+import static game.model.main.Main.gameEngine;
+
 public class FFP2 extends Item{
-    public FFP2(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-        super(activated, defensive, durability, location, owner);
+    @XmlElement
+    private boolean fake;
+
+    public FFP2(boolean activated, boolean defensive, int durability, Room location, Character owner, boolean f) {
+        super("FFP2"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
+        fake = f;
     }
+
     @Override
     public void activate() { /**ezzel lehet aktiválni a maszkot, innentől megvédi használóját a mérges gáztól*/
         Suttogo.info("activate()");
         this.activated = true;
+        String s = this.getId() + " used. " + getEffect();
+        Suttogo.info(s);
     }
 
     public int getPriority(){/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
@@ -41,13 +52,6 @@ public class FFP2 extends Item{
     }
 
     @Override
-    public boolean protectFromKill() { /** ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól*/
-        Suttogo.info("protectFromKill()");
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
-    @Override
     public boolean protectFromGas() {/** ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól*/
         Suttogo.info("protectFromGas()");
         if(activated) {
@@ -56,5 +60,11 @@ public class FFP2 extends Item{
         }
         Suttogo.info("\treturn false");
         return false;
+    }
+
+    @Override
+    public String getEffect() {
+        if(fake) return "Wait.. is this a real gasmask?";
+        return "Gas has no effect on you now.";
     }
 }

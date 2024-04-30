@@ -6,40 +6,97 @@ import game.model.entities.Student;
 import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
-import game.model.main.GameEngine;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Collection;
 
 import java.util.*;
 
+import static game.model.main.Main.gameEngine;
+@XmlRootElement
 public class Room {
-
-    private GameEngine gameEngine;
-
-    public void setGameEngine(GameEngine gameEngine) {
-        this.gameEngine = gameEngine;
+    public String getId() {
+        return id;
     }
+    @XmlAttribute
+    private String id;
+    @XmlElement
     private int capacity;
+    @XmlElement
     private boolean gassed;
+    @XmlElement
     private boolean cursed;
 
+    public boolean isWasCleaned() {
+        return wasCleaned;
+    }
+    @XmlElement
+    private boolean wasCleaned;
+    @XmlElement
+    private boolean sticky;
+    @XmlElement
+    private int visitors;
+    @XmlElement
+    private boolean hasAirFreshener;
+    @XmlElement
     private ArrayList<Door> doors;
-
+    @XmlElement
     private ArrayList<Item> items;
 
+    @XmlElement
     private ArrayList<Character> characters;
+
+    public Room(){
+        id = "Room" + BuildingAI.getRoomID();
+
+        gameEngine.getBuilder().addRoom(this);
+    }
+
+    public ArrayList<Room> getNeighbours(){
+        ArrayList<Room> n = new ArrayList<>();
+
+        for (Door d: doors) {
+            n.add(d.getNeighbour(this));
+        }
+
+        return n;
+    }
+
+    public Door getDoorOf(Room r){
+        for(Door d : doors){
+            if(d.getNeighbour(r).equals(this)){
+                return d;
+            }
+        }
+
+        return null;
+    }
+
 
     /** Konstruktor: létrehoz egy szobát, beállítja a tulajdonságait,
     * és inicializálja a szobához tartozó entitások és ajtók listáit*/
     public Room(int c, boolean g, boolean cu, ArrayList<Door> ds, ArrayList<Item> is, ArrayList<Character> cs) {
+        id = "Room" + BuildingAI.getRoomID();
+
         capacity = c;
         gassed = g;
         cursed = cu;
         doors = ds != null ? new ArrayList<>(ds) : new ArrayList<>();
         items = is != null ? new ArrayList<>(is) : new ArrayList<>();
         characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
+        wasCleaned = false;
+        sticky = false;
+        visitors = 0;
+        hasAirFreshener = false;
+
+        //rögtön hozzá is adjuk a labirynthoz
+        gameEngine.getBuilder().addRoom(this);
     }
 
     /**Beállítja a szoba ajtajait*/
-    public void setDoors(ArrayList<Door> ds) {
+    public void setDoors(List<Door> ds) {
         Suttogo.info("setDoors(ArrayList<Door>)");
         for(Door d: ds) {
             doors.add(d);
@@ -88,10 +145,21 @@ public class Room {
         return items;
     }
 
+    public boolean isFull() {
+        return characters.size() == capacity;
+    }
+
     /**Hozzáad egy karaktert a szobához*/
-    public void addCharacter(Character character) {
+    public boolean addCharacter(Character character) {
         Suttogo.info("addCharacter(Character)");
-        characters.add(character);
+        if(!isFull()){
+            characters.add(character);
+
+            if(wasCleaned && (++visitors > 4)) { sticky = true; }
+
+            return true;
+        }
+        return false;
     }
 
     /**Eltávolít egy karaktert a szobából*/
@@ -161,7 +229,7 @@ public class Room {
         Suttogo.info("checkGas()");
         if(gassed) {
             for (Character character : characters) {
-                if (character.getItems().stream().noneMatch(FFP2.class::isInstance)) {
+                if (character.getItems().values().stream().noneMatch(FFP2.class::isInstance)) {
                     character.setParalyzed(true);
                 }
             }
@@ -197,5 +265,37 @@ public class Room {
         Suttogo.info("getCapacity()");
         Suttogo.info("\treturn int");
         return capacity;
+    }
+
+    /**Beállítja a wasCleaned és a sticky értékét*/
+    public void setWasCleaned() {
+        wasCleaned = true;
+        sticky = false;
+    }
+
+    /**Visszaadja a sticky értékét*/
+    public boolean getSticky() {
+        return  sticky;
+    }
+
+    /**Minden karaktert, amelyik nem Cleaner és nem paralyzed, kiküldi a szobából*/
+    public void sendOut() {
+        ArrayList<Professor> professors = getProfessors();
+        ArrayList<Student> students = getStudents();
+        for(Student student : students) {
+            if(!student.getParalyzed()) {
+                student.getLocation().removeCharacter(student);
+                Room destination = gameEngine.getBuilder().getFreeRoom(this);
+                if(destination!=null) {
+                    student.setLocation(destination);
+                    destination.addCharacter(student);
+                }
+            }
+        }
+    }
+
+    /**Igazra állítja a hasAirFreshener értékét*/
+    public void setHasAirFreshener() {
+        hasAirFreshener = true;
     }
 }

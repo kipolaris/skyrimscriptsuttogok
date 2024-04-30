@@ -29,6 +29,8 @@ public class Suttogo {
         log(message);
     }
 
+    public static void note(String message){log(message);}
+
     private static void log(String message) {
         System.out.println(message);
     }

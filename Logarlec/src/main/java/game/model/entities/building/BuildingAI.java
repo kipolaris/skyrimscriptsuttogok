@@ -4,13 +4,30 @@ import game.model.entities.Character;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
-import java.sql.Array;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+@XmlRootElement
 public class BuildingAI {
-    private ArrayList<Room> labyrinth = new ArrayList<>();
+    @XmlAttribute
+    private static int roomID;
+    @XmlElement
+    private Map<String, Room> labyrinth = new HashMap<>();
 
-    /**Összeolvaszt két szobát a labirintusban
+    public static int getRoomID() {
+        return roomID++;
+    }
+
+    public Map<String, Room> getLabyrinth(){
+        return labyrinth;
+    }
+
+    /**
+     * Összeolvaszt két szobát a labirintusban
      */
     public void mergeRooms(Room r1, Room r2){
         Suttogo.info("mergeRooms(Room, Room)");
@@ -112,12 +129,20 @@ public class BuildingAI {
     /**Hozzáadunk egy szobát a labirintushoz*/
     public void addRoom(Room r1){
         Suttogo.info("addRoom(Room)");
-        labyrinth.add(0, r1);
+        labyrinth.put(r1.getId(), r1);
     }
 
     /**Eltávolítunk egy szobát a labirintusból*/
     public void removeRoom(Room r1){
         Suttogo.info("removeRoom(Room)");
         labyrinth.remove(r1);
+    }
+
+    /**Visszaad egy szabad szobát, ami nem egyezik a megadott szobával*/
+    public Room getFreeRoom(Room r) {
+        for(Room room : labyrinth.values()) {
+            if(!room.equals(r) && !room.isFull()) return room;
+        }
+        return null;
     }
 }

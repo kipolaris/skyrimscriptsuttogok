@@ -3,18 +3,37 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
-public abstract class Item {/** tárgy ősosztály*/
+@XmlRootElement
+public abstract class Item {
+    /** tárgy ősosztály*/
+    @XmlAttribute
+    protected final String id;
+
+    public String getId() {
+        return id;
+    }
+    @XmlElement
     protected boolean activated;
+    @XmlElement
     protected boolean defensive;
+    @XmlElement
     protected int durability;
+    @XmlElement
     protected Room location;
+    @XmlElement
     protected Character owner;
 
-    public Item() {}
+    public Item(String id) {
+        this.id = id;
+    }
 
-    public Item(boolean activated, boolean defensive, int durability, Room location, Character owner) { //Item konstruktor, alapértékek beállításához
+    public Item(String id, boolean activated, boolean defensive, int durability, Room location, Character owner) { //Item konstruktor, alapértékek beállításához
+        this.id = id;
         this.activated = activated;
         this.defensive = defensive;
         this.durability = durability;
@@ -58,13 +77,25 @@ public abstract class Item {/** tárgy ősosztály*/
         return activated;
     }
 
-    public abstract boolean protectFromKill();// ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól
+    public boolean protectFromKill() { // ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól
+        Suttogo.info("protectFromKill()");
+        Suttogo.info("\treturn false");
+        return false;
+    }
 
-    public abstract boolean protectFromGas();// ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól
+    public boolean protectFromGas() {// ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól
+        Suttogo.info("protectFromGas()");
+        Suttogo.info("\treturn false");
+        return false;
+    }
 
     public void setOwner(Character character){// ez a függvény állítja be, hogy kinél van a tárgy
         Suttogo.info("setOwner(Character)");
         this.owner = character;
+    }
+
+    public String getEffect() {
+        return null;
     }
 }
 

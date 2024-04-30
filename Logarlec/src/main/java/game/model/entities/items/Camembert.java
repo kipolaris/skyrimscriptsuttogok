@@ -4,10 +4,15 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import static game.model.main.Main.gameEngine;
+
 public class Camembert extends Item{
 
     public Camembert(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-        super(activated, defensive, durability, location, owner);
+        super("Camembert"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }
     /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
     public int getPriority(){
@@ -25,6 +30,8 @@ public class Camembert extends Item{
         Room loc = owner.getLocation();
         loc.setGassed(true);
         durability = 0;
+        String s = this.getId() + " used. " + getEffect();
+        Suttogo.info(s);
     }
 
     @Override
@@ -42,16 +49,7 @@ public class Camembert extends Item{
     }
 
     @Override
-    public boolean protectFromKill() {/** ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól*/
-        Suttogo.info("protectFromKill()");
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
-    @Override
-    public boolean protectFromGas() {/** ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól*/
-        Suttogo.info("protectFromGas()");
-        Suttogo.info("\treturn false");
-        return false;
+    public String getEffect() {
+        return "The room gets gassed.";
     }
 }

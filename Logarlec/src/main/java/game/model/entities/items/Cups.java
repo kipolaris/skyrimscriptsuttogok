@@ -4,10 +4,12 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import static game.model.main.Main.gameEngine;
+
 public class Cups extends Item{
 
     public Cups(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-        super(activated, defensive, durability, location, owner);
+        super("Cups"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }
     public int getPriority(){/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
 
@@ -20,6 +22,8 @@ public class Cups extends Item{
 
         Suttogo.info("activate()");
         this.activated = true;
+        String s = this.getId() + " used. " + getEffect();
+        Suttogo.info(s);
     }
 
     @Override
@@ -54,9 +58,7 @@ public class Cups extends Item{
     }
 
     @Override
-    public boolean protectFromGas() {/** ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól*/
-        Suttogo.info("protectFromGas()");
-        Suttogo.info("\treturn false");
-        return false;
+    public String getEffect() {
+        return "You feel much stronger, but you feel a bit dizzy.";
     }
 }

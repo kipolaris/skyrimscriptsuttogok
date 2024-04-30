@@ -5,18 +5,38 @@ import game.model.entities.building.Room;
 import game.model.entities.items.*;
 import game.model.logging.Suttogo;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Character {
+    protected final String id;
     public static int maxInventorySize = 5;
     protected boolean paralyzed;
 
+    public int getActions() {
+        return actions;
+    }
+
     protected int actions = 3;
+
     protected Room location;
 
-    protected ArrayList<Item> items = new ArrayList<>();
+    protected Map<String, Item> items = new HashMap<>();
+
+    private int itemID = 0;
+    public String getKey(Item item) {
+        for (Map.Entry<String, Item> entry : items.entrySet()) {
+            if (item.equals(entry.getValue())) { return entry.getKey(); }
+        }
+        return null;
+    }
+
+    public Character(String name){
+        id = name;
+    }
+
+    public String getId() {
+        return id;
+    }
 
     /**
      * prioritásKomparátor. Ez valósítja meg, hogy hiearchia szerint használja védelemre
@@ -73,7 +93,7 @@ public class Character {
     /**
      * Visszaadja a karakternél levő tárgyakat
      */
-    public ArrayList<Item> getItems() {
+    public Map<String, Item> getItems() {
         Suttogo.info("getItems()");
         Suttogo.info("\treturn ArrayList<Item>");
         return items;
@@ -86,7 +106,7 @@ public class Character {
         Suttogo.info("addItem(Item)");
         if(actions>0 && items.size()<maxInventorySize){
             location.removeItem(item);
-            items.add(item);
+            items.put(Integer.toString(itemID++),item);
             item.setOwner(this);
         }
     }
@@ -96,7 +116,7 @@ public class Character {
      */
     public void dropItem(Item item) {
         Suttogo.info("dropItem(Item)");
-        if(items.contains(item)){
+        if(items.containsValue(item)){
             item.setLocation(location);
             location.addItem(item);
         }
@@ -110,7 +130,7 @@ public class Character {
         if(b) {
             PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
 
-            for (Item i : items) {
+            for (Item i : items.values()) {
                 if (i.protectFromGas()) {
                     itemPriorityQueue.add(i);
                 }
@@ -144,9 +164,13 @@ public class Character {
      */
     public void move(Door d) {
         Suttogo.info("move(Door)");
+
         if(d.accept(this, location)){
             Room dest = d.getNeighbour(location);
-            dest.addCharacter(this);
+            if(dest.addCharacter(this)){
+                this.location.removeCharacter(this);
+                this.location = dest;
+            }
         }
     }
 
@@ -175,9 +199,16 @@ public class Character {
         throw new UnsupportedOperationException();
     }
 
+    /**Elpusztítja a karaktert*/
     public boolean die() {
         Suttogo.info("die()");
         Suttogo.info("\treturn boolean");
         throw new UnsupportedOperationException();
+    }
+
+    /**Beállítja az actions értékét*/
+    public void setActions(int i) {
+        actions += i;
+        if(actions < 0) actions = 0;
     }
 }

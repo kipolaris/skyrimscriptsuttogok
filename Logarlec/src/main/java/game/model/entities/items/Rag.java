@@ -4,11 +4,13 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import static game.model.main.Main.gameEngine;
+
 public class Rag extends Item{
 
     /**Konstruktor: létrehozza a tárgyat és inicializálja az értékeit*/
     public Rag(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-        super(activated, defensive, durability, location, owner);
+        super("Rag"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }
 
     /**Prioritási listán nem számít*/
@@ -25,6 +27,8 @@ public class Rag extends Item{
         this.activated = true;
         owner.dropItem(this);
         this.location.paralyzeProfessors();
+        String s = this.getId() + " used. " + getEffect();
+        Suttogo.info(s);
     }
 
     /**A tárgy élettartamát csökkenti. Ha aktív a tárgy, akkor körönként egy életet veszt.*/
@@ -49,19 +53,8 @@ public class Rag extends Item{
         return false;
     }
 
-    /**Védelem lekérdezése tanárok ellen. Ilyen esetben nem felhasználható.*/
     @Override
-    public boolean protectFromKill() {
-        Suttogo.info("protectFromKill()");
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
-    /**Védelem lekérdezése gáz ellen. Ilyen esetben nem felhasználható.*/
-    @Override
-    public boolean protectFromGas() {
-        Suttogo.info("protectFromGas()");
-        Suttogo.info("\treturn false");
-        return false;
+    public String getEffect() {
+        return "Professors in the room get paralyzed.";
     }
 }

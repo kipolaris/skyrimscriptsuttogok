@@ -1,4 +1,10 @@
 
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+i
+9Logarlec/src/main/java/game/model/entities/Character.java,c\4\c451c3095eccc68fb19521c4de61b34a9672a1e7
+
 j
 :Logarlec/src/main/java/game/model/entities/items/TVSZ.java,d\7\d77590cb3a9a2503dd0a16379ed42314d1fad401
 m

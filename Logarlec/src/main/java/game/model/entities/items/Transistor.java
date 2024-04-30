@@ -3,14 +3,19 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import javax.xml.bind.annotation.XmlElement;
+
+import static game.model.main.Main.gameEngine;
+
 public class Transistor extends Item{
+    @XmlElement
   private Transistor Pair;
 
     /**
      * Konstruktor: létrehozza a tárgyat, és inicializálja a kezdőértékeket
      */
-  public Transistor(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-      super(activated, defensive, durability, location, owner);
+  public Transistor(boolean activated, boolean defensive, Room location, Character owner) {
+      super("Transistor"+gameEngine.getItemID(), activated, defensive, 0, location, owner);
   }
     public int getPriority(){
         Suttogo.info("getPriority()");
@@ -30,6 +35,8 @@ public class Transistor extends Item{
             this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
         }
         else{
+            String s = this.getId() + " used. " + getEffect();
+            Suttogo.info(s);
             owner.setLocation(this.Pair.getLocation());
             unpair();
         }
@@ -57,26 +64,6 @@ public class Transistor extends Item{
             Suttogo.info("\treturn true");
             return true;
         }
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
-    /**
-     * Nem tud gyilkolás ellen megvédeni
-     */
-    @Override
-    public boolean protectFromKill() {
-        Suttogo.info("protectFromKill()");
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
-    /**
-     * Gáz ellen nem véd
-     */
-    @Override
-    public boolean protectFromGas() {
-        Suttogo.info("protectFromGas()");
         Suttogo.info("\treturn false");
         return false;
     }
@@ -115,5 +102,10 @@ public class Transistor extends Item{
         this.Pair.setPair(null);
         this.setPair(null);
 
+    }
+
+    @Override
+    public String getEffect() {
+        return "You get teleported away.";
     }
 }

@@ -5,12 +5,19 @@ import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 
+import javax.xml.bind.annotation.XmlElement;
+
+import static game.model.main.Main.gameEngine;
+
 public class SlideRule extends Item{
+    @XmlElement
+    boolean fake;
     /**
      * Konstruktor: létrehozza a tárgyat, inicializálja az értékeit
      */
-    public SlideRule(boolean activated, boolean defensive, int durability, Room location, Character owner) {
-        super(activated, defensive, durability, location, owner);
+    public SlideRule(boolean activated, boolean defensive, int durability, Room location, Character owner, boolean f) {
+        super("SlideRule"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
+        fake = f;
     }
     private game.model.main.GameEngine engine;
 
@@ -30,6 +37,8 @@ public class SlideRule extends Item{
     public void activate() {
         Suttogo.info("activate()");
         //implement
+        String s = this.getId() + " used. " + getEffect();
+        Suttogo.info(s);
     }
 
     /**
@@ -52,26 +61,6 @@ public class SlideRule extends Item{
         return false;
     }
 
-    /**
-     * Nem tud megvédeni a tanárok gyilkolási szándékai ellen
-     */
-    @Override
-    public boolean protectFromKill() {
-        Suttogo.info("protectFromKill()");
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
-    /**
-     * Nem tud megvédeni a gáz ellen
-     */
-    @Override
-    public boolean protectFromGas() {
-        Suttogo.info("protectFromGas()");
-        Suttogo.info("\treturn false");
-        return false;
-    }
-
     /**Itt állítható be a tartózkodási helye, hogy éppen melyik szobában vagy kinél van*/
     @Override
     public void setLocation(Room room){
@@ -86,5 +75,11 @@ public class SlideRule extends Item{
     public void setGameEngine(GameEngine e){
         Suttogo.info("setGameEngine(GameEngine)");
         this.engine = e;
+    }
+
+    @Override
+    public String getEffect() {
+        if(fake) return "It's only a stick..";
+        return "You win!";
     }
 }
