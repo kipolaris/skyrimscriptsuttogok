@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
+import static game.model.main.Main.gameEngine;
+
 @XmlRootElement
 public abstract class Item {
     /** tárgy ősosztály*/
@@ -39,6 +41,8 @@ public abstract class Item {
         this.durability = durability;
         this.location = location;
         this.owner = owner;
+
+        //#todo: esetleg itt hozzáadni a gameengine mapjéhez rögtön?
     }
 
     // Abstract methods

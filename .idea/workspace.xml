@@ -13,123 +13,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/glassfish_jaxb_runtime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jakarta_xml_bind_api.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudDrop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/StudPickup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/help.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Cleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/AirFreshener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/SaverLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/drop_item_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/help_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/help_out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/move_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/move_out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/newgame_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/newgame_out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/pass_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/pickup_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/pickup_out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/save_in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logarlec/src/test/resources/use_in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/skyrimscriptsuttogok_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/skyrimscriptsuttogok_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/apache_log4j_2_23_1_bin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Airfreshener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddAirfreshener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCamembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Charadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Charadditem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanerdrop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanermove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanermove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanerpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cleanerpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddCups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Drop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Ffp2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddFFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Kill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Load.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Newgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Newgame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profdrop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddProfessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profmove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profmove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomGo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomNogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomNogo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomaddchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomaddchar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Roomadditem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Runtests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Runtests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Save.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Sliderule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddSliderule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddTransistor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Tvsz.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddTvsz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/iCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/iCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/logging/Suttogo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/test/test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skyrimscriptsuttogok.iml" beforeDir="false" afterPath="$PROJECT_DIR$/skyrimscriptsuttogok.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/CamembertTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/Main.class" afterDir="false" />
     </list>
     <list id="6b6830cc-8fde-4317-950b-f7b1203e98cb" name="Changes by Balázs" comment="">
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java" afterDir="false" />
-    </list>
-    <list id="38865770-14b2-4dfc-b41b-bd9704d148fe" name="Changes by fdorii" comment="">
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Newgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Newgame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomGo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomNogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomNogo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/iCommand.java" beforeDir="false" />
     </list>
-    <list id="e8d01744-72ac-4b14-9923-dba98c7a1ad0" name="Changes by User" comment="">
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Ffp2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddFFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
-    </list>
+    <list id="38865770-14b2-4dfc-b41b-bd9704d148fe" name="Changes by fdorii" comment="" />
+    <list id="e8d01744-72ac-4b14-9923-dba98c7a1ad0" name="Changes by User" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,239 +43,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Rag.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="7" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="10" end1="11" start2="12" end2="13" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="27" end1="27" start2="29" end2="31" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="51" end1="60" start2="55" end2="55" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="61" end1="65" start2="56" end2="58" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Camembert.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="11" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="9" end1="10" start2="14" end2="15" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="27" end1="27" start2="32" end2="34" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="42" end1="49" start2="49" end2="49" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="51" end1="55" start2="51" end2="53" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Cups.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="7" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="9" end1="10" start2="11" end2="12" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="22" end1="22" start2="24" end2="26" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="56" end1="60" start2="60" end2="62" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/FFP2.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="9" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="7" end1="9" start2="11" end2="17" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="10" end1="10" start2="18" end2="19" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="14" end1="14" start2="23" end2="25" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="42" end1="49" start2="53" end2="53" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="59" end1="59" start2="63" end2="69" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Newgame.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="5" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="5" end1="6" start2="8" end2="10" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="7" end1="7" start2="11" end2="17" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomGo.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="5" end1="6" start2="7" end2="8" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="7" end1="7" start2="9" end2="14" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Pair.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="10" changelist="6b6830cc-8fde-4317-950b-f7b1203e98cb" />
-        <range start1="3" end1="3" start2="11" end2="12" changelist="6b6830cc-8fde-4317-950b-f7b1203e98cb" />
-        <range start1="5" end1="5" start2="14" end2="20" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="6" end1="6" start2="21" end2="39" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/TVSZ.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="10" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="8" end1="8" start2="12" end2="14" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="12" end1="14" start2="18" end2="21" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="32" end1="32" start2="39" end2="41" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="74" end1="77" start2="83" end2="83" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="78" end1="82" start2="84" end2="87" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Transistor.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="9" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="6" end1="6" start2="10" end2="11" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="11" end1="13" start2="16" end2="18" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="32" end1="32" start2="37" end2="39" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="59" end1="79" start2="66" end2="66" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="117" end1="117" start2="104" end2="109" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Help.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="5" end1="6" start2="7" end2="16" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="7" end1="7" start2="17" end2="22" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Neighbour.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="8" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="5" end1="5" start2="11" end2="34" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="6" end1="6" start2="35" end2="38" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Character.java">
-      <ranges>
-        <range start1="7" end1="10" start2="7" end2="8" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="12" end1="12" start2="10" end2="11" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="14" end1="14" start2="13" end2="17" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="16" end1="16" start2="19" end2="20" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="17" end1="17" start2="21" end2="23" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="18" end1="19" start2="24" end2="39" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="75" end1="76" start2="95" end2="96" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="88" end1="89" start2="108" end2="109" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="98" end1="99" start2="118" end2="119" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="112" end1="113" start2="132" end2="133" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="146" end1="146" start2="166" end2="167" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="148" end1="149" start2="169" end2="173" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="177" end1="177" start2="201" end2="202" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="182" end1="182" start2="207" end2="213" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/AddFFP2.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="6" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="5" end1="5" start2="8" end2="24" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="6" end1="6" start2="25" end2="28" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Use.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="8" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="5" end1="6" start2="11" end2="17" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="7" end1="7" start2="18" end2="23" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/main/Main.java">
-      <ranges>
-        <range start1="2" end1="4" start2="2" end2="3" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="7" end1="7" start2="6" end2="7" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="9" end1="9" start2="9" end2="12" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="10" end1="11" start2="13" end2="13" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="14" end1="25" start2="16" end2="29" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="29" end1="30" start2="33" end2="34" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/RandomNogo.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="5" end1="6" start2="7" end2="8" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="7" end1="7" start2="9" end2="14" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/Room.java">
-      <ranges>
-        <range start1="8" end1="9" start2="8" end2="13" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="12" end1="12" start2="16" end2="18" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="13" end1="18" start2="19" end2="21" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="19" end1="19" start2="22" end2="25" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="20" end1="20" start2="26" end2="27" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="21" end1="21" start2="28" end2="29" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="23" end1="23" start2="31" end2="43" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="24" end1="25" start2="44" end2="45" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="27" end1="27" start2="47" end2="48" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="29" end1="29" start2="50" end2="77" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="32" end1="32" start2="80" end2="82" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="38" end1="38" start2="88" end2="95" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="41" end1="42" start2="98" end2="99" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="89" end1="89" start2="146" end2="150" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="91" end1="92" start2="152" end2="153" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="93" end1="94" start2="154" end2="162" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="163" end1="164" start2="231" end2="232" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="200" end1="200" start2="268" end2="300" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/Professor.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="5" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="3" end1="3" start2="6" end2="11" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="4" end1="5" start2="12" end2="14" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="6" end1="6" start2="15" end2="28" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="10" end1="12" start2="32" end2="66" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="13" end1="13" start2="67" end2="72" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Profpickup.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="14" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="5" end1="5" start2="17" end2="24" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="6" end1="6" start2="25" end2="32" changelist="38865770-14b2-4dfc-b41b-bd9704d148fe" />
-        <range start1="7" end1="7" start2="33" end2="38" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/SlideRule.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="10" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="8" end1="8" start2="12" end2="14" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="11" end1="13" start2="17" end2="20" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="32" end1="32" start2="39" end2="41" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="53" end1="73" start2="62" end2="62" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="89" end1="89" start2="78" end2="84" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Skip.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="7" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="5" end1="6" start2="10" end2="14" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="7" end1="7" start2="15" end2="20" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/commands/Unpair.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="12" changelist="6b6830cc-8fde-4317-950b-f7b1203e98cb" />
-        <range start1="5" end1="5" start2="15" end2="31" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="6" end1="6" start2="32" end2="35" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/items/Item.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="8" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="7" end1="8" start2="10" end2="20" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="9" end1="9" start2="21" end2="22" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="10" end1="10" start2="23" end2="24" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="11" end1="11" start2="25" end2="26" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="12" end1="12" start2="27" end2="28" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="14" end1="15" start2="30" end2="33" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="16" end1="17" start2="34" end2="36" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="60" end1="61" start2="79" end2="84" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="62" end1="63" start2="85" end2="90" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-        <range start1="68" end1="68" start2="95" end2="99" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logarlec/src/main/java/game/model/entities/building/BuildingAI.java">
-      <ranges>
-        <range start1="6" end1="7" start2="6" end2="9" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="8" end1="8" start2="10" end2="12" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="9" end1="9" start2="13" end2="14" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="10" end1="11" start2="15" end2="23" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="12" end1="13" start2="24" end2="30" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="114" end1="115" start2="131" end2="132" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="122" end1="122" start2="139" end2="147" changelist="e8d01744-72ac-4b14-9923-dba98c7a1ad0" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -400,31 +60,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "uj",
-    "last_opened_file_path": "C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;uj&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="game.model.main" />
