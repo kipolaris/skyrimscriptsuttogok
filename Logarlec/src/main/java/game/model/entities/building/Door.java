@@ -47,7 +47,7 @@ public class Door {
         Suttogo.info("getNeighbour(Room)");
         Suttogo.info("\treturn Room");
         if(r==from) return to;
-        else return from;
+        return from;
     }
 
     /**Beállítja az ajtó láthatóságát*/

@@ -15,7 +15,7 @@ public class Transistor extends Item{
      * Konstruktor: létrehozza a tárgyat, és inicializálja a kezdőértékeket
      */
   public Transistor(boolean activated, boolean defensive, Room location, Character owner) {
-      super("Transistor"+gameEngine.getItemID(), activated, defensive, 0, location, owner);
+      super("Transistor"+gameEngine.getItemID(), activated, defensive, 1000, location, owner);
   }
     public int getPriority(){
         Suttogo.info("getPriority()");
@@ -37,8 +37,10 @@ public class Transistor extends Item{
         else{
             String s = this.getId() + " used. " + getEffect();
             Suttogo.info(s);
-            owner.setLocation(this.Pair.getLocation());
-            unpair();
+            if(!Pair.getLocation().isFull()) {
+                owner.setLocation(this.Pair.getLocation());
+                unpair();
+            }
         }
     }
 
