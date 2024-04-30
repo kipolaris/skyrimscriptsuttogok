@@ -5,7 +5,6 @@ import game.model.entities.Character;
 import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
-import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
 import static game.model.main.Main.gameEngine;
@@ -37,8 +36,4 @@ public class Move implements iCommand {
         }
     }
 
-    @Override
-    public String getName() {
-        return "---";
-    }
 }

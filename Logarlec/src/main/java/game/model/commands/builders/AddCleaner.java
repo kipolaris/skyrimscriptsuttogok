@@ -2,7 +2,6 @@ package game.model.commands.builders;
 
 import game.model.commands.iCommand;
 import game.model.entities.Cleaner;
-import game.model.entities.Professor;
 import game.model.main.Main;
 
 public class AddCleaner implements iCommand {
@@ -13,8 +12,4 @@ public class AddCleaner implements iCommand {
         Main.gameEngine.addCleaner(new Cleaner(paralyzed));
     }
 
-    @Override
-    public String getName() {
-        return "cleaner";
-    }
 }

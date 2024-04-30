@@ -2,11 +2,8 @@ package game.model.commands.godmode;
 
 import game.model.commands.iCommand;
 import game.model.entities.building.BuildingAI;
-import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
-
-import java.util.ArrayList;
 
 import static game.model.main.Main.gameEngine;
 
@@ -56,8 +53,4 @@ public class SplitRoom implements iCommand {
         }
     }
 
-    @Override
-    public String getName() {
-        return "split";
-    }
 }

@@ -22,8 +22,4 @@ public class StudMove implements iCommand{
 
     }
 
-    @Override
-    public String getName() {
-        return null;
-    }
 }

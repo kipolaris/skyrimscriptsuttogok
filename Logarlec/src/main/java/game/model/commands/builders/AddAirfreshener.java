@@ -2,7 +2,6 @@ package game.model.commands.builders;
 
 import game.model.commands.iCommand;
 import game.model.entities.items.AirFreshener;
-import game.model.entities.items.FFP2;
 import game.model.main.Main;
 
 public class AddAirfreshener implements iCommand {
@@ -12,8 +11,4 @@ public class AddAirfreshener implements iCommand {
         Main.gameEngine.addItem(af);
     }
 
-    @Override
-    public String getName() {
-        return "airfreshener";
-    }
 }

@@ -39,8 +39,4 @@ public class Neighbour implements iCommand {
         room2.addDoor(door);
     }
 
-    @Override
-    public String getName() {
-        return "neighbour";
-    }
 }

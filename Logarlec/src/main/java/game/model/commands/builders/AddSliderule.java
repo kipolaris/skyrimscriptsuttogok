@@ -22,8 +22,4 @@ public class AddSliderule implements iCommand {
         Main.gameEngine.addItem(sliderule);
     }
 
-    @Override
-    public String getName() {
-        return "sliderule";
-    }
 }

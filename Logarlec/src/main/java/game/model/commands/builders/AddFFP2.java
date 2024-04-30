@@ -24,8 +24,4 @@ public class AddFFP2 implements iCommand {
         Main.gameEngine.addItem(ffp2);
     }
 
-    @Override
-    public String getName() {
-        return "ffp2";
-    }
 }

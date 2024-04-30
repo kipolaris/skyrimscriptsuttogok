@@ -36,8 +36,4 @@ public class Pickup implements iCommand {
         Suttogo.info("A szobaban nincs a targy!");
     }
 
-    @Override
-    public String getName() {
-        return "-----";
-    }
 }

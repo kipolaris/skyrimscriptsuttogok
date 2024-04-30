@@ -12,8 +12,4 @@ public class AddStudent implements iCommand {
         Main.gameEngine.addStudent(new Student(paralyzed));
     }
 
-    @Override
-    public String getName() {
-        return "student";
-    }
 }

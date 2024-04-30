@@ -2,7 +2,6 @@ package game.model.commands.base;
 
 import game.model.commands.iCommand;
 import game.model.entities.Character;
-import game.model.entities.building.BuildingAI;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
@@ -31,8 +30,4 @@ public class Drop implements iCommand {
         c.dropItem(i);
     }
 
-    @Override
-    public String getName() {
-        return "----";
-    }
 }

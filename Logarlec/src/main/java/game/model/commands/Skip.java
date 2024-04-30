@@ -15,8 +15,4 @@ public class Skip implements iCommand{
         Suttogo.info("Your Round ended.");
     }
 
-    @Override
-    public String getName() {
-        return "skip";
-    }
 }

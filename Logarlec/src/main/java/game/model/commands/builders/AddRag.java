@@ -1,7 +1,6 @@
 package game.model.commands.builders;
 
 import game.model.commands.iCommand;
-import game.model.entities.items.Cups;
 import game.model.entities.items.Rag;
 import game.model.main.Main;
 
@@ -14,8 +13,4 @@ public class AddRag implements iCommand {
         Main.gameEngine.addItem(r);
     }
 
-    @Override
-    public String getName() {
-        return "rag";
-    }
 }

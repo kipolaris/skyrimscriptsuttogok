@@ -40,8 +40,4 @@ public class Pair implements iCommand{
         else Suttogo.error("This item is not a Transistor.");
     }
 
-    @Override
-    public String getName() {
-        return "pair";
-    }
 }

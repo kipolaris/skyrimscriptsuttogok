@@ -11,9 +11,9 @@ public class Suttogo {
     private Suttogo() {}
 
     public enum Level {
-        INFO, ERROR, NONE
+        INFO, ERROR, NONE, NOTE
     }
-    private static Level level = Level.NONE;
+    private static Level level = Level.NOTE;
     private static final Set<String> enabledClasses = new HashSet<>();
     private static final Queue<String> messageQueue = new LinkedList<>();
 
@@ -22,15 +22,17 @@ public class Suttogo {
     }
 
     public static void info(String message) {
-        if(level == Level.INFO)
-                log(message);
+        if(level == Level.INFO || level == Level.ERROR)
+                log("INFO "+message);
     }
 
     public static void error(String message) {
-        log(message);
+        if(level == Level.ERROR) log("ERROR "+message);
     }
 
-    public static void note(String message){log(message);}
+    public static void note(String message){
+        if(level == Level.NOTE || level == Level.ERROR) log("NOTE "+message);
+    }
 
     private static void log(String message) {
         System.out.println(message);

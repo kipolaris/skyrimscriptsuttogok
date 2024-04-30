@@ -45,6 +45,12 @@ public class GameEngine {
 
     private Queue<Character> aiTurns;
 
+    public boolean isAInext() {
+        return isAInext;
+    }
+
+    private boolean isAInext = false;
+
     //iterators ---------------
     private Iterator<Queue<Character>> ct;
     private Iterator<Character> chart;
@@ -123,9 +129,12 @@ public class GameEngine {
      */
     public boolean areActionsLeft(Character c){
         if(c.getActions() > 0){
+            if(c.getActions() == 1) {
+                next();
+                Suttogo.note("next has been called");
+            }
             return true;
         }else{
-            next();
             return false;
         }
     }
@@ -137,11 +146,19 @@ public class GameEngine {
     public void next(){
         if(chart.hasNext()){
             current = chart.next();
-            if(currentQueue.equals(aiTurns) && random){
-                current.doRound();
+            Suttogo.note("well it looks like theres still somoeone here");
+            if(currentQueue.equals(aiTurns)){
+                Suttogo.note("isAInext was set to true");
+                isAInext = true;
+                if(!random){
+                    Suttogo.note("Now you can step with"+ current.getId() + "ai");
+                }
+            }else{
+                isAInext = false;
             }
         }else{
             nextQueue();
+            Suttogo.note("switched to next queue");
         }
     }
 
@@ -155,14 +172,15 @@ public class GameEngine {
             chart = currentQueue.iterator();
             next();
         }else{
+            Suttogo.note("----Building AI comes ---------");
             if(random){
                 Random r = new Random();
 
                 ArrayList<Room> allrooms = new ArrayList<>(builder.getLabyrinth().values());
 
-                int n1 = r.nextInt(allrooms.size())-1;
-                int n2 = r.nextInt(allrooms.size())-1;
-                int n3 = r.nextInt(allrooms.size())-1;
+                int n1 = r.nextInt(allrooms.size());
+                int n2 = r.nextInt(allrooms.size());
+                int n3 = r.nextInt(allrooms.size());
 
                 Room r1 = allrooms.get(n1);
                 Room r2 = allrooms.get(n2);
@@ -220,7 +238,7 @@ public class GameEngine {
 
             Main.perform("startGame");
 
-            Main.printOut();
+            if(Main.allOut) Main.printOut();
         }
     }
 
@@ -256,6 +274,8 @@ public class GameEngine {
     public void playOnePhase(){
         if(!studentsExtinct()) {
             Suttogo.info("playOnePhase()");
+
+            Suttogo.note("-------- new Phase initiated! ------------\n");
 
             for(Student s : students.values()){
                 s.resetActions();

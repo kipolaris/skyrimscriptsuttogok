@@ -2,7 +2,6 @@ package game.model.commands.builders;
 
 import game.model.commands.iCommand;
 import game.model.entities.Professor;
-import game.model.main.Main;
 
 import static game.model.main.Main.gameEngine;
 
@@ -14,8 +13,4 @@ public class AddProfessor implements iCommand {
         gameEngine.addProfessor(new Professor(paralyzed));
     }
 
-    @Override
-    public String getName() {
-        return "professor";
-    }
 }

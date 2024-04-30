@@ -30,8 +30,4 @@ public class Roomaddchar implements iCommand {
         r.addCharacter(c);
     }
 
-    @Override
-    public String getName() {
-        return "roomaddchar";
-    }
 }

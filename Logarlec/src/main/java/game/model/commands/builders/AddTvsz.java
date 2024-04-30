@@ -24,8 +24,4 @@ public class AddTvsz implements iCommand {
         Main.gameEngine.addItem(tvsz);
     }
 
-    @Override
-    public String getName() {
-        return "tvsz";
-    }
 }

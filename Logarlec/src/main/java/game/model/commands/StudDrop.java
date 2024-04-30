@@ -21,8 +21,4 @@ public class StudDrop implements iCommand{
         }
     }
 
-    @Override
-    public String getName() {
-        return null;
-    }
 }

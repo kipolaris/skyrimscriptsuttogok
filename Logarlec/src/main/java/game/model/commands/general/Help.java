@@ -18,8 +18,4 @@ public class Help implements iCommand {
         }
     }
 
-    @Override
-    public String getName() {
-        return "help";
-    }
 }

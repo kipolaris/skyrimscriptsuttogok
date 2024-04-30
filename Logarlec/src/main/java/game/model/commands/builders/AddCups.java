@@ -13,8 +13,4 @@ public class AddCups implements iCommand {
         Main.gameEngine.addItem(cups);
     }
 
-    @Override
-    public String getName() {
-        return "cups";
-    }
 }

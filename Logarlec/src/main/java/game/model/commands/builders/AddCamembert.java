@@ -2,7 +2,6 @@ package game.model.commands.builders;
 
 import game.model.commands.iCommand;
 import game.model.entities.items.Camembert;
-import game.model.entities.items.Cups;
 import game.model.main.Main;
 
 public class AddCamembert implements iCommand {
@@ -14,8 +13,4 @@ public class AddCamembert implements iCommand {
         Main.gameEngine.addItem(c);
     }
 
-    @Override
-    public String getName() {
-        return "camembert";
-    }
 }

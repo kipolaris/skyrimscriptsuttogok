@@ -8,8 +8,4 @@ public class Runtests implements iCommand {
         //#todo
     }
 
-    @Override
-    public String getName() {
-        return "runtests";
-    }
 }

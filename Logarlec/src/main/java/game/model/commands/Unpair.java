@@ -8,8 +8,6 @@ import game.model.main.Main;
 
 import java.util.Map;
 
-import static game.model.main.Main.gameEngine;
-
 public class Unpair implements iCommand{
     @Override
     public void execute(String[] cmd) {
@@ -34,8 +32,4 @@ public class Unpair implements iCommand{
         else Suttogo.error("This item is not a Transistor.");
     }
 
-    @Override
-    public String getName() {
-        return "unpair";
-    }
 }

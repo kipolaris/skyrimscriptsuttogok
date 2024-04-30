@@ -12,8 +12,4 @@ public class Newgame implements iCommand {
     }
 
 
-    @Override
-    public String getName() {
-        return "newgame";
-    }
 }

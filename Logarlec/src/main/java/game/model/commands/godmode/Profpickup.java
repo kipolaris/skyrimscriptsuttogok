@@ -8,10 +8,8 @@ import game.model.main.Main;
 import game.model.entities.building.Room;
 
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Profpickup implements iCommand {
@@ -38,8 +36,4 @@ public class Profpickup implements iCommand {
         Main.gameEngine.setProf(prof);
     }
 
-    @Override
-    public String getName() {
-        return "profpickup";
-    }
 }

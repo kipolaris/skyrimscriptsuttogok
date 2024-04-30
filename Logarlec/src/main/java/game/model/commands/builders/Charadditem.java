@@ -2,7 +2,6 @@ package game.model.commands.builders;
 
 import game.model.commands.iCommand;
 import game.model.entities.building.BuildingAI;
-import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
@@ -30,8 +29,4 @@ public class Charadditem implements iCommand {
         c.addItem(i);
     }
 
-    @Override
-    public String getName() {
-        return "charadditem";
-    }
 }

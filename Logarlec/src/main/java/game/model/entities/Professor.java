@@ -50,11 +50,12 @@ public class Professor extends Character{
             timer++;
         }
 
-        ArrayList<Item> items = this.location.getItems();
+        ArrayList<Item> locItems = location.getItems();
 
         for(int i =0 ; i<3; i++){
-            if(p.test(true)){
-                Item item = items.get(rand.nextInt(items.size()));
+            if(p.test(true && locItems.size()>0)){
+                //#todo: ez valamiért illegalargumentexceptiönt dob...
+                Item item = locItems.get(rand.nextInt(locItems.size()));
 
                 this.addItem(item);
             }

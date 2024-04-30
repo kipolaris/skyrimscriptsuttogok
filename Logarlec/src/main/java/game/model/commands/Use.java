@@ -21,8 +21,4 @@ public class Use implements iCommand{
         else student.useItem(item);
     }
 
-    @Override
-    public String getName() {
-        return "use";
-    }
 }

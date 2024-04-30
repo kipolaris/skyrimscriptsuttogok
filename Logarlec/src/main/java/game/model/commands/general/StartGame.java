@@ -16,8 +16,4 @@ public class StartGame implements iCommand {
         Suttogo.note("Game Started!");
     }
 
-    @Override
-    public String getName() {
-        return "startgame";
-    }
 }

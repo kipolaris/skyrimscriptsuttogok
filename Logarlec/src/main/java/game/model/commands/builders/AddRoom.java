@@ -3,8 +3,6 @@ package game.model.commands.builders;
 import game.model.commands.iCommand;
 import game.model.entities.building.Room;
 
-import static game.model.main.Main.gameEngine;
-
 public class AddRoom implements iCommand {
     @Override
     public void execute(String[] cmd) {
@@ -22,8 +20,4 @@ public class AddRoom implements iCommand {
         new Room(capacity, isGassed, isCursed, null, null, null);
     }
 
-    @Override
-    public String getName() {
-        return "room";
-    }
 }

@@ -28,8 +28,4 @@ public class Cleanermove implements iCommand {
         }
     }
 
-    @Override
-    public String getName() {
-        return "cleanermove";
-    }
 }

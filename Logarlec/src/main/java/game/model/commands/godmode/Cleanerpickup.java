@@ -8,8 +8,4 @@ public class Cleanerpickup implements iCommand {
 
     }
 
-    @Override
-    public String getName() {
-        return "cleanerpickup";
-    }
 }

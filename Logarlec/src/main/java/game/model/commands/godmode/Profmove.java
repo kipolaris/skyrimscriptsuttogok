@@ -30,8 +30,4 @@ public class Profmove implements iCommand {
         }
     }
 
-    @Override
-    public String getName() {
-        return "profmove";
-    }
 }

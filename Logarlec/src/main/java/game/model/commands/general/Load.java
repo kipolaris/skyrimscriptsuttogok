@@ -17,8 +17,4 @@ public class Load implements iCommand {
         parser.loadGame(cmd[1]);
     }
 
-    @Override
-    public String getName() {
-        return "load";
-    }
 }

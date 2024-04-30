@@ -27,8 +27,4 @@ public class Kill implements iCommand {
 
     }
 
-    @Override
-    public String getName() {
-        return "kill";
-    }
 }

@@ -8,8 +8,4 @@ public class MergeRooms implements iCommand {
 
     }
 
-    @Override
-    public String getName() {
-        return "merge";
-    }
 }
