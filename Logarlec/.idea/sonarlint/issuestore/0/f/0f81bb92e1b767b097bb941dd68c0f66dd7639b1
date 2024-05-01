@@ -1,0 +1,13 @@
+
+m
+java:S3776 "RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(—ü»¨şÿÿÿÿ
+b
+java:S1871K"LThis branch's code block is the same as the block for the branch on line 74.(’ ÿ‡
+g
+java:S1871N"LThis branch's code block is the same as the block for the branch on line 77.(¢­íşÿÿÿÿ
+m
+java:S3776Y"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¢ˆ£ÿÿÿÿÿ
+D
+java:S1940[")Use the opposite operator (">=") instead.(äÏûÛùÿÿÿÿ
+]
+java:S2175Š"AA "Map<String, Room>" cannot contain a "Room" in a "String" type.(ùÉŠúúÿÿÿÿ

@@ -1,0 +1,15 @@
+
+
+java:S1450*"[Remove the "studentTurns" field and declare it as a local variable in the relevant methods.(ÕÜš³8œ£„šó1J$b1852327-e677-4f7b-8aca-cd686927db9a
+—
+java:S1450("TRemove the "turns" field and declare it as a local variable in the relevant methods.(¶È 8£„šó1J$0ec177cb-4f6d-46ae-a064-c1daf675dfc0
+›
+java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(áåÉ¿ùÿÿÿÿ8Ğ£„šó1J$cae822c9-3ad4-4f1b-b99d-699d3ede46a9
+b
+java:S2119¯"Save and re-use this "Random".(¡Å”¦8ß£„šó1J$a27f435b-f11d-4292-9438-614d822a786b
+x
+java:S1611¼"/Remove the parentheses around the "a" parameter(©²ì™øÿÿÿÿ8é£„šó1J$f74f12ed-86f5-406b-88b9-1e7bce607ce5
+v
+java:S1135Ï"2Complete the task associated to this TODO comment.(æö«í8ô£„šó1J$69c5e728-cf6d-48ad-8846-03054c05c830
+Š
+java:S2175³"GA "Map<String, Student>" cannot contain a "Student" in a "String" type.(ŸØÕ38Ïüüœó1J$ccc115ba-e7d6-4a85-a672-62419d5cc56e

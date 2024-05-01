@@ -8,8 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="test" />
-  </component>
-  <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="dca54a1a-164a-40ba-acc4-2c068ba075d2" />
+    <orderEntry type="library" name="guicedee.services.jakarta.xml.bind.api" level="project" />
   </component>
 </module>

@@ -5,8 +5,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-  <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="7bfa07b0-077b-47d1-b9bd-f9367a9517ff" />
+    <orderEntry type="library" name="guicedee.services.jakarta.xml.bind.api" level="project" />
   </component>
 </module>

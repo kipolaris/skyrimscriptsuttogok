@@ -1,0 +1,50 @@
+
+‰
+java:S1192e"GDefine a constant instead of duplicating this literal "\t\t\t" 3 times.(ÈĞÉe8Ğâ½ó1J$b4309f40-9587-472e-a1d1-8b078eb5de8c
+£
+java:S1319"`The type of "map" should be an interface such as "Map" rather than the implementation "HashMap".(®ÀÂ8åà²ó1J$883026ec-037e-4257-b595-90037fbcfe02
+’
+java:S1104"OMake map a static final constant or non-public and provide accessors if needed.(®ÀÂ8çà²ó1J$b72e2946-7be8-4b16-b03d-9fe593e7933b
+œ
+java:S1104"YMake isGameStarted a static final constant or non-public and provide accessors if needed.(–™‘Ù8çà²ó1J$64bb1394-1a9e-4a7c-9dd6-8965f41c0f4c
+™
+java:S1104"VMake gameEngine a static final constant or non-public and provide accessors if needed.(Õ¦¦×8çà²ó1J$7e25cd08-7e82-4dce-9774-0497ef705968
+•
+java:S1104"RMake allOut a static final constant or non-public and provide accessors if needed.(ë¡”8çà²ó1J$c8028d59-754b-4688-9093-4d517fcb1e75
+l
+java:S1444")Make this "public static map" field final(®ÀÂ8èà²ó1J$f7079ccc-44b1-4915-b54f-2da058cccc3d
+v
+java:S1444"3Make this "public static isGameStarted" field final(–™‘Ù8èà²ó1J$6b141f8b-c15e-47a4-97cc-05c0f0d4a507
+s
+java:S1444"0Make this "public static gameEngine" field final(Õ¦¦×8èà²ó1J$3dcffeba-e2fa-4427-b13d-551e234fbd52
+o
+java:S1444",Make this "public static allOut" field final(ë¡”8èà²ó1J$ff4c7d82-6459-4769-9b92-9ee185471750
+`
+java:S2386"Make this member "protected".(®ÀÂ8èâ²ó1J$4e09516c-0f16-408d-b96b-64de642e3a54
+u
+java:S1135"2Complete the task associated to this TODO comment.(Ûë¶Ï8ìâ²ó1J$57e65815-5776-4e83-a055-982cac8a4ec9
+´
+java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Şıÿÿÿÿ8ğâ²ó1J$8f754479-f7e5-4dae-8ccf-312e12565b58
+•
+java:S3776^"RRefactor this method to reduce its Cognitive Complexity from 41 to the 15 allowed.( Øõ8ûâ²ó1J$f06c3033-5500-49d8-8073-577427ae2eb6
+m	java:S106`"+Replace this use of System.out by a logger.(ÂŒ±÷8ıâ²ó1J$0f48ce23-e9a7-4294-ad25-cc55d45f878e
+m	java:S106b"+Replace this use of System.out by a logger.(Œæ€Ô8€ã²ó1J$3296b507-fa05-4cce-a9c6-db8cbfe523b9
+l	java:S106e"+Replace this use of System.out by a logger.(ÈĞÉe8ã²ó1J$8e2a9441-0c7d-41d4-8573-94d09e1c4f28
+m	java:S106f"+Replace this use of System.out by a logger.(ññ¨8ã²ó1J$5af18028-2950-4e5c-a5b5-f7589850ab43
+m	java:S106g"+Replace this use of System.out by a logger.(şìˆ8ã²ó1J$3da95b86-5e34-4fcd-a83d-4b5a33685323
+m	java:S106h"+Replace this use of System.out by a logger.(ŒûÇ›8ã²ó1J$08c69772-afaf-44f7-8114-6b30e7b57c09
+r	java:S106j"+Replace this use of System.out by a logger.(Å’÷‹ùÿÿÿÿ8ã²ó1J$4c0df571-a1f8-4951-85f7-e058e6e4c05c
+m	java:S106n"+Replace this use of System.out by a logger.(¾ú8ƒã²ó1J$fdf6f788-d70e-4dfd-9fab-78b7bb5a18f6
+r	java:S106q"+Replace this use of System.out by a logger.(×àŒÛÿÿÿÿÿ8ƒã²ó1J$31627c0f-0c38-408e-868e-e5bc8b2e3545
+m	java:S106t"+Replace this use of System.out by a logger.(ı‚©‹8„ã²ó1J$a2f40fe8-0bbb-4ffa-b8f5-0147362984a2
+m	java:S106w"+Replace this use of System.out by a logger.(Éãë8„ã²ó1J$69d895e2-b70a-444a-a3db-8e058549aff8
+n	java:S106†"+Replace this use of System.out by a logger.(¦ıû¦8„ã²ó1J$22992bab-9681-4120-b54c-49b0bc17f0d4
+s	java:S106Š"+Replace this use of System.out by a logger.(Ë¨Ù´şÿÿÿÿ8„ã²ó1J$10b39d04-15a4-4cdb-bfeb-6243f64380ac
+n	java:S106"+Replace this use of System.out by a logger.(¬®…8„ã²ó1J$d43f8b98-cce9-4717-8623-4fad79c69ac7
+s	java:S106"+Replace this use of System.out by a logger.(æÚ¥‹ùÿÿÿÿ8…ã²ó1J$72db403a-fe03-4cf6-8510-c546a0460777
+s	java:S106’"+Replace this use of System.out by a logger.(±‘Ó€øÿÿÿÿ8…ã²ó1J$1960d99e-8418-4cc5-bc5b-143c99f7a6fd
+s	java:S106”"+Replace this use of System.out by a logger.(æÚ¥‹ùÿÿÿÿ8…ã²ó1J$27f1b70f-1bf0-4b94-9741-2e49b9f41d09
+n	java:S106–"+Replace this use of System.out by a logger.(ôøüè8Á¢´ó1J$480439dd-f393-4444-8914-97978aa5412e
+s	java:S106˜"+Replace this use of System.out by a logger.(æÚ¥‹ùÿÿÿÿ8ò´ó1J$31e8627b-e327-44a5-8e57-fe8abc879c91
+n	java:S106š"+Replace this use of System.out by a logger.(Õÿñ¥8„Ï¹ó1J$b1916227-0ea2-4989-a142-e170ac14a5e5
+s	java:S106œ"+Replace this use of System.out by a logger.(æÚ¥‹ùÿÿÿÿ8…Ï¹ó1J$4a9f1cd8-92f4-46d0-925b-f6e1feb03b76

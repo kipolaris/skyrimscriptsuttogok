@@ -4,7 +4,7 @@ import game.model.commands.*;
 import game.model.commands.builders.*;
 import game.model.commands.general.*;
 import game.model.commands.godmode.*;
-import game.model.commands.iCommand;
+import game.model.entities.Character;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
@@ -12,10 +12,8 @@ import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
-import game.model.entities.Character;
-
-import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Main {
     //#todo: megoldani, hogy a pályaépítő parancsok ne keveredjenek a fő parancsokkal
@@ -26,7 +24,7 @@ public class Main {
 
     public static GameEngine gameEngine = new GameEngine();
 
-    public static boolean allOut = false;
+    public static boolean allOut = true;
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
@@ -109,10 +107,16 @@ public class Main {
                     }
                 }
             }
-            System.out.println("\tItems:");
+            System.out.println("\t\tNeighbours:");
+            for (Room d:r.getNeighbours()){
+                if (d != null) {
+                    System.out.println("\t\t\t" + d.getId());
+                }
+            }
+            System.out.println("\t\tItems:");
             for (Item i : r.getItems()) {
                 if (i != null) {
-                    System.out.println("\t\t" + i.getId());
+                    System.out.println("\t\t\t" + i.getId());
                 }
             }
         }

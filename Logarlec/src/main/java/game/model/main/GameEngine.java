@@ -1,6 +1,6 @@
 package game.model.main;
 
-import game.model.commands.*;
+import game.model.entities.Character;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
@@ -8,9 +8,7 @@ import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
-import game.model.entities.items.SlideRule;
 import game.model.logging.Suttogo;
-import game.model.entities.Character;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
