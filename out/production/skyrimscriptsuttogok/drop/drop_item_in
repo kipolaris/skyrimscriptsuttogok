@@ -16,7 +16,7 @@ charadditem TVSZ1 Student0
 charadditem FFP22 Student0
 charadditem Camembert3 Student0
 charadditem Cups4 Professor0
-
+startgame
 drop Student0
 SlideRule0
 drop Student0
@@ -29,4 +29,3 @@ profdrop Professor0
 Cups4
 skip Professor0
 cleanerdrop Cleaner0
-z

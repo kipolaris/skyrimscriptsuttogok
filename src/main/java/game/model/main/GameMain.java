@@ -26,15 +26,9 @@ public class GameMain {
 
     public static GameEngine gameEngine = new GameEngine();
 
-    public static boolean allOut = false;
+    public static boolean allOut = true;
 
     public static String lastOutput = "";
-
-    private static boolean areWeTesting = false;
-
-    public static void setAreWeTesting(boolean val){
-        areWeTesting = val;
-    }
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
@@ -75,8 +69,8 @@ public class GameMain {
         commandMap.put("move", new StudMove());
         commandMap.put("pickup", new StudPickup());
         commandMap.put("unpair", new Unpair());
-        commandMap.put("startGame", new StartGame());
         commandMap.put("out", new Out());
+        commandMap.put("startgame", new StartGame());
 
 
         while (sc.hasNextLine()) {
@@ -103,31 +97,29 @@ public class GameMain {
 
     public static void printOut() {
         StringBuilder sb = new StringBuilder();
-
-        sb.append("Rooms:\n");
-        for (Room r : gameEngine.getBuilder().getLabyrinth().values()) {
-            sb.append("\t").append(r.getId()).append("\n\t\tCharacters:\n");
-            for (Character c : r.getCharacters()) {
-                if (c != null) {
-                    sb.append("\t\t\t").append(c.getId());
-                    sb.append("\t\t\t\tparalyzed: ").append(c.getParalyzed()).append('\n');
-                    if (c instanceof Student) sb.append("\t\t\t\tactions: ").append(c.getActions()).append('\n');
-                    sb.append("\t\t\t\tItems:\n");
-                    for (Item i : c.getItems().values()) {
-                        sb.append("\t\t\t\t\t").append(i.getId()).append('\n');
+        if(isGameStarted) {
+            sb.append("Rooms:\n");
+            //#todo ezt a nullpointerexceptiönt megoldani
+            for (Room r : gameEngine.getBuilder().getLabyrinth().values()) {
+                sb.append("\t").append(r.getId()).append("\n\t\tCharacters:\n");
+                for (Character c : r.getCharacters()) {
+                    if (c != null) {
+                        sb.append("\t\t\t").append(c.getId()).append('\n');
+                        sb.append("\t\t\t\tparalyzed: ").append(c.getParalyzed()).append('\n');
+                        if (c instanceof Student) sb.append("\t\t\t\tactions: ").append(c.getActions()).append('\n');
+                        sb.append("\t\t\t\tItems:\n");
+                        for (Item i : c.getItems().values()) {
+                            sb.append("\t\t\t\t\t").append(i.getId()).append('\n');
+                        }
+                    }
+                }
+                sb.append("\t\tItems:\n");
+                for (Item i : r.getItems()) {
+                    if (i != null) {
+                        sb.append("\t\t\t").append(i.getId()).append('\n');
                     }
                 }
             }
-            sb.append("\tItems:\n");
-            for (Item i : r.getItems()) {
-                if (i != null) {
-                    sb.append("\t\t").append(i.getId()).append('\n');
-                }
-            }
-        }
-
-        //csak ha fut a játék
-        if (isGameStarted) {
 
             Character c = gameEngine.getCurrent();
 
@@ -143,26 +135,27 @@ public class GameMain {
                     sb.append("\t").append(r.getId()).append('\n');
                 }
             }
-        } else {
-            sb.append("Students:");
-            for (Student c : gameEngine.getStudents().values()) {
-                sb.append('\r').append(c.getId()).append('\n');
+
+        }else {
+            sb.append("Students:\n");
+            for (Student st : gameEngine.getStudents().values()) {
+                sb.append('\r').append(st.getId()).append('\n');
             }
-            sb.append("Professors:");
-            for (Professor c : gameEngine.getProf().values()) {
-                sb.append('\r').append(c.getId()).append('\n');
+            sb.append("Professors:\n");
+            for (Professor st : gameEngine.getProf().values()) {
+                sb.append('\r').append(st.getId()).append('\n');
             }
-            sb.append("Cleaners:");
-            for (Cleaner c : gameEngine.getCleaners().values()) {
-                sb.append('\r').append(c.getId()).append('\n');
+            sb.append("Cleaners:\n");
+            for (Cleaner st : gameEngine.getCleaners().values()) {
+                sb.append('\r').append(st.getId()).append('\n');
             }
-            sb.append("Items:");
-            for (Item c : gameEngine.getItems().values()) {
-                sb.append('\r').append(c.getId()).append('\n');
+            sb.append("Items:\n");
+            for (Item st : gameEngine.getItems().values()) {
+                sb.append('\r').append(st.getId()).append('\n');
             }
         }
         lastOutput = sb.toString();
-        if(!areWeTesting) System.out.print(lastOutput);
+        System.out.print(lastOutput);
     }
     //end PrintOut
 

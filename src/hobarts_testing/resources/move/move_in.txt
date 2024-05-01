@@ -1,3 +1,5 @@
+random-nogo
+newgame
 room 1 "Room0"
 room 3 true "Room1"
 room 2 "Room2"
@@ -15,10 +17,8 @@ roomaddchar Cleaner0 Room0
 charadditem FFP20 Student0
 charadditem Transistor0 Student0
 charadditem Transistor1 Student0
-
 pair Transistor0 Transistor1
 drop Student0 Transistor0
-
 move Student0 Room0
 move Student0 Room1
 profmove Professor0 Room2

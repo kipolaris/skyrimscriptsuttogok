@@ -27,7 +27,9 @@ public class Suttogo {
     }
 
     public static void error(String message) {
-        if(level == Level.ERROR) log("ERROR "+message);
+        if(level == Level.ERROR || level == Level.NOTE || level == Level.INFO){
+            log("ERROR "+message);
+        }
     }
 
     public static void note(String message){

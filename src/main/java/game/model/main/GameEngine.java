@@ -211,7 +211,9 @@ public class GameEngine {
     }
 
     /**
-     * inicializálja a játékot, pályaépítő parancsok segítségével.
+     * inicializálja a játékot, pályaépítő parancsok segítségével, HA a random funkció be van kapcsolva.
+     * FIGYELEM! Nem indítja el a játékot! Csak előkészíti / reseteli a változókat!
+     * Ahhoz a startgame parancsot használd (vagyis a playOnePhase indítja).
      */
     public void initGame(){
         Suttogo.info("initGame()");
@@ -237,10 +239,6 @@ public class GameEngine {
             GameMain.perform("roomadditem FFP20 Room0");
             GameMain.perform("sliderule");
             GameMain.perform("roomadditem SlideRule1 Room1");
-
-            GameMain.perform("startGame");
-
-            if(GameMain.allOut) GameMain.printOut();
         }
     }
 

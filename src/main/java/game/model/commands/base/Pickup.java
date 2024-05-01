@@ -29,7 +29,10 @@ public class Pickup implements iCommand {
                 Suttogo.error("nem talalhato a keresett targy!");
                 return;
             }else if(c.getLocation().getItems().contains(i)){
-                c.addItem(i);
+                if(c.getActions() > 0){
+                    c.addItem(i);
+                }
+
             }
         }
 

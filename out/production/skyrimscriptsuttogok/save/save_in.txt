@@ -1,3 +1,5 @@
+random-nogo
+newgame
 room 1
 room 3 true
 room 2
@@ -6,4 +8,4 @@ neighbor Room1 Room0
 student
 cleaner
 professor
-save Game1
+save /games/Game1

@@ -11,8 +11,6 @@ import static game.model.main.GameMain.perform;
 public class RunTests {
     public static void main(String[] args) {
 
-        GameMain.setAreWeTesting(true);
-
         try {
             File dir = new File("src/hobarts_testing/resources");
             File[] subDirs = dir.listFiles(File::isDirectory);
@@ -48,7 +46,7 @@ public class RunTests {
 
                             for (int i = 0; i < Math.min(actualLines.size(), expectedLines.size()); i++) {
                                 if (!actualLines.get(i).equals(expectedLines.get(i))) {
-                                    discrepancies.add("Mismatch in " + subDir.getName() + " at line "+i+": expected \"" + expectedLines.get(i) + "\" but was \"" + actualLines.get(i) + "\"");
+                                    discrepancies.add("Mismatch ----- in: " + subDir.getName() + " at line "+i+": expected:" + expectedLines.get(i) + " -------   actual: " + actualLines.get(i) + "");
                                 }
                             }
                             if (!discrepancies.isEmpty()) {
@@ -65,7 +63,5 @@ public class RunTests {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        GameMain.setAreWeTesting(false);
     }
 }

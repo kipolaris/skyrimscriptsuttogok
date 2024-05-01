@@ -1,4 +1,5 @@
 random-nogo
+newgame
 room 5
 room 1
 room 1
@@ -39,7 +40,6 @@ charadditem cups1 student2
 charadditem ffp23 student3
 charadditem airfreshener1 student3
 charadditem ffp24 cleaner1
-
 use student1
 transistor1
 move student1

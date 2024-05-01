@@ -111,7 +111,7 @@ public class Character {
      */
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
-        if(actions>0 && items.size()<maxInventorySize){
+        if(items.size()<maxInventorySize){
             location.removeItem(item);
             items.put(item.getId(), item);
             item.setLocation(null);
