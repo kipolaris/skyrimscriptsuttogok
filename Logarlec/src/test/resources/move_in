@@ -1,35 +1,28 @@
-room 1
-room 3 true
-room 2
-neighbour 1 2
-neighbour 2 3
-student s
-professor p true
-cleaner c
-ffp2 real 10
-transistor
-transistor
-roomaddchar s 3
-roomaddchar p 2
-roomaddchar c 1
-charadditem ffp21 s
-charadditem transistor1 s
-charadditem transistor2 s
+room 1 "Room0"
+room 3 true "Room1"
+room 2 "Room2"
+neighbour Room0 Room1
+neighbour Room1 Room2
+student "Student0"
+professor true "Professor0"
+cleaner "Cleaner0"
+ffp2 real 10 "FFP20"
+transistor "Transistor0"
+transistor "Transistor1"
+roomaddchar Student0 Room2
+roomaddchar Professor0 Room1
+roomaddchar Cleaner0 Room0
+charadditem FFP20 Student0
+charadditem Transistor0 Student0
+charadditem Transistor1 Student0
 
-pair transistor1 transistor2
-drop
-transistor1
-move
-1
-move
-2
-profmove
-3
-cleanermove
-2
-move
-1
-move
-3
-use
-transistor2
+pair Transistor0 Transistor1
+drop Student0 Transistor0
+
+move Student0 Room0
+move Student0 Room1
+profmove Professor0 Room2
+cleanermove Cleaner0 Room1
+move Student0 Room0
+move Student0 Room2
+use Transistor1

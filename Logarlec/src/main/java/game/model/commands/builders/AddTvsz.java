@@ -14,14 +14,16 @@ public class AddTvsz implements iCommand {
             switch (cmd[1]) {
                 case ("fake"):
                     tvsz = new TVSZ(false, false, durability, null, null, true);
+                    Main.gameEngine.addItem(tvsz);
                     break;
                 default:
                     tvsz = new TVSZ(false, false, durability, null, null, false);
+                    Main.gameEngine.addItem(tvsz);
                     break;
             }
         }
-        tvsz = new TVSZ(false, false, durability, null, null, false);
-        Main.gameEngine.addItem(tvsz);
+
+
     }
 
 }

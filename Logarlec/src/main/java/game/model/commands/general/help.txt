@@ -1,3 +1,40 @@
+----ITEMS----
+parameters:
+    <durability> - a number, by default = 1
+    <fakeness> - if it's = 'fake', than your Item won't have any abilities
+airfreshener - You can create an Airfreshener.
+camembert <durability> - You can create a Camembert.
+cups <durability> - You can create Cups.
+ffp2 <fakeness> <durability> - You can create a FFP2.
+rag <durability> - You can create a Rag.
+sliderule <fakeness> - You can create a Sliderule.
+tvsz <fakeness> <durability> - You can create a TVSZ.
+transistor - You can create a Transistor.
+pair <student> <transistor1 transistor2> - You can pair two transistors.
+    <student> - the student's ID, who has both of the transistors
+    <transistor0 transistor1> - the transistors's IDs
+unpair <student> <transistor> - You can unpair a transistor.
+    <student> - the student's ID, who has the transistor
+    <transistor> - the transistor's ID
+----CHARACTERS----
+professor 
+student
+cleaner
+charadditem
+cleanermove
+cleanerpickup
+kill
+profmove
+profpickup
+----ROOMS----
+room
+neighbour
+roomaddchar
+roomadditem
+----GAME----
+startGame
+toggleallout
+out
 move - You can move to another Room.
 drop - You can drop an Item.
 pickup - You can pick up an Item.

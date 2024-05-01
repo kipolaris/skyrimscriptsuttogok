@@ -14,14 +14,14 @@ public class AddFFP2 implements iCommand {
             switch (cmd[1]) {
                 case ("fake"):
                     ffp2 = new FFP2(false, false, durability, null, null, true);
+                    Main.gameEngine.addItem(ffp2);
                     break;
                 default:
                     ffp2 = new FFP2(false, false, durability, null, null, false);
+                    Main.gameEngine.addItem(ffp2);
                     break;
             }
         }
-        else ffp2 = new FFP2(false, false, durability, null, null, false);
-        Main.gameEngine.addItem(ffp2);
     }
 
 }

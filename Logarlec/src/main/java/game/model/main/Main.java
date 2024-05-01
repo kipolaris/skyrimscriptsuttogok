@@ -42,6 +42,7 @@ public class Main {
 
         map.put("airfreshener", new AddAirfreshener());
         map.put("camembert", new AddCamembert());
+        map.put("cleaner", new AddCleaner());
         map.put("cups", new AddCups());
         map.put("ffp2", new AddFFP2());
         map.put("professor", new AddProfessor());
@@ -66,6 +67,8 @@ public class Main {
         map.put("pickup", new StudPickup());
         map.put("unpair", new Unpair());
         map.put("startGame", new StartGame());
+        map.put("toggleallout", new ToggleAllOut());
+
         map.put("out", new Out());
 
 
