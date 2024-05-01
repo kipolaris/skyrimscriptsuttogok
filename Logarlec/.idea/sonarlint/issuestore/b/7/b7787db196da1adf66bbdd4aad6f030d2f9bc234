@@ -1,0 +1,6 @@
+
+E	java:S106&"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ
+M
+java:S1068"2Remove this unused "enabledClasses" private field.(½·çüÿÿÿÿ
+K
+java:S1068"0Remove this unused "messageQueue" private field.(»‹ùÿÿÿÿ

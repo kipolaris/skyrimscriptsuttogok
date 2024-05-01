@@ -1,0 +1,29 @@
+
+‹
+java:S13199"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¢Éì»ùÿÿÿÿ
+x
+java:S1319P"bThe type of "ds" should be an interface such as "List" rather than the implementation "ArrayList".(º¯¨Ù
+x
+java:S1319P"bThe type of "is" should be an interface such as "List" rather than the implementation "ArrayList".(º¯¨Ù
+x
+java:S1319P"bThe type of "cs" should be an interface such as "List" rather than the implementation "ArrayList".(º¯¨Ù
+†
+java:S1319y"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÁÚ‹ô
+‡
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ñËÇ³
+‡
+java:S1319®"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(€µâ½
+Œ
+java:S1319µ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(…ó¨ûøÿÿÿÿ
+†
+java:S1319Â"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(†Ã€s
+d
+java:S2259Æ"HA "NullPointerException" could be thrown; "professors" is nullable here.(õæµÔıÿÿÿÿ
+b
+java:S2259¹"FA "NullPointerException" could be thrown; "students" is nullable here.(Ìˆ‹€ûÿÿÿÿ
+_
+java:S6201¸"HReplace this instanceof check and cast with 'instanceof Student student'(ã™Õ
+c
+java:S6201Å"LReplace this instanceof check and cast with 'instanceof Professor professor'(éˆê‡
+L
+java:S1128"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿ
