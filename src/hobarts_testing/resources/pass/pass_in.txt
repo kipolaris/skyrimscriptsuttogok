@@ -1,0 +1,31 @@
+random-go
+room 2
+room 2
+neighbour Room0 Room1
+student
+student
+roomaddchar Student0 Room0
+roomaddchar Student1 Room1
+camembert
+charadditem Camembert0 Student0
+
+move Student0
+Room1
+drop Student0
+Camembert0
+pickup Student0
+Camembert0
+drop Student0
+Camembert0
+pickup Student1
+Camembert0
+move Student1
+Room0
+skip Student1
+drop Student1
+skip Student0
+use Student1
+Camembert0
+skip Student0
+skip Student0
+skip Student0

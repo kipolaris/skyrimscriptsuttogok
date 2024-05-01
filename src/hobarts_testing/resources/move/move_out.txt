@@ -1,0 +1,19 @@
+Your Items: transistor1, transistor2, ffp2.
+Select an item to drop or cancel (0):
+transistor1 dropped in Room 3
+Rooms: 1, 2.
+Select the room or cancel (0):
+You can’t move there!
+Rooms: 1, 2.
+Select the room or cancel (0):
+Moved to Room 2.
+You haven’t been paralyzed, but you used ffp2 and its durability is now 8.
+Rooms: 1, 3.
+Select the room or cancel (0):
+Moved to Room 1.
+Rooms: 2
+Select the room or cancel (0):
+There isn’t a room with that name.
+Your Items: transistor2, ffp2.
+Select an item to use or cancel (0):
+transistor2 was used. Teleported to Room 3.

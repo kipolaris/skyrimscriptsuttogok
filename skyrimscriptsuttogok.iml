@@ -3,9 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Logarlec/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Logarlec/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Logarlec/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/hobarts_testing/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/hobarts_testing/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/hobarts_testing/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/1" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/3" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/4" />

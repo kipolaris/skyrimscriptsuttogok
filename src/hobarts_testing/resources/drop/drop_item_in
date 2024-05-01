@@ -1,0 +1,32 @@
+random-nogo
+room 3
+student
+professor true
+cleaner
+roomaddchar Student0 Room0
+roomaddchar Professor0 Room0
+roomaddchar Cleaner0 Room0
+sliderule fake
+tvsz fake
+ffp2 fake
+camembert
+cups
+charadditem SlideRule0 Student0
+charadditem TVSZ1 Student0
+charadditem FFP22 Student0
+charadditem Camembert3 Student0
+charadditem Cups4 Professor0
+
+drop Student0
+SlideRule0
+drop Student0
+TVSZ1
+drop Student0
+FFP22
+drop Student0
+skip Student0
+profdrop Professor0
+Cups4
+skip Professor0
+cleanerdrop Cleaner0
+z

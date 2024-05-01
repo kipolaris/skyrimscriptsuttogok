@@ -1,0 +1,30 @@
+random-nogo
+room 3
+student
+professor
+roomaddchar Student0 Room0
+roomaddchar Professor0 Room0
+sliderule fake
+tvsz
+ffp2
+camembert
+cups
+rag
+airfreshener
+roomadditem Room1 SlideRule0
+roomadditem Room1 FFP22
+charadditem TVSZ1 Student0
+charadditem Camembert3 Student0
+charadditem Cups4 Student0
+charadditem Rag5 Student0
+charadditem Airfreshener6 Student0
+
+pickup xy Student0
+pickup SlideRule0 Student0
+use Student0 Rag5
+pickup Rag5 Student0
+pickup SlideRule0 Student0
+drop SlideRule0 Student0
+pickup FFP22 Student0
+skip Student0
+profpickup SlideRule0 Professor0
