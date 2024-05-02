@@ -10,7 +10,7 @@ import game.model.logging.Suttogo;
 import static game.model.main.GameMain.gameEngine;
 
 public class Move implements iCommand {
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Mozgatja az adott karaktert*/
         if(cmd.length < 3) {
             Suttogo.error("Too few arguments!");
             return;

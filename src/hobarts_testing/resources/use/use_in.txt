@@ -1,20 +1,20 @@
 random-nogo
 newgame
-room 5
+addroom 5
 room 1
 room 1
-neighbour room1 room2
-neighbour room1 room3
+neighbour Room1 Room2
+neighbour Room1 Room3
 student
 student
 student
 professor
 cleaner
-roomaddchar student1 room1
-roomaddchar student2 room1
-roomaddchar student3 room1
-roomaddchar cleaner1 room1
-roomaddchar professor1 room3
+roomaddchar Student0 Room1
+roomaddchar Student1 Room1
+roomaddchar Student2 Room1
+roomaddchar Cleaner1 Room1
+roomaddchar Professor1 Room3
 transistor
 transistor
 tvsz
@@ -27,38 +27,29 @@ ffp2 fake
 ffp2
 ffp2
 cups
-roomadditem room3 sliderule1
-roomadditem room2 tvsz1
-charadditem transistor1 student1
-charadditem transistor2 student1
-charadditem ffp21 student1
-charadditem rag1 student1
-pair transistor1 transistor2
-charadditem camembert1 student2
-charadditem ffp22 student2
-charadditem cups1 student2
-charadditem ffp23 student3
-charadditem airfreshener1 student3
-charadditem ffp24 cleaner1
-use student1
-transistor1
-move student1
-room2
-pickup student1
-tvsz1
-use student1
-transistor2
-use student2
-camembert1
-use student3
-airfreshener1
-skip student3
-skip cleaner1
-profmove professor1
-kill professor1
-skip professor1
-rag1
-move student1
-room3
-pickup student1
-sliderule1
+roomadditem Room3 Sliderule6
+roomadditem Room2 TVSZ2
+charadditem Transistor0 Student0
+charadditem Transistor1 Student0
+charadditem FFP27 Student0
+charadditem Rag5 Student0
+pair Student0 Transistor1 Transistor2
+charadditem Camembert3 student2
+charadditem FFP28 student2
+charadditem Cups10 student2
+charadditem FFP29 student3
+charadditem Airfreshener5 student3
+charadditem FFP24 cleaner0
+use Transistor0
+move Room2
+pickup TVSZ1
+use Transistor1
+use Camembert3
+use Airfreshener5
+skip Student0
+skip Cleaner0
+profmove
+kill Professor0
+skip Professor0
+move Room3
+pickup Sliderule6

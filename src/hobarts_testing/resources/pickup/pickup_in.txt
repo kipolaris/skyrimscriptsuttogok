@@ -19,12 +19,12 @@ charadditem Camembert3 Student0
 charadditem Cups4 Student0
 charadditem Rag5 Student0
 charadditem Airfreshener6 Student0
-pickup xy Student0
-pickup SlideRule0 Student0
-use Student0 Rag5
-pickup Rag5 Student0
-pickup SlideRule0 Student0
-drop SlideRule0 Student0
-pickup FFP22 Student0
+pickup xy
+pickup SlideRule0
+use Rag5
+pickup Rag5
+pickup SlideRule0
+drop SlideRule0
+pickup FFP22
 skip Student0
-profpickup SlideRule0 Professor0
+profpickup SlideRule0

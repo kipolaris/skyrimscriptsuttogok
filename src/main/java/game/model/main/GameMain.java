@@ -8,6 +8,7 @@ import game.model.commands.iCommand;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
+import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
@@ -24,15 +25,21 @@ public class GameMain {
 
     public static boolean isGameStarted = false;
 
+    public static boolean isGameInitialized = false;
+
     public static GameEngine gameEngine = new GameEngine();
 
     public static boolean allOut = true;
 
+    public static void setAreWeTesting(boolean areWeTesting) {
+        GameMain.areWeTesting = areWeTesting;
+    }
+
+    public static boolean areWeTesting = false;
+
     public static String lastOutput = "";
 
-    public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-
+    public static void addAllCommands(){
         commandMap.put("use", new Use());
         commandMap.put("skip", new Skip());
         commandMap.put("load", new Load());
@@ -64,6 +71,7 @@ public class GameMain {
         commandMap.put("profmove", new Profmove());
         commandMap.put("roomaddchar", new Roomaddchar());
         commandMap.put("roomadditem", new Roomadditem());
+        commandMap.put("cleaner", new AddCleaner());
 
         commandMap.put("drop", new StudDrop());
         commandMap.put("move", new StudMove());
@@ -71,7 +79,12 @@ public class GameMain {
         commandMap.put("unpair", new Unpair());
         commandMap.put("out", new Out());
         commandMap.put("startgame", new StartGame());
+    }
 
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        addAllCommands();
 
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
@@ -80,10 +93,15 @@ public class GameMain {
             if (command != null) {
                 command.execute(cmd);
             } else {
-                Suttogo.error("command " + cmd[0] + " does not exist!");
+                Suttogo.note("command " + cmd[0] + " does not exist!");
             }
 
-            if(allOut) printOut();
+            if(allOut && isGameInitialized){
+                printOut();
+                GameMain.lastOutput = "";
+            }else{
+                if(!allOut) Suttogo.note("Please call newgame command!");
+            }
 
             if (gameEngine.isAInext()) {
                 Character current = gameEngine.getCurrent();
@@ -99,27 +117,31 @@ public class GameMain {
         StringBuilder sb = new StringBuilder();
         if(isGameStarted) {
             sb.append("Rooms:\n");
-            //#todo ezt a nullpointerexceptiönt megoldani
-            for (Room r : gameEngine.getBuilder().getLabyrinth().values()) {
-                sb.append("\t").append(r.getId()).append("\n\t\tCharacters:\n");
-                for (Character c : r.getCharacters()) {
-                    if (c != null) {
-                        sb.append("\t\t\t").append(c.getId()).append('\n');
-                        sb.append("\t\t\t\tparalyzed: ").append(c.getParalyzed()).append('\n');
-                        if (c instanceof Student) sb.append("\t\t\t\tactions: ").append(c.getActions()).append('\n');
-                        sb.append("\t\t\t\tItems:\n");
-                        for (Item i : c.getItems().values()) {
-                            sb.append("\t\t\t\t\t").append(i.getId()).append('\n');
+            BuildingAI builder = gameEngine.getBuilder();
+            if(builder!=null) {
+                for (Room r : builder.getLabyrinth().values()) {
+                    sb.append("\t").append(r.getId()).append("\n\t\tCharacters:\n");
+                    for (Character c : r.getCharacters()) {
+                        if (c != null) {
+                            sb.append("\t\t\t").append(c.getId()).append('\n');
+                            sb.append("\t\t\t\tparalyzed: ").append(c.getParalyzed()).append('\n');
+                            if (c instanceof Student)
+                                sb.append("\t\t\t\tactions: ").append(c.getActions()).append('\n');
+                            sb.append("\t\t\t\tItems:\n");
+                            for (Item i : c.getItems().values()) {
+                                sb.append("\t\t\t\t\t").append(i.getId()).append('\n');
+                            }
+                        }
+                    }
+                    sb.append("\t\tItems:\n");
+                    for (Item i : r.getItems()) {
+                        if (i != null) {
+                            sb.append("\t\t\t").append(i.getId()).append('\n');
                         }
                     }
                 }
-                sb.append("\t\tItems:\n");
-                for (Item i : r.getItems()) {
-                    if (i != null) {
-                        sb.append("\t\t\t").append(i.getId()).append('\n');
-                    }
-                }
             }
+            else Suttogo.error("A builder null!!!");
 
             Character c = gameEngine.getCurrent();
 
@@ -139,23 +161,27 @@ public class GameMain {
         }else {
             sb.append("Students:\n");
             for (Student st : gameEngine.getStudents().values()) {
-                sb.append('\r').append(st.getId()).append('\n');
+                sb.append('\t').append(st.getId()).append('\n');
             }
             sb.append("Professors:\n");
-            for (Professor st : gameEngine.getProf().values()) {
-                sb.append('\r').append(st.getId()).append('\n');
+            for (Professor st : gameEngine.getProfessors().values()) {
+                sb.append('\t').append(st.getId()).append('\n');
             }
             sb.append("Cleaners:\n");
             for (Cleaner st : gameEngine.getCleaners().values()) {
-                sb.append('\r').append(st.getId()).append('\n');
+                sb.append('\t').append(st.getId()).append('\n');
             }
             sb.append("Items:\n");
             for (Item st : gameEngine.getItems().values()) {
-                sb.append('\r').append(st.getId()).append('\n');
+                sb.append('\t').append(st.getId()).append('\n');
+            }
+            sb.append("Rooms:\n");
+            for (Room st : gameEngine.getBuilder().getLabyrinth().values()) {
+                sb.append('\t').append(st.getId()).append('\n');
             }
         }
-        lastOutput = sb.toString();
-        System.out.print(lastOutput);
+        lastOutput = lastOutput + sb.toString();
+        if(!areWeTesting) System.out.print(lastOutput);
     }
     //end PrintOut
 

@@ -26,6 +26,11 @@ public class BuildingAI {
         return labyrinth;
     }
 
+    public void BuildingAI() {
+        roomID = 0;
+        labyrinth = new HashMap<String, Room>();
+    }
+
     /**
      * Összeolvaszt két szobát a labirintusban
      */

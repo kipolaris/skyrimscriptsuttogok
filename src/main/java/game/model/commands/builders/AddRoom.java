@@ -5,7 +5,7 @@ import game.model.entities.building.Room;
 
 public class AddRoom implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy szobát*/
         int capacity = 1;
         if(cmd.length > 1) capacity = Integer.parseInt(cmd[1]);
         boolean isGassed = false;

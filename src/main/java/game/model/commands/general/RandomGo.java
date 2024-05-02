@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class RandomGo implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Engedélyezi a random algoritmusokat*/
 
         GameMain.gameEngine.setRandom(true);
         Suttogo.note("Random was set to true");

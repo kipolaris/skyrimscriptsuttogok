@@ -6,7 +6,7 @@ import game.model.main.SaverLoader;
 
 import static game.model.main.GameMain.gameEngine;
 
-public class Load implements iCommand {
+public class Load implements iCommand {/**Betölt egy játékmenetet*/
     @Override
     public void execute(String[] cmd) {
         SaverLoader parser = new SaverLoader(gameEngine);

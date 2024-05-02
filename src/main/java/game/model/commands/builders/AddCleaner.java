@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class AddCleaner implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy takarítót*/
         boolean paralyzed = false;
         if(cmd.length>1) { paralyzed = Boolean.parseBoolean(cmd[1]); }
         GameMain.gameEngine.addCleaner(new Cleaner(paralyzed));

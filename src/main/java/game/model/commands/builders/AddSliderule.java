@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class AddSliderule implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy logarlécet*/
         SlideRule sliderule;
         if(cmd.length > 1) {
             switch (cmd[1]) {

@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Help implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Kiírja a parancsokat és azok rövid leírását*/
         String filePath = "src/main/java/game/model/commands/general/help.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;

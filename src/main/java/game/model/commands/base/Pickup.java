@@ -9,7 +9,7 @@ import game.model.logging.Suttogo;
 import static game.model.main.GameMain.gameEngine;
 
 //pickup <item> <character>
-public class Pickup implements iCommand {
+public class Pickup implements iCommand {/**Az adott karaktert egy tárgy felvételére készteti*/
     public void execute(String[] cmd) {
         if(cmd.length < 3) {
             Suttogo.error("Too few arguments!");

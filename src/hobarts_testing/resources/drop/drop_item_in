@@ -1,4 +1,5 @@
 random-nogo
+newgame
 room 3
 student
 professor true
@@ -17,15 +18,11 @@ charadditem FFP22 Student0
 charadditem Camembert3 Student0
 charadditem Cups4 Professor0
 startgame
-drop Student0
-SlideRule0
-drop Student0
-TVSZ1
-drop Student0
-FFP22
+drop SlideRule0
+drop TVSZ1
+drop FFP22
 drop Student0
 skip Student0
-profdrop Professor0
-Cups4
+profdrop Cups4
 skip Professor0
-cleanerdrop Cleaner0
+cleanerdrop

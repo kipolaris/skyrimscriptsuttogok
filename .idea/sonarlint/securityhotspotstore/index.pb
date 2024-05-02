@@ -65,3 +65,15 @@ j
 +src/main/java/game/model/main/GameMain.java,5\e\5e850937fe80af6d4710f4b7a9ae97f62c070809
 `
 0src/hobarts_testing/java/game/main/RunTests.java,a\7\a710c13ecca7abbdd697639981afea577397bfa0
+`
+0src/main/java/game/model/entities/Character.java,f\8\f8ac91cba9a321dba7c85d98705aeca6ace21616
+l
+<src/main/java/game/model/commands/builders/AddCamembert.java,0\1\0153f15bb5db1a6433fee1e00088c00f867a2edf
+a
+1src/main/java/game/model/entities/items/Item.java,6\5\6500897d9e3fd37d61ab5fe1ca17724c2365db4a
+i
+9src/main/java/game/model/commands/general/RandomNogo.java,e\d\ed67b1b16c712cdd3c618a2a26caac348c58e31c
+^
+.src/main/java/game/model/main/SaverLoader.java,c\9\c9f9f288a7c38f6fb09dea83f38269780093d1bd
+]
+-src/main/java/game/model/logging/Suttogo.java,b\7\b7787db196da1adf66bbdd4aad6f030d2f9bc234

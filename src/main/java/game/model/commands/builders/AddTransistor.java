@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class AddTransistor implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy tranzisztort*/
         Transistor t = new Transistor(false, false, null, null);
         GameMain.gameEngine.addItem(t);
     }

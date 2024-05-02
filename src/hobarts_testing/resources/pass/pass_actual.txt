@@ -1,62 +1,25 @@
 Rooms:
-Students:Professors:Cleaners:Items:
+Your (Student0) Neighbours:
+	Room1
+
 Rooms:
-Students:Professors:Cleaners:Items:
+Your (Student0) Neighbours:
+	Room1
+
 Rooms:
-Students:Professors:Cleaners:Items:
+	Room3
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
 Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
-Rooms:
-Students:Professors:Cleaners:Items:
+	Room4
+		Characters:
+		Items:
+	Room3
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+

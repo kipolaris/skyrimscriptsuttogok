@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class AddFFP2 implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy ffp2 maszkot*/
         int durability = 1;
         if(cmd.length > 2) durability = Integer.parseInt(cmd[2]);
         FFP2 ffp2;

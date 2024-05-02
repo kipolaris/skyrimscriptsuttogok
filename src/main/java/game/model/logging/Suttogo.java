@@ -1,5 +1,7 @@
 package game.model.logging;
 
+import game.model.main.GameMain;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +30,9 @@ public class Suttogo {
 
     public static void error(String message) {
         if(level == Level.ERROR || level == Level.NOTE || level == Level.INFO){
-            log("ERROR "+message);
+            String loggable = "ERROR "+message;
+            GameMain.lastOutput = GameMain.lastOutput + loggable + '\n';
+            log(loggable);
         }
     }
 
@@ -37,6 +41,6 @@ public class Suttogo {
     }
 
     private static void log(String message) {
-        System.out.println(message);
+        System.out.print(message+'\n');
     }
 }

@@ -152,12 +152,11 @@ public class Room {
     public boolean addCharacter(Character character) {
         Suttogo.info("addCharacter(Character)");
         if(!isFull()){
+            Room room = character.getLocation();
+            if(room!=null) room.removeCharacter(character);
             characters.add(character);
-
             character.setLocation(this);
-
             if(wasCleaned && (++visitors > 4)) { sticky = true; }
-
             return true;
         }
         return false;

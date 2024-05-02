@@ -6,11 +6,13 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
+import static game.model.main.GameMain.isGameInitialized;
 import static game.model.main.GameMain.perform;
 
 public class RunTests {
     public static void main(String[] args) {
-
+        GameMain.setAreWeTesting(true);
+        GameMain.addAllCommands();
         try {
             File dir = new File("src/hobarts_testing/resources");
             File[] subDirs = dir.listFiles(File::isDirectory);
@@ -18,7 +20,7 @@ public class RunTests {
             List<String> discrepancies = new ArrayList<>();
 
             for (File subDir : subDirs) {
-                //System.out.println(subDir.getName());
+                System.out.println("--------------"+subDir.getName()+"---------------");
                 File[] inputFiles = subDir.listFiles((d, name) -> name.endsWith("_in.txt"));
 
                 if (inputFiles != null) {
@@ -31,8 +33,9 @@ public class RunTests {
                             String line;
                             while ((line = reader.readLine()) != null) {
                                 perform(line);
-                                GameMain.printOut();
+                                if(isGameInitialized) GameMain.printOut();
                                 writer.println(GameMain.lastOutput); // Assuming this method fetches last output
+                                GameMain.lastOutput = "";
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -59,9 +62,11 @@ public class RunTests {
 
             System.out.println("Total failed tests: " + failedTests + " out of " + subDirs.length);
             discrepancies.forEach(System.out::println);
+            GameMain.setAreWeTesting(true);
 
         } catch (Exception e) {
             e.printStackTrace();
+            GameMain.setAreWeTesting(true);
         }
     }
 }

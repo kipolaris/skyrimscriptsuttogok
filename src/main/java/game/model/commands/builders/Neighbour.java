@@ -10,7 +10,7 @@ import static game.model.main.GameMain.gameEngine;
 
 public class Neighbour implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Két szobát összeköt egy ajtóval*/
         if(cmd.length < 3) {
             Suttogo.error("Too few arguments!");
             return;

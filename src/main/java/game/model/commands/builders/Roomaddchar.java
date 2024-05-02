@@ -10,7 +10,7 @@ import game.model.logging.Suttogo;
 
 public class Roomaddchar implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Hozzáad egy karaktert egy szobához*/
         if(cmd.length < 3) {
             Suttogo.error("Too few arguments!");
             return;

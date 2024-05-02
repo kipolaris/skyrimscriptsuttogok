@@ -6,7 +6,7 @@ import game.model.main.SaverLoader;
 
 import static game.model.main.GameMain.gameEngine;
 
-public class Save implements iCommand {
+public class Save implements iCommand {/**Elmenti a játékmenetet*/
     @Override
     public void execute(String[] cmd) {
         if(cmd.length < 2) {

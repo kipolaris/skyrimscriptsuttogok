@@ -7,7 +7,7 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
-public class SplitRoom implements iCommand {
+public class SplitRoom implements iCommand {/**Egy szobát splitel*/
 
     @Override
     public void execute(String[] cmd) {

@@ -1,28 +1,29 @@
 random-nogo
 newgame
-room 1 "Room0"
-room 3 true "Room1"
-room 2 "Room2"
+room 1
+room 3 true
+room 2
 neighbour Room0 Room1
 neighbour Room1 Room2
-student "Student0"
-professor true "Professor0"
-cleaner "Cleaner0"
-ffp2 real 10 "FFP20"
-transistor "Transistor0"
-transistor "Transistor1"
+student
+professor true
+cleaner
+ffp2
+transistor
+transistor
 roomaddchar Student0 Room2
 roomaddchar Professor0 Room1
 roomaddchar Cleaner0 Room0
 charadditem FFP20 Student0
-charadditem Transistor0 Student0
 charadditem Transistor1 Student0
-pair Transistor0 Transistor1
-drop Student0 Transistor0
-move Student0 Room0
-move Student0 Room1
-profmove Professor0 Room2
-cleanermove Cleaner0 Room1
-move Student0 Room0
-move Student0 Room2
-use Transistor1
+charadditem Transistor2 Student0
+startgame
+pair Student0 Transistor1 Transistor2
+drop Transistor1
+move Room0
+move Room1
+profmove Room2
+cleanermove Room1
+move Room0
+move Room2
+use Student0 Transistor1

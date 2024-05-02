@@ -8,6 +8,9 @@ import game.model.main.GameMain;
 
 import java.util.Map;
 
+/**
+ * pair < Student > < Item > < Item >
+ */
 public class Pair implements iCommand{
 
     @Override

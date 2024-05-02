@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class AddAirfreshener implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy légfrissítőt*/
         AirFreshener af = new AirFreshener(false, false, 1, null, null);
         GameMain.gameEngine.addItem(af);
     }

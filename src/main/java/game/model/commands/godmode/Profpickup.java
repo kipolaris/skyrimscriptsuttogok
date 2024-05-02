@@ -14,12 +14,12 @@ import java.util.Map;
 
 public class Profpickup implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Egy professzort egy tárgy felvételére késztet*/
         if(cmd.length < 2) {
             Suttogo.error("Too few arguments!");
             return;
         }
-        Map<String, Professor> prof = GameMain.gameEngine.getProf();
+        Map<String, Professor> prof = GameMain.gameEngine.getProfessors();
         Room where = prof.get(cmd[1]).getLocation();
         ArrayList<Item> inRoom = where.getItems();
         int i = 0;
@@ -35,5 +35,4 @@ public class Profpickup implements iCommand {
         where.removeItem(picked);
         GameMain.gameEngine.setProf(prof);
     }
-
 }

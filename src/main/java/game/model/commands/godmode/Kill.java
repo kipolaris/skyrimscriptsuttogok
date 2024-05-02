@@ -8,7 +8,7 @@ import static game.model.main.GameMain.gameEngine;
 
 public class Kill implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Kezdeményezi egy professzor támadását*/
 
         if(gameEngine.getCurrent() instanceof Professor && !gameEngine.getRandom()){
             Professor s = (Professor) gameEngine.getCurrent();
@@ -18,7 +18,7 @@ public class Kill implements iCommand {
                 Suttogo.error("Too few arguments!");
                 return;
             }
-            Professor chosen = gameEngine.getProf().get(cmd[1]);
+            Professor chosen = gameEngine.getProfessors().get(cmd[1]);
 
             if(chosen != null && chosen.equals(s) && gameEngine.areActionsLeft(s)) {
                 s.getLocation().killStudents();

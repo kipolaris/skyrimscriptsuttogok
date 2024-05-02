@@ -4,6 +4,7 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
+import game.model.main.GameMain;
 
 import javax.xml.bind.annotation.XmlElement;
 
@@ -16,11 +17,10 @@ public class SlideRule extends Item{
      * Konstruktor: létrehozza a tárgyat, inicializálja az értékeit
      */
     public SlideRule(boolean activated, boolean defensive, int durability, Room location, Character owner, boolean f) {
-        super("SlideRule"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
+        super("SlideRule" + gameEngine.getItemID(), activated, defensive, durability, location, owner);
         fake = f;
         gameEngine.addItem(this);
     }
-    private game.model.main.GameEngine engine;
 
     /**
      * A prioritási listán való helyét adja vissza. A logarléc nem fontos védelmi szempontból.
@@ -66,14 +66,13 @@ public class SlideRule extends Item{
         if(room==null){
             String s = this.getId() + " picked up. " + getEffect();
             Suttogo.info(s);
-            if(!fake) engine.endGame();
+            if(!fake) gameEngine.endGame();
         }
     }
 
     /**A játékhoz való csatolása*/
     public void setGameEngine(GameEngine e){
         Suttogo.info("setGameEngine(GameEngine)");
-        this.engine = e;
     }
 
     @Override

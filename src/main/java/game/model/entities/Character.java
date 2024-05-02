@@ -179,9 +179,8 @@ public class Character {
         Suttogo.info("move(Door)");
         if(!isMoved && d.accept(this, location)){
             Room dest = d.getNeighbour(location);
-            if(dest.addCharacter(this)){
-                this.location.removeCharacter(this);
-                this.location = dest;
+            if(!dest.addCharacter(this)){
+                Suttogo.error("The room is full!");
             }
             isMoved = true;
         }
@@ -193,7 +192,8 @@ public class Character {
      */
     public void skipTurn() {
         Suttogo.info("skipTurn()");
-        throw new UnsupportedOperationException();
+        actions=0;
+        isMoved=true;
     }
 
     /**

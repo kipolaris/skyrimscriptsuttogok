@@ -6,7 +6,7 @@ import game.model.main.GameMain;
 
 public class AddTvsz implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Létrehoz egy tvsz-t*/
         int durability = 1;
         if(cmd.length > 2) durability = Integer.parseInt(cmd[2]);
         TVSZ tvsz;

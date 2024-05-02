@@ -21,27 +21,27 @@ public class GameEngine {
         return current;
     }
 
-    private Character current;
+    private Character current = null;
 
-    private Queue<Character> currentQueue;
+    private Queue<Character> currentQueue = null;
 
     @XmlElement
-    private Map<String, Student> students = new HashMap<>();
+    private Map<String, Student> students = null;
     @XmlElement
-    private Map<String, Professor> professors = new HashMap<>();
+    private Map<String, Professor> professors = null;
 
     public Map<String, Cleaner> getCleaners() {
         return cleaners;
     }
 
     @XmlElement
-    private Map<String, Cleaner> cleaners = new HashMap<>();
+    private Map<String, Cleaner> cleaners = null;
 
-    private Queue<Queue<Character>> turns;
+    private Queue<Queue<Character>> turns = null;
 
-    private Queue<Character> studentTurns;
+    private Queue<Character> studentTurns = null;
 
-    private Queue<Character> aiTurns;
+    private Queue<Character> aiTurns = null;
 
     public boolean isAInext() {
         return isAInext;
@@ -54,6 +54,7 @@ public class GameEngine {
     private Iterator<Character> chart;
     @XmlElement
     private Map<String, Item> items = new HashMap<>();
+
     @XmlElement
     public Map<String, Item> getItems() {
         return items;
@@ -76,10 +77,11 @@ public class GameEngine {
     public static int getCleanerID() {
         return cleanerID++;
     }
+
     @XmlElement
     private static int cleanerID = 0;
     @XmlElement
-    private BuildingAI builder = new BuildingAI();
+    private BuildingAI builder = null;
 
     //GETTERS - SETTERS -----------------------------
 
@@ -103,7 +105,7 @@ public class GameEngine {
         return professorID++;
     }
 
-    public Map<String, Professor> getProf() {
+    public Map<String, Professor> getProfessors() {
         return professors;
     }
 
@@ -111,28 +113,31 @@ public class GameEngine {
         professors = newProf;
     }
 
+    public void setCleaners(Map<String, Cleaner> newClean) { cleaners = newClean; }
+
     public BuildingAI getBuilder() {
         return builder;
     }
 
-    public boolean isMyTurn(Character c){
+    public boolean isMyTurn(Character c) {
         return c.equals(current);
     }
 
     /**
      * Ellenőrzi, hogy van-e még akciója a karakternek a körben.
      * Ha nincs, akkor meghívja a next() függvényt.
+     *
      * @param c
      * @return
      */
-    public boolean areActionsLeft(Character c){
-        if(c.getActions() > 0){
-            if(c.getActions() == 1) {
+    public boolean areActionsLeft(Character c) {
+        if (c.getActions() > 0) {
+            if (c.getActions() == 1) {
                 next();
                 Suttogo.note("next has been called");
             }
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -141,20 +146,20 @@ public class GameEngine {
      * lépteti az aktuális queue következő karakterére az iteratort, beállítja
      * az aktuális karaktert, akinek a köre jön.
      */
-    public void next(){
-        if(chart.hasNext()){
+    public void next() {
+        if (chart.hasNext()) {
             current = chart.next();
             Suttogo.note("well it looks like theres still somoeone here");
-            if(currentQueue.equals(aiTurns)){
+            if (currentQueue.equals(aiTurns)) {
                 Suttogo.note("isAInext was set to true");
                 isAInext = true;
-                if(!random){
-                    Suttogo.note("Now you can step with"+ current.getId() + "ai");
+                if (!random) {
+                    Suttogo.note("Now you can step with" + current.getId() + "ai");
                 }
-            }else{
+            } else {
                 isAInext = false;
             }
-        }else{
+        } else {
             nextQueue();
             Suttogo.note("switched to next queue");
         }
@@ -164,14 +169,14 @@ public class GameEngine {
      * A Control flow-hoz kell. Átvált Studentekről ai-okra, ha ők jönnek,
      * majd a buildingai-t levezényli.
      */
-    public void nextQueue(){
-        if(ct.hasNext()){
+    public void nextQueue() {
+        if (ct.hasNext()) {
             currentQueue = ct.next();
             chart = currentQueue.iterator();
             next();
-        }else{
+        } else {
             Suttogo.note("----Building AI comes ---------");
-            if(random){
+            if (random) {
                 Random r = new Random();
 
                 ArrayList<Room> allrooms = new ArrayList<>(builder.getLabyrinth().values());
@@ -185,25 +190,25 @@ public class GameEngine {
 
                 Room r3 = allrooms.get(n3);
 
-                Predicate<Boolean> p = (a) -> r.nextInt(2)==1;
+                Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
 
-                if(p.test(true)){
+                if (p.test(true)) {
                     builder.mergeRooms(r1, r2);
                 }
-                if(p.test(true)){
+                if (p.test(true)) {
                     builder.splitRoom(r3);
                 }
                 ArrayList<Door> alldoors = new ArrayList<>();
-                for(Room room : allrooms) {
+                for (Room room : allrooms) {
                     ArrayList<Door> group = room.getDoors();
-                    for(Door door : group) {
-                        if(!alldoors.contains(door)) {
+                    for (Door door : group) {
+                        if (!alldoors.contains(door)) {
                             alldoors.add(door);
                             door.setVisible(r.nextInt(1) == 1);
                         }
                     }
                 }
-            }else{
+            } else {
                 //#todo: manuális parancsok mergere és splitre!
             }
             playOnePhase();
@@ -215,16 +220,17 @@ public class GameEngine {
      * FIGYELEM! Nem indítja el a játékot! Csak előkészíti / reseteli a változókat!
      * Ahhoz a startgame parancsot használd (vagyis a playOnePhase indítja).
      */
-    public void initGame(){
+    public void initGame() {
         Suttogo.info("initGame()");
         students = new HashMap<>();
         professors = new HashMap<>();
+        cleaners = new HashMap<>();
         builder = new BuildingAI();
-        studentID=0;
-        professorID=0;
-        itemID=0;
-        cleanerID=0;
-        if(random) {
+        studentID = 0;
+        professorID = 0;
+        itemID = 0;
+        cleanerID = 0;
+        if (random) {
             GameMain.perform("room 10");
             GameMain.perform("room 5");
             GameMain.perform("neighbour Room0 Room1");
@@ -240,25 +246,31 @@ public class GameEngine {
             GameMain.perform("sliderule");
             GameMain.perform("roomadditem SlideRule1 Room1");
         }
+
+        GameMain.isGameInitialized = true;
     }
 
     /**
      * Ellenőrzi, hogy kihaltak-e a Studentek
      */
-    public boolean studentsExtinct(){
+    public boolean studentsExtinct() {
         Suttogo.info("studentsExtinct()");
         Suttogo.info("\treturn boolean");
         return students.isEmpty();
     }
 
-    public void endGame(){
+    public void endGame() {
         Suttogo.info("endGame()");
         students.clear();
         professors.clear();
+        items.clear();
         builder = null;
+
+        GameMain.isGameStarted = false;
+        GameMain.isGameInitialized = false;
     }
 
-    public void refresh(){
+    public void refresh() {
         Suttogo.info("refresh()");
         students = new HashMap<>();
         professors = new HashMap<>();
@@ -271,13 +283,13 @@ public class GameEngine {
      * Ez ahhoz kell, hogy követni tudjuk, hogy mikor kell az ai-ok doRound() függvényét meghívni, ha a random flag
      * aktiválva van.
      */
-    public void playOnePhase(){
-        if(!studentsExtinct()) {
+    public void playOnePhase() {
+        if (!studentsExtinct() || !GameMain.isGameStarted) {
             Suttogo.info("playOnePhase()");
 
             Suttogo.note("-------- new Phase initiated! ------------\n");
 
-            for(Student s : students.values()){
+            for (Student s : students.values()) {
                 s.resetActions();
             }
 
@@ -298,30 +310,35 @@ public class GameEngine {
             chart = studentTurns.iterator();
 
             nextQueue();
-        }else{
+        } else {
             endGame();
             Suttogo.info("You lost!");
         }
     }
 
-    public void studentDied(Student s){
+
+    public void studentDied(Student s) {
         Suttogo.info("studentDied(Student)");
         students.remove(s);
     }
 
-    public void addStudent(Student s){
+    public void addStudent(Student s) {
         students.put(s.getId(), s);
     }
 
-    public void addProfessor(Professor p){
+    public void addProfessor(Professor p) {
         professors.put(p.getId(), p);
     }
 
-    public void addCleaner(Cleaner c){cleaners.put(c.getId(), c);}
+    public void addCleaner(Cleaner c) {
+        cleaners.put(c.getId(), c);
+    }
 
-    public void addItem(Item i){items.put(i.getId(), i);}
+    public void addItem(Item i) {
+        items.put(i.getId(), i);
+    }
 
-    public Character findCharacter(String key){
+    public Character findCharacter(String key) {
         HashMap<String, Character> merged = new HashMap<>();
 
         merged.putAll(students);

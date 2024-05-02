@@ -9,7 +9,7 @@ import game.model.entities.Character;
 import static game.model.main.GameMain.gameEngine;
 
 public class Charadditem implements iCommand {
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Hozzáad egy tárgyat egy karakterhez*/
         if(cmd.length < 3) {
             Suttogo.error("Too few arguments!");
             return;

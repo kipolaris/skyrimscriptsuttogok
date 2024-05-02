@@ -9,7 +9,7 @@ import static game.model.main.GameMain.gameEngine;
 
 public class Cleanermove implements iCommand {
     @Override
-    public void execute(String[] cmd) {
+    public void execute(String[] cmd) {/**Mozgat egy takarítót*/
         Move c = new Move();
         if(gameEngine.getCurrent() instanceof Cleaner && !gameEngine.getRandom()){
             Cleaner s = (Cleaner) gameEngine.getCurrent();
