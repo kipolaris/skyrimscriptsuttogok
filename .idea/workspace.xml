@@ -13,102 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/drop/drop_item_in" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/drop/drop_item_in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/main/RunTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/main/RunTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Pair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Skip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/commands/Skip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/entities/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/logging/Suttogo$Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/logging/Suttogo$Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/logging/Suttogo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/logging/Suttogo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/GameEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/GameMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/game/model/main/GameMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/help/help_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/help/help_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/move/move_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/move/move_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/move/move_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/move/move_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/newgame/newgame_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/newgame/newgame_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pass/pass_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pass/pass_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pass/pass_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pass/pass_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pickup/pickup_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pickup/pickup_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pickup/pickup_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/pickup/pickup_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/save/save_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/save/save_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/use/use_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/use/use_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/use/use_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/skyrimscriptsuttogok/use/use_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skyrimscriptsuttogok.iml" beforeDir="false" afterPath="$PROJECT_DIR$/skyrimscriptsuttogok.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/drop/drop_item_in" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/drop/drop_item_in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/help/help_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/help/help_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/newgame/newgame_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/newgame/newgame_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/pass/pass_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/pass/pass_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/pickup/pickup_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/pickup/pickup_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/save/save_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/save/save_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/use/use_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/use/use_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomNogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomNogo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/logging/Suttogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/logging/Suttogo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" afterDir="false" />
     </list>
     <list id="cf05c0b9-bbce-48dd-8cec-30b4031c70fc" name="Changes by Balázs" comment="" />
-    <list id="ec1c3065-c242-4865-a5b2-7ab3f47f2c6b" name="Changes by csuto" comment="">
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/drop/drop_item_in" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/drop/drop_item_in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/pass/pass_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/pass/pass_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/pickup/pickup_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/pickup/pickup_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/use/use_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/use/use_in.txt" afterDir="false" />
-    </list>
+    <list id="ec1c3065-c242-4865-a5b2-7ab3f47f2c6b" name="Changes by csuto" comment="" />
     <list id="38865770-14b2-4dfc-b41b-bd9704d148fe" name="Changes by fdorii" comment="" />
-    <list id="0f622415-17c8-4b49-9bb3-b215b7ad3411" name="Changes by User" comment="">
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Skip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Drop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Pickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddAirfreshener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddAirfreshener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCamembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCamembert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddFFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddFFP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddProfessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddProfessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddSliderule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddSliderule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTransistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTransistor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTvsz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTvsz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Charadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Charadditem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Neighbour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Neighbour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomaddchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomaddchar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomadditem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Load.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomGo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Runtests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Runtests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Save.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanermove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanermove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanerpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanerpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/MergeRooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/MergeRooms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profmove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profmove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/SplitRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/SplitRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" afterDir="false" />
-    </list>
+    <list id="0f622415-17c8-4b49-9bb3-b215b7ad3411" name="Changes by User" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,135 +52,6 @@
         <option name="url" value="https://github.com/kipolaris/skyrimscriptsuttogok.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="11" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="25" end1="25" start2="26" end2="28" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="29" end1="29" start2="32" end2="38" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="31" end1="31" start2="40" end2="82" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="35" end1="74" start2="86" end2="87" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="82" end1="83" start2="95" end2="96" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="85" end1="86" start2="98" end2="104" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="101" end1="119" start2="119" end2="140" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="122" end1="122" start2="143" end2="144" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="141" end1="142" start2="163" end2="164" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="144" end1="146" start2="166" end2="168" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="149" end1="150" start2="171" end2="172" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="153" end1="154" start2="175" end2="176" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="155" end1="155" start2="177" end2="181" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="156" end1="158" start2="182" end2="184" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java">
-      <ranges>
-        <range start1="10" end1="11" start2="10" end2="11" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="20" end1="21" start2="20" end2="21" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/hobarts_testing/resources/drop/drop_item_in">
-      <ranges>
-        <range start1="1" end1="1" start2="1" end2="2" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="19" end1="25" start2="20" end2="23" changelist="ec1c3065-c242-4865-a5b2-7ab3f47f2c6b" />
-        <range start1="27" end1="29" start2="25" end2="26" changelist="ec1c3065-c242-4865-a5b2-7ab3f47f2c6b" />
-        <range start1="30" end1="31" start2="27" end2="28" changelist="ec1c3065-c242-4865-a5b2-7ab3f47f2c6b" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java">
-      <ranges>
-        <range start1="8" end1="8" start2="8" end2="9" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="12" end1="13" start2="13" end2="15" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="20" end1="21" start2="22" end2="23" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="33" end1="34" start2="35" end2="36" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="35" end1="35" start2="37" end2="38" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="61" end1="61" start2="64" end2="65" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="64" end1="64" start2="68" end2="69" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="18" end1="19" start2="19" end2="20" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="22" end1="23" start2="23" end2="23" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="68" end1="69" start2="68" end2="69" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="75" end1="76" start2="75" end2="75" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java">
-      <ranges>
-        <range start1="6" end1="7" start2="6" end2="7" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="10" end1="11" start2="10" end2="11" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="5" end1="6" start2="6" end2="7" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="8" end1="10" start2="9" end2="15" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java">
-      <ranges>
-        <range start1="23" end1="24" start2="23" end2="24" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="25" end1="26" start2="25" end2="26" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="28" end1="29" start2="28" end2="29" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="30" end1="31" start2="30" end2="31" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="37" end1="38" start2="37" end2="38" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="39" end1="40" start2="39" end2="40" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="41" end1="42" start2="41" end2="42" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="43" end1="44" start2="43" end2="44" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="56" end1="56" start2="56" end2="57" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="78" end1="78" start2="79" end2="80" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="81" end1="82" start2="83" end2="84" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="105" end1="106" start2="107" end2="108" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="112" end1="112" start2="114" end2="116" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="117" end1="118" start2="121" end2="122" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="124" end1="124" start2="128" end2="129" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="127" end1="130" start2="132" end2="135" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="134" end1="135" start2="139" end2="140" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="143" end1="145" start2="148" end2="150" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="147" end1="148" start2="152" end2="153" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="150" end1="152" start2="155" end2="157" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="153" end1="154" start2="158" end2="159" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="156" end1="157" start2="161" end2="162" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="166" end1="168" start2="171" end2="173" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="171" end1="172" start2="176" end2="177" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="173" end1="174" start2="178" end2="179" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="187" end1="188" start2="192" end2="193" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="189" end1="190" start2="194" end2="195" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="192" end1="193" start2="197" end2="198" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="196" end1="197" start2="201" end2="202" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="198" end1="200" start2="203" end2="205" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="205" end1="206" start2="210" end2="211" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="217" end1="218" start2="222" end2="223" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="221" end1="221" start2="226" end2="227" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="222" end1="227" start2="228" end2="233" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="242" end1="242" start2="248" end2="250" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="247" end1="248" start2="255" end2="256" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="253" end1="254" start2="261" end2="262" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="257" end1="257" start2="265" end2="266" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="258" end1="258" start2="267" end2="270" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="260" end1="261" start2="272" end2="273" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="273" end1="275" start2="285" end2="287" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="279" end1="280" start2="291" end2="292" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="300" end1="301" start2="312" end2="313" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="305" end1="305" start2="317" end2="318" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="306" end1="307" start2="319" end2="320" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="311" end1="312" start2="324" end2="325" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="315" end1="316" start2="328" end2="329" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="319" end1="320" start2="332" end2="335" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="321" end1="322" start2="336" end2="339" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="323" end1="324" start2="340" end2="341" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java">
-      <ranges>
-        <range start1="16" end1="17" start2="16" end2="17" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-        <range start1="21" end1="22" start2="21" end2="22" changelist="10acc929-11db-40c3-9057-89c1ea989a26" />
-        <range start1="37" end1="38" start2="37" end2="37" changelist="0f622415-17c8-4b49-9bb3-b215b7ad3411" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -347,7 +128,7 @@
       <workItem from="1714464638583" duration="25130000" />
       <workItem from="1714575812284" duration="7603000" />
       <workItem from="1714595022093" duration="6595000" />
-      <workItem from="1714636135404" duration="11410000" />
+      <workItem from="1714636135404" duration="12189000" />
     </task>
     <task id="LOCAL-00001" summary="Door és Room befejezve, tesztek elkezdve">
       <created>1711284336379</created>
