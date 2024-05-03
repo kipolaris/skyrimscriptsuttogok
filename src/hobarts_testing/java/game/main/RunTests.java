@@ -9,6 +9,7 @@ import java.util.*;
 import static game.model.main.GameMain.isGameInitialized;
 import static game.model.main.GameMain.perform;
 
+/**Osztály, ami futtatja az összes tesztet és kimenetüket ellenőrzi is*/
 public class RunTests {
     public static void main(String[] args) {
         GameMain.setAreWeTesting(true);

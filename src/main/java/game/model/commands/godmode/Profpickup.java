@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Map;
 
+/**
+ * Parancs osztály oktatók általi tárgyfelvételre
+ */
 public class Profpickup implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Egy professzort egy tárgy felvételére késztet*/

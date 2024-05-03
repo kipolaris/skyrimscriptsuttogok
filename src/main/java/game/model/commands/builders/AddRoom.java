@@ -3,6 +3,9 @@ package game.model.commands.builders;
 import game.model.commands.iCommand;
 import game.model.entities.building.Room;
 
+/**
+ * Parancs osztály egy új szoba felvételére
+ */
 public class AddRoom implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy szobát*/

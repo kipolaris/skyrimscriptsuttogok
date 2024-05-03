@@ -8,6 +8,9 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály két szoba ajtóval való összekötésére
+ */
 public class Neighbour implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Két szobát összeköt egy ajtóval*/

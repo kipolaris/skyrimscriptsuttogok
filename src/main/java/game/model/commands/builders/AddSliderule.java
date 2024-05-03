@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.items.SlideRule;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály egy új logarléc felvételére
+ */
 public class AddSliderule implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy logarlécet*/

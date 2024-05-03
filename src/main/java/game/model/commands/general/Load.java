@@ -6,6 +6,9 @@ import game.model.main.SaverLoader;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály játék betöltéséhez
+ */
 public class Load implements iCommand {/**Betölt egy játékmenetet*/
     @Override
     public void execute(String[] cmd) {

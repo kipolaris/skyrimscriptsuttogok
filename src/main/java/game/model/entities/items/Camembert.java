@@ -6,15 +6,15 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A camembert osztálya*/
 public class Camembert extends Item{
-
+    /**Öt paraméteres konstruktor*/
     public Camembert(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super("Camembert"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }
+
     /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
     public int getPriority(){
-
-
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn -1");
         return -1;
@@ -22,7 +22,6 @@ public class Camembert extends Item{
 
     @Override
     public void activate() { /** ezzel lehet aktiválni a tárgyat, ezután a szoba mérgesgázzal teli lesz*/
-
         Suttogo.info("activate()");
         Room loc = owner.getLocation();
         loc.setGassed(true);

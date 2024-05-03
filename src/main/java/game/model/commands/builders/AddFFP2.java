@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.items.FFP2;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály egy új ffp2 felvételére
+ */
 public class AddFFP2 implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy ffp2 maszkot*/

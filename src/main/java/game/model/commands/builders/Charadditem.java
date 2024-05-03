@@ -8,6 +8,9 @@ import game.model.entities.Character;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály egy tárgy karakterhez adására
+ */
 public class Charadditem implements iCommand {
     public void execute(String[] cmd) {/**Hozzáad egy tárgyat egy karakterhez*/
         if(cmd.length < 3) {

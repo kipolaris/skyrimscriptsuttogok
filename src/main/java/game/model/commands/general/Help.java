@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 
 import java.io.*;
 
+/**
+ * Parancs osztály további parancsok és azok leírásaik megjelenítéséhez
+ */
 public class Help implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Kiírja a parancsokat és azok rövid leírását*/

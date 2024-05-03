@@ -8,6 +8,9 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály egy tárgy szobába való felvételére
+ */
 public class Roomadditem implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Hozzáad egy tárgyat egy szobához*/

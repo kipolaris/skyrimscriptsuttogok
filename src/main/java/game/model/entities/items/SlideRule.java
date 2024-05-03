@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A logarléc osztálya*/
 public class SlideRule extends Item{
     @XmlElement
     boolean fake;

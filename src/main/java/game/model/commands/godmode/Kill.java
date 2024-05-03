@@ -6,6 +6,9 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály oktatók támadásának kezdeményezésére
+ */
 public class Kill implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Kezdeményezi egy professzor támadását*/

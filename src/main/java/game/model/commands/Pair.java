@@ -9,10 +9,9 @@ import game.model.main.GameMain;
 import java.util.Map;
 
 /**
- * pair < Student > < Item > < Item >
+ * Parancs osztály tranzisztorok párosítására
  */
 public class Pair implements iCommand{
-
     @Override
     public void execute(String[] cmd) {
         if(cmd.length < 4) {
@@ -42,5 +41,4 @@ public class Pair implements iCommand{
         }
         else Suttogo.error("This item is not a Transistor.");
     }
-
 }

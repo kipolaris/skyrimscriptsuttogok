@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.Queue;
 import java.util.LinkedList;
 
+/**Osztály a konzolra való kiíráshoz*/
 public class Suttogo {
     private Suttogo() {}
 

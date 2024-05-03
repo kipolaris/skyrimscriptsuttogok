@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.items.Cups;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály söröspoharak egy új példányának felvételére
+ */
 public class AddCups implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehozza a söröspoharak egy példányát*/

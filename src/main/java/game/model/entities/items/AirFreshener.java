@@ -6,7 +6,9 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A légfrissítő osztálya*/
 public class AirFreshener extends Item{
+    /**Öt paraméteres konstruktor*/
     public AirFreshener(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super("Airfreshener"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }

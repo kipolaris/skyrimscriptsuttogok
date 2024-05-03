@@ -8,6 +8,9 @@ import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+/**
+ * Parancs osztály egy karakter szobába való felvételére
+ */
 public class Roomaddchar implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Hozzáad egy karaktert egy szobához*/

@@ -14,8 +14,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
 import static game.model.main.GameMain.gameEngine;
+
+/**A szoba osztálya*/
 @XmlRootElement
 public class Room {
+    /**Visszaadja egy szoba egyedi azonosítóját*/
     public String getId() {
         return id;
     }
@@ -28,6 +31,7 @@ public class Room {
     @XmlElement
     private boolean cursed;
 
+    /**Visszaadja, hogy a szoba volt-e takarítva*/
     public boolean isWasCleaned() {
         return wasCleaned;
     }
@@ -47,12 +51,14 @@ public class Room {
     @XmlElement
     private ArrayList<Character> characters;
 
+    /**Paraméter nélküli konstruktor*/
     public Room(){
         id = "Room" + BuildingAI.getRoomID();
 
         gameEngine.getBuilder().addRoom(this);
     }
 
+    /**Visszaadja a szoba szomszédjait*/
     public ArrayList<Room> getNeighbours(){
         ArrayList<Room> n = new ArrayList<>();
 
@@ -63,6 +69,7 @@ public class Room {
         return n;
     }
 
+    /**Visszaadja azt az ajtót, amelyik az adott szobával összeköti ezt a szobát*/
     public Door getDoorOf(Room r){
         for(Door d : doors){
             if(d.getNeighbour(r).equals(this)){
@@ -144,6 +151,7 @@ public class Room {
         return items;
     }
 
+    /**Visszaadja, hogy a szoba tele van-e*/
     public boolean isFull() {
         return characters.size() == capacity;
     }
@@ -267,6 +275,7 @@ public class Room {
         return capacity;
     }
 
+    /**Beállítja a sticky értékét*/
     public void setSticky(boolean s){
         this.sticky = s;
     }

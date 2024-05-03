@@ -6,13 +6,13 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A sörös poharak osztálya*/
 public class Cups extends Item{
-
+    /**Öt paraméteres konstruktor*/
     public Cups(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super("Cups"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }
     public int getPriority(){/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
-
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn 1");
         return 1;

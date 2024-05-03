@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.Student;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály egy új hallgató felvételére
+ */
 public class AddStudent implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy hallgatót*/

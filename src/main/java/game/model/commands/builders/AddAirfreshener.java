@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.items.AirFreshener;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály egy új légfrissítő felvételére
+ */
 public class AddAirfreshener implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy légfrissítőt*/

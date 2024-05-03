@@ -13,7 +13,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/java/game/main/RunTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Skip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Skip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/StudDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/StudDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/StudMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/StudMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/StudPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/StudPickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Unpair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Unpair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Use.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Use.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Pickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/base/Pickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddAirfreshener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddAirfreshener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCamembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCamembert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCleaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddFFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddFFP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddProfessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddProfessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddSliderule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddSliderule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTransistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTransistor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTvsz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddTvsz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Charadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Charadditem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Neighbour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Neighbour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomaddchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomaddchar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomadditem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/Roomadditem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Load.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomGo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomNogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/RandomNogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Runtests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/general/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanermove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanermove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanerpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Cleanerpickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Kill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/MergeRooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/MergeRooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profmove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profmove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/Profpickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/SplitRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/godmode/SplitRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/iCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/iCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/Cleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/Cleaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/BuildingAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/BuildingAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/AirFreshener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/AirFreshener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Cups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/logging/Suttogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/logging/Suttogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/SaverLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/SaverLoader.java" afterDir="false" />
     </list>
     <list id="cf05c0b9-bbce-48dd-8cec-30b4031c70fc" name="Changes by Balázs" comment="" />
     <list id="ec1c3065-c242-4865-a5b2-7ab3f47f2c6b" name="Changes by csuto" comment="" />
@@ -246,7 +312,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/game/model/commands/general/Newgame.java</url>
-          <line>9</line>
+          <line>12</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

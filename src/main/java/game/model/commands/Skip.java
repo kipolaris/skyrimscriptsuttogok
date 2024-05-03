@@ -8,6 +8,9 @@ import game.model.main.GameMain;
 
 import java.util.Map;
 
+/**
+ * Parancs osztály karakterek körének passzolására
+ */
 public class Skip implements iCommand{
     @Override
     public void execute(String[] cmd) {

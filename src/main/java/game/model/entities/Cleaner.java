@@ -11,13 +11,15 @@ import java.util.Random;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A takarító osztálya*/
 public class Cleaner extends Character {
-
+    /**Paraméter nélküli konstruktor*/
     public Cleaner(){
         super("Cleaner"+ GameEngine.getCleanerID());
         gameEngine.addCleaner(this);
     }
 
+    /**Egy paraméteres konstruktor*/
     public Cleaner(boolean paralyzed){
         super("Cleaner"+ GameEngine.getCleanerID());
         gameEngine.addCleaner(this);

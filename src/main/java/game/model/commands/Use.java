@@ -6,6 +6,9 @@ import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 import java.util.Map;
 
+/**
+ * Parancs osztály tárgyak használatára
+ */
 public class Use implements iCommand{
     @Override
     public void execute(String[] cmd) {

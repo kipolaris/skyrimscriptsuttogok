@@ -9,15 +9,18 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
+/**Osztály, amely a játék elmentéséért és betöltéséért felelős*/
 public class SaverLoader {
     private GameEngine g;
     private BuildingAI bai;
 
+    /**Egy paraméteres konstruktor*/
     public SaverLoader(GameEngine _g){
         g = _g;
         bai = g.getBuilder();
     }
 
+    /**A játékot elmenti a megadott helyre*/
     public boolean saveGame(String filePath){
         try{
             JAXBContext context = JAXBContext.newInstance(GameEngine.class);
@@ -32,7 +35,8 @@ public class SaverLoader {
             return false;
         }
     }
-    
+
+    /**A játékot betölti adott elérési útvonalról*/
     public void loadGame(String filePath){
         try{
             JAXBContext context = JAXBContext.newInstance(GameEngine.class);

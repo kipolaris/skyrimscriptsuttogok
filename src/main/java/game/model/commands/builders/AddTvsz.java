@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.items.TVSZ;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály egy új tvsz felvételére
+ */
 public class AddTvsz implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy tvsz-t*/

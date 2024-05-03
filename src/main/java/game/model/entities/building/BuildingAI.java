@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**A pályaépítő osztálya*/
 @XmlRootElement
 public class BuildingAI {
     @XmlAttribute
@@ -18,14 +19,17 @@ public class BuildingAI {
     @XmlElement
     private Map<String, Room> labyrinth = new HashMap<>();
 
+    /**Visszaad egy egyedi szoba azonosítót*/
     public static int getRoomID() {
         return roomID++;
     }
 
+    /**Visszaadja a szobák egy kulccsal ellátott osztályát*/
     public Map<String, Room> getLabyrinth(){
         return labyrinth;
     }
 
+    /**Paraméter nélküli konstruktor*/
     public void BuildingAI() {
         roomID = 0;
         labyrinth = new HashMap<String, Room>();

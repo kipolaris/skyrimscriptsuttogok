@@ -5,6 +5,9 @@ import game.model.entities.Student;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály hallgatók általi tárgy eldobásra
+ */
 public class StudDrop implements iCommand{
     @Override
     public void execute(String[] cmd) {

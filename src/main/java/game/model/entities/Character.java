@@ -7,6 +7,7 @@ import game.model.logging.Suttogo;
 
 import java.util.*;
 
+/**A karakterek ősosztálya*/
 public class Character {
 
     /**
@@ -17,6 +18,7 @@ public class Character {
     public static int maxInventorySize = 5;
     protected boolean paralyzed;
 
+    /**Visszaadja az actions értékét*/
     public int getActions() {
         return actions;
     }
@@ -28,6 +30,8 @@ public class Character {
     protected Map<String, Item> items = new HashMap<>();
 
     private int itemID = 0;
+
+    /**Megkeresi és visszaadja egy tárgy kulcsát*/
     public String getKey(Item item) {
         for (Map.Entry<String, Item> entry : items.entrySet()) {
             if (item.equals(entry.getValue())) { return entry.getKey(); }
@@ -35,10 +39,12 @@ public class Character {
         return null;
     }
 
+    /**Egy paraméteres konstruktor*/
     public Character(String name){
         id = name;
     }
 
+    /**Visszaadja az egyedi azonosítót*/
     public String getId() {
         return id;
     }

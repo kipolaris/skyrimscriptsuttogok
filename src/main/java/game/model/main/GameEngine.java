@@ -15,8 +15,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 import java.util.function.Predicate;
 
+/**Osztály, amely a játékot megvalósítja*/
 @XmlRootElement
 public class GameEngine {
+    /**Visszaadja a current értékét*/
     public Character getCurrent() {
         return current;
     }
@@ -30,6 +32,7 @@ public class GameEngine {
     @XmlElement
     private Map<String, Professor> professors = null;
 
+    /**Visszaadja a takarítók egy kulccsal ellátott listáját*/
     public Map<String, Cleaner> getCleaners() {
         return cleaners;
     }
@@ -43,6 +46,7 @@ public class GameEngine {
 
     private Queue<Character> aiTurns = null;
 
+    /**Visszaadja az isAInext értékét*/
     public boolean isAInext() {
         return isAInext;
     }
@@ -55,6 +59,7 @@ public class GameEngine {
     @XmlElement
     private Map<String, Item> items = new HashMap<>();
 
+    /**Visszaadja a tárgyak egy kulccsal ellátott listáját*/
     @XmlElement
     public Map<String, Item> getItems() {
         return items;
@@ -67,6 +72,7 @@ public class GameEngine {
     @XmlElement
     private static int professorID = 0;
 
+    /**Visszaad egy egyedi tárgy azonosítót*/
     public static int getItemID() {
         return itemID++;
     }
@@ -74,6 +80,7 @@ public class GameEngine {
     @XmlElement
     private static int itemID = 0;
 
+    /**Visszaad egy egyedi takarító azonosítót*/
     public static int getCleanerID() {
         return cleanerID++;
     }
@@ -85,40 +92,50 @@ public class GameEngine {
 
     //GETTERS - SETTERS -----------------------------
 
+    /**Visszaadja a hallgatók egy kulccsal ellátott listáját*/
     public Map<String, Student> getStudents() {
         return students;
     }
 
+    /**Beállítja a random értékét*/
     public void setRandom(boolean random) {
         this.random = random;
     }
 
+    /**Visszaadja a random értékét*/
     public boolean getRandom() {
         return random;
     }
 
+    /**Visszaad egy egyedi hallgató azonosítót*/
     public static int getStudentID() {
         return studentID++;
     }
 
+    /**Visszaad egy egyedi oktató azonosítót*/
     public static int getProfessorID() {
         return professorID++;
     }
 
+    /**Visszaadja az oktatók egy kulccsal ellátott listáját*/
     public Map<String, Professor> getProfessors() {
         return professors;
     }
 
+    /**Megadja az oktatók kulccsal ellátott listáját*/
     public void setProf(Map<String, Professor> newProf) {
         professors = newProf;
     }
 
+    /**Megadja a takarítók kulccsal ellátott listáját*/
     public void setCleaners(Map<String, Cleaner> newClean) { cleaners = newClean; }
 
+    /**Visszaadja a BuildingAI egy példányát*/
     public BuildingAI getBuilder() {
         return builder;
     }
 
+    /**Megmondja, hogy az adott karakter köre zajlik-e*/
     public boolean isMyTurn(Character c) {
         return c.equals(current);
     }
@@ -259,6 +276,9 @@ public class GameEngine {
         return students.isEmpty();
     }
 
+    /**
+     * Leállítja a játékot
+     */
     public void endGame() {
         Suttogo.info("endGame()");
         students.clear();
@@ -270,6 +290,9 @@ public class GameEngine {
         GameMain.isGameInitialized = false;
     }
 
+    /**
+     * A játékot újból inicializálja
+     */
     public void refresh() {
         Suttogo.info("refresh()");
         students = new HashMap<>();
@@ -316,28 +339,45 @@ public class GameEngine {
         }
     }
 
-
+    /**
+     * Eltávolít egy hallgatót a listából
+     */
     public void studentDied(Student s) {
         Suttogo.info("studentDied(Student)");
         students.remove(s);
     }
 
+    /**
+     * Felvesz egy hallgatót a listára
+     */
     public void addStudent(Student s) {
         students.put(s.getId(), s);
     }
 
+    /**
+     * Felvesz egy oktatót a listára
+     */
     public void addProfessor(Professor p) {
         professors.put(p.getId(), p);
     }
 
+    /**
+     * Felvesz egy takarítót a listára
+     */
     public void addCleaner(Cleaner c) {
         cleaners.put(c.getId(), c);
     }
 
+    /**
+     * Felvesz egy tárgyat a listára
+     */
     public void addItem(Item i) {
         items.put(i.getId(), i);
     }
 
+    /**
+     * Visszaad egy karaktert annak megadott kulcsa alapján
+     */
     public Character findCharacter(String key) {
         HashMap<String, Character> merged = new HashMap<>();
 

@@ -8,6 +8,9 @@ import game.model.main.GameMain;
 
 import java.util.Map;
 
+/**
+ * Parancs osztály párosított tranzisztorok szétválasztására
+ */
 public class Unpair implements iCommand{
     @Override
     public void execute(String[] cmd) {

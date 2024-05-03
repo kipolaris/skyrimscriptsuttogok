@@ -6,6 +6,7 @@ import game.model.logging.Suttogo;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**Az ajtó osztálya*/
 @XmlRootElement
 public class Door {
     @XmlElement

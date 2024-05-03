@@ -8,10 +8,12 @@ import javax.xml.bind.annotation.XmlElement;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**Az ffp2 maszk osztálya*/
 public class FFP2 extends Item{
     @XmlElement
     private boolean fake;
 
+    /**Hat paraméteres konstruktor*/
     public FFP2(boolean activated, boolean defensive, int durability, Room location, Character owner, boolean f) {
         super("FFP2"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
         fake = f;

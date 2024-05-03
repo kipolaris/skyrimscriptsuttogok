@@ -5,6 +5,9 @@ import game.model.entities.Professor;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály egy új oktató felvételére
+ */
 public class AddProfessor implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy professzort*/

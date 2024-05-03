@@ -7,6 +7,9 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály tárgy eldobására
+ */
 public class Drop implements iCommand {
     public void execute(String[] cmd) {/**Eldobat egy tárgyat az adott karaktertől*/
         if(cmd.length < 3) {

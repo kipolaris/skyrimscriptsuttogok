@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A tvsz osztálya*/
 public class TVSZ extends Item{
     @XmlElement
     boolean fake;

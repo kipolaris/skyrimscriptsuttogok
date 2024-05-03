@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.entities.items.Rag;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály egy új táblatörlő rongy felvételére
+ */
 public class AddRag implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Létrehoz egy táblatörlő rongyot*/

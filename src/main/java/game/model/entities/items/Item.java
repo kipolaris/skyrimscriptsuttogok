@@ -7,12 +7,13 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**A tárgyak ősosztálya*/
 @XmlRootElement
 public abstract class Item {
-    /** tárgy ősosztály*/
     @XmlAttribute
     protected final String id;
 
+    /**Visszaadja az egyedi azonosítót*/
     public String getId() {
         return id;
     }
@@ -27,10 +28,12 @@ public abstract class Item {
     @XmlElement
     protected Character owner;
 
+    /**Egy paraméteres konstruktor*/
     public Item(String id) {
         this.id = id;
     }
 
+    /**Hat paraméteres konstruktor*/
     public Item(String id, boolean activated, boolean defensive, int durability, Room location, Character owner) { //Item konstruktor, alapértékek beállításához
         this.id = id;
         this.activated = activated;
@@ -43,58 +46,71 @@ public abstract class Item {
     }
 
     // Abstract methods
-    public abstract void activate();/** ez a függvény aktiválja a tárgyat, ami a legtöbb tárgynál máshogy működik*/
+    /** Ez a függvény aktiválja a tárgyat, ami a legtöbb tárgynál máshogy működik*/
+    public abstract void activate();
 
-    public abstract int getPriority();/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
+    /** Visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
+    public abstract int getPriority();
 
-    public int getDurability() {/** hátralévő élettartam lekérdezése*/
+    /** Hátralévő élettartam lekérdezése*/
+    public int getDurability() {
         Suttogo.info("getDurability()");
         Suttogo.info("\treturn int");
         return durability;
     }
 
-    public void setDurability(int durability) {/** hátralévő élettartam beállítása*/
+    /** Hátralévő élettartam beállítása*/
+    public void setDurability(int durability) {
         Suttogo.info("setDurability(int)");
         this.durability = durability;
     }
 
-    public abstract boolean decreaseDurability(); /** hátralévő élettartam csökkentése 1 körrel*/
+    /** Hátralévő élettartam csökkentése 1 körrel*/
+    public abstract boolean decreaseDurability();
 
-    public abstract boolean isPairable();/** megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
+    /** Megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
+    public abstract boolean isPairable();
 
-    public Room getLocation(){/** visszaadja, hogy a tárgy melyik szobában van*/
+    /** Visszaadja, hogy a tárgy melyik szobában van*/
+    public Room getLocation(){
         Suttogo.info("getLocation()");
         Suttogo.info("\treturn Room");
         return location;
     }
 
-    public void setLocation(Room room){ /** beállítja, hogy melyik szobában található a tárgy*/
+    /** Beállítja, hogy melyik szobában található a tárgy*/
+    public void setLocation(Room room){
         Suttogo.info("setLocation(Room)");
         this.location=room;
     }
 
-    public boolean getActivated() {/* visszaadja, hogy a táegy aktiválva van-e*/
+    /** Visszaadja, hogy a tárgy aktiválva van-e*/
+    public boolean getActivated() {
         Suttogo.info("getActivated()");
         return activated;
     }
 
-    public boolean protectFromKill() { // ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól
+    /** Ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól*/
+    public boolean protectFromKill() {
         Suttogo.info("protectFromKill()");
         Suttogo.info("\treturn false");
         return false;
     }
 
-    public boolean protectFromGas() {// ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól
+    /** Ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól*/
+    public boolean protectFromGas() {
         Suttogo.info("protectFromGas()");
         Suttogo.info("\treturn false");
         return false;
     }
 
-    public void setOwner(Character character){// ez a függvény állítja be, hogy kinél van a tárgy
+    /** Ez a függvény állítja be, hogy kinél van a tárgy*/
+    public void setOwner(Character character){
         Suttogo.info("setOwner(Character)");
         this.owner = character;
     }
 
+    /**Visszaadja a specifikus tárgy hatását*/
     public String getEffect() {
         return null;
     }

@@ -7,6 +7,9 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály takarítók mozgatására
+ */
 public class Cleanermove implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Mozgat egy takarítót*/

@@ -4,6 +4,9 @@ import game.model.commands.iCommand;
 import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 
+/**
+ * Parancs osztály új játék inicializálásához
+ */
 public class Newgame implements iCommand {/**Új játékot inicializál*/
     @Override
     public void execute(String[] cmd) {

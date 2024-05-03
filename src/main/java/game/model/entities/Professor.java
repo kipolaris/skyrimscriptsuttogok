@@ -11,13 +11,15 @@ import java.util.function.Predicate;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**Az oktató osztálya*/
 public class Professor extends Character{
-
+    /**Paraméter nélküli konstruktor*/
     public Professor(){
         super("Professor"+ GameEngine.getProfessorID());
         gameEngine.addProfessor(this);
     }
 
+    /**Egy paraméteres konstruktor*/
     public Professor(boolean paralyzed){
         super("Professor"+ GameEngine.getProfessorID());
         this.paralyzed = paralyzed;
@@ -68,6 +70,7 @@ public class Professor extends Character{
         gameEngine.next();
     }
 
+    /**Beállítja a paralyzed értékét*/
     @Override
     public void setProfessorParalyzed(boolean b) {
         paralyzed = b;

@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * Parancs osztály takarítók általi tárgyfelvételre
+ */
 public class Cleanerpickup implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Egy takarítót egy tárgy felvételére késztet*/

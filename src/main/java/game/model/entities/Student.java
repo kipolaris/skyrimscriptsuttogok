@@ -9,13 +9,15 @@ import java.util.PriorityQueue;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A hallgató osztálya*/
 public class Student extends Character{
-
+    /**Paraméter nélküli konstruktor*/
     public Student() {
         super("Student" + GameEngine.getStudentID());
         gameEngine.addStudent(this);
     }
 
+    /**Egy paraméteres konstruktor*/
     public Student(boolean paralyzed){
         super("Student" + GameEngine.getStudentID());
         this.paralyzed = paralyzed;
@@ -76,6 +78,7 @@ public class Student extends Character{
         return null;
     }
 
+    /**Alaphelyzetbe állítja az akció és mozgás pontokat*/
     public void resetActions(){
         actions = 3;
         isMoved = false;

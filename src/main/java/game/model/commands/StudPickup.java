@@ -5,6 +5,9 @@ import game.model.entities.Student;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**
+ * Parancs osztály hallgatók általi tárgyfelvételre
+ */
 public class StudPickup implements iCommand{
     @Override
     public void execute(String[] cmd) {

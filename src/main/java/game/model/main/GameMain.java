@@ -18,6 +18,7 @@ import game.model.entities.Character;
 import java.util.Scanner;
 import java.util.HashMap;
 
+/**Osztály, amely főmenüként szolgál és a parancsokat kezeli*/
 public class GameMain {
     //#todo: megoldani, hogy a pályaépítő parancsok ne keveredjenek a fő parancsokkal
 
@@ -31,6 +32,7 @@ public class GameMain {
 
     public static boolean allOut = true;
 
+    /**Beállítja az areWeTesting értékét*/
     public static void setAreWeTesting(boolean areWeTesting) {
         GameMain.areWeTesting = areWeTesting;
     }
@@ -39,13 +41,13 @@ public class GameMain {
 
     public static String lastOutput = "";
 
+    /**Felveszi a parancsokat egy mapra*/
     public static void addAllCommands(){
         commandMap.put("use", new Use());
         commandMap.put("skip", new Skip());
         commandMap.put("load", new Load());
         commandMap.put("save", new Save());
         commandMap.put("newgame", new Newgame()); //implementálva
-        commandMap.put("runtests", new Runtests());
         commandMap.put("help", new Help());    //implementálva
         commandMap.put("random-go", new RandomGo());   //kész
         commandMap.put("random-nogo", new RandomNogo());   //kész
@@ -113,6 +115,7 @@ public class GameMain {
         }
     }
 
+    /**Kiírja a játék státuszát*/
     public static void printOut() {
         StringBuilder sb = new StringBuilder();
         if(isGameStarted) {
@@ -183,8 +186,8 @@ public class GameMain {
         lastOutput = lastOutput + sb.toString();
         if(!areWeTesting) System.out.print(lastOutput);
     }
-    //end PrintOut
 
+    /**Végrehajt egy parancsot*/
     public static void perform(String c) {
         String[] cmd = c.split(" ");
         iCommand command = commandMap.get(cmd[0]);

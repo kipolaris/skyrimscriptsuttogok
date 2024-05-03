@@ -6,6 +6,7 @@ import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
+/**A táblatörlő rongy osztálya*/
 public class Rag extends Item{
 
     /**Konstruktor: létrehozza a tárgyat és inicializálja az értékeit*/
