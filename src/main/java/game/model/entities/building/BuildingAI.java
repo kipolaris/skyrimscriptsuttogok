@@ -14,6 +14,11 @@ import java.util.Map;
 /**A pályaépítő osztálya*/
 @XmlRootElement
 public class BuildingAI {
+    /**Beállítja az egyedi azonosító értékét*/
+    public static void setRoomID(int roomID) {
+        BuildingAI.roomID = roomID;
+    }
+
     @XmlAttribute
     private static int roomID;
     @XmlElement

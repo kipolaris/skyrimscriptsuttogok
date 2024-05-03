@@ -27,6 +27,7 @@ public class Rag extends Item{
         Suttogo.info("activate()");
         this.activated = true;
         owner.dropItem(this);
+        owner.setActions(1);
         this.location.paralyzeProfessors();
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);

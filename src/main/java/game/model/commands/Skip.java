@@ -4,6 +4,7 @@ import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
 import game.model.logging.Suttogo;
+import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
 import java.util.Map;
@@ -22,13 +23,22 @@ public class Skip implements iCommand{
         Cleaner cleaner = null;
         if(cmd.length > 1) {
             student = students.get(cmd[1]);
-            if(student!=null) student.skipTurn();
+            if(student!=null) {
+                student.skipTurn();
+                GameMain.gameEngine.next(); //<------------------------------------------------------------------------NEXT ITT!
+            }
             else {
                 professor = professors.get(cmd[1]);
-                if(professor!=null) professor.skipTurn();
+                if(professor!=null) {
+                    professor.skipTurn();
+                    GameMain.gameEngine.next();
+                }
                 else {
                     cleaner = cleaners.get(cmd[1]);
-                    if(cleaner!=null) cleaner.skipTurn();
+                    if(cleaner!=null) {
+                        cleaner.skipTurn();
+                        GameMain.gameEngine.next();
+                    }
                     else Suttogo.error("Character not found!");
                 }
             }

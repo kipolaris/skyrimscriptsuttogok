@@ -24,17 +24,19 @@ public class Move implements iCommand {
         Room r;
 
         if(c == null){
-            Suttogo.error("nem talalhato a keresett karakter!");
-            return;
+            Suttogo.error("There is no such character!");
         }else{
-            r = builder.getLabyrinth().get(cmd[2]);
-            if(r == null){
-                Suttogo.error("nem talalhato a keresett szoba!");
-                return;
-            }else if(c.getLocation().getNeighbours().contains(r)){
-                Door d = r.getDoorOf(c.getLocation());
+            if(gameEngine.canIMove(c)) {
+                r = builder.getLabyrinth().get(cmd[2]);
+                if (r == null) {
+                    Suttogo.error("There is no such room!");
+                } else if (c.getLocation().getNeighbours().contains(r)) {
+                    Door d = r.getDoorOf(c.getLocation());
 
-                c.move(d);
+                    c.move(d);
+                }
+            }else{
+                Suttogo.error("You have already moved!");
             }
         }
     }

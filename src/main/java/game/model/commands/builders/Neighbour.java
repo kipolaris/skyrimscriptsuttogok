@@ -21,6 +21,14 @@ public class Neighbour implements iCommand {
         BuildingAI builder = gameEngine.getBuilder();
         Room room1 = builder.getLabyrinth().get(cmd[1]);
         Room room2 = builder.getLabyrinth().get(cmd[2]);
+
+        if(room1 == null){
+            Suttogo.note("room1 az null!");
+            return;
+        }else if(room2 == null){
+            Suttogo.note("room2 az null!");
+            return;
+        }
         boolean visible = true;
         if(cmd.length > 4)  visible = !cmd[4].equals("invisible");
         Door door;

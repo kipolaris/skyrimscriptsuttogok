@@ -78,9 +78,12 @@ public class Student extends Character{
         return null;
     }
 
-    /**Alaphelyzetbe állítja az akció és mozgás pontokat*/
-    public void resetActions(){
-        actions = 3;
-        isMoved = false;
+    @Override
+    public void useItem(Item i) {
+        if(actions>0) {
+            i.activate();
+            i.decreaseDurability();
+            actions--;
+        } else noMoreActions();
     }
 }

@@ -149,14 +149,27 @@ public class GameEngine {
      */
     public boolean areActionsLeft(Character c) {
         if (c.getActions() > 0) {
-            if (c.getActions() == 1) {
+            if (c.getActions() == 1 && c.isMoved()) {
                 next();
                 Suttogo.note("next has been called");
             }
             return true;
         } else {
+            Suttogo.error("You have no more actions left!");
             return false;
         }
+    }
+
+    /**Visszaadja, hogy az adott karakter mozoghat-e még*/
+    public boolean canIMove(Character c){
+        if(!c.isMoved()){
+            if(c.getActions() <= 0){
+                next();
+                Suttogo.note("next has been called");
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -166,7 +179,7 @@ public class GameEngine {
     public void next() {
         if (chart.hasNext()) {
             current = chart.next();
-            Suttogo.note("well it looks like theres still somoeone here");
+            Suttogo.note("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
                 Suttogo.note("isAInext was set to true");
                 isAInext = true;
@@ -243,10 +256,12 @@ public class GameEngine {
         professors = new HashMap<>();
         cleaners = new HashMap<>();
         builder = new BuildingAI();
+        BuildingAI.setRoomID(0);
         studentID = 0;
         professorID = 0;
         itemID = 0;
         cleanerID = 0;
+
         if (random) {
             GameMain.perform("room 10");
             GameMain.perform("room 5");

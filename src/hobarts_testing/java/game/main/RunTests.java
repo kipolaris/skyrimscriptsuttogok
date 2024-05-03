@@ -1,5 +1,6 @@
 package game.main;
 
+import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 
 import java.io.*;
@@ -11,6 +12,10 @@ import static game.model.main.GameMain.perform;
 
 /**Osztály, ami futtatja az összes tesztet és kimenetüket ellenőrzi is*/
 public class RunTests {
+    public static File currentDir = null;
+    public static String getCurrentDir(){
+        return currentDir.getName();
+    }
     public static void main(String[] args) {
         GameMain.setAreWeTesting(true);
         GameMain.addAllCommands();
@@ -21,7 +26,10 @@ public class RunTests {
             List<String> discrepancies = new ArrayList<>();
 
             for (File subDir : subDirs) {
-                System.out.println("--------------"+subDir.getName()+"---------------");
+                currentDir = subDir;
+                System.out.print("*******~~~~~~~~~~~~~~********~~~~~~~~~~~~~~**********\n"+
+                        "---------------------"+subDir.getName()+"------------------------\n"+
+                "*******~~~~~~~~~~~~~~********~~~~~~~~~~~~~~**********\n");
                 File[] inputFiles = subDir.listFiles((d, name) -> name.endsWith("_in.txt"));
 
                 if (inputFiles != null) {
@@ -33,6 +41,7 @@ public class RunTests {
 
                             String line;
                             while ((line = reader.readLine()) != null) {
+                                Suttogo.note("**** "+line+" ****");
                                 perform(line);
                                 if(isGameInitialized) GameMain.printOut();
                                 writer.println(GameMain.lastOutput); // Assuming this method fetches last output

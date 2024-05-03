@@ -12,14 +12,15 @@ public class Cups extends Item{
     public Cups(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super("Cups"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
     }
+
     public int getPriority(){/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn 1");
         return 1;
     }
+
     @Override
     public void activate() {/** ezzel lehet aktiválni a tárgyat, innentől a tárgy megvédi használóját a csúnya, gonosz, rosszakaró, hamis oktatóktól*/
-
         Suttogo.info("activate()");
         this.activated = true;
         String s = this.getId() + " used. " + getEffect();

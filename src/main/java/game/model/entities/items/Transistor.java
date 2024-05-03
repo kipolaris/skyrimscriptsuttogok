@@ -36,13 +36,17 @@ public class Transistor extends Item{
       if(this.Pair == null) {
           Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
           this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
+          owner.setActions(-1);
       }
       else{
           String s = this.getId() + " used. " + getEffect();
           Suttogo.info(s);
-          if(!Pair.getLocation().isFull()) {
-              owner.setLocation(this.Pair.getLocation());
-              unpair();
+          if(Pair.getLocation()==null) {
+              owner.dropItem(this);
+          }
+          else {
+              if(Pair.getLocation().addCharacter(owner)) unpair();
+              owner.setActions(-1);
           }
       }
   }

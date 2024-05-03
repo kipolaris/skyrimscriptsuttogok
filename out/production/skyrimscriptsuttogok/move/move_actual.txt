@@ -446,7 +446,8 @@ Rooms:
 Your (Student0) Neighbours:
 	Room1
 
-ERROR You don’t have an item named like that.Rooms:
+ERROR You don’t have an item named like that.
+Rooms:
 	Room2
 		Characters:
 			Student0

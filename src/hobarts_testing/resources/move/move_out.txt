@@ -1,19 +1,475 @@
-Your Items: transistor1, transistor2, ffp2.
-Select an item to drop or cancel (0):
-transistor1 dropped in Room 3
-Rooms: 1, 2.
-Select the room or cancel (0):
-You can’t move there!
-Rooms: 1, 2.
-Select the room or cancel (0):
-Moved to Room 2.
-You haven’t been paralyzed, but you used ffp2 and its durability is now 8.
-Rooms: 1, 3.
-Select the room or cancel (0):
-Moved to Room 1.
-Rooms: 2
-Select the room or cancel (0):
-There isn’t a room with that name.
-Your Items: transistor2, ffp2.
-Select an item to use or cancel (0):
-transistor2 was used. Teleported to Room 3.
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP20
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP20
+					Transistor1
+					Transistor2
+		Items:
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP20
+					Transistor1
+					Transistor2
+		Items:
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+
+ERROR You don’t have an item named like that.
+Rooms:
+	Room2
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 2
+				Items:
+					FFP20
+					Transistor2
+		Items:
+			Transistor1
+	Room1
+		Characters:
+			Professor0
+				paralyzed: true
+				Items:
+		Items:
+	Room0
+		Characters:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+	Room1
+

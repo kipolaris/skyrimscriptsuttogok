@@ -17,6 +17,12 @@ public abstract class Item {
     public String getId() {
         return id;
     }
+
+    /**Visszaadja, hogy a tárgy aktiválva van-e*/
+    public boolean isActivated() {
+        return activated;
+    }
+
     @XmlElement
     protected boolean activated;
     @XmlElement

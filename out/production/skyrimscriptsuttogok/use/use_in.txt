@@ -1,55 +1,66 @@
 random-nogo
 newgame
-addroom 5
+room 6
 room 1
 room 1
-neighbour Room1 Room2
-neighbour Room1 Room3
+neighbour Room0 Room1
+neighbour Room0 Room2
+student
 student
 student
 student
 professor
 cleaner
-roomaddchar Student0 Room1
+roomaddchar Student0 Room0
 roomaddchar Student1 Room1
-roomaddchar Student2 Room1
-roomaddchar Cleaner1 Room1
-roomaddchar Professor1 Room3
-transistor
-transistor
-tvsz
-camembert
-airfreshener
+roomaddchar Student2 Room0
+roomaddchar Student3 Room0
+roomaddchar Cleaner0 Room0
+roomaddchar Professor0 Room2
 rag
-sliderule
+transistor
+transistor
+ffp2
 ffp2
 ffp2 fake
 ffp2
-ffp2
+camembert
+camembert
+tvsz
 cups
-roomadditem Room3 Sliderule6
-roomadditem Room2 TVSZ2
-charadditem Transistor0 Student0
-charadditem Transistor1 Student0
-charadditem FFP27 Student0
-charadditem Rag5 Student0
-pair Student0 Transistor1 Transistor2
-charadditem Camembert3 student2
-charadditem FFP28 student2
-charadditem Cups10 student2
-charadditem FFP29 student3
-charadditem Airfreshener5 student3
-charadditem FFP24 cleaner0
-use Transistor0
-move Room2
-pickup TVSZ1
-use Transistor1
-use Camembert3
-use Airfreshener5
+airfreshener
+airfreshener
+sliderule
+roomadditem SlideRule13 Room2
+charadditem Rag0 Student0
+charadditem FFP23 Student0
+charadditem Transistor1 Student1
+charadditem Transistor2 Student1
+charadditem FFP24 Student1
+charadditem Camembert7 Student1
+pair Student1 Transistor0 Transistor1
+charadditem FFP25 Student2
+charadditem TVSZ9 Student2
+charadditem Cups10 Student3
+charadditem FFP26 Student3
+charadditem Airfreshener11 Student3
+charadditem Airfreshener12 Cleaner0
+charadditem Camembert8 Professor0
+startgame
 skip Student0
+use Student1 Transistor1
+move Room0
+use Student1 Camembert7
+use Student1 Cups50
+use Student1 Transistor2
+use Student3 Airfreshener11
+skip Student3
+use Cleaner0 Airfreshener12
 skip Cleaner0
-profmove
-kill Professor0
+use Professor0 Camembert8
+profmove Room0
+kill
 skip Professor0
-move Room3
-pickup Sliderule6
+use Student0 Rag0
+move Room2
+pickup SlideRule13

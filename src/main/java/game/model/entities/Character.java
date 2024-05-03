@@ -4,11 +4,16 @@ import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.*;
 import game.model.logging.Suttogo;
+import game.model.main.GameMain;
 
 import java.util.*;
 
 /**A karakterek ősosztálya*/
 public class Character {
+
+    public boolean isMoved() {
+        return isMoved;
+    }
 
     /**
      * ezt csak a Studentek használják
@@ -97,10 +102,6 @@ public class Character {
      */
     public void useItem(Item i) {
         Suttogo.info("useItem(Item)");
-        i.activate();
-        i.decreaseDurability();
-
-        actions--;
     }
 
     /**
@@ -117,14 +118,17 @@ public class Character {
      */
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
-        if(items.size()<maxInventorySize){
-            location.removeItem(item);
-            items.put(item.getId(), item);
-            item.setLocation(null);
-            item.setOwner(this);
-        }
-
-        actions--;
+        if(actions>0) {
+            if (!(item instanceof Rag && item.isActivated())) {
+                if (items.size() < maxInventorySize) {
+                    location.removeItem(item);
+                    items.put(item.getId(), item);
+                    item.setLocation(null);
+                    item.setOwner(this);
+                    actions--;
+                } else Suttogo.error("Your inventory is full!");
+            } else Suttogo.error("This item can't be picked up");
+        } else noMoreActions();
     }
 
     /**
@@ -132,13 +136,16 @@ public class Character {
      */
     public void dropItem(Item item) {
         Suttogo.info("dropItem(Item)");
-        if(items.containsValue(item)){
-            item.setLocation(location);
-            location.addItem(item);
-            this.items.remove(item.getId());
-        }
+        if(actions>0) {
+            if(items.containsValue(item)){
+                item.setLocation(location);
+                location.addItem(item);
+                this.items.remove(item.getId());
+                actions--;
+            }
+            else Suttogo.error("There is no such item!");
+        }else noMoreActions();
 
-        actions--;
     }
 
     /**
@@ -159,7 +166,10 @@ public class Character {
             Item chosen = itemPriorityQueue.poll();
 
             if (chosen == null) {
+                //#todo: check
                 this.paralyzed = true;
+                GameMain.gameEngine.next();
+                Suttogo.error("You have been paralyzed!");
             } else {
                 if (!chosen.decreaseDurability()) {
                     items.remove(chosen);
@@ -230,5 +240,16 @@ public class Character {
     public void setActions(int i) {
         actions += i;
         if(actions < 0) actions = 0;
+    }
+
+    /**Alaphelyzetbe állítja az akció és mozgás pontokat*/
+    public void resetActions(){
+        actions = 3;
+        isMoved = false;
+    }
+
+    /**Hibaüzenetet ad, ha nincs több akciópont*/
+    public void noMoreActions(){
+        Suttogo.error("You have no more actions!");
     }
 }
