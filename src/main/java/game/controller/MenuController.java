@@ -7,7 +7,6 @@ import game.view.MenuView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class MenuController implements ModelListener{
     private final MenuView view;
@@ -43,7 +42,7 @@ public class MenuController implements ModelListener{
 
     @Override
     public void onResizeWindow() {
-
+        //semmi
     }
 
     class DropButtonListener implements ActionListener {
@@ -51,7 +50,7 @@ public class MenuController implements ModelListener{
         public void actionPerformed(ActionEvent e) {
             Item chosen = itemListController.getSelectedItem();
             if(chosen != null) {
-                student.dropItem();
+                student.dropItem(chosen);
                 System.out.println("Item dropped");
             }
         }
@@ -60,23 +59,31 @@ public class MenuController implements ModelListener{
     class PickupButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            student.addItem();
-            System.out.println("Item picked up");
+            Item i = roomController.getChosenItem();
+
+            if (i != null) {
+                student.addItem(i);
+                System.out.println("Item picked up");
+            }
         }
     }
 
     class UseButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            student.useItem();
-            System.out.println("Item used");
+            Item i = itemListController.getSelectedItem();
+            if(i != null){
+                student.useItem(i);
+                System.out.println("Item used");
+            }
+
         }
     }
 
     class MoveButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Door d = roomController.getchosen();
+            Door d = roomController.getChosenDoor();
             if(d != null) {
                 student.move(d);
                 System.out.println("Character moved");

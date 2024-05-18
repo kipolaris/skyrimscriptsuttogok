@@ -1,3 +1,3 @@
-# Main branch
+# Armand branch
 
-A fősodor. Szintaktikai hiba nélküli, integrált kód kerülhet csak ide előzetes egyeztetetéssel.
+What the f u lookin
