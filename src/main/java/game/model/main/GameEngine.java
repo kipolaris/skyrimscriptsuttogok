@@ -1,5 +1,6 @@
 package game.model.main;
 
+import game.controller.ModelListener;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
@@ -18,6 +19,10 @@ import java.util.function.Predicate;
 /**Osztály, amely a játékot megvalósítja*/
 @XmlRootElement
 public class GameEngine {
+
+    public List<ModelListener> listeners = new ArrayList<>();
+
+
     /**Visszaadja a current értékét*/
     public Character getCurrent() {
         return current;
@@ -366,6 +371,7 @@ public class GameEngine {
      * Felvesz egy hallgatót a listára
      */
     public void addStudent(Student s) {
+
         students.put(s.getId(), s);
     }
 
@@ -401,5 +407,19 @@ public class GameEngine {
         merged.putAll(cleaners);
 
         return merged.get(key);
+    }
+
+    public void addListener(ModelListener listener){
+        listeners.add(listener);
+    }
+
+    public void notifyEveryone(){
+        if (!listeners.isEmpty()) {
+            for(ModelListener l : listeners){
+                l.onModelChange();
+            }
+        }else{
+            Suttogo.error("Gameengine: no listeners found");
+        }
     }
 }
