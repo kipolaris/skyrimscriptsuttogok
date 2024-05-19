@@ -34,6 +34,8 @@ public abstract class Item {
     @XmlElement
     protected Character owner;
 
+    public Item(){this.id=null;}
+
     /**Egy paraméteres konstruktor*/
     public Item(String id) {
         this.id = id;

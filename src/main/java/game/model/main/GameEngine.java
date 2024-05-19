@@ -70,7 +70,7 @@ public class GameEngine {
         return items;
     }
 
-    @XmlElement
+    //@XmlElement
     private boolean random = false; //<-------------------------------------------------------------------------HERE IS RANDOM
     @XmlElement
     private static int studentID = 0;

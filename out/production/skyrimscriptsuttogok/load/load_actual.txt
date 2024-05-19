@@ -1,0 +1,108 @@
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+	Cleaner0
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+ERROR JAXB hiba betöltés közben: 10 counts of IllegalAnnotationExceptions
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+ERROR Hiba betoltes kozben!
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+

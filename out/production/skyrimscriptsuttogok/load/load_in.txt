@@ -8,5 +8,5 @@ neighbor Room2 Room1
 student
 cleaner
 professor
-save /games/Game1
-load /games/Game1
+save Game1
+load Game1

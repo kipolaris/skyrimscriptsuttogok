@@ -19,6 +19,7 @@ public class Door {
     @XmlElement
 
     private boolean visible;
+    public Door(){}
 
     /**Konstruktor: Létrehozza az ajtót, beállítja, hogy melyik szobák tartoznak hozzá,
     *hogy mindkét irányból lehet-e használni, és hogy látható-e
