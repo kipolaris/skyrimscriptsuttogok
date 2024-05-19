@@ -14,18 +14,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/CharacterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/CharacterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/ItemListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/ItemListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/ModelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/ModelListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/CharacterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/CharacterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/ItemListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/ItemListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/help/help_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/help/help_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_actual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/newgame/newgame_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/newgame/newgame_actual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/pass/pass_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/pass/pass_actual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/pickup/pickup_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/pickup/pickup_actual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/use/use_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/use/use_actual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Use.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Use.java" afterDir="false" />
     </list>
     <list id="cf05c0b9-bbce-48dd-8cec-30b4031c70fc" name="Changes by Balázs" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +78,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.RunTests.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -92,7 +89,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "save-load",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok",
@@ -130,8 +127,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="jdk-17.0.9-semeru-17.0.9-810ba3b2a9bf-29b0d665" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-7c343fd1d22e-a91e939e" />
       </set>
     </attachedChunks>
   </component>
