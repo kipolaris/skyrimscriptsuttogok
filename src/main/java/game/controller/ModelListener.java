@@ -1,16 +1,16 @@
 package game.controller;
 
 /**
- * Kontrollerek interfésze.
+ * Control interfész.
  */
 public interface ModelListener {
     /**
-     * állapotfrissítésre szolgál.
+     * Állapotfrissítésre szolgáló függvény.
      */
     public void onModelChange();
 
     /**
-     * Speciális művelet ablak átméretezése esetére
+     * Speciális művelet ablak átméretezése esetére.
      */
-    public void onResizeWindow();
+    public void onResizeWindow(); //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
 }

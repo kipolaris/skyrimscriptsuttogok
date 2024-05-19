@@ -8,14 +8,23 @@ import game.view.MenuView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Control osztály az MenuView osztályhoz.
+ */
 public class MenuController implements ModelListener{
     private final MenuView view;
     private Student student;
     private final GameEngine gameEngine;
     private final RoomController roomController;
-
     private ItemListController itemListController;
 
+    /**
+     * Három paraméteres konstruktor.
+     *
+     * @param _view a MenuView osztály egy példánya
+     * @param _model a GameEngine osztály egy példánya
+     * @param _rc a RoomController osztály egy példánya
+     */
     public MenuController(MenuView _view, GameEngine _model, RoomController _rc) {
         this.view = _view;
         this.gameEngine = _model;
@@ -42,9 +51,12 @@ public class MenuController implements ModelListener{
 
     @Override
     public void onResizeWindow() {
-        //semmi
+        //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
     }
 
+    /**
+     * ActionListener a view dropButton gombjához.
+     */
     class DropButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -56,6 +68,9 @@ public class MenuController implements ModelListener{
         }
     }
 
+    /**
+     * ActionListener a view pickupButton gombjához.
+     */
     class PickupButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -68,6 +83,9 @@ public class MenuController implements ModelListener{
         }
     }
 
+    /**
+     * ActionListener a view useButton gombjához.
+     */
     class UseButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -80,6 +98,9 @@ public class MenuController implements ModelListener{
         }
     }
 
+    /**
+     * ActionListener a view moveButton gombjához.
+     */
     class MoveButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -91,6 +112,9 @@ public class MenuController implements ModelListener{
         }
     }
 
+    /**
+     * ActionListener a view skipButton gombjához.
+     */
     class SkipButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

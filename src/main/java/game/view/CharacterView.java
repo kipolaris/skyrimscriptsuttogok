@@ -9,17 +9,28 @@ import java.util.List;
 
 import game.model.entities.Character;
 
+/**
+ * View osztály egy adott szobában lévő karakterek megjelenítésére.
+ */
 public class CharacterView {
     private final List<ModelListener> listeners = new ArrayList<>();
-
     private final JComboBox<String> characterComboBox;
 
+    /**
+     * Paraméter nélküli konstruktor.
+     *
+     * <p>Létrehoz egy üres JComboBox-ot (ebbe kerül majd bele a karakterek egy listája)</p>
+     */
     public CharacterView() {
         characterComboBox = new JComboBox<>();
         characterComboBox.setEnabled(false); // Disable the combo box to prevent selection changes
     }
 
-    // Method to populate the JComboBox with characters
+    /**
+     * Függvény ami frissíti a characterComboBox tartalmát.
+     *
+     * @param characters karakterek egy listája
+     */
     public void setCharacters(List<Character> characters) {
         characterComboBox.removeAllItems();
         for (Character character : characters) {
@@ -27,17 +38,20 @@ public class CharacterView {
         }
     }
 
-    // Method to get the JComboBox for adding to the UI
+    /**
+     * Függvény, amely visszaadja a karaktereket tartalmazó JComboBox-ot.
+     *
+     * @return JComboBox<String>
+     */
     public JComboBox<String> getComboBox() {
         return characterComboBox;
     }
 
-    public void display(){
-        //nem kell
-
-        throw new UnsupportedOperationException();
-    }
-
+    /**
+     * Függvény, amely felvesz egy új kontrollert.
+     *
+     * @param listener egy ModelListener interfészt implementáló kontroller.
+     */
     public void addListener(ModelListener listener){
         if(listener!=null){
             listeners.add(listener);

@@ -8,10 +8,19 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Control osztály az ItemListView osztályhoz.
+ */
 public class ItemListController implements ModelListener{
     private ItemListView view;
     private Map<String, Item> model;
 
+    /**
+     * Két paraméteres konstruktor.
+     *
+     * @param view az ItemListView osztály egy példánya
+     * @param model egy tárgyakat tartalmazó Map String kulccsal
+     */
     public ItemListController(ItemListView view, Map<String, Item> model) {
         this.view = view;
         this.model = model;
@@ -24,18 +33,23 @@ public class ItemListController implements ModelListener{
         });
     }
 
-    // Method to refresh the item list view
+    @Override
     public void onModelChange() {
         view.setItems((List<Item>) model.values());
     }
 
+    /**
+     * Függvény, amely kulcs alapján visszaadja a kiválasztott tárgyat.
+     *
+     * @return Item
+     */
     public Item getSelectedItem(){
         return model.get(view.getSelectedItem());
     }
 
     @Override
     public void onResizeWindow() {
-
+        //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
     }
 }
 
