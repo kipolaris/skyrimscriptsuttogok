@@ -69,4 +69,14 @@ public class FFP2 extends Item{
         if(fake) return "Wait.. is this a real gasmask?";
         return "Gas has no effect on you now.";
     }
+    @Override
+    public String create(){
+        if (fake) return "ffp2 fake "+durability;
+        else return "ffp2 notfake "+durability;
+    }
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("FFP2", "");
+        return uj;
+    }
 }

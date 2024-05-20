@@ -48,10 +48,85 @@ Rooms:
 	Room0
 
 Students:
+Professors:
+Cleaners:
+Items:
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
 	Student0
 Professors:
 Cleaners:
 Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
 Rooms:
 	Room2
 	Room1
@@ -63,6 +138,9 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
+	Camembert2
+	Transistor0
 Rooms:
 	Room2
 	Room1
@@ -75,12 +153,14 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
+	Camembert2
+	Transistor0
 Rooms:
 	Room2
 	Room1
 	Room0
 
-ERROR JAXB hiba betöltés közben: 10 counts of IllegalAnnotationExceptions
 Students:
 	Student0
 Professors:
@@ -88,21 +168,20 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
+	Camembert2
+	Transistor0
 Rooms:
 	Room2
 	Room1
 	Room0
 
-ERROR Hiba betoltes kozben!
 Students:
-	Student0
 Professors:
-	Professor0
 Cleaners:
-	Cleaner0
 Items:
+	FFP21
+	Camembert2
+	Transistor0
 Rooms:
-	Room2
-	Room1
-	Room0
 

@@ -1,79 +1,115 @@
 Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
 	Student0
 Professors:
 	Professor0
 Cleaners:
 	Cleaner0
 Items:
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-Professors:
-Cleaners:
-Items:
-Rooms:
-
-Students:
-Professors:
-Cleaners:
-Items:
-Rooms:
-	Room0
-
-Students:
-Professors:
-Cleaners:
-Items:
-Rooms:
-	Room1
-	Room0
-
-Students:
-Professors:
-Cleaners:
-Items:
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-Professors:
-Cleaners:
-Items:
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-Professors:
-Cleaners:
-Items:
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-Cleaners:
-Items:
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-	Professor0
-Cleaners:
-Items:
+	FFP21
+	Camembert2
+	Transistor0
 Rooms:
 	Room2
 	Room1
@@ -86,19 +122,10 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-	Professor0
-Cleaners:
-	Cleaner0
-Items:
+	FFP21
 	FFP20
+	Camembert2
+	Transistor0
 Rooms:
 	Room2
 	Room1
@@ -111,7 +138,10 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
 	FFP20
+	Camembert2
+	Transistor0
 	Transistor1
 Rooms:
 	Room2
@@ -125,52 +155,10 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
 	FFP20
-	Transistor1
-	Transistor2
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-	Professor0
-Cleaners:
-	Cleaner0
-Items:
-	FFP20
-	Transistor1
-	Transistor2
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-	Professor0
-Cleaners:
-	Cleaner0
-Items:
-	FFP20
-	Transistor1
-	Transistor2
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-	Professor0
-Cleaners:
-	Cleaner0
-Items:
-	FFP20
+	Camembert2
+	Transistor0
 	Transistor1
 	Transistor2
 Rooms:
@@ -185,7 +173,10 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
 	FFP20
+	Camembert2
+	Transistor0
 	Transistor1
 	Transistor2
 Rooms:
@@ -200,7 +191,10 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
 	FFP20
+	Camembert2
+	Transistor0
 	Transistor1
 	Transistor2
 Rooms:
@@ -215,7 +209,64 @@ Professors:
 Cleaners:
 	Cleaner0
 Items:
+	FFP21
 	FFP20
+	Camembert2
+	Transistor0
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	FFP20
+	Camembert2
+	Transistor0
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	FFP20
+	Camembert2
+	Transistor0
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	FFP20
+	Camembert2
+	Transistor0
 	Transistor1
 	Transistor2
 Rooms:

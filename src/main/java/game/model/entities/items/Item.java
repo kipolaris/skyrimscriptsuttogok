@@ -122,5 +122,7 @@ public abstract class Item {
     public String getEffect() {
         return null;
     }
+    public String create(){return null;}
+    public String getNumID(){return null;}
 }
 

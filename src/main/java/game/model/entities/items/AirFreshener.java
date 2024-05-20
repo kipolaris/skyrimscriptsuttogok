@@ -49,4 +49,13 @@ public class AirFreshener extends Item{
     public String getEffect() {
         return "The room gets fresh air.";
     }
+    @Override
+    public String create(){
+        return "airfreshener";
+    }
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Airfreshener", "");
+        return uj;
+    }
 }

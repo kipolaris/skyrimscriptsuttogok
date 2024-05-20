@@ -116,4 +116,13 @@ public class Transistor extends Item{
   public String getEffect() {
         return "You get teleported away.";
     }
+    @Override
+    public String create(){
+      return "transistor";
+    }
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Transistor", "");
+        return uj;
+    }
 }

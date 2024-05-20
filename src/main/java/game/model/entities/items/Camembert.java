@@ -48,4 +48,13 @@ public class Camembert extends Item{
     public String getEffect() {
         return "The room gets gassed.";
     }
+    @Override
+    public String create(){
+        return "camembert "+durability;
+    }
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Camembert", "");
+        return uj;
+    }
 }

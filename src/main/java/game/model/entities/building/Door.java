@@ -56,4 +56,13 @@ public class Door {
     public void setVisible(boolean v) {
         visible = v;
     }
+    public String create(){
+        if (bothWays) {
+            if (visible)return "neighbour "+from.getId()+" "+to.getId()+" twoways visible";
+            else return "neighbour "+from.getId()+" "+to.getId()+" twoways invisible";
+        }else{
+            if (visible) return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond visible";
+            else return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond invisibility";
+        }
+    }
 }

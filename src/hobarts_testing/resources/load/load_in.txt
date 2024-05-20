@@ -3,9 +3,15 @@ newgame
 room 1
 room 3 true
 room 2
-neighbor Room2 Room3
-neighbor Room2 Room1
+neighbour Room1 Room2
+neighbour Room1 Room0
+transistor
+ffp2 fake 2
+camembert
 student
+roomaddchar Student0 Room1
+charadditem Transistor0 Student0
+roomadditem FFP21 Room0
 cleaner
 professor
 save Game1

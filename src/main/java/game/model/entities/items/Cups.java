@@ -62,4 +62,13 @@ public class Cups extends Item{
     public String getEffect() {
         return "You feel much stronger, but you feel a bit dizzy.";
     }
+    @Override
+    public String create(){
+        return "cups "+durability;
+    }
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Cups", "");
+        return uj;
+    }
 }

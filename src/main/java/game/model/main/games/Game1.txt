@@ -1,0 +1,37 @@
+Room-list
+Room2
+Room1
+Room0
+Room-make
+room 1
+room 3 true
+room 2
+Neighbours
+neighbour Room1 Room2 twoways visible
+neighbour Room1 Room0 twoways visible
+Cleaner-list
+Cleaner0
+Cleaner-make
+cleaner
+Prof-list
+Professor0
+Prof-make
+professor
+Student-list
+Student0
+Student-make
+student
+Char-place
+roomaddchar Student0 Room1
+Item-list
+FFP21
+Camembert2
+Transistor0
+Item-make
+transistor
+ffp2 fake 2
+camembert 1
+Item-to-char
+charadditem Transistor0 Student0
+Item-to-room
+roomadditem FFP21 Room0

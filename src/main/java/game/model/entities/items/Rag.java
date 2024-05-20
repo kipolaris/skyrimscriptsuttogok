@@ -59,4 +59,13 @@ public class Rag extends Item{
     public String getEffect() {
         return "Professors in the room get paralyzed.";
     }
+    @Override
+    public String create(){
+        return "rag "+durability;
+    }
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Rag", "");
+        return uj;
+    }
 }
