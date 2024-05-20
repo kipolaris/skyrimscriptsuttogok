@@ -1,5 +1,2 @@
-# Ignore the .idea folder (JetBrains IDE settings)
 .idea/
-
-# Ignore build outputs
 out/
