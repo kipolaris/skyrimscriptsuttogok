@@ -40,11 +40,6 @@ public class MenuController implements ModelListener{
         }
     }
 
-    @Override
-    public void onResizeWindow() {
-        //semmi
-    }
-
     class DropButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

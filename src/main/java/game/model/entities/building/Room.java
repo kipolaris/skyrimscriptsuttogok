@@ -15,6 +15,7 @@ import java.util.*;
 
 import static game.model.main.GameMain.gameEngine;
 
+//#todo: itt is megvalósítani a listener logikát
 /**A szoba osztálya*/
 @XmlRootElement
 public class Room {

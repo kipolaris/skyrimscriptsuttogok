@@ -13,13 +13,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/controller/MainMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/MainMenuView.java" afterDir="false" />
+    <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Add MainMenuView és MainMenuController . A SaverLoader és a GameEngine bővítve&#10; &#10; új, szükséges metódusokkal frissítve lettek ők (játékosok számának beállításához, és az elmentett játékok követéséhez)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/model/AbstractObservableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/model/ObservableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/CharacterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/CharacterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/ItemListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/ItemListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/ModelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/ModelListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/SaverLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/SaverLoader.java" afterDir="false" />
     </list>
     <list id="cf05c0b9-bbce-48dd-8cec-30b4031c70fc" name="Changes by Balázs" comment="" />
@@ -39,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="33-mainmenu" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,14 +56,12 @@
     &quot;assignee&quot;: &quot;FrighteningFunction&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="06730f69-241c-4cbd-893c-69a47e34611a" />
-        <option name="url" value="https://github.com/kipolaris/skyrimscriptsuttogok.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kipolaris/skyrimscriptsuttogok.git",
+    "accountId": "58eca579-0f15-4083-85c0-d3715c488194"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -87,7 +91,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "33-mainmenu",
+    "git-widget-placeholder": "modelinterface",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok",
@@ -224,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711356138299</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add MainMenuView és MainMenuController . A SaverLoader és a GameEngine bővítve&#10; &#10; új, szükséges metódusokkal frissítve lettek ők (játékosok számának beállításához, és az elmentett játékok követéséhez)">
+      <option name="closed" value="true" />
+      <created>1716163922071</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716163922071</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +264,8 @@
     <MESSAGE value="Tesztek és Room frissítve" />
     <MESSAGE value="Door javítása" />
     <MESSAGE value="Javadoc kommentek a buildinges osztályokhoz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Javadoc kommentek a buildinges osztályokhoz" />
+    <MESSAGE value="Add MainMenuView és MainMenuController . A SaverLoader és a GameEngine bővítve&#10; &#10; új, szükséges metódusokkal frissítve lettek ők (játékosok számának beállításához, és az elmentett játékok követéséhez)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MainMenuView és MainMenuController . A SaverLoader és a GameEngine bővítve&#10; &#10; új, szükséges metódusokkal frissítve lettek ők (játékosok számának beállításához, és az elmentett játékok követéséhez)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

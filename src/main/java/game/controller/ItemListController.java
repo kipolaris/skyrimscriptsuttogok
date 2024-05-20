@@ -32,10 +32,5 @@ public class ItemListController implements ModelListener{
     public Item getSelectedItem(){
         return model.get(view.getSelectedItem());
     }
-
-    @Override
-    public void onResizeWindow() {
-
-    }
 }
 

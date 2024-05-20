@@ -21,9 +21,4 @@ public class CharacterController implements ModelListener{
     public void onModelChange() {
         characterView.setCharacters(characters);
     }
-
-    @Override
-    public void onResizeWindow() {
-        //nem kell
-    }
 }
