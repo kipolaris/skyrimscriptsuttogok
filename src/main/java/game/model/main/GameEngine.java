@@ -71,7 +71,7 @@ public class GameEngine {
     }
 
     @XmlElement
-    private boolean random = false; //<-------------------------------------------------------------------------HERE IS RANDOM
+    private boolean random = true; //<-------------------------------------------------------------------------HERE IS RANDOM
     @XmlElement
     private static int studentID = 0;
     @XmlElement
@@ -94,6 +94,8 @@ public class GameEngine {
     private static int cleanerID = 0;
     @XmlElement
     private BuildingAI builder = null;
+
+    public static int numberOfPlayers = 1;
 
     //GETTERS - SETTERS -----------------------------
 
@@ -267,20 +269,24 @@ public class GameEngine {
         itemID = 0;
         cleanerID = 0;
 
+        //#todo: potential bug alert!
+        //#todo: ezt jobban népesíteni kell
         if (random) {
-            GameMain.perform("room 10");
-            GameMain.perform("room 5");
+            GameMain.perform("room "+(numberOfPlayers+3)); //Room0
+            GameMain.perform("room 5");                    //Room1
             GameMain.perform("neighbour Room0 Room1");
 
-            GameMain.perform("student");
-            GameMain.perform("roomaddchar Student0 Room0");
+            for(int i = 0; i<numberOfPlayers; i++) {
+                GameMain.perform("student");
+                GameMain.perform("roomaddchar Student"+i+" Room0");
+            }
 
             GameMain.perform("professor");
             GameMain.perform("roomaddchar Professor0 Room1");
 
-            GameMain.perform("ffp2");
+            GameMain.perform("ffp2");                    //FFP20
             GameMain.perform("roomadditem FFP20 Room0");
-            GameMain.perform("sliderule");
+            GameMain.perform("sliderule");              //SlideRule1
             GameMain.perform("roomadditem SlideRule1 Room1");
         }
 

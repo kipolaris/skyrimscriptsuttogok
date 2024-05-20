@@ -20,7 +20,6 @@ import java.util.HashMap;
 
 /**Osztály, amely főmenüként szolgál és a parancsokat kezeli*/
 public class GameMain {
-    //#todo: megoldani, hogy a pályaépítő parancsok ne keveredjenek a fő parancsokkal
 
     public static HashMap<String, iCommand> commandMap = new HashMap<>();
 

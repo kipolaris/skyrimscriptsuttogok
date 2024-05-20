@@ -1,3 +1,3 @@
-# Armand branch
+# Main branch
 
-What the f u lookin
+fősodor. Csak okés kód kerülhet ide.
