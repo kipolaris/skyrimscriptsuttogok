@@ -1,21 +1,2 @@
-# Ignore the .idea folder (JetBrains IDE settings)
 .idea/
-
-# Ignore build outputs
-/out/
-target/
-
-# Ignore OS-specific files
-.DS_Store
-Thumbs.db
-
-# Ignore IDE-specific files
-*.iml
-*.ipr
-*.iws
-
-# Ignore logs
-*.log
-
-# Ignore compiled class files
-*.class
+out/
