@@ -1,4 +1,0 @@
-Rooms:
-Your (Student0) Neighbours:
-	Room1
-
