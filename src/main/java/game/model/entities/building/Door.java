@@ -3,20 +3,18 @@ package game.model.entities.building;
 import game.model.entities.Character;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**Az ajtó osztálya*/
-@XmlRootElement
+
 public class Door {
-    @XmlElement
+
     private Room from;
-    @XmlElement
+
     private Room to;
 
-    @XmlElement
+
     private boolean bothWays;
-    @XmlElement
+
 
     private boolean visible;
 
