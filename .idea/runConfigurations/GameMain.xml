@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="GameMain" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="game.model.main.GameMain" />
-    <module name="skyrimscriptsuttogok" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>
