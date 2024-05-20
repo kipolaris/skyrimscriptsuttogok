@@ -5,6 +5,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 
 Students:
@@ -14,6 +15,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 
 Students:
@@ -23,6 +25,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room0
 
@@ -33,6 +36,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room1
 	Room0
@@ -44,6 +48,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room2
 	Room1
@@ -56,6 +61,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room2
 	Room1
@@ -68,19 +74,7 @@ Items:
 	FFP21
 	Camembert2
 	Transistor0
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-Cleaners:
-Items:
-	FFP21
-	Camembert2
-	Transistor0
+	Transistor3
 Rooms:
 	Room2
 	Room1
@@ -89,12 +83,12 @@ Rooms:
 Students:
 	Student0
 Professors:
-	Professor0
 Cleaners:
 Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room2
 	Room1
@@ -105,11 +99,11 @@ Students:
 Professors:
 	Professor0
 Cleaners:
-	Cleaner0
 Items:
 	FFP21
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room2
 	Room1
@@ -123,9 +117,9 @@ Cleaners:
 	Cleaner0
 Items:
 	FFP21
-	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
 Rooms:
 	Room2
 	Room1
@@ -142,6 +136,24 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	FFP20
+	Camembert2
+	Transistor0
+	Transistor3
 	Transistor1
 Rooms:
 	Room2
@@ -159,24 +171,7 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
-	Transistor1
-	Transistor2
-Rooms:
-	Room2
-	Room1
-	Room0
-
-Students:
-	Student0
-Professors:
-	Professor0
-Cleaners:
-	Cleaner0
-Items:
-	FFP21
-	FFP20
-	Camembert2
-	Transistor0
+	Transistor3
 	Transistor1
 	Transistor2
 Rooms:
@@ -195,6 +190,7 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
 	Transistor1
 	Transistor2
 Rooms:
@@ -213,6 +209,7 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
 	Transistor1
 	Transistor2
 Rooms:
@@ -231,6 +228,7 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
 	Transistor1
 	Transistor2
 Rooms:
@@ -249,6 +247,7 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
 	Transistor1
 	Transistor2
 Rooms:
@@ -267,6 +266,26 @@ Items:
 	FFP20
 	Camembert2
 	Transistor0
+	Transistor3
+	Transistor1
+	Transistor2
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	FFP20
+	Camembert2
+	Transistor0
+	Transistor3
 	Transistor1
 	Transistor2
 Rooms:

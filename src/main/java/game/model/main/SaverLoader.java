@@ -37,6 +37,8 @@ public class SaverLoader {
             String path = "src/main/java/game/model/main/games/" + name + ".txt";
             File saved = new File(path);
             try (PrintWriter writer = new PrintWriter(new FileWriter(saved))) {
+                writer.println("newgame");
+                writer.println("random-nogo");
                 //Szobák elmentése
                 writer.println("Room-list");
                 Map<String, Room> lab = bai.getLabyrinth();
@@ -120,18 +122,6 @@ public class SaverLoader {
                         else writer.println("student");
                     }else writer.println("student");
                 }
-                //Karakterek elhelyezése
-                writer.println("Char-place");
-                Map<String, Character> chars = new HashMap<>();
-                chars.putAll(cl);
-                chars.putAll(sl);
-                chars.putAll(pl);
-                for (String s : chars.keySet()){
-                    Room r = chars.get(s).getLocation();
-                    if (r!=null) {
-                        writer.println("roomaddchar " + s + " " + r.getId());
-                    }
-                }
                 //Tárgyak elmentése
                 writer.println("Item-list");
                 Map<String, Item> il = g.getItems();
@@ -147,12 +137,39 @@ public class SaverLoader {
                         }
                     }
                 }
+                //Tranzisztorok párosítása, ha van
+                writer.println("Transistors");
+                Map<String, Item> transistors = new HashMap<>();
+                for (Item i: il.values()){
+                    if (i.getPair()!=null) {
+                        if (!transistors.containsValue(i)&&i.getOwner() !=null){
+                            writer.println("charadditem " + i.getId() + " " + i.getOwner().getId());
+                            writer.println("charadditem " + i.getPair().getId() + " " + i.getOwner().getId());
+                            writer.println("pair "+i.getOwner().getId()+" "+i.getId()+" "+i.getPair().getId());
+                            transistors.put(i.getPair().getId(), i.getPair());
+                            transistors.put(i.getId(), i);
+                        }
+                    }
+                }
+                //Tranzisztor eldobása???
+                //Karakterek elhelyezése
+                writer.println("Char-place");
+                Map<String, Character> chars = new HashMap<>();
+                chars.putAll(cl);
+                chars.putAll(sl);
+                chars.putAll(pl);
+                for (String s : chars.keySet()){
+                    Room r = chars.get(s).getLocation();
+                    if (r!=null) {
+                        writer.println("roomaddchar " + s + " " + r.getId());
+                    }
+                }
                 //Tárgyak elhelyezése karaktereknél
                 writer.println("Item-to-char");
                 for (String s : chars.keySet()){
                     if (chars.get(s).getItems()!=null){
                         for (String item : chars.get(s).getItems().keySet()){
-                            writer.println("charadditem " + item + " " + s);
+                            if (!transistors.containsKey(item)) writer.println("charadditem " + item + " " + s);
                         }
                     }
                 }
@@ -162,19 +179,20 @@ public class SaverLoader {
                     List<Item> items = r.getItems();
                     if (items!=null){
                         for (Item i : items){
-                            writer.println("roomadditem "+i.getId()+" "+r.getId());
+                            if (!transistors.containsKey(i.getId())) writer.println("roomadditem "+i.getId()+" "+r.getId());
                         }
                     }
                 }
-                //Current shit - kié a kör
-                //Tranzisztor párosítása??
-                /*for (String s : il.keySet()){
-                    if (il.get(s).create().equals("transistor"){
-                        if (!il.get(s).isPairable()){
-                            writer.println();
-                        }
-                    }
-                }*/
+                //current+random
+                writer.println("Current character + randomness");
+                if (g.getCurrent()!=null){
+                writer.println(g.getCurrent().getId());
+                writer.println(g.getCurrent().getActions());
+                } else{
+                    writer.println("null");
+                    writer.println("null");
+                }
+                writer.println(g.getRandom());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -208,7 +226,7 @@ public class SaverLoader {
                     perform(line);
                 }
                 //Nem szükséges szobák törlése
-                Map<String, Room> lab = bai.getLabyrinth();
+                /*Map<String, Room> lab = bai.getLabyrinth();
                 List<String> rossz = new ArrayList<>();
                 for (String s : lab.keySet()){
                     if (!roomnames.contains(s))
@@ -216,7 +234,7 @@ public class SaverLoader {
                 }
                 for (String s : rossz){
                     lab.remove(s);
-                }
+                }*/
             } catch (IOException e) {
                 if (reader == null) Suttogo.error("Nem sikerült a fájlt megnyitni!");
                 else Suttogo.error("Hiba a beolvasás közben!");

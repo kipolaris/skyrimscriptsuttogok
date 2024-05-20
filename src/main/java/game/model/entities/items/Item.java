@@ -117,6 +117,12 @@ public abstract class Item {
         Suttogo.info("setOwner(Character)");
         this.owner = character;
     }
+    public Character getOwner(){
+        Suttogo.info("getOwner()");
+        Suttogo.info("\treturn Character");
+        return owner;
+    }
+    public  Transistor getPair(){ return null;}
 
     /**Visszaadja a specifikus tárgy hatását*/
     public String getEffect() {

@@ -84,7 +84,7 @@ public class Transistor extends Item{
       Suttogo.info("setPair(Transistor)");
       this.Pair = p;
   }
-
+  @Override
   /**
    * Párjának lekérdezése
    */

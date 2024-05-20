@@ -8,9 +8,13 @@ neighbour Room1 Room0
 transistor
 ffp2 fake 2
 camembert
+transistor
 student
 roomaddchar Student0 Room1
 charadditem Transistor0 Student0
+charadditem Transistor3 Student0
+pair Student0 Transistor3 Transistor0
+drop Student0 Transistor3
 roomadditem FFP21 Room0
 cleaner
 professor

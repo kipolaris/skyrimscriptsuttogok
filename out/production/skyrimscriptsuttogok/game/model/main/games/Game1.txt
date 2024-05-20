@@ -1,3 +1,5 @@
+newgame
+random-nogo
 Room-list
 Room2
 Room1
@@ -21,17 +23,26 @@ Student-list
 Student0
 Student-make
 student
-Char-place
-roomaddchar Student0 Room1
 Item-list
 FFP21
 Camembert2
 Transistor0
+Transistor3
 Item-make
 transistor
 ffp2 fake 2
 camembert 1
-Item-to-char
+transistor
+Transistors
 charadditem Transistor0 Student0
+charadditem Transistor3 Student0
+pair Student0 Transistor0 Transistor3
+Char-place
+roomaddchar Student0 Room1
+Item-to-char
 Item-to-room
 roomadditem FFP21 Room0
+Current character + randomness
+null
+null
+false
