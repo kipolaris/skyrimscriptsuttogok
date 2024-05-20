@@ -1,0 +1,24 @@
+random-nogo
+newgame
+room 2
+room 2
+neighbour Room0 Room1
+student
+student
+roomaddchar Student0 Room0
+roomaddchar Student1 Room1
+camembert
+charadditem Camembert0 Student0
+startgame
+move Room1
+drop Camembert0
+pickup Camembert0
+drop Camembert0
+pickup Camembert0
+move Room0
+skip Student1
+skip Student0
+use Student0 Camembert0
+skip Student0
+skip Student0
+skip Student0
