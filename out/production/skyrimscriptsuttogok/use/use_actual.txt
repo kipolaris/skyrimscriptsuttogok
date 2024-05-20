@@ -1,0 +1,1850 @@
+Rooms:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					TVSZ1
+					Camembert3
+					Cups4
+					Airfreshener6
+			Professor0
+				paralyzed: true
+				Items:
+					FFP22
+		Items:
+			SlideRule0
+			Rag5
+Your (Student0) Neighbours:
+
+Rooms:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					Transistor1
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+ERROR You don’t have an item named like that.
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Cups10
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student3) Neighbours:
+	Room1
+	Room2
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 1
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+ERROR You have no more actions left!
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 1
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+ERROR You don’t have an item named like that.
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+ERROR You have no more actions!
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 3
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 2
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student0) Neighbours:
+	Room1
+	Room2
+
+Rooms:
+	Room2
+		Characters:
+			Professor0
+				paralyzed: false
+				Items:
+					Camembert8
+		Items:
+			SlideRule13
+	Room1
+		Characters:
+			Student1
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP24
+					Camembert7
+					Transistor1
+					Transistor2
+		Items:
+	Room0
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 0
+				Items:
+					FFP23
+					Rag0
+			Student2
+				paralyzed: false
+				actions: 3
+				Items:
+					FFP25
+					TVSZ9
+			Student3
+				paralyzed: false
+				actions: 0
+				Items:
+					Airfreshener11
+					Cups10
+					FFP26
+			Cleaner0
+				paralyzed: false
+				Items:
+					Airfreshener12
+		Items:
+Your (Student1) Neighbours:
+	Room0
+
