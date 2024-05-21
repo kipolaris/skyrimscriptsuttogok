@@ -117,18 +117,30 @@ public abstract class Item {
         Suttogo.info("setOwner(Character)");
         this.owner = character;
     }
+    /**
+     * A tárgy gazdája
+     */
     public Character getOwner(){
         Suttogo.info("getOwner()");
         Suttogo.info("\treturn Character");
         return owner;
     }
+    /**
+     * A tranzisztor párja, csak párosított tranzisztorok esetében fontos
+     */
     public  Transistor getPair(){ return null;}
 
     /**Visszaadja a specifikus tárgy hatását*/
     public String getEffect() {
         return null;
     }
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
     public String create(){return null;}
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
     public String getNumID(){return null;}
 }
 

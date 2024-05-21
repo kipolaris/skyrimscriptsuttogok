@@ -87,11 +87,17 @@ public class TVSZ extends Item{
         if(fake) return "Rules have no power here.";
         return "Your life is saved.";
     }
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
     @Override
     public String create(){
         if(fake) return "tvsz fake "+durability;
         else return "tvsz notfake "+durability;
     }
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
     @Override
     public String getNumID(){
         String uj = getId().replace("TVSZ", "");

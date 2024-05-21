@@ -15,15 +15,19 @@
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/load/load_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/load/load_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/load/load_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/load/load_in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/load/load_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/load/load_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_actual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_actual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hobarts_testing/resources/move/move_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCamembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/builders/AddCamembert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/commands/Use.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/commands/Use.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/building/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/AirFreshener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/AirFreshener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Camembert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Camembert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Cups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Cups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/FFP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/FFP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Rag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Rag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/SlideRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/TVSZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/TVSZ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Transistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/entities/items/Transistor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/SaverLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/SaverLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/main/games/Game1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/main/games/Game1.txt" afterDir="false" />
     </list>
     <list id="cf05c0b9-bbce-48dd-8cec-30b4031c70fc" name="Changes by Balázs" comment="" />
     <option name="SHOW_DIALOG" value="false" />

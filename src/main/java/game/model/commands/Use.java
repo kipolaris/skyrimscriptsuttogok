@@ -18,6 +18,9 @@ public class Use implements iCommand{
             Suttogo.error("Too few arguments!");
             return;
         }
+        /**
+         * Hallgatók esetén
+         */
         if (cmd[1].charAt(0) =='S') {
             Map<String, Student> students = GameMain.gameEngine.getStudents();
             Student student = students.get(cmd[1]);
@@ -26,6 +29,9 @@ public class Use implements iCommand{
             if (item == null) Suttogo.error("You don’t have an item named like that.");
             else student.useItem(item);
         } else{
+            /**
+             * Takarítók esetén
+             */
             if (cmd[1].charAt(0) =='C') {
                 Map<String, Cleaner> cleaners = GameMain.gameEngine.getCleaners();
                 Cleaner cleaner = cleaners.get(cmd[1]);
@@ -34,6 +40,9 @@ public class Use implements iCommand{
                 if (item == null) Suttogo.error("You don’t have an item named like that.");
                 else cleaner.useItem(item);
             } else{
+                /**
+                 * Oktatók esetén
+                 */
                 Map<String, Professor> professors = GameMain.gameEngine.getProfessors();
                 Professor professor = professors.get(cmd[1]);
                 Map<String, Item> items = professor.getItems();

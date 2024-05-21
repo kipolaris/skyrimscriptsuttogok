@@ -56,6 +56,9 @@ public class Door {
     public void setVisible(boolean v) {
         visible = v;
     }
+    /**
+     * Az ajtó létrehozásához szükséges command
+     */
     public String create(){
         if (bothWays) {
             if (visible)return "neighbour "+from.getId()+" "+to.getId()+" twoways visible";

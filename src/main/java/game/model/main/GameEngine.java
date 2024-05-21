@@ -27,6 +27,10 @@ public class GameEngine {
     public Character getCurrent() {
         return current;
     }
+
+    /**
+     * Ezáltal lehet a current értékét beállítani
+     */
     public void setCurrent(String s){
         current = students.get(s);
     }

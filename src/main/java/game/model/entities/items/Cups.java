@@ -62,10 +62,16 @@ public class Cups extends Item{
     public String getEffect() {
         return "You feel much stronger, but you feel a bit dizzy.";
     }
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
     @Override
     public String create(){
         return "cups "+durability;
     }
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
     @Override
     public String getNumID(){
         String uj = getId().replace("Cups", "");

@@ -49,10 +49,16 @@ public class AirFreshener extends Item{
     public String getEffect() {
         return "The room gets fresh air.";
     }
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
     @Override
     public String create(){
         return "airfreshener";
     }
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
     @Override
     public String getNumID(){
         String uj = getId().replace("Airfreshener", "");
