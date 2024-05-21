@@ -55,4 +55,9 @@ public class Door {
     public void setVisible(boolean v) {
         visible = v;
     }
+
+    /**
+     * Visszaadja, hogy az ajtó láthatóságát.
+     */
+    public boolean getVisible() { return visible; }
 }

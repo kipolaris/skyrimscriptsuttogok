@@ -71,11 +71,6 @@ public class SlideRule extends Item{
         }
     }
 
-    /**A játékhoz való csatolása*/
-    public void setGameEngine(GameEngine e){
-        Suttogo.info("setGameEngine(GameEngine)");
-    }
-
     @Override
     public String getEffect() {
         if(fake) return "It's only a stick..";

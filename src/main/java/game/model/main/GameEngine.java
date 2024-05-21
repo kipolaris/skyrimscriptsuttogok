@@ -19,9 +19,7 @@ import java.util.function.Predicate;
 /**Osztály, amely a játékot megvalósítja*/
 @XmlRootElement
 public class GameEngine {
-
     public List<ModelListener> listeners = new ArrayList<>();
-
 
     /**Visszaadja a current értékét*/
     public Character getCurrent() {
@@ -138,11 +136,6 @@ public class GameEngine {
     /**Visszaadja a BuildingAI egy példányát*/
     public BuildingAI getBuilder() {
         return builder;
-    }
-
-    /**Megmondja, hogy az adott karakter köre zajlik-e*/
-    public boolean isMyTurn(Character c) {
-        return c.equals(current);
     }
 
     /**

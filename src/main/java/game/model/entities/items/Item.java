@@ -47,8 +47,6 @@ public abstract class Item {
         this.durability = durability;
         this.location = location;
         this.owner = owner;
-
-        //#todo: esetleg itt hozzáadni a gameengine mapjéhez rögtön?
     }
 
     // Abstract methods
@@ -90,11 +88,7 @@ public abstract class Item {
         this.location=room;
     }
 
-    /** Visszaadja, hogy a tárgy aktiválva van-e*/
-    public boolean getActivated() {
-        Suttogo.info("getActivated()");
-        return activated;
-    }
+
 
     /** Ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól*/
     public boolean protectFromKill() {

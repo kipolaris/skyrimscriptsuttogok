@@ -86,15 +86,6 @@ public class Transistor extends Item{
   }
 
   /**
-   * Párjának lekérdezése
-   */
-  public Transistor getPair() {
-      Suttogo.info("getPair()");
-      Suttogo.info("\treturn Transistor");
-      return this.Pair;
-  }
-
-  /**
    * Másik tranzisztorra és saját magára is beállítja, hogy összepárosodtak
    */
   public void pair(Transistor t){
