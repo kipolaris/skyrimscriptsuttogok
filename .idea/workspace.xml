@@ -14,9 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10acc929-11db-40c3-9057-89c1ea989a26" name="Changes" comment="Javadoc kommentek a buildinges osztályokhoz">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/controller/CharacterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/controller/CharacterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/CharacterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/CharacterView.java" afterDir="false" />
     </list>
     <list id="cf05c0b9-bbce-48dd-8cec-30b4031c70fc" name="Changes by Balázs" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +83,7 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/User/Desktop/Egyetem/2023-24_tavaszi/projlab/coding/skyrimscriptsuttogok",
+    "last_opened_file_path": "C:/Users/csuto/sznikak/HF6/hazi6-2024-kipolaris",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -131,6 +130,7 @@
       <workItem from="1714595022093" duration="6595000" />
       <workItem from="1714636135404" duration="12189000" />
       <workItem from="1715343356038" duration="2793000" />
+      <workItem from="1716046238893" duration="5674000" />
     </task>
     <task id="LOCAL-00001" summary="Door és Room befejezve, tesztek elkezdve">
       <created>1711284336379</created>
