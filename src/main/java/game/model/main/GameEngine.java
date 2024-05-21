@@ -16,7 +16,6 @@ import java.util.*;
 import java.util.function.Predicate;
 
 /**Osztály, amely a játékot megvalósítja*/
-@XmlRootElement
 public class GameEngine extends AbstractObservableModel {
 
     /**Visszaadja a current értékét*/
@@ -24,6 +23,12 @@ public class GameEngine extends AbstractObservableModel {
         return current;
     }
 
+    /**
+     * Ezáltal lehet a current értékét beállítani
+     */
+    public void setCurrent(String s){
+        current = students.get(s);
+    }
     private Character current = null;
 
     private Queue<Character> currentQueue = null;
@@ -66,10 +71,8 @@ public class GameEngine extends AbstractObservableModel {
         return items;
     }
 
-    @XmlElement
     private boolean random = true; //<-------------------------------------------------------------------------HERE IS RANDOM
-    
-    @XmlElement
+
     private static int studentID = 0;
 
     private static int professorID = 0;
