@@ -6,6 +6,7 @@ import java.awt.*;
 public class GamePanel {
 
     int frame_size = 800;
+    InfoView infoView;
 
     private JFrame frame;
 
@@ -88,7 +89,14 @@ public class GamePanel {
         frame.add(topPanel, BorderLayout.NORTH);
     }
 
-    // Add more methods to add other views
+    public void addInfoView() {
+        infoView = new InfoView();
+        frame.add(infoView,BorderLayout.SOUTH);
+    }
+
+    public InfoView getInfoView() {
+        return infoView;
+    }
 
     public void display() {
         frame.setVisible(true);
@@ -101,6 +109,7 @@ public class GamePanel {
         gamePanel.addItemListView();
         gamePanel.addMenuView();
         gamePanel.addCharacterView();
+        gamePanel.addInfoView();
 
         // add other views
         gamePanel.display();
