@@ -27,6 +27,9 @@ public class GameEngine {
     public Character getCurrent() {
         return current;
     }
+    public void setCurrent(String s){
+        current = students.get(s);
+    }
 
     private Character current = null;
 

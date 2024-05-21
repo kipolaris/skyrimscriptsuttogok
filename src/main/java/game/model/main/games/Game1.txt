@@ -33,16 +33,17 @@ transistor
 ffp2 fake 2
 camembert 1
 transistor
+Char-place
+roomaddchar Student0 Room1
 Transistors
 charadditem Transistor0 Student0
 charadditem Transistor3 Student0
 pair Student0 Transistor0 Transistor3
-Char-place
-roomaddchar Student0 Room1
 Item-to-char
+charadditem Camembert2 Student0
 Item-to-room
 roomadditem FFP21 Room0
 Current character + randomness
 null
 null
-false
+random-nogo

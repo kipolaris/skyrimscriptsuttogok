@@ -13,10 +13,11 @@ student
 roomaddchar Student0 Room1
 charadditem Transistor0 Student0
 charadditem Transistor3 Student0
-pair Student0 Transistor3 Transistor0
-drop Student0 Transistor3
+charadditem Camembert2 Student0
+pair Student0 Transistor0 Transistor3
 roomadditem FFP21 Room0
 cleaner
 professor
 save Game1
 load Game1
+startgame

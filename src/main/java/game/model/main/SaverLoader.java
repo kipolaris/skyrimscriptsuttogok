@@ -137,6 +137,18 @@ public class SaverLoader {
                         }
                     }
                 }
+                //Karakterek elhelyezése
+                writer.println("Char-place");
+                Map<String, Character> chars = new HashMap<>();
+                chars.putAll(cl);
+                chars.putAll(sl);
+                chars.putAll(pl);
+                for (String s : chars.keySet()){
+                    Room r = chars.get(s).getLocation();
+                    if (r!=null) {
+                        writer.println("roomaddchar " + s + " " + r.getId());
+                    }
+                }
                 //Tranzisztorok párosítása, ha van
                 writer.println("Transistors");
                 Map<String, Item> transistors = new HashMap<>();
@@ -151,25 +163,15 @@ public class SaverLoader {
                         }
                     }
                 }
-                //Tranzisztor eldobása???
-                //Karakterek elhelyezése
-                writer.println("Char-place");
-                Map<String, Character> chars = new HashMap<>();
-                chars.putAll(cl);
-                chars.putAll(sl);
-                chars.putAll(pl);
-                for (String s : chars.keySet()){
-                    Room r = chars.get(s).getLocation();
-                    if (r!=null) {
-                        writer.println("roomaddchar " + s + " " + r.getId());
-                    }
-                }
+                //Eldobni tranzisztort!!
                 //Tárgyak elhelyezése karaktereknél
                 writer.println("Item-to-char");
                 for (String s : chars.keySet()){
                     if (chars.get(s).getItems()!=null){
                         for (String item : chars.get(s).getItems().keySet()){
-                            if (!transistors.containsKey(item)) writer.println("charadditem " + item + " " + s);
+                            if (!transistors.containsKey(item)) {
+                                writer.println("charadditem " + item + " " + s);
+                            }
                         }
                     }
                 }
@@ -192,12 +194,13 @@ public class SaverLoader {
                     writer.println("null");
                     writer.println("null");
                 }
-                writer.println(g.getRandom());
+                if (g.getRandom()) writer.println("random-go");
+                else writer.println("random-nogo");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             Suttogo.info("Mentes sikeres.");
+            Suttogo.note("Mentes sikeres.");
             return true;
         }catch(Exception e){
             Suttogo.error("Hiba mentes kozben!");
@@ -210,40 +213,75 @@ public class SaverLoader {
         try{
             String path = "src/main/java/game/model/main/games/" + name + ".txt";
             BufferedReader reader = null;
-            perform("newgame");
 
             try {
                 reader = new BufferedReader(new FileReader(path));
-                String line = reader.readLine();
-                //Szobák létrehozása
-                List<String> roomnames = new ArrayList<>();
-                while ((line = reader.readLine()).equals("Room-list")) {
-                    line = reader.readLine();
-                    roomnames.add(line);
-                    Suttogo.note(line);
-                }
-                while ((line = reader.readLine()).equals("Room-make")){
+                String line=reader.readLine();
+                while (!(line.equals("Room-list"))) {
                     perform(line);
+                    line = reader.readLine();
                 }
-                //Nem szükséges szobák törlése
-                /*Map<String, Room> lab = bai.getLabyrinth();
-                List<String> rossz = new ArrayList<>();
-                for (String s : lab.keySet()){
-                    if (!roomnames.contains(s))
-                        rossz.add(s);
+                List<String> rooms = new ArrayList<>();
+                while (!(line.equals("Room-make"))) {
+                    rooms.add(line);
+                    line=reader.readLine();
                 }
-                for (String s : rossz){
-                    lab.remove(s);
-                }*/
+                while (!(line.equals("Cleaner-list"))) {
+                    perform(line);
+                    line = reader.readLine();
+                }
+                List<String> cleaners = new ArrayList<>();
+                while (!(line.equals("Cleaner-make"))) {
+                    cleaners.add(line);
+                    line=reader.readLine();
+                }
+                while (!(line.equals("Prof-list"))) {
+                    perform(line);
+                    line = reader.readLine();
+                }
+                List<String> profs = new ArrayList<>();
+                while (!(line.equals("Prof-make"))) {
+                    profs.add(line);
+                    line=reader.readLine();
+                }
+                while (!(line.equals("Student-list"))) {
+                    perform(line);
+                    line = reader.readLine();
+                }
+                List<String> students = new ArrayList<>();
+                while (!(line.equals("Student-make"))) {
+                    students.add(line);
+                    line=reader.readLine();
+                }
+                while (!(line.equals("Item-list"))) {
+                    perform(line);
+                    line = reader.readLine();
+                }
+                List<String> items = new ArrayList<>();
+                while (!(line.equals("Item-make"))) {
+                    items.add(line);
+                    line=reader.readLine();
+                }
+                while (!(line.equals("Current character + randomness"))) {
+                    perform(line);
+                    line = reader.readLine();
+                }
+                String curr = reader.readLine();
+                String actions = reader.readLine();
+                if (!(curr.equals("null"))){
+                    g.setCurrent(curr);
+                    g.getCurrent().setActions(Integer.parseInt(actions));
+                }
+                perform(reader.readLine());
             } catch (IOException e) {
                 if (reader == null) Suttogo.error("Nem sikerült a fájlt megnyitni!");
                 else Suttogo.error("Hiba a beolvasás közben!");
             }
-
-
-
+            Suttogo.info("Betoltes sikeres.");
+            Suttogo.note("Betoltes sikeres.");
         }catch(Exception e){
             Suttogo.error("Hiba betoltes kozben!");
+            e.printStackTrace();
             g = null;
         }
     }
