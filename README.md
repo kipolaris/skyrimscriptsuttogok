@@ -1,3 +1,3 @@
 # Main branch
 
-A fősodor. Szintaktikai hiba nélküli, integrált kód kerülhet csak ide előzetes egyeztetetéssel.
+fősodor. Csak okés kód kerülhet ide.

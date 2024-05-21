@@ -1,5 +1,7 @@
 package game.model.main;
 
+import game.controller.ModelListener;
+import game.model.AbstractObservableModel;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
 import game.model.entities.Student;
@@ -10,14 +12,13 @@ import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 import java.util.function.Predicate;
 
 /**Osztály, amely a játékot megvalósítja*/
 @XmlRootElement
-public class GameEngine {
+public class GameEngine extends AbstractObservableModel {
+
     /**Visszaadja a current értékét*/
     public Character getCurrent() {
         return current;
@@ -27,9 +28,9 @@ public class GameEngine {
 
     private Queue<Character> currentQueue = null;
 
-    @XmlElement
+
     private Map<String, Student> students = null;
-    @XmlElement
+
     private Map<String, Professor> professors = null;
 
     /**Visszaadja a takarítók egy kulccsal ellátott listáját*/
@@ -37,7 +38,7 @@ public class GameEngine {
         return cleaners;
     }
 
-    @XmlElement
+
     private Map<String, Cleaner> cleaners = null;
 
     private Queue<Queue<Character>> turns = null;
@@ -56,20 +57,21 @@ public class GameEngine {
     //iterators ---------------
     private Iterator<Queue<Character>> ct;
     private Iterator<Character> chart;
-    @XmlElement
+
     private Map<String, Item> items = new HashMap<>();
 
     /**Visszaadja a tárgyak egy kulccsal ellátott listáját*/
-    @XmlElement
+
     public Map<String, Item> getItems() {
         return items;
     }
 
     @XmlElement
-    private boolean random = false; //<-------------------------------------------------------------------------HERE IS RANDOM
+    private boolean random = true; //<-------------------------------------------------------------------------HERE IS RANDOM
+    
     @XmlElement
     private static int studentID = 0;
-    @XmlElement
+
     private static int professorID = 0;
 
     /**Visszaad egy egyedi tárgy azonosítót*/
@@ -77,7 +79,7 @@ public class GameEngine {
         return itemID++;
     }
 
-    @XmlElement
+
     private static int itemID = 0;
 
     /**Visszaad egy egyedi takarító azonosítót*/
@@ -85,10 +87,12 @@ public class GameEngine {
         return cleanerID++;
     }
 
-    @XmlElement
+
     private static int cleanerID = 0;
-    @XmlElement
+
     private BuildingAI builder = null;
+
+    public static int numberOfPlayers = 1;
 
     //GETTERS - SETTERS -----------------------------
 
@@ -133,11 +137,6 @@ public class GameEngine {
     /**Visszaadja a BuildingAI egy példányát*/
     public BuildingAI getBuilder() {
         return builder;
-    }
-
-    /**Megmondja, hogy az adott karakter köre zajlik-e*/
-    public boolean isMyTurn(Character c) {
-        return c.equals(current);
     }
 
     /**
@@ -262,20 +261,24 @@ public class GameEngine {
         itemID = 0;
         cleanerID = 0;
 
+        //#todo: potential bug alert!
+        //#todo: ezt jobban népesíteni kell
         if (random) {
-            GameMain.perform("room 10");
-            GameMain.perform("room 5");
+            GameMain.perform("room "+(numberOfPlayers+3)); //Room0
+            GameMain.perform("room 5");                    //Room1
             GameMain.perform("neighbour Room0 Room1");
 
-            GameMain.perform("student");
-            GameMain.perform("roomaddchar Student0 Room0");
+            for(int i = 0; i<numberOfPlayers; i++) {
+                GameMain.perform("student");
+                GameMain.perform("roomaddchar Student"+i+" Room0");
+            }
 
             GameMain.perform("professor");
             GameMain.perform("roomaddchar Professor0 Room1");
 
-            GameMain.perform("ffp2");
+            GameMain.perform("ffp2");                    //FFP20
             GameMain.perform("roomadditem FFP20 Room0");
-            GameMain.perform("sliderule");
+            GameMain.perform("sliderule");              //SlideRule1
             GameMain.perform("roomadditem SlideRule1 Room1");
         }
 
@@ -366,6 +369,7 @@ public class GameEngine {
      * Felvesz egy hallgatót a listára
      */
     public void addStudent(Student s) {
+
         students.put(s.getId(), s);
     }
 

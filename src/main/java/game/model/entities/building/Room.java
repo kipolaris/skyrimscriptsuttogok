@@ -7,48 +7,45 @@ import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import java.util.*;
 
 import static game.model.main.GameMain.gameEngine;
 
+//#todo: itt is megvalósítani a listener logikát
 /**A szoba osztálya*/
-@XmlRootElement
+
 public class Room {
     /**Visszaadja egy szoba egyedi azonosítóját*/
     public String getId() {
         return id;
     }
-    @XmlAttribute
+
     private String id;
-    @XmlElement
+
     private int capacity;
-    @XmlElement
+
     private boolean gassed;
-    @XmlElement
+
     private boolean cursed;
 
     /**Visszaadja, hogy a szoba volt-e takarítva*/
     public boolean isWasCleaned() {
         return wasCleaned;
     }
-    @XmlElement
+
     private boolean wasCleaned;
-    @XmlElement
+
     private boolean sticky;
-    @XmlElement
+
     private int visitors;
-    @XmlElement
+
     private boolean hasAirFreshener;
-    @XmlElement
+
     private ArrayList<Door> doors;
-    @XmlElement
+
     private ArrayList<Item> items;
 
-    @XmlElement
+
     private ArrayList<Character> characters;
 
     /**Paraméter nélküli konstruktor*/
@@ -115,14 +112,6 @@ public class Room {
         doors.add(door);
     }
 
-    /**Eltávolítja a szoba egyik ajtaját*/
-    public Door removeDoor(Door door) {
-        doors.remove(door);
-        Suttogo.info("removeDoor(Door)");
-        Suttogo.info("\treturn null");
-        return null;
-    }
-
     /**Lekérdezi a szoba ajtóit*/
     public ArrayList<Door> getDoors() {
         Suttogo.info("getDoors()");
@@ -187,7 +176,7 @@ public class Room {
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = null;
         for (Character character : characters) {
-            if (character instanceof Student) {
+            if(character.getId().startsWith("Student")) {
                 students.add((Student) character);
             }
         }
@@ -200,7 +189,7 @@ public class Room {
     public ArrayList<Professor> getProfessors() {
         ArrayList<Professor> professors = null;
         for (Character character : characters) {
-            if (character instanceof Professor) {
+            if (character.getId().startsWith("Professor")) {
                 professors.add((Professor) character);
             }
         }
@@ -213,7 +202,7 @@ public class Room {
     public void paralyzeProfessors() {
         Suttogo.info("paralyzeProfessors()");
         for (Character character : characters) {
-            if (character instanceof Professor) {
+            if (character.getId().startsWith("Professor")) {
                 character.setParalyzed(true);
             }
         }
@@ -223,25 +212,6 @@ public class Room {
     public void setGassed(boolean g) {
         Suttogo.info("setGassed()");
         gassed = g;
-    }
-
-    /**Elátkozza a szobát*/
-    public void setCursed(boolean c) {
-        Suttogo.info("setCursed()");
-        cursed = c;
-    }
-
-    /**Megpróbálja megbénítani a szobában tartozkodó karaktereket,
-    *és ha nincs védelmük meg is bénítja*/
-    public void checkGas() {
-        Suttogo.info("checkGas()");
-        if(gassed) {
-            for (Character character : characters) {
-                if (character.getItems().values().stream().noneMatch(FFP2.class::isInstance)) {
-                    character.setParalyzed(true);
-                }
-            }
-        }
     }
 
     /**Megöli a szobában tartozkodó hallgatókat*/
@@ -274,12 +244,6 @@ public class Room {
         Suttogo.info("\treturn int");
         return capacity;
     }
-
-    /**Beállítja a sticky értékét*/
-    public void setSticky(boolean s){
-        this.sticky = s;
-    }
-
 
     /**Beállítja a wasCleaned és a sticky értékét*/
     public void setWasCleaned() {

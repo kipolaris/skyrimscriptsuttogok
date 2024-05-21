@@ -5,13 +5,12 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlElement;
 
 import static game.model.main.GameMain.gameEngine;
 
 /**A tvsz osztálya*/
 public class TVSZ extends Item{
-    @XmlElement
+
     boolean fake;
 
     /**

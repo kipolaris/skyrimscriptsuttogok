@@ -3,14 +3,12 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**A tárgyak ősosztálya*/
-@XmlRootElement
+
 public abstract class Item {
-    @XmlAttribute
+
     protected final String id;
 
     /**Visszaadja az egyedi azonosítót*/
@@ -23,15 +21,11 @@ public abstract class Item {
         return activated;
     }
 
-    @XmlElement
+
     protected boolean activated;
-    @XmlElement
     protected boolean defensive;
-    @XmlElement
     protected int durability;
-    @XmlElement
     protected Room location;
-    @XmlElement
     protected Character owner;
 
     /**Egy paraméteres konstruktor*/
@@ -47,8 +41,6 @@ public abstract class Item {
         this.durability = durability;
         this.location = location;
         this.owner = owner;
-
-        //#todo: esetleg itt hozzáadni a gameengine mapjéhez rögtön?
     }
 
     // Abstract methods
@@ -90,11 +82,7 @@ public abstract class Item {
         this.location=room;
     }
 
-    /** Visszaadja, hogy a tárgy aktiválva van-e*/
-    public boolean getActivated() {
-        Suttogo.info("getActivated()");
-        return activated;
-    }
+
 
     /** Ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól*/
     public boolean protectFromKill() {

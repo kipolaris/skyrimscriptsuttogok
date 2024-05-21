@@ -3,13 +3,12 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlElement;
 
 import static game.model.main.GameMain.gameEngine;
 
 /**A tranzisztor osztálya*/
 public class Transistor extends Item{
-    @XmlElement
+
   private Transistor Pair;
 
     /**
@@ -83,15 +82,6 @@ public class Transistor extends Item{
   public void setPair(Transistor p){
       Suttogo.info("setPair(Transistor)");
       this.Pair = p;
-  }
-
-  /**
-   * Párjának lekérdezése
-   */
-  public Transistor getPair() {
-      Suttogo.info("getPair()");
-      Suttogo.info("\treturn Transistor");
-      return this.Pair;
   }
 
   /**
