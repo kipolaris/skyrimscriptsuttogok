@@ -24,6 +24,7 @@ public class GamePanel extends JPanel {
     private MenuView menuView;
     private CharacterView characterView;
     private ItemListView itemListView;
+    private InfoView infoView;
 
     private MenuController menuController;
     private CharacterController characterController;
@@ -43,11 +44,14 @@ public class GamePanel extends JPanel {
         menuView = new MenuView();
         characterView = new CharacterView();
         itemListView = new ItemListView();
+        infoView = new InfoView();
 
         // Add views to the panel
         add(menuView, BorderLayout.WEST);
         add(characterView.getComboBox(), BorderLayout.CENTER);
         add(itemListView.getComboBox(), BorderLayout.EAST);
+        add(infoView, BorderLayout.SOUTH);
+
 
         // Initialize controllers
         menuController = new MenuController(menuView, gameEngine, roomController);
@@ -80,5 +84,9 @@ public class GamePanel extends JPanel {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public InfoView getInfoView() {
+        return infoView;
     }
 }

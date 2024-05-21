@@ -11,6 +11,7 @@ import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
+import game.view.GamePanel;
 
 import java.util.*;
 import java.util.function.Predicate;
