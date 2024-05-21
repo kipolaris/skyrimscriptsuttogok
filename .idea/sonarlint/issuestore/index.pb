@@ -149,3 +149,6 @@ a
 1src/main/java/game/controller/RoomController.java,f\3\f386702b061cee53f620b42b94b073bcf41bbcbb
 ]
 -src/main/java/game/model/main/games/Game1.txt,a\c\ac64ef615e9b019b7507468b14e7a4fb92818df8
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
