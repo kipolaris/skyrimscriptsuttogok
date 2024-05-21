@@ -49,7 +49,15 @@ public class MenuController implements ModelListener{
         }
     }
 
+    /**
+     * Akciófigyelő a tárgy ledobása gombhoz.
+     */
     class DropButtonListener implements ActionListener {
+        /**
+         * A tárgy ledobásának eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Item chosen = itemListController.getSelectedItem();
@@ -61,9 +69,14 @@ public class MenuController implements ModelListener{
     }
 
     /**
-     * ActionListener a view pickupButton gombjához.
+     * Akciófigyelő a tárgy felvétele gombhoz.
      */
     class PickupButtonListener implements ActionListener {
+        /**
+         * A tárgy felvételének eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Item i = roomController.getChosenItem();
@@ -76,9 +89,14 @@ public class MenuController implements ModelListener{
     }
 
     /**
-     * ActionListener a view useButton gombjához.
+     * Akciófigyelő a tárgy használata gombhoz.
      */
     class UseButtonListener implements ActionListener {
+        /**
+         * A tárgy használatának eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Item i = itemListController.getSelectedItem();
@@ -91,9 +109,14 @@ public class MenuController implements ModelListener{
     }
 
     /**
-     * ActionListener a view moveButton gombjához.
+     * Akciófigyelő a mozgás gombhoz.
      */
     class MoveButtonListener implements ActionListener {
+        /**
+         * A mozgás eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Door d = roomController.getChosenDoor();
@@ -105,9 +128,14 @@ public class MenuController implements ModelListener{
     }
 
     /**
-     * ActionListener a view skipButton gombjához.
+     * Akciófigyelő a kör átugrása gombhoz.
      */
     class SkipButtonListener implements ActionListener {
+        /**
+         * A kör átugrásának eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             student.skipTurn();

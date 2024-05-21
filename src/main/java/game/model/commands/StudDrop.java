@@ -16,9 +16,7 @@ public class StudDrop implements iCommand{
             Student s = (Student) gameEngine.getCurrent();
 
             if(gameEngine.areActionsLeft(s)) {
-
                 String[] ns = new String[]{cmd[0], s.getId(), cmd[1]};
-
                 c.execute(ns);
             }
         }

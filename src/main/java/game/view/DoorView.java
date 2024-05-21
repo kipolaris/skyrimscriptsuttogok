@@ -10,102 +10,99 @@ import java.util.List;
 import static java.lang.Math.toIntExact;
 
 /**
- * A class to display an image with overlays aligned around the circumference of a circle in the middle of the image.
+ * Egy osztály, amely egy képet jelenít meg, kör alakban elhelyezett átfedésekkel a kép közepén.
  */
 public class DoorView extends JPanel{
-
-
-    /** List to hold all overlay images: */
+    /** Lista az összes átfedés képek tárolására: */
     private List<Overlay> overlays = new ArrayList<>();
 
-    /** Number of pixels for the width and height of the frame: */
+    /** Az ablak szélessége és magassága pixelben: */
     int frame_size = 500;
 
-    /** Scale factor for the image (a value of 1 means full size, less than 1 means scaled down): */
+    /** A kép méretezési tényezője (1 érték teljes méret, 1-nél kisebb érték lecsökkentett méret): */
     double scale = 0.8;
 
     /**
-     * Main method to start the display of images. This method starts the DisplayImage constructor in the AWT event dispatch thread.
+     * Fő metódus a képek megjelenítésének indításához. Ez a metódus elindítja a DisplayImage konstruktort az AWT eseménykezelő szálon.
      *
-     * @param args the command-line arguments (not used)
+     * @param args a parancssori argumentumok (nem használt)
      */
    public static void main(String[] args) {
         SwingUtilities.invokeLater(DoorView::new);
     }
 
     /**
-     * The constructor for the DisplayImage class. It sets up the JFrame and scales and draws the background and overlay images.
+     * A DisplayImage osztály konstruktora. Beállítja a JFrame-et és méretezi, majd kirajzolja a háttér- és átfedésképeket.
      */
     private DoorView() {
-        // Create a new JFrame (window):
+        // Új JFrame (ablak) létrehozása:
         JFrame frame = new JFrame("Display Image");
 
-        // Calculate the width and height of the background image according to the scale factor:
+        // A háttérkép szélességének és magasságának kiszámítása a méretezési tényező alapján:
         int bgWidth = toIntExact(Math.round(frame_size * scale));
         int bgHeight = toIntExact(Math.round(frame_size * scale));
 
-        // Load the original background image and scale it accordingly:
+        // Az eredeti háttérkép betöltése és megfelelő méretezése:
         BufferedImage backgroundOrig = getImage("src/pics/standard_room.png", frame_size, frame_size);
         Image background = backgroundOrig.getScaledInstance(bgWidth, bgHeight, Image.SCALE_SMOOTH);
 
-        // Create a new ARGB BufferedImage with the dimensions of the background
-        // image (this is the buffer where we will draw the background and overlays):
+        // Új ARGB BufferedImage létrehozása a háttérkép méreteivel (ebbe a bufferbe rajzoljuk a háttér- és átfedésképeket):
         BufferedImage backgroundBuff = new BufferedImage(bgWidth, bgHeight, BufferedImage.TYPE_INT_ARGB);
 
-        // Draw the background image onto the buffer:
+        // A háttérkép rajzolása a bufferre:
         Graphics2D gBg = backgroundBuff.createGraphics();
         gBg.drawImage(background, 0, 0, null);
 
-        // Calculate the center coordinates and radius of the circle where the overlays will be distributed:
+        // A kör középpontjának koordinátáinak és sugarának kiszámítása, ahol az átfedések eloszlanak:
         int centerX = bgWidth / 2;
         int centerY = bgHeight / 2;
         double radius = 0.4 * bgWidth;  // Adjust the radius as needed (0.4 is 40% of the window's width).
 
-        // Add overlays at positions around the circle:
+        // Átfedések hozzáadása a kör körüli pozíciókban:
         String[] overlayImages = { "src/pics/standard_door.png", "src/pics/invisible_door.png", "src/pics/oneway_out_door.png", "src/pics/oneway_in_door.png"};
 
-        int overlaysCount = overlayImages.length;  // The number of overlays that will be distributed around the circle.
+        int overlaysCount = overlayImages.length;  // Az átfedések száma, amelyeket elosztunk a kör körül.
         for(int i = 0; i < overlaysCount; i++) {
-            // Get the current overlay image:
+            // Az aktuális átfedés képének megszerzése:
             String overlayImage = overlayImages[i];
 
-            // Calculate the angle of this overlay around the circle (a full circle is 2*PI radians):
+            // Az átfedés szögének kiszámítása a kör körül (a teljes kör 2*PI radián):
             double angle = Math.PI * 2 * i / overlaysCount;
 
-            // Calculate the x and y position of the overlay with the given angle on the circumference of the circle:
+            // Az átfedés x és y pozíciójának kiszámítása a kör kerületén adott szög alapján:
             int overlayX = (int) Math.round(centerX + radius * Math.cos(angle));
             int overlayY = (int) Math.round(centerY + radius * Math.sin(angle));
 
-            // Add the overlay at the calculated position to the list of overlays to be drawn:
+            // Az átfedés hozzáadása a kiszámított pozícióban az átfedések listájához:
             addOverlay(overlayImage, frame_size/10, frame_size/10, overlayX, overlayY, 1.0f);
         }
 
-        // Draw the overlays:
+        // Az átfedések rajzolása:
         for(Overlay overlay : overlays) {
-            // Load the overlay image:
+            // Az átfedés képének betöltése:
             BufferedImage overlayImg = getImage(overlay.getPath(), overlay.getWidth(), overlay.getHeight());
 
             if(overlayImg != null) {
-                // Prepare the Graphics2D object for drawing the overlay with transparency:
+                // A Graphics2D objektum előkészítése az átfedés rajzolásához átlátszósággal:
                 Graphics2D g = backgroundBuff.createGraphics();
                 g.setComposite(AlphaComposite.SrcOver.derive(overlay.getOpacity()));
 
-                // Calculate the x and y position at the overlay's center:
+                // Az x és y pozíció kiszámítása az átfedés közepénél:
                 int x = overlay.getX() - overlayImg.getWidth() / 2;
                 int y = overlay.getY() - overlayImg.getHeight() / 2;
 
-                // Draw the overlay image at the calculated position:
+                // Az átfedés képének rajzolása a kiszámított pozícióban:
                 g.drawImage(overlayImg, x, y, null);
 
-                // Dispose the Graphics2D instance to clean up resources immediately:
+                // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
                 g.dispose();
             }
         }
 
-        // Dispose the Graphics2D instance to clean up resources immediately:
+        // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
         gBg.dispose();
 
-        // Prepare the JFrame to be displayed:
+        // A JFrame előkészítése a megjelenítéshez:
         JLabel label = new JLabel(new ImageIcon(backgroundBuff));
         label.setOpaque(true);
         label.setBackground(Color.BLACK);
@@ -113,31 +110,31 @@ public class DoorView extends JPanel{
         frame.setSize(frame_size, frame_size);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Show the JFrame:
+        // A JFrame megjelenítése:
         frame.setVisible(true);
     }
 
     /**
-     * Add overlay to the list.
+     * Átfedés hozzáadása a listához.
      *
-     * @param path Path of the overlay image.
-     * @param width Width of the overlay image.
-     * @param height Height of the overlay image.
-     * @param x X-coordinate of where to draw the overlay.
-     * @param y Y-coordinate of where to draw the overlay.
-     * @param opacity Opacity of the overlay image (0 is transparent, 1 is opaque).
+     * @param path Az átfedés képének elérési útja.
+     * @param width Az átfedés képének szélessége.
+     * @param height Az átfedés képének magassága.
+     * @param x Az x-koordináta, ahol az átfedést rajzoljuk.
+     * @param y Az y-koordináta, ahol az átfedést rajzoljuk.
+     * @param opacity Az átfedés képének átlátszósága (0 átlátszó, 1 átlátszatlan).
      */
     private void addOverlay(String path, int width, int height, int x, int y, float opacity) {
         this.overlays.add(new Overlay(path, width, height, x, y, opacity));
     }
 
     /**
-     * Load an image file into a BufferedImage and scale it.
+     * Kép betöltése fájlból BufferedImage-ként és méretezése.
      *
-     * @param path The path of the image file to load.
-     * @param width The width to scale the image. If width or height are 0, keep original dimensions.
-     * @param height The height to scale the image. If width or height are 0, keep original dimensions.
-     * @return The image as a BufferedImage. Null, if there was an exception loading the image.
+     * @param path A betöltendő kép fájljának elérési útja.
+     * @param width A kép szélessége méretezés után. Ha a szélesség vagy magasság 0, megtartja az eredeti méreteket.
+     * @param height A kép magassága méretezés után. Ha a szélesség vagy magasság 0, megtartja az eredeti méreteket.
+     * @return A kép BufferedImage formátumban. Null, ha hiba történt a kép betöltése során.
      */
     private BufferedImage getImage(String path, int width, int height) {
         try {
@@ -159,7 +156,7 @@ public class DoorView extends JPanel{
     }
 
     /**
-     * A class to represent an overlay with its properties and actions.
+     * Egy osztály, amely egy átfedést reprezentál a tulajdonságaival és műveleteivel.
      */
     class Overlay {
         private String path;
@@ -170,14 +167,14 @@ public class DoorView extends JPanel{
         private float opacity;
 
         /**
-         * Constructor to set the overlay properties.
+         * Konstruktor az átfedés tulajdonságainak beállításához.
          *
-         * @param path Path of the overlay image.
-         * @param width Width of the overlay image.
-         * @param height Height of the overlay image.
-         * @param x X-coordinate of where to draw the overlay.
-         * @param y Y-coordinate of where to draw the overlay.
-         * @param opacity Opacity of the overlay image (0 is transparent, 1 is opaque).
+         * @param path Az átfedés képének elérési útja.
+         * @param width Az átfedés képének szélessége.
+         * @param height Az átfedés képének magassága.
+         * @param x Az x-koordináta, ahol az átfedést rajzoljuk.
+         * @param y Az y-koordináta, ahol az átfedést rajzoljuk.
+         * @param opacity Az átfedés képének átlátszósága (0 átlátszó, 1 átlátszatlan).
          */
         public Overlay(String path, int width, int height, int x, int y, float opacity) {
             this.path = path;
@@ -188,7 +185,7 @@ public class DoorView extends JPanel{
             this.opacity = opacity;
         }
 
-        /** Getters */
+        /** Getterek */
         public String getPath() { return path; }
         public int getWidth() { return width; }
         public int getHeight() { return height; }

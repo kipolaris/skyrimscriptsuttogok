@@ -30,6 +30,7 @@ public class SaverLoader {
         bai = g.getBuilder();
     }
 
+    /**Visszaadja a az elmentett játékok elérési útvonalait*/
     public List<String> getSavedGames(){
         List<String> names = new ArrayList<>();
         File dir = new File("src/main/java/game/model/main/games");

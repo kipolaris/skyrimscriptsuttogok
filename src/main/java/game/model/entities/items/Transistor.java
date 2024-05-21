@@ -115,6 +115,7 @@ public class Transistor extends Item{
   public String getEffect() {
         return "You get teleported away.";
     }
+
     /**
      * A tárgy létrehozásához szükséges command
      */
@@ -122,6 +123,7 @@ public class Transistor extends Item{
     public String create(){
         return "transistor";
     }
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */

@@ -10,6 +10,9 @@ import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * A főmenü vezérlője, amely kezeli a nézet és a modell közötti kommunikációt.
+ */
 public class MainMenuController implements ModelListener{
     private MainMenuView view;
 
@@ -17,16 +20,21 @@ public class MainMenuController implements ModelListener{
 
     private SaverLoader saverLoader = new SaverLoader(GameMain.gameEngine);
 
+    /**
+     * Létrehozza a MainMenuController példányát a megadott nézettel.
+     *
+     * @param view a főmenü nézete
+     */
     public MainMenuController(MainMenuView view) {
         this.view = view;
 
         this.gameEngine = GameMain.gameEngine;
 
-        // Add action listeners to buttons
+        // Akciófigyelők hozzáadása a gombokhoz
         view.getNewButton().addActionListener(new NewButtonListener());
         view.getLoadButton().addActionListener(new LoadButtonListener());
 
-        // Add document listener to playersTextField
+        // Dokumentumfigyelő hozzáadása a playersTextField-hez
         view.addPlayersTextFieldListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -44,10 +52,13 @@ public class MainMenuController implements ModelListener{
             }
         });
 
-        // Populate the game combo box and the textfield
+        // A játék választó lista és a szövegmező feltöltése
         onModelChange();
     }
 
+    /**
+     * Frissíti a játékosok számát a nézet alapján.
+     */
     private void updatePlayers() {
         String playersText = view.getPlayersTextField().getText();
         try {
@@ -59,6 +70,9 @@ public class MainMenuController implements ModelListener{
         }
     }
 
+    /**
+     * Feltölti a játék választó listát a mentett játékokkal.
+     */
     private void populateGameComboBox() {
         view.getGameComboBox().removeAllItems();
 
@@ -73,13 +87,20 @@ public class MainMenuController implements ModelListener{
         view.getPlayersTextField().setText(String.valueOf(gameEngine.numberOfPlayers));
     }
 
+    /**
+     * Az új játék gombhoz tartozó akciófigyelő osztály.
+     */
     class NewButtonListener implements ActionListener {
+        /**
+         * Az új játék indítását kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             String playersText = view.getPlayersTextField().getText();
             try {
                 int numberOfPlayers = Integer.parseInt(playersText);
-                //#todo: ez így tuti ok?
                 GameMain.perform("newgame");
                 GameMain.perform("startgame");
                 System.out.println("New game started with " + numberOfPlayers + " players.");
@@ -89,7 +110,15 @@ public class MainMenuController implements ModelListener{
         }
     }
 
+    /**
+     * A betöltés gombhoz tartozó akciófigyelő osztály.
+     */
     class LoadButtonListener implements ActionListener {
+        /**
+         * A játék betöltését kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             String selectedGame = (String) view.getGameComboBox().getSelectedItem();

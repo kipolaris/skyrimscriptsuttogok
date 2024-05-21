@@ -8,7 +8,6 @@ import game.model.logging.Suttogo;
 /**A tárgyak ősosztálya*/
 
 public abstract class Item {
-
     protected final String id;
 
     /**Visszaadja az egyedi azonosítót*/
@@ -20,8 +19,6 @@ public abstract class Item {
     public boolean isActivated() {
         return activated;
     }
-
-
     protected boolean activated;
     protected boolean defensive;
     protected int durability;
@@ -43,7 +40,7 @@ public abstract class Item {
         this.owner = owner;
     }
 
-    // Abstract methods
+    // Absztrakt metódusok
     /** Ez a függvény aktiválja a tárgyat, ami a legtöbb tárgynál máshogy működik*/
     public abstract void activate();
 
@@ -103,6 +100,7 @@ public abstract class Item {
         Suttogo.info("setOwner(Character)");
         this.owner = character;
     }
+
     /**
      * A tárgy gazdája
      */
@@ -111,18 +109,22 @@ public abstract class Item {
         Suttogo.info("\treturn Character");
         return owner;
     }
+
     /**
      * A tranzisztor párja, csak párosított tranzisztorok esetében fontos
      */
     public  Transistor getPair(){ return null;}
+
     /**
      * A tárgy létrehozásához szükséges command
      */
     public String create(){return null;}
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */
     public String getNumID(){return null;}
+
     /**Visszaadja a specifikus tárgy hatását*/
     public String getEffect() {
         return null;

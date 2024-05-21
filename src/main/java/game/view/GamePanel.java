@@ -36,23 +36,23 @@ public class GamePanel extends JPanel {
      * @param roomController a RoomController osztály egy példánya
      */
     public GamePanel(GameEngine gameEngine, RoomController roomController) {
-        // Set layout
+        // Elrendezés beállítása
         setLayout(new BorderLayout());
 
-        // Create views
+        // Nézetek létrehozása
         menuView = new MenuView();
         characterView = new CharacterView();
         itemListView = new ItemListView();
 
-        // Add views to the panel
+        // Nézetek hozzáadása a panelhez
         add(menuView, BorderLayout.WEST);
         add(characterView.getComboBox(), BorderLayout.CENTER);
         add(itemListView.getComboBox(), BorderLayout.EAST);
 
-        // Initialize controllers
+        // Vezérlők inicializálása
         menuController = new MenuController(menuView, gameEngine, roomController);
 
-        // Combine all characters into one map
+        // Minden karakter összegyűjtése egy mapbe
         ArrayList<Character> allCharacters = new ArrayList<Character>();
         allCharacters.addAll(gameEngine.getStudents().values());
         allCharacters.addAll(gameEngine.getProfessors().values());
@@ -61,7 +61,7 @@ public class GamePanel extends JPanel {
         characterController = new CharacterController(allCharacters, characterView);
         itemListController = new ItemListController(itemListView, gameEngine.getItems());
 
-        // Update views
+        // Nézetek frissítése
         menuController.onModelChange();
         characterController.onModelChange();
         itemListController.onModelChange();

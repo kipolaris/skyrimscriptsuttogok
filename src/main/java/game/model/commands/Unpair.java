@@ -23,7 +23,7 @@ public class Unpair implements iCommand{
         Map<String, Item> items = student.getItems();
         Item item = items.get(cmd[2]);
         if(item == null) Suttogo.error("You don’t have an item named like that.");
-        else if(item instanceof Transistor) {
+        else if(item.getId().startsWith("Transistor")) {
             Transistor t = (Transistor) item;
             if (t.isPairable() == true){
                 Suttogo.error("This transistor is already unpaired.");
