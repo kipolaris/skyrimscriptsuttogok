@@ -118,7 +118,7 @@ public class Character {
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
         if(actions>0) {
-            if (!(item.getID.startsWith("Rag") && item.isActivated())) {
+            if (!(item.getId().startsWith("Rag") && item.isActivated())) {
                 if (items.size() < maxInventorySize) {
                     if(!location.getSticky()) {
                         location.removeItem(item);
