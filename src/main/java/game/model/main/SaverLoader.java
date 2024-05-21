@@ -27,10 +27,6 @@ public class SaverLoader extends AbstractObservableModel {
     /**A játékot elmenti a megadott helyre*/
     public boolean saveGame(String chosen){
         try{
-            JAXBContext context = JAXBContext.newInstance(GameEngine.class);
-            Marshaller m = context.createMarshaller();
-            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            m.marshal(g, new File(path+chosen));
 
             Suttogo.info("Mentes sikeres.");
             notifyEveryone();
@@ -44,9 +40,7 @@ public class SaverLoader extends AbstractObservableModel {
     /**A játékot betölti adott elérési útvonalról*/
     public void loadGame(String chosen){
         try{
-            JAXBContext context = JAXBContext.newInstance(GameEngine.class);
-            Unmarshaller m = context.createUnmarshaller();
-            g = (GameEngine) m.unmarshal(new File(path+chosen));
+
         }catch(Exception e){
             Suttogo.error("Hiba betoltes kozben!");
             g = null;
