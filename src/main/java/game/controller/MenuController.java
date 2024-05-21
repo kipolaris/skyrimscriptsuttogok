@@ -3,6 +3,8 @@ import game.model.entities.Student;
 import game.model.entities.building.Door;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
+import game.model.main.GameMain;
+import game.view.InfoView;
 import game.view.MenuView;
 
 import java.awt.event.ActionEvent;
@@ -13,6 +15,7 @@ import java.awt.event.ActionListener;
  */
 public class MenuController implements ModelListener{
     private final MenuView view;
+    private InfoView infoView;
     private Student student;
     private final GameEngine gameEngine;
     private final RoomController roomController;
@@ -28,6 +31,7 @@ public class MenuController implements ModelListener{
     public MenuController(MenuView _view, GameEngine _model, RoomController _rc) {
         this.view = _view;
         this.gameEngine = _model;
+        this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
 
         itemListController = new ItemListController(view.getItemListView(), student.getItems());
