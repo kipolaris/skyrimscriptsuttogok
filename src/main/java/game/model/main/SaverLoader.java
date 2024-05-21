@@ -199,17 +199,12 @@ public class SaverLoader {
                 writer.println("Transistors");
                 Map<String, Item> transistors = new HashMap<>();
                 for (Item i: il.values()){
-                    if (i.getPair()!=null) {
-                        if (!transistors.containsValue(i)&&i.getOwner() !=null){
-                            writer.println("charadditem " + i.getId() + " " + i.getOwner().getId());
-                            writer.println("charadditem " + i.getPair().getId() + " " + i.getOwner().getId());
-                            writer.println("pair "+i.getOwner().getId()+" "+i.getId()+" "+i.getPair().getId());
-                            transistors.put(i.getPair().getId(), i.getPair());
-                            transistors.put(i.getId(), i);
-                        }
+                    if (i.getPair()!=null && !transistors.containsValue(i)) {
+                        writer.println("pairany "+i.getId()+" "+i.getPair().getId());
+                        transistors.put(i.getPair().getId(), i.getPair());
+                        transistors.put(i.getId(), i);
                     }
                 }
-                //Eldobni tranzisztort!!
                 /**
                  * Tárgyak elhelyezése karaktereknél
                  */
@@ -217,9 +212,7 @@ public class SaverLoader {
                 for (String s : chars.keySet()){
                     if (chars.get(s).getItems()!=null){
                         for (String item : chars.get(s).getItems().keySet()){
-                            if (!transistors.containsKey(item)) {
-                                writer.println("charadditem " + item + " " + s);
-                            }
+                            writer.println("charadditem " + item + " " + s);
                         }
                     }
                 }
@@ -231,7 +224,7 @@ public class SaverLoader {
                     List<Item> items = r.getItems();
                     if (items!=null){
                         for (Item i : items){
-                            if (!transistors.containsKey(i.getId())) writer.println("roomadditem "+i.getId()+" "+r.getId());
+                            writer.println("roomadditem "+i.getId()+" "+r.getId());
                         }
                     }
                 }

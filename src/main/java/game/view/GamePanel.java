@@ -1,22 +1,9 @@
 package game.view;
 
-import game.controller.CharacterController;
-import game.controller.ItemListController;
-import game.controller.MenuController;
-import game.controller.RoomController;
-import game.model.entities.Character;
-import game.model.entities.items.Item;
-import game.model.main.GameEngine;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
+<<<<<<< HEAD
 /**
  * View osztály, amely a játék fő paneljét jeleníti meg.
  */
@@ -25,21 +12,15 @@ public class GamePanel extends JPanel {
     private CharacterView characterView;
     private ItemListView itemListView;
     private InfoView infoView;
+=======
+public class GamePanel {
+>>>>>>> a63547aaa1075e7a31041c26ab54bb874f24e8e8
 
-    private MenuController menuController;
-    private CharacterController characterController;
-    private ItemListController itemListController;
+    int frame_size = 800;
 
-    /**
-     * Két paraméteres konstruktor.
-     *
-     * @param gameEngine a GameEngine osztály egy példánya
-     * @param roomController a RoomController osztály egy példánya
-     */
-    public GamePanel(GameEngine gameEngine, RoomController roomController) {
-        // Set layout
-        setLayout(new BorderLayout());
+    private JFrame frame;
 
+<<<<<<< HEAD
         // Create views
         menuView = new MenuView();
         characterView = new CharacterView();
@@ -52,41 +33,68 @@ public class GamePanel extends JPanel {
         add(itemListView.getComboBox(), BorderLayout.EAST);
         add(infoView, BorderLayout.SOUTH);
 
+=======
+    public GamePanel() {
+        frame = new JFrame();
 
-        // Initialize controllers
-        menuController = new MenuController(menuView, gameEngine, roomController);
+        // set common frame properties here
+        frame.setSize(frame_size, frame_size);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
+>>>>>>> a63547aaa1075e7a31041c26ab54bb874f24e8e8
 
-        // Combine all characters into one map
-        ArrayList<Character> allCharacters = new ArrayList<Character>();
-        allCharacters.addAll(gameEngine.getStudents().values());
-        allCharacters.addAll(gameEngine.getProfessors().values());
-        allCharacters.addAll(gameEngine.getCleaners().values());
-
-        characterController = new CharacterController(allCharacters, characterView);
-        itemListController = new ItemListController(itemListView, gameEngine.getItems());
-
-        // Update views
-        menuController.onModelChange();
-        characterController.onModelChange();
-        itemListController.onModelChange();
+        // set the background color of the JFrame
+        frame.getContentPane().setBackground(Color.DARK_GRAY);
     }
 
-    /**
-     * Függvény egy kép betöltésére a megadott fájlútvonalról.
-     *
-     * @param path a kép fájlútvonala
-     * @return a betöltött Image objektum, vagy null, ha a betöltés sikertelen
-     */
-    private Image loadImage(String path) {
-        try {
-            return ImageIO.read(Paths.get(path).toFile());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public void addDoorView() {
+        DoorView doorView = new DoorView(frame_size);
+        frame.add(doorView, BorderLayout.CENTER);
     }
 
+<<<<<<< HEAD
     public InfoView getInfoView() {
         return infoView;
     }
 }
+=======
+    public void addItemListView() {
+        ItemListView itemListView = new ItemListView();
+
+        // Please call itemListView.setItems(yourItemsList) here, you need replace yourItemsList with the actual data
+
+        frame.add(itemListView.getComboBox(), BorderLayout.EAST);
+    }
+
+    public void addMenuView() {
+        MenuView menuView = new MenuView();
+        frame.add(menuView, BorderLayout.WEST);
+    }
+
+    public void addCharacterView() {
+        CharacterView characterView = new CharacterView();
+        // Set characters of characterView here
+        JPanel topPanel = new JPanel(new FlowLayout());
+        topPanel.add(characterView.getComboBox());
+        frame.add(topPanel, BorderLayout.NORTH);
+    }
+
+    // Add more methods to add other views
+
+    public void display() {
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        GamePanel gamePanel = new GamePanel();
+
+        gamePanel.addDoorView();
+        gamePanel.addItemListView();
+        gamePanel.addMenuView();
+        gamePanel.addCharacterView();
+
+        // add other views
+        gamePanel.display();
+    }
+}
+>>>>>>> a63547aaa1075e7a31041c26ab54bb874f24e8e8

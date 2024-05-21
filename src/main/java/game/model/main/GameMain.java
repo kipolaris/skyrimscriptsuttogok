@@ -75,6 +75,7 @@ public class GameMain {
         commandMap.put("kill", new Kill());
         commandMap.put("neighbour", new Neighbour());
         commandMap.put("pair", new Pair());
+        commandMap.put("pairany", new PairAny());
         commandMap.put("profmove", new Profmove());
         commandMap.put("roomaddchar", new Roomaddchar());
         commandMap.put("roomadditem", new Roomadditem());
