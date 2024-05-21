@@ -59,4 +59,19 @@ public class Rag extends Item{
     public String getEffect() {
         return "Professors in the room get paralyzed.";
     }
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
+    @Override
+    public String create(){
+        return "rag "+durability;
+    }
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Rag", "");
+        return uj;
+    }
 }

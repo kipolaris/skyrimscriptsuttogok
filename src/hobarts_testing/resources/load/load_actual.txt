@@ -1,0 +1,278 @@
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Students:
+	Student0
+Professors:
+	Professor0
+Cleaners:
+	Cleaner0
+Items:
+	FFP21
+	Camembert2
+	Transistor0
+	Transistor3
+Rooms:
+	Room2
+	Room1
+	Room0
+
+Rooms:
+	Room2
+		Characters:
+		Items:
+	Room1
+		Characters:
+			Student0
+				paralyzed: false
+				actions: 3
+				Items:
+					Camembert2
+					Transistor0
+					Transistor3
+		Items:
+	Room0
+		Characters:
+		Items:
+			FFP21
+Your (Student0) Neighbours:
+	Room2
+	Room0
+

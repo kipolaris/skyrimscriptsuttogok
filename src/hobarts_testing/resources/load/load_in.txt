@@ -1,0 +1,23 @@
+random-nogo
+newgame
+room 1
+room 3 true
+room 2
+neighbour Room1 Room2
+neighbour Room1 Room0
+transistor
+ffp2 fake 2
+camembert
+transistor
+student
+roomaddchar Student0 Room1
+charadditem Transistor0 Student0
+charadditem Transistor3 Student0
+charadditem Camembert2 Student0
+pair Student0 Transistor0 Transistor3
+roomadditem FFP21 Room0
+cleaner
+professor
+save Game1
+load Game1
+startgame
