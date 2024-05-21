@@ -4,24 +4,21 @@ import game.model.entities.Character;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**A pályaépítő osztálya*/
-@XmlRootElement
+
 public class BuildingAI {
     /**Beállítja az egyedi azonosító értékét*/
     public static void setRoomID(int roomID) {
         BuildingAI.roomID = roomID;
     }
 
-    @XmlAttribute
+
     private static int roomID;
-    @XmlElement
+
     private Map<String, Room> labyrinth = new HashMap<>();
 
     /**Visszaad egy egyedi szoba azonosítót*/

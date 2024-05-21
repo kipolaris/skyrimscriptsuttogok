@@ -6,13 +6,13 @@ import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
-import javax.xml.bind.annotation.XmlElement;
+
 
 import static game.model.main.GameMain.gameEngine;
 
 /**A logarléc osztálya*/
 public class SlideRule extends Item{
-    @XmlElement
+
     boolean fake;
     /**
      * Konstruktor: létrehozza a tárgyat, inicializálja az értékeit
