@@ -45,7 +45,7 @@ public class GamePanel extends JPanel {
         itemListView = new ItemListView();
 
         // Add views to the panel
-        add(menuView.getComboBox(), BorderLayout.WEST);
+        add(menuView, BorderLayout.WEST);
         add(characterView.getComboBox(), BorderLayout.CENTER);
         add(itemListView.getComboBox(), BorderLayout.EAST);
 
@@ -59,7 +59,7 @@ public class GamePanel extends JPanel {
         allCharacters.addAll(gameEngine.getCleaners().values());
 
         characterController = new CharacterController(allCharacters, characterView);
-        itemListController = new ItemListController(itemListView, gameEngine.getItems().values());
+        itemListController = new ItemListController(itemListView, gameEngine.getItems());
 
         // Update views
         menuController.onModelChange();
