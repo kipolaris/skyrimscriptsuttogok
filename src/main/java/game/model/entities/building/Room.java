@@ -175,7 +175,7 @@ public class Room {
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = null;
         for (Character character : characters) {
-            if(character.getID.StartsWith("Student")) {
+            if(character.getId().startsWith("Student")) {
                 students.add((Student) character);
             }
         }
@@ -188,7 +188,7 @@ public class Room {
     public ArrayList<Professor> getProfessors() {
         ArrayList<Professor> professors = null;
         for (Character character : characters) {
-            if (character.getID.StartsWith("Professor")) {
+            if (character.getId().startsWith("Professor")) {
                 professors.add((Professor) character);
             }
         }
@@ -201,7 +201,7 @@ public class Room {
     public void paralyzeProfessors() {
         Suttogo.info("paralyzeProfessors()");
         for (Character character : characters) {
-            if (character.getID.StartsWith("Professor")) {
+            if (character.getId().startsWith("Professor")) {
                 character.setParalyzed(true);
             }
         }
