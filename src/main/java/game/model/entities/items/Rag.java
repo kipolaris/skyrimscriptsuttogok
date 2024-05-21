@@ -59,6 +59,7 @@ public class Rag extends Item{
     public String getEffect() {
         return "Professors in the room get paralyzed.";
     }
+
     /**
      * A tárgy létrehozásához szükséges command
      */
@@ -66,6 +67,7 @@ public class Rag extends Item{
     public String create(){
         return "rag "+durability;
     }
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */

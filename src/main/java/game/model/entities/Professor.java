@@ -31,37 +31,25 @@ public class Professor extends Character{
      * Egy professzor körének menete
      */
     public void doRound(){
-        //Suttogo.info("doRound()");
-
         Random rand = new Random();
-
         Predicate<Boolean> p = (a) -> rand.nextInt(2)==1;
-
         ArrayList<Door> doors = this.location.getDoors();
-
         Door d;
-
         Room prevloc = location;
-
         int timer = 0;
-
         while(prevloc == location && timer < 0.5 * doors.size()) {
             d = doors.get(rand.nextInt(doors.size()));
             this.move(d);
             timer++;
         }
-
         ArrayList<Item> locItems = location.getItems();
-
         for(int i =0 ; i<3; i++){
             if(p.test(true && locItems.size()>0)){
                 //#todo: ez valamiért illegalargumentexceptiönt dob...
                 Item item = locItems.get(rand.nextInt(locItems.size()));
-
                 this.addItem(item);
             }
         }
-
         //#todo: ez is random? vagy ez mindig?
         if(p.test(true)){
             this.location.killStudents();

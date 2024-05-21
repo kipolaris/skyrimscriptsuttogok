@@ -18,7 +18,7 @@ public class Profmove implements iCommand {
             return;
         }
         Move c = new Move();
-        if(gameEngine.getCurrent() instanceof Professor && !gameEngine.getRandom()){
+        if(gameEngine.getCurrent().getId().startsWith("Professor") && !gameEngine.getRandom()){
             Professor s = (Professor) gameEngine.getCurrent();
 
             //megnézzük, hogy a user valóban ezt a professort gépelte-e be

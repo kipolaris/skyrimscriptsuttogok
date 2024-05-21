@@ -62,6 +62,7 @@ public class Cups extends Item{
     public String getEffect() {
         return "You feel much stronger, but you feel a bit dizzy.";
     }
+
     /**
      * A tárgy létrehozásához szükséges command
      */
@@ -69,6 +70,7 @@ public class Cups extends Item{
     public String create(){
         return "cups "+durability;
     }
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */

@@ -2,11 +2,20 @@ package game.model;
 
 import game.controller.ModelListener;
 
+/**
+ * Interfész az ObservableModel számára, amely lehetővé teszi modellek megfigyelhetőségét.
+ */
 public interface ObservableModel {
-    // Method to add a listener
+    /**
+     * Hozzáad egy figyelőt a modellhez.
+     *
+     * @param listener a hozzáadandó figyelő (ModelListener)
+     */
     void addListener(ModelListener listener);
 
-    // Method to notify all listeners
+    /**
+     * Értesíti az összes figyelőt a modell változásáról.
+     */
     void notifyEveryone();
 }
 

@@ -13,16 +13,29 @@ import java.util.LinkedList;
 public class Suttogo {
     private Suttogo() {}
 
+    /**
+     * A naplózás szintjeit reprezentáló felsorolás típus.
+     */
     public enum Level {
         INFO, ERROR, NONE, NOTE
     }
     private static Level level = Level.NOTE;
 
+    /**
+     * Információs üzenet kiírása.
+     *
+     * @param message az üzenet
+     */
     public static void info(String message) {
         if(level == Level.INFO || level == Level.ERROR)
                 log("INFO "+message);
     }
 
+    /**
+     * Hibaüzenet kiírása.
+     *
+     * @param message az üzenet
+     */
     public static void error(String message) {
         if(level == Level.ERROR || level == Level.NOTE || level == Level.INFO){
             String loggable = "ERROR "+message;
@@ -31,10 +44,20 @@ public class Suttogo {
         }
     }
 
+    /**
+     * Jegyzet kiírása.
+     *
+     * @param message az üzenet
+     */
     public static void note(String message){
         if(level == Level.NOTE || level == Level.ERROR) log("NOTE "+message);
     }
 
+    /**
+     * Log üzenet kiírása.
+     *
+     * @param message az üzenet
+     */
     private static void log(String message) {
         System.out.print(message+'\n');
     }
