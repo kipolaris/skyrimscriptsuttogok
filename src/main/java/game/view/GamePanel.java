@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +45,7 @@ public class GamePanel extends JPanel {
         itemListView = new ItemListView();
 
         // Add views to the panel
-        add(menuView, BorderLayout.WEST);
+        add(menuView.getComboBox(), BorderLayout.WEST);
         add(characterView.getComboBox(), BorderLayout.CENTER);
         add(itemListView.getComboBox(), BorderLayout.EAST);
 
@@ -52,13 +53,13 @@ public class GamePanel extends JPanel {
         menuController = new MenuController(menuView, gameEngine, roomController);
 
         // Combine all characters into one map
-        Map<String, Character> allCharacters = new HashMap<>();
-        allCharacters.putAll(gameEngine.getStudents());
-        allCharacters.putAll(gameEngine.getProfessors());
-        allCharacters.putAll(gameEngine.getCleaners());
+        ArrayList<Character> allCharacters = new ArrayList<Character>();
+        allCharacters.addAll(gameEngine.getStudents().values());
+        allCharacters.addAll(gameEngine.getProfessors().values());
+        allCharacters.addAll(gameEngine.getCleaners().values());
 
         characterController = new CharacterController(allCharacters, characterView);
-        itemListController = new ItemListController(itemListView, gameEngine.getItems());
+        itemListController = new ItemListController(itemListView, gameEngine.getItems().values());
 
         // Update views
         menuController.onModelChange();
