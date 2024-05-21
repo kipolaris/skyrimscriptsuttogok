@@ -83,6 +83,15 @@ public class Transistor extends Item{
       Suttogo.info("setPair(Transistor)");
       this.Pair = p;
   }
+    /**
+     * Párjának lekérdezése
+     */
+    @Override
+    public Transistor getPair() {
+        Suttogo.info("getPair()");
+        Suttogo.info("\treturn Transistor");
+        return this.Pair;
+    }
 
   /**
    * Másik tranzisztorra és saját magára is beállítja, hogy összepárosodtak
@@ -105,5 +114,20 @@ public class Transistor extends Item{
   @Override
   public String getEffect() {
         return "You get teleported away.";
+    }
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
+    @Override
+    public String create(){
+        return "transistor";
+    }
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Transistor", "");
+        return uj;
     }
 }

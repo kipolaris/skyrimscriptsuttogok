@@ -58,4 +58,16 @@ public class Door {
      * Visszaadja, hogy az ajtó láthatóságát.
      */
     public boolean getVisible() { return visible; }
+    /**
+     * Az ajtó létrehozásához szükséges command
+     */
+    public String create(){
+        if (bothWays) {
+            if (visible)return "neighbour "+from.getId()+" "+to.getId()+" twoways visible";
+            else return "neighbour "+from.getId()+" "+to.getId()+" twoways invisible";
+        }else{
+            if (visible) return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond visible";
+            else return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond invisibility";
+        }
+    }
 }
