@@ -28,9 +28,4 @@ public class CharacterController implements ModelListener{
     public void onModelChange() {
         characterView.setCharacters(characters);
     }
-
-    @Override
-    public void onResizeWindow() {
-        //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
-    }
 }

@@ -1,6 +1,7 @@
 package game.model.main;
 
 import game.controller.ModelListener;
+import game.model.AbstractObservableModel;
 import game.model.entities.building.BuildingAI;
 import game.model.logging.Suttogo;
 
@@ -10,13 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**Osztály, amely a játék elmentéséért és betöltéséért felelős*/
-public class SaverLoader {
+public class SaverLoader extends AbstractObservableModel {
     private GameEngine g;
     private BuildingAI bai;
 
     private String path = "./saved/";
-
-    private List<ModelListener> listeners = new ArrayList<>();
 
 
     /**Egy paraméteres konstruktor*/
@@ -78,19 +77,4 @@ public class SaverLoader {
 
         return savedGames;
     }
-
-    public void addListener(ModelListener listener){
-        listeners.add(listener);
-    }
-
-    public void notifyEveryone(){
-        if (!listeners.isEmpty()) {
-            for(ModelListener l : listeners){
-                l.onModelChange();
-            }
-        }else{
-            Suttogo.error("SaverLoader: no listeners found");
-        }
-    }
-
 }

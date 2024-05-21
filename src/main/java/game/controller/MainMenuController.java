@@ -73,11 +73,6 @@ public class MainMenuController implements ModelListener{
         view.getPlayersTextField().setText(String.valueOf(gameEngine.numberOfPlayers));
     }
 
-    @Override
-    public void onResizeWindow() {
-
-    }
-
     class NewButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

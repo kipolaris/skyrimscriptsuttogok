@@ -12,11 +12,6 @@ public class RoomController implements ModelListener{
 
     }
 
-    @Override
-    public void onResizeWindow() {
-        //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
-    }
-
     /**
      * Visszaad egy kiválasztott ajtót
      *

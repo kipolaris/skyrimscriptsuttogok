@@ -46,10 +46,5 @@ public class ItemListController implements ModelListener{
     public Item getSelectedItem(){
         return model.get(view.getSelectedItem());
     }
-
-    @Override
-    public void onResizeWindow() {
-        //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
-    }
 }
 

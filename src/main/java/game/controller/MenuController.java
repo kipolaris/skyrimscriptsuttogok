@@ -49,14 +49,6 @@ public class MenuController implements ModelListener{
         }
     }
 
-    @Override
-    public void onResizeWindow() {
-        //todo: valósítsuk meg, vagy szedjük ki, ha nem kell
-    }
-
-    /**
-     * ActionListener a view dropButton gombjához.
-     */
     class DropButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

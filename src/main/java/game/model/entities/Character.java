@@ -8,6 +8,7 @@ import game.model.main.GameMain;
 
 import java.util.*;
 
+//#todo: itt is megvalósítani a listener logikát
 /**A karakterek ősosztálya*/
 public class Character {
 
