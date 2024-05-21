@@ -7,48 +7,44 @@ import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import java.util.*;
 
 import static game.model.main.GameMain.gameEngine;
 
 /**A szoba osztálya*/
-@XmlRootElement
+
 public class Room {
     /**Visszaadja egy szoba egyedi azonosítóját*/
     public String getId() {
         return id;
     }
-    @XmlAttribute
+
     private String id;
-    @XmlElement
+
     private int capacity;
-    @XmlElement
+
     private boolean gassed;
-    @XmlElement
+
     private boolean cursed;
 
     /**Visszaadja, hogy a szoba volt-e takarítva*/
     public boolean isWasCleaned() {
         return wasCleaned;
     }
-    @XmlElement
+
     private boolean wasCleaned;
-    @XmlElement
+
     private boolean sticky;
-    @XmlElement
+
     private int visitors;
-    @XmlElement
+
     private boolean hasAirFreshener;
-    @XmlElement
+
     private ArrayList<Door> doors;
-    @XmlElement
+
     private ArrayList<Item> items;
 
-    @XmlElement
+
     private ArrayList<Character> characters;
 
     /**Paraméter nélküli konstruktor*/
