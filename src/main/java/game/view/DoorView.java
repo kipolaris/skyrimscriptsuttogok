@@ -29,9 +29,9 @@ public class DoorView extends JPanel{
      *
      * @param args the command-line arguments (not used)
      */
-/*    public static void main(String[] args) {
+   public static void main(String[] args) {
         SwingUtilities.invokeLater(DoorView::new);
-    }*/
+    }
 
     /**
      * The constructor for the DisplayImage class. It sets up the JFrame and scales and draws the background and overlay images.
@@ -45,7 +45,7 @@ public class DoorView extends JPanel{
         int bgHeight = toIntExact(Math.round(frame_size * scale));
 
         // Load the original background image and scale it accordingly:
-        BufferedImage backgroundOrig = getImage("standard_room.png", frame_size, frame_size);
+        BufferedImage backgroundOrig = getImage("src/pics/standard_room.png", frame_size, frame_size);
         Image background = backgroundOrig.getScaledInstance(bgWidth, bgHeight, Image.SCALE_SMOOTH);
 
         // Create a new ARGB BufferedImage with the dimensions of the background
@@ -62,7 +62,7 @@ public class DoorView extends JPanel{
         double radius = 0.4 * bgWidth;  // Adjust the radius as needed (0.4 is 40% of the window's width).
 
         // Add overlays at positions around the circle:
-        String[] overlayImages = { "standard_door.png", "invisible_door.png", "oneway_out_door.png", "oneway_in_door.png"};
+        String[] overlayImages = { "src/pics/standard_door.png", "src/pics/invisible_door.png", "src/pics/oneway_out_door.png", "src/pics/oneway_in_door.png"};
 
         int overlaysCount = overlayImages.length;  // The number of overlays that will be distributed around the circle.
         for(int i = 0; i < overlaysCount; i++) {
