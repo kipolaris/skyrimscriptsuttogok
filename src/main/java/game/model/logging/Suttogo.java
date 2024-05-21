@@ -17,12 +17,6 @@ public class Suttogo {
         INFO, ERROR, NONE, NOTE
     }
     private static Level level = Level.NOTE;
-    private static final Set<String> enabledClasses = new HashSet<>();
-    private static final Queue<String> messageQueue = new LinkedList<>();
-
-    public static void setLevel(Level newLevel) {
-        level = newLevel;
-    }
 
     public static void info(String message) {
         if(level == Level.INFO || level == Level.ERROR)

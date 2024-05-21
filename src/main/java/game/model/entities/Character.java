@@ -34,8 +34,6 @@ public class Character {
 
     protected Map<String, Item> items = new HashMap<>();
 
-    private int itemID = 0;
-
     /**Megkeresi és visszaadja egy tárgy kulcsát*/
     public String getKey(Item item) {
         for (Map.Entry<String, Item> entry : items.entrySet()) {
@@ -102,6 +100,7 @@ public class Character {
      */
     public void useItem(Item i) {
         Suttogo.info("useItem(Item)");
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -119,13 +118,15 @@ public class Character {
     public void addItem(Item item) {
         Suttogo.info("addItem(Item)");
         if(actions>0) {
-            if (!(item instanceof Rag && item.isActivated())) {
+            if (!(item.getID.startsWith("Rag") && item.isActivated())) {
                 if (items.size() < maxInventorySize) {
-                    location.removeItem(item);
-                    items.put(item.getId(), item);
-                    item.setLocation(null);
-                    item.setOwner(this);
-                    actions--;
+                    if(!location.getSticky()) {
+                        location.removeItem(item);
+                        items.put(item.getId(), item);
+                        item.setLocation(null);
+                        item.setOwner(this);
+                        actions--;
+                    } else Suttogo.error("Oh no! The floor is sticky!");
                 } else Suttogo.error("Your inventory is full!");
             } else Suttogo.error("This item can't be picked up");
         } else noMoreActions();

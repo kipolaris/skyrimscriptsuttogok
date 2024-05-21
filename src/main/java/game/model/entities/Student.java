@@ -55,16 +55,6 @@ public class Student extends Character{
     }
 
     /**
-     * Hallgató egy köre
-     */
-    @Override
-    public void doRound() {
-        Suttogo.info("doRound()");
-        //NEM HASZNÁLJUK
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * A hallgató ezáltal tudja meg, hogy van-e aktív tranzisztora, és ha van, akkor az melyik
      */
     public Transistor getActiveTransistor(){

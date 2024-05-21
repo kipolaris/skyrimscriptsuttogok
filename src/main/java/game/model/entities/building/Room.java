@@ -115,14 +115,6 @@ public class Room {
         doors.add(door);
     }
 
-    /**Eltávolítja a szoba egyik ajtaját*/
-    public Door removeDoor(Door door) {
-        doors.remove(door);
-        Suttogo.info("removeDoor(Door)");
-        Suttogo.info("\treturn null");
-        return null;
-    }
-
     /**Lekérdezi a szoba ajtóit*/
     public ArrayList<Door> getDoors() {
         Suttogo.info("getDoors()");
@@ -187,7 +179,7 @@ public class Room {
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = null;
         for (Character character : characters) {
-            if (character instanceof Student) {
+            if(character.getID.StartsWith("Student")) {
                 students.add((Student) character);
             }
         }
@@ -200,7 +192,7 @@ public class Room {
     public ArrayList<Professor> getProfessors() {
         ArrayList<Professor> professors = null;
         for (Character character : characters) {
-            if (character instanceof Professor) {
+            if (character.getID.StartsWith("Professor")) {
                 professors.add((Professor) character);
             }
         }
@@ -213,7 +205,7 @@ public class Room {
     public void paralyzeProfessors() {
         Suttogo.info("paralyzeProfessors()");
         for (Character character : characters) {
-            if (character instanceof Professor) {
+            if (character.getID.StartsWith("Professor")) {
                 character.setParalyzed(true);
             }
         }
@@ -223,25 +215,6 @@ public class Room {
     public void setGassed(boolean g) {
         Suttogo.info("setGassed()");
         gassed = g;
-    }
-
-    /**Elátkozza a szobát*/
-    public void setCursed(boolean c) {
-        Suttogo.info("setCursed()");
-        cursed = c;
-    }
-
-    /**Megpróbálja megbénítani a szobában tartozkodó karaktereket,
-    *és ha nincs védelmük meg is bénítja*/
-    public void checkGas() {
-        Suttogo.info("checkGas()");
-        if(gassed) {
-            for (Character character : characters) {
-                if (character.getItems().values().stream().noneMatch(FFP2.class::isInstance)) {
-                    character.setParalyzed(true);
-                }
-            }
-        }
     }
 
     /**Megöli a szobában tartozkodó hallgatókat*/
@@ -274,12 +247,6 @@ public class Room {
         Suttogo.info("\treturn int");
         return capacity;
     }
-
-    /**Beállítja a sticky értékét*/
-    public void setSticky(boolean s){
-        this.sticky = s;
-    }
-
 
     /**Beállítja a wasCleaned és a sticky értékét*/
     public void setWasCleaned() {
