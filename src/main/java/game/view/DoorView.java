@@ -19,6 +19,7 @@ public class DoorView extends JPanel{
 
     /** Az ablak szélessége és magassága pixelben: */
     int frame_size = 500;
+    double scale = 0.6;
 
     /** A kép méretezési tényezője (1 érték teljes méret, 1-nél kisebb érték lecsökkentett méret): */
     double scale = 0.8;
@@ -73,9 +74,9 @@ public class DoorView extends JPanel{
             // Az átfedés x és y pozíciójának kiszámítása a kör kerületén adott szög alapján:
             int overlayX = (int) Math.round(centerX + radius * Math.cos(angle));
             int overlayY = (int) Math.round(centerY + radius * Math.sin(angle));
-
-            // Az átfedés hozzáadása a kiszámított pozícióban az átfedések listájához:
-            addOverlay(overlayImage, frame_size/10, frame_size/10, overlayX, overlayY, 1.0f);
+            int overlayWidth = (int) Math.round((frame_size / 10) * scale);
+            int overlayHeight = (int) Math.round((frame_size / 10) * scale);
+            addOverlay(overlayImage, overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
         }
 
         // Az átfedések rajzolása:
@@ -99,12 +100,35 @@ public class DoorView extends JPanel{
             }
         }
 
-        // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
         gBg.dispose();
 
-        // A JFrame előkészítése a megjelenítéshez:
-        JLabel label = new JLabel(new ImageIcon(backgroundBuff));
-        this.add(label);
+        this.setSize(frame_size, frame_size);
+        JLabel imageLabel = new JLabel(new ImageIcon(backgroundBuff));
+
+        JComboBox<String> box = new JComboBox<>(new String[]{"Option 1", "Option 2", "Option 3"});
+        box.setMaximumSize(box.getPreferredSize());
+
+        JPanel comboPanel = new JPanel();
+        comboPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        comboPanel.add(box);
+        comboPanel.setOpaque(false);
+
+
+        JPanel textPanel = new JPanel();
+        textPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        textPanel.setOpaque(false);
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setOpaque(false);
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.PAGE_AXIS));
+        centerPanel.add(textPanel);
+        centerPanel.add(comboPanel);
+
+        imageLabel.setLayout(new BorderLayout());
+        imageLabel.add(centerPanel, BorderLayout.CENTER);
+
+        this.add(imageLabel);
         this.setOpaque(false);
         this.validate();
         this.repaint();
