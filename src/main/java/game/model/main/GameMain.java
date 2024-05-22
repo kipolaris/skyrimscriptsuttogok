@@ -87,35 +87,41 @@ public class GameMain {
     }
 
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
+        System.out.println("Játék mód: 0");
+        System.out.println("Fejlesztői mód: 1");
+        int input = (int) System.in.read();
+        if(input == 1) {
+            Scanner sc = new Scanner(System.in);
 
-        addAllCommands();
+            addAllCommands();
 
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
-            String[] cmd = line.split(" ");
-            iCommand command = commandMap.get(cmd[0]);
-            if (command != null) {
-                command.execute(cmd);
-            } else {
-                Suttogo.note("command " + cmd[0] + " does not exist!");
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] cmd = line.split(" ");
+                iCommand command = commandMap.get(cmd[0]);
+                if (command != null) {
+                    command.execute(cmd);
+                } else {
+                    Suttogo.note("command " + cmd[0] + " does not exist!");
+                }
+
+                if(allOut && isGameInitialized){
+                    printOut();
+                    GameMain.lastOutput = "";
+                }else{
+                    if(!allOut) Suttogo.note("Please call newgame command!");
+                }
+
+                if (gameEngine.isAInext()) {
+                    Character current = gameEngine.getCurrent();
+
+                    current.doRound();
+                    Suttogo.note("Now " + current.getId() + "makes steps");
+                }
+
             }
-
-            if(allOut && isGameInitialized){
-                printOut();
-                GameMain.lastOutput = "";
-            }else{
-                if(!allOut) Suttogo.note("Please call newgame command!");
-            }
-
-            if (gameEngine.isAInext()) {
-                Character current = gameEngine.getCurrent();
-
-                current.doRound();
-                Suttogo.note("Now " + current.getId() + "makes steps");
-            }
-
         }
+        else { gamePanel.start(); }
     }
 
     /**Kiírja a játék státuszát*/

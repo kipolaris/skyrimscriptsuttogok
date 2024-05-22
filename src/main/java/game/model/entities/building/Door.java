@@ -64,4 +64,15 @@ public class Door {
             else return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond invisibility";
         }
     }
+
+    public boolean isItInwards(Room r){
+        if(!bothWays){
+            return to.equals(r);
+        }
+        return true;
+    }
+
+    public boolean isBothWays(){
+        return bothWays;
+    }
 }

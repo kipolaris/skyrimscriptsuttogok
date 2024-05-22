@@ -103,6 +103,7 @@ public class MainMenuController implements ModelListener{
                 int numberOfPlayers = Integer.parseInt(playersText);
                 GameMain.perform("newgame");
                 GameMain.perform("startgame");
+                GameMain.gamePanel.gaming();
                 System.out.println("New game started with " + numberOfPlayers + " players.");
             } catch (NumberFormatException ex) {
                 System.err.println("Invalid number of players: " + playersText);
@@ -123,8 +124,9 @@ public class MainMenuController implements ModelListener{
         public void actionPerformed(ActionEvent e) {
             String selectedGame = (String) view.getGameComboBox().getSelectedItem();
             if (selectedGame != null) {
-                saverLoader.loadGame(selectedGame); // Assume loadGame(String gameName) loads a game
+                saverLoader.loadGame(selectedGame);
                 System.out.println("Game " + selectedGame + " loaded.");
+                GameMain.gamePanel.gaming();
             }
         }
     }

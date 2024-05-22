@@ -22,8 +22,8 @@ public class GamePanel {
     }
 
     public void addDoorView() {
-        DoorView doorView = new DoorView();
-        frame.add(doorView, BorderLayout.CENTER);
+        RoomView roomView = new RoomView(new CharacterView(), new ItemListView());
+        frame.add(roomView, BorderLayout.CENTER);
     }
 
     public void addItemListView() {
@@ -37,6 +37,11 @@ public class GamePanel {
     public void addMenuView() {
         MenuView menuView = new MenuView();
         frame.add(menuView, BorderLayout.WEST);
+    }
+
+    public void addMainMenuView() {
+        MainMenuView mainMenuView = new MainMenuView();
+        frame.add(mainMenuView, BorderLayout.CENTER);
     }
 
     public void addCharacterView() {
@@ -53,15 +58,22 @@ public class GamePanel {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        GamePanel gamePanel = new GamePanel();
+    public void start() {
+        menu();
+        //gaming();
+    }
 
+    public void menu() {
+        GamePanel gamePanel = new GamePanel();
+        gamePanel.addMainMenuView();
+        gamePanel.display();
+    }
+    public void gaming() {
+        GamePanel gamePanel = new GamePanel();
         gamePanel.addDoorView();
         gamePanel.addItemListView();
         gamePanel.addMenuView();
         gamePanel.addCharacterView();
-
-        // add other views
         gamePanel.display();
     }
 }

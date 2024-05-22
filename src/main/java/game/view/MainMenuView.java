@@ -29,9 +29,19 @@ public class MainMenuView extends JPanel {
 
         // Komponensek létrehozása
         newButton = new JButton("NEW");
+        newButton.setBackground(Color.GREEN);
+        newButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        newButton.setForeground(Color.WHITE);
+        newButton.setOpaque(true);
+        newButton.setFocusPainted(false);
         playersLabel = new JLabel("Players:");
         playersTextField = new JTextField(5);
         loadButton = new JButton("LOAD");
+        loadButton.setBackground(Color.GREEN);
+        loadButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        loadButton.setForeground(Color.WHITE);
+        loadButton.setOpaque(true);
+        loadButton.setFocusPainted(false);
         gameComboBox = new JComboBox<>();
 
         // Komponensek hozzáadása a panelhez

@@ -12,6 +12,9 @@ import java.util.*;
 /**A karakterek ősosztálya*/
 public class Character {
 
+
+    //#todo: listenerlist
+
     public boolean isMoved() {
         return isMoved;
     }

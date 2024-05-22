@@ -195,6 +195,7 @@ public class GameEngine extends AbstractObservableModel {
             nextQueue();
             Suttogo.note("switched to next queue");
         }
+        notifyEveryone();
     }
 
     /**
