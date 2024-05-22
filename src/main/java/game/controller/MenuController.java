@@ -35,8 +35,12 @@ public class MenuController implements ModelListener{
         //this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
 
+        //onModelChange();
+
         //#todo: ez így sajnos nem biztos h jó (map megoldás miatt)
-        itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
+        if(student != null) {
+            itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
+        }
 
         // Add action listeners to the buttons
         view.addDropActionListener(new DropButtonListener());
@@ -50,7 +54,9 @@ public class MenuController implements ModelListener{
     public void onModelChange() {
         if(gameEngine.getCurrent() instanceof Student){
             student = (Student) gameEngine.getCurrent();
-            itemListController.onModelChange();
+            if(itemListController!=null){
+                itemListController.onModelChange();
+            }
         }
     }
 
@@ -148,7 +154,7 @@ public class MenuController implements ModelListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             student.skipTurn();
-            infoView.showInfo("Turn skipped", 2000);
+            //infoView.showInfo("Turn skipped", 2000);
             System.out.println("Turn skipped");
         }
     }

@@ -3,6 +3,7 @@ package game.view;
 import game.controller.*;
 import game.model.entities.Character;
 import game.model.entities.Student;
+import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
@@ -13,6 +14,9 @@ import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Osztály a megjelenítők összefogására, és kirajzolására
+ */
 public class GamePanel {
 
     int frame_size = 800;
@@ -27,14 +31,21 @@ public class GamePanel {
 
     private static CardLayout cardLayout = new CardLayout();
 
-    public static CardLayout getCardLayout(){
-        return cardLayout;
-    }
+    /**
+     * Függvény, ami visszaadja a cardLayout-ot
+     */
+    public static CardLayout getCardLayout(){ return cardLayout; }
 
+    /**
+     * Függvény, ami visszaadja a playPanel-t
+     */
     public static JPanel getPlayPanel(){
         return playPanel;
     }
 
+    /**
+     * Függvény, ami visszaadja a cardPanel-t
+     */
     public static JPanel getCardPanel(){
         return cardPanel;
     }
@@ -43,6 +54,11 @@ public class GamePanel {
 
     private MainMenuController mainMenuController = new MainMenuController(mainMenuView);
 
+    /**
+     * Paraméter nélküli konstruktor.
+     *
+     * <p>Létrehozza az ablakot és beállítja azt</p>
+     */
     public GamePanel() {
         frame = new JFrame();
 
@@ -69,6 +85,9 @@ public class GamePanel {
         //frame.setVisible(true);
     }
 
+    /**
+     * Felvesz és visszaad egy addRoomView megjelenítőt
+     */
     public RoomView addRoomView() {
         RoomView roomView = new RoomView(new CharacterView(), new ItemListView());
         playPanel.add(roomView, BorderLayout.CENTER);
@@ -76,6 +95,9 @@ public class GamePanel {
         return roomView;
     }
 
+    /**
+     * Felvesz és visszaad egy addMenuView megjelenítőt
+     */
     public MenuView addMenuView() {
         MenuView menuView = new MenuView();
         playPanel.add(menuView, BorderLayout.WEST);
@@ -83,6 +105,9 @@ public class GamePanel {
         return menuView;
     }
 
+    /**
+     * Felvesz egy addMainMenuView megjelenítőt
+     */
     public void addMainMenuView() {
         mainMenuPanel.add(mainMenuView, BorderLayout.CENTER);
     }
@@ -97,10 +122,16 @@ public class GamePanel {
         return characterView;
     }
 
+    /**
+     * Láthatóvá teszi az ablakot.
+     */
     public void display() {
         frame.setVisible(true);
     }
 
+    /**
+     * Összeállítja a menü megjelenését
+     */
     public void menu() {
 
         GameMain.gamePanel = new GamePanel();
@@ -109,29 +140,27 @@ public class GamePanel {
         GameMain.gamePanel.addMainMenuView();
         GameMain.gamePanel.display();
     }
+    /**
+     * Összeállítja az in-game megjelenítést
+     */
     public void gaming() {
         GameMain.gamePanel = new GamePanel();
 
         GameEngine ge = GameMain.gameEngine;
-        GameMain.gamePanel.addRoomView();
 
         //A Room panel beállítása
 
         CharacterView roomCharacterView = new CharacterView();
 
-        List<Character> currentRoomsChars = ge.getCurrent().getLocation().getCharacters();
-
-        CharacterController roomChars = new CharacterController(currentRoomsChars, roomCharacterView);
+        CharacterController roomChars = new CharacterController(new ArrayList<>(), roomCharacterView);
 
         ItemListView itemListView = new ItemListView();
 
-        List<Item> currentRoomItems = ge.getCurrent().getLocation().getItems();
-
-        ItemListController itemListController = new ItemListController(itemListView, currentRoomItems);
+        ItemListController itemListController = new ItemListController(itemListView, new ArrayList<>());
 
         RoomView roomView = addRoomView();
 
-        RoomController roomController = new RoomController(ge.getCurrent().getLocation(), roomView);
+        RoomController roomController = new RoomController(new Room(), roomView, itemListController, roomChars);
 
         //a bal felső sarokban a karaktercomboboxok beállítása
 

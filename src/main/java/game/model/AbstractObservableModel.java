@@ -18,6 +18,7 @@ public abstract class AbstractObservableModel implements ObservableModel {
     @Override
     public void addListener(ModelListener listener) {
         listeners.add(listener);
+        System.out.println("lefutottam");
     }
 
     @Override

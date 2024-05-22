@@ -23,7 +23,7 @@ public class CharacterView {
      */
     public CharacterView() {
         characterComboBox = new JComboBox<>();
-        characterComboBox.setEnabled(false); // Disable the combo box to prevent selection changes
+        characterComboBox.setEnabled(true); // Disable the combo box to prevent selection changes
     }
 
     /**
@@ -36,6 +36,8 @@ public class CharacterView {
         for (Character character : characters) {
             characterComboBox.addItem(character.getId());
         }
+        characterComboBox.revalidate();
+        characterComboBox.repaint();
     }
 
     /**

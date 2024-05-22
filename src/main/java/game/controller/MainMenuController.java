@@ -54,7 +54,7 @@ public class MainMenuController implements ModelListener{
         });
 
         // A játék választó lista és a szövegmező feltöltése
-        onModelChange();
+        //onModelChange();
     }
 
     /**
@@ -105,6 +105,7 @@ public class MainMenuController implements ModelListener{
                 GameMain.perform("newgame");
                 GameMain.perform("startgame");
                 GameMain.gamePanel.gaming();
+                GameMain.gameEngine.notifyEveryone();
                 GamePanel.getCardLayout().show(GamePanel.getCardPanel(), "play");
                 System.out.println("New game started with " + numberOfPlayers + " players.");
             } catch (NumberFormatException ex) {

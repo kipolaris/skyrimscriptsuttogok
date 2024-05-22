@@ -92,6 +92,9 @@ public class RoomView extends JPanel{
         //frame.setVisible(true);
     }
 
+    /**
+     * A szoba ajtajainak beállítása, elrendezése.
+     */
     public void setDoors(List<String> overlayImages){
 
         int overlaysCount = overlayImages.size();  // Az átfedések száma, amelyeket elosztunk a kör körül.
@@ -133,6 +136,9 @@ public class RoomView extends JPanel{
 
     }
 
+    /**
+     * Függvény, amely visszaad egy új JPanelt
+     */
     private JPanel createComboBoxPanel(JComboBox<String> box) {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));

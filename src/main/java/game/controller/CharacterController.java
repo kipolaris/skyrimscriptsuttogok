@@ -11,7 +11,7 @@ import game.model.entities.Character;
  */
 public class CharacterController implements ModelListener{
     private final CharacterView characterView;
-    private final List<Character> characters;
+    private List<Character> characters;
 
     /**
      * Két paraméteres konstruktor.
@@ -27,5 +27,9 @@ public class CharacterController implements ModelListener{
     @Override
     public void onModelChange() {
         characterView.setCharacters(characters);
+    }
+
+    public void setCharacters(List<Character> characters){
+        this.characters = characters;
     }
 }

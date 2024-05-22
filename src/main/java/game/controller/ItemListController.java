@@ -47,5 +47,9 @@ public class ItemListController implements ModelListener{
     public Item getSelectedItem(){
         return GameMain.gameEngine.getItem(view.getSelectedItem());
     }
+
+    public void setItems(List<Item> items){
+        this.model = items;
+    }
 }
 
