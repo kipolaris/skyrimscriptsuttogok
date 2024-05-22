@@ -6,8 +6,7 @@ import java.awt.*;
 public class GamePanel {
     int frame_size = 800;
     private JFrame frame;
-
-
+    private InfoView infoView;
 
     public GamePanel() {
         frame = new JFrame();
@@ -24,6 +23,11 @@ public class GamePanel {
     public void addDoorView() {
         DoorView doorView = new DoorView();
         frame.add(doorView, BorderLayout.CENTER);
+    }
+
+    public void addInfoView() {
+        infoView = new InfoView();
+        frame.add(infoView, BorderLayout.SOUTH);
     }
 
     public InfoView getInfoView() {
