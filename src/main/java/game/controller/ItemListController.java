@@ -1,6 +1,7 @@
 package game.controller;
 
 import game.model.entities.items.Item;
+import game.model.main.GameMain;
 import game.view.ItemListView;
 
 import java.awt.event.ActionEvent;
@@ -13,7 +14,7 @@ import java.util.Map;
  */
 public class ItemListController implements ModelListener{
     private ItemListView view;
-    private Map<String, Item> model;
+    private List<Item> model;
 
     /**
      * Két paraméteres konstruktor.
@@ -21,7 +22,7 @@ public class ItemListController implements ModelListener{
      * @param view az ItemListView osztály egy példánya
      * @param model egy tárgyakat tartalmazó Map String kulccsal
      */
-    public ItemListController(ItemListView view, Map<String, Item> model) {
+    public ItemListController(ItemListView view, List<Item> model) {
         this.view = view;
         this.model = model;
 
@@ -35,7 +36,7 @@ public class ItemListController implements ModelListener{
 
     @Override
     public void onModelChange() {
-        view.setItems((List<Item>) model.values());
+        view.setItems(model);
     }
 
     /**
@@ -44,7 +45,7 @@ public class ItemListController implements ModelListener{
      * @return Item
      */
     public Item getSelectedItem(){
-        return model.get(view.getSelectedItem());
+        return GameMain.gameEngine.getItem(view.getSelectedItem());
     }
 }
 

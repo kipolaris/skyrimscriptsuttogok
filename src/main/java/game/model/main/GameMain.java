@@ -90,10 +90,9 @@ public class GameMain {
         System.out.println("Játék mód: 0");
         System.out.println("Fejlesztői mód: 1");
         int input = (int) System.in.read();
+        addAllCommands();
         if(input == 1) {
             Scanner sc = new Scanner(System.in);
-
-            addAllCommands();
 
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();

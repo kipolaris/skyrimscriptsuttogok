@@ -1,7 +1,14 @@
 package game.view;
 
-import game.controller.MainMenuController;
+import game.controller.*;
+import game.model.entities.Character;
+import game.model.entities.Student;
+import game.model.entities.items.Item;
+import game.model.main.GameEngine;
 import game.model.main.GameMain;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,55 +66,99 @@ public class GamePanel {
 
         cardLayout.show(cardPanel, "menu");
 
-        frame.setVisible(true);
+        //frame.setVisible(true);
     }
 
-    public void addRoomView() {
+    public RoomView addRoomView() {
         RoomView roomView = new RoomView(new CharacterView(), new ItemListView());
         playPanel.add(roomView, BorderLayout.CENTER);
+
+        return roomView;
     }
 
-    public void addItemListView() {
-        ItemListView itemListView = new ItemListView();
-
-        // Please call itemListView.setItems(yourItemsList) here, you need replace yourItemsList with the actual data
-
-        playPanel.add(itemListView.getComboBox(), BorderLayout.EAST);
-    }
-
-    public void addMenuView() {
+    public MenuView addMenuView() {
         MenuView menuView = new MenuView();
         playPanel.add(menuView, BorderLayout.WEST);
+
+        return menuView;
     }
 
     public void addMainMenuView() {
         mainMenuPanel.add(mainMenuView, BorderLayout.CENTER);
     }
 
-    public void addCharacterView() {
+    public CharacterView addCharacterView() {
         CharacterView characterView = new CharacterView();
         // Set characters of characterView here
         JPanel topPanel = new JPanel(new FlowLayout());
         topPanel.add(characterView.getComboBox());
         playPanel.add(topPanel, BorderLayout.NORTH);
-    }
 
-    // Add more methods to add other views
+        return characterView;
+    }
 
     public void display() {
         frame.setVisible(true);
     }
 
     public void menu() {
+
         GameMain.gamePanel = new GamePanel();
+
+
         GameMain.gamePanel.addMainMenuView();
         GameMain.gamePanel.display();
     }
     public void gaming() {
         GameMain.gamePanel = new GamePanel();
+
+        GameEngine ge = GameMain.gameEngine;
         GameMain.gamePanel.addRoomView();
-        GameMain.gamePanel.addMenuView();
-        GameMain.gamePanel.addCharacterView();
+
+        //A Room panel beállítása
+
+        CharacterView roomCharacterView = new CharacterView();
+
+        List<Character> currentRoomsChars = ge.getCurrent().getLocation().getCharacters();
+
+        CharacterController roomChars = new CharacterController(currentRoomsChars, roomCharacterView);
+
+        ItemListView itemListView = new ItemListView();
+
+        List<Item> currentRoomItems = ge.getCurrent().getLocation().getItems();
+
+        ItemListController itemListController = new ItemListController(itemListView, currentRoomItems);
+
+        RoomView roomView = addRoomView();
+
+        RoomController roomController = new RoomController(ge.getCurrent().getLocation(), roomView);
+
+        //a bal felső sarokban a karaktercomboboxok beállítása
+
+        CharacterView characterView1 = GameMain.gamePanel.addCharacterView();
+        CharacterView characterView2 = GameMain.gamePanel.addCharacterView();
+        CharacterView characterView3 = GameMain.gamePanel.addCharacterView();
+
+        CharacterController allcontroller1 = new CharacterController(new ArrayList<>(ge.getStudents().values()), characterView1);
+        CharacterController allcontroller2 = new CharacterController(new ArrayList<>(ge.getCleaners().values()), characterView2);
+        CharacterController allcontroller3 = new CharacterController(new ArrayList<>(ge.getProfessors().values()), characterView3);
+
+        //a bal oldali menu beállítása
+
+        MenuView menuView = GameMain.gamePanel.addMenuView();
+
+        new MenuController(menuView, ge, roomController);
+
+        //listenerek beállítása
+        ge.addListener(roomController);
+        ge.addListener(itemListController);
+        ge.addListener(roomChars);
+        ge.addListener(allcontroller1);
+        ge.addListener(allcontroller2);
+        ge.addListener(allcontroller3);
+
+
+
         GameMain.gamePanel.display();
     }
 }

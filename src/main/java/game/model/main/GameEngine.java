@@ -142,6 +142,10 @@ public class GameEngine extends AbstractObservableModel {
         return builder;
     }
 
+    public Item getItem(String key){
+        return items.get(key);
+    }
+
     /**
      * Ellenőrzi, hogy van-e még akciója a karakternek a körben.
      * Ha nincs, akkor meghívja a next() függvényt.

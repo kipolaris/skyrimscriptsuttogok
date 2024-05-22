@@ -9,6 +9,7 @@ import game.view.MenuView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Control osztály az MenuView osztályhoz.
@@ -34,7 +35,8 @@ public class MenuController implements ModelListener{
         //this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
 
-        itemListController = new ItemListController(view.getItemListView(), student.getItems());
+        //#todo: ez így sajnos nem biztos h jó (map megoldás miatt)
+        itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
 
         // Add action listeners to the buttons
         view.addDropActionListener(new DropButtonListener());
