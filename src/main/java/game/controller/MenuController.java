@@ -3,6 +3,8 @@ import game.model.entities.Student;
 import game.model.entities.building.Door;
 import game.model.entities.items.Item;
 import game.model.main.GameEngine;
+import game.model.main.GameMain;
+import game.view.InfoView;
 import game.view.MenuView;
 
 import java.awt.event.ActionEvent;
@@ -13,6 +15,7 @@ import java.awt.event.ActionListener;
  */
 public class MenuController implements ModelListener{
     private final MenuView view;
+    private InfoView infoView;
     private Student student;
     private final GameEngine gameEngine;
     private final RoomController roomController;
@@ -28,6 +31,7 @@ public class MenuController implements ModelListener{
     public MenuController(MenuView _view, GameEngine _model, RoomController _rc) {
         this.view = _view;
         this.gameEngine = _model;
+        this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
 
         itemListController = new ItemListController(view.getItemListView(), student.getItems());
@@ -44,46 +48,66 @@ public class MenuController implements ModelListener{
     public void onModelChange() {
         if(gameEngine.getCurrent() instanceof Student){
             student = (Student) gameEngine.getCurrent();
-
             itemListController.onModelChange();
         }
     }
 
+    /**
+     * Akciófigyelő a tárgy ledobása gombhoz.
+     */
     class DropButtonListener implements ActionListener {
+        /**
+         * A tárgy ledobásának eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Item chosen = itemListController.getSelectedItem();
             if(chosen != null) {
                 student.dropItem(chosen);
+                infoView.showInfo("Item dropped", 2000);
                 System.out.println("Item dropped");
             }
         }
     }
 
     /**
-     * ActionListener a view pickupButton gombjához.
+     * Akciófigyelő a tárgy felvétele gombhoz.
      */
     class PickupButtonListener implements ActionListener {
+        /**
+         * A tárgy felvételének eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Item i = roomController.getChosenItem();
 
             if (i != null) {
                 student.addItem(i);
+                infoView.showInfo("Item picked up", 2000);
                 System.out.println("Item picked up");
             }
         }
     }
 
     /**
-     * ActionListener a view useButton gombjához.
+     * Akciófigyelő a tárgy használata gombhoz.
      */
     class UseButtonListener implements ActionListener {
+        /**
+         * A tárgy használatának eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Item i = itemListController.getSelectedItem();
             if(i != null){
                 student.useItem(i);
+                infoView.showInfo("Item used", 2000);
                 System.out.println("Item used");
             }
 
@@ -91,26 +115,38 @@ public class MenuController implements ModelListener{
     }
 
     /**
-     * ActionListener a view moveButton gombjához.
+     * Akciófigyelő a mozgás gombhoz.
      */
     class MoveButtonListener implements ActionListener {
+        /**
+         * A mozgás eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             Door d = roomController.getChosenDoor();
             if(d != null) {
                 student.move(d);
+                infoView.showInfo(student.getId() + " moved to another room", 2000);
                 System.out.println("Character moved");
             }
         }
     }
 
     /**
-     * ActionListener a view skipButton gombjához.
+     * Akciófigyelő a kör átugrása gombhoz.
      */
     class SkipButtonListener implements ActionListener {
+        /**
+         * A kör átugrásának eseményét kezeli.
+         *
+         * @param e az esemény
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             student.skipTurn();
+            infoView.showInfo("Turn skipped", 2000);
             System.out.println("Turn skipped");
         }
     }

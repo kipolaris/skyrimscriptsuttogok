@@ -76,4 +76,22 @@ public class SlideRule extends Item{
         if(fake) return "It's only a stick..";
         return "You win!";
     }
+
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
+    @Override
+    public String create(){
+        if (fake) return "sliderule fake";
+        else return "sliderule notfake";
+    }
+
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("SlideRule", "");
+        return uj;
+    }
 }

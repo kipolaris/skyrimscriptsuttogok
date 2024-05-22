@@ -10,7 +10,6 @@ import static game.model.main.GameMain.gameEngine;
 
 /**Az ffp2 maszk osztálya*/
 public class FFP2 extends Item{
-
     private boolean fake;
 
     /**Hat paraméteres konstruktor*/
@@ -27,7 +26,8 @@ public class FFP2 extends Item{
         Suttogo.info(s);
     }
 
-    public int getPriority(){/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
+    /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
+    public int getPriority(){
         Suttogo.info("getPriority()");
         Suttogo.info("\treturn 1");
         return 1;
@@ -68,5 +68,23 @@ public class FFP2 extends Item{
     public String getEffect() {
         if(fake) return "Wait.. is this a real gasmask?";
         return "Gas has no effect on you now.";
+    }
+
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
+    @Override
+    public String create(){
+        if (fake) return "ffp2 fake "+durability;
+        else return "ffp2 notfake "+durability;
+    }
+
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("FFP2", "");
+        return uj;
     }
 }

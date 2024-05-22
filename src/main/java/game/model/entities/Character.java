@@ -101,7 +101,6 @@ public class Character {
      */
     public void useItem(Item i) {
         Suttogo.info("useItem(Item)");
-        throw new UnsupportedOperationException();
     }
 
     /**

@@ -48,4 +48,21 @@ public class Camembert extends Item{
     public String getEffect() {
         return "The room gets gassed.";
     }
+
+    /**
+     * A tárgy létrehozásához szükséges command
+     */
+    @Override
+    public String create(){
+        return "camembert "+durability;
+    }
+
+    /**
+     * Hanyadikként volt a tárgy létrehozva
+     */
+    @Override
+    public String getNumID(){
+        String uj = getId().replace("Camembert", "");
+        return uj;
+    }
 }

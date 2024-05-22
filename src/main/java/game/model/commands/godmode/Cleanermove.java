@@ -14,7 +14,7 @@ public class Cleanermove implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Mozgat egy takarítót*/
         Move c = new Move();
-        if(gameEngine.getCurrent() instanceof Cleaner && !gameEngine.getRandom()){
+        if(gameEngine.getCurrent().getId().startsWith("Cleaner") && !gameEngine.getRandom()){
             Cleaner s = (Cleaner) gameEngine.getCurrent();
 
             //megnézzük, hogy a user valóban ezt a cleanert gépelte-e be

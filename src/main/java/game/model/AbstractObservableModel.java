@@ -4,7 +4,14 @@ import game.controller.ModelListener;
 
 import java.util.List;
 
+/**
+ * Absztrakt osztály, amely implementálja az ObservableModel interfészt,
+ * és alapvető funkciókat biztosít a megfigyelők kezeléséhez.
+ */
 public abstract class AbstractObservableModel implements ObservableModel {
+    /**
+     * A megfigyelők listája.
+     */
     protected List<ModelListener> listeners;
 
     @Override

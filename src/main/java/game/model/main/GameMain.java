@@ -1,5 +1,6 @@
 package game.model.main;
 
+import game.controller.RoomController;
 import game.model.commands.*;
 import game.model.commands.builders.*;
 import game.model.commands.general.*;
@@ -14,6 +15,7 @@ import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 
 import game.model.entities.Character;
+import game.view.GamePanel;
 
 import java.util.Scanner;
 import java.util.HashMap;
@@ -30,6 +32,7 @@ public class GameMain {
     public static GameEngine gameEngine = new GameEngine();
 
     public static boolean allOut = true;
+    public static GamePanel gamePanel = new GamePanel();
 
     /**Beállítja az areWeTesting értékét*/
     public static void setAreWeTesting(boolean areWeTesting) {
@@ -69,6 +72,7 @@ public class GameMain {
         commandMap.put("kill", new Kill());
         commandMap.put("neighbour", new Neighbour());
         commandMap.put("pair", new Pair());
+        commandMap.put("pairany", new PairAny());
         commandMap.put("profmove", new Profmove());
         commandMap.put("roomaddchar", new Roomaddchar());
         commandMap.put("roomadditem", new Roomadditem());
