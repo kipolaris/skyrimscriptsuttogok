@@ -13,7 +13,7 @@ import static java.lang.Math.toIntExact;
 public class DoorView extends JPanel {
     private List<Overlay> overlays = new ArrayList<>();
     int frame_size = 500;
-    double scale = 0.5;
+    double scale = 0.6;
 
     public DoorView(int size) {
         this.frame_size = size;
@@ -40,7 +40,6 @@ public class DoorView extends JPanel {
             double angle = Math.PI * 2 * i / overlaysCount;
             int overlayX = (int) Math.round(centerX + radius * Math.cos(angle));
             int overlayY = (int) Math.round(centerY + radius * Math.sin(angle));
-            // Apply scaling to overlay dimensions here.
             int overlayWidth = (int) Math.round((frame_size / 10) * scale);
             int overlayHeight = (int) Math.round((frame_size / 10) * scale);
             addOverlay(overlayImage, overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
@@ -57,12 +56,36 @@ public class DoorView extends JPanel {
                 g.dispose();
             }
         }
+
         gBg.dispose();
 
-        this.setPreferredSize(new Dimension(frame_size, frame_size));
         this.setSize(frame_size, frame_size);
-        JLabel label = new JLabel(new ImageIcon(backgroundBuff));
-        this.add(label);
+        JLabel imageLabel = new JLabel(new ImageIcon(backgroundBuff));
+
+        JComboBox<String> box = new JComboBox<>(new String[]{"Option 1", "Option 2", "Option 3"});
+        box.setMaximumSize(box.getPreferredSize());
+
+        JPanel comboPanel = new JPanel();
+        comboPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        comboPanel.add(box);
+        comboPanel.setOpaque(false);
+
+
+        JPanel textPanel = new JPanel();
+        textPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        textPanel.setOpaque(false);
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setOpaque(false);
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.PAGE_AXIS));
+        centerPanel.add(textPanel);
+        centerPanel.add(comboPanel);
+
+        imageLabel.setLayout(new BorderLayout());
+        imageLabel.add(centerPanel, BorderLayout.CENTER);
+
+        this.add(imageLabel);
         this.setOpaque(false);
 
         this.validate();
