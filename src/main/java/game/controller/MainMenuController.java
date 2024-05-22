@@ -3,6 +3,7 @@ package game.controller;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 import game.model.main.SaverLoader;
+import game.view.GamePanel;
 import game.view.MainMenuView;
 
 import javax.swing.event.DocumentEvent;
@@ -104,6 +105,7 @@ public class MainMenuController implements ModelListener{
                 GameMain.perform("newgame");
                 GameMain.perform("startgame");
                 GameMain.gamePanel.gaming();
+                GamePanel.getCardLayout().show(GamePanel.getCardPanel(), "play");
                 System.out.println("New game started with " + numberOfPlayers + " players.");
             } catch (NumberFormatException ex) {
                 System.err.println("Invalid number of players: " + playersText);

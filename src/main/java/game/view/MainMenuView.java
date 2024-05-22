@@ -8,6 +8,7 @@ import java.awt.*;
  * A főmenü nézetének megjelenítéséért felelős osztály.
  */
 public class MainMenuView extends JPanel {
+    private JLabel titleLabel;
     private JButton newButton;
     private JLabel playersLabel;
     private JTextField playersTextField;
@@ -28,9 +29,10 @@ public class MainMenuView extends JPanel {
         gbc.anchor = GridBagConstraints.CENTER;
 
         // Komponensek létrehozása
+        titleLabel = new JLabel("SLIDERULE");
         newButton = new JButton("NEW");
         newButton.setBackground(Color.GREEN);
-        newButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        newButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         newButton.setForeground(Color.WHITE);
         newButton.setOpaque(true);
         newButton.setFocusPainted(false);
@@ -38,7 +40,7 @@ public class MainMenuView extends JPanel {
         playersTextField = new JTextField(5);
         loadButton = new JButton("LOAD");
         loadButton.setBackground(Color.GREEN);
-        loadButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        loadButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         loadButton.setForeground(Color.WHITE);
         loadButton.setOpaque(true);
         loadButton.setFocusPainted(false);

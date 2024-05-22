@@ -118,10 +118,9 @@ public class GameMain {
                     current.doRound();
                     Suttogo.note("Now " + current.getId() + "makes steps");
                 }
-
             }
         }
-        else { gamePanel.start(); }
+        else { gamePanel.menu(); }
     }
 
     /**Kiírja a játék státuszát*/
