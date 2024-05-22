@@ -10,7 +10,6 @@ import static game.model.main.GameMain.gameEngine;
 
 /**A tvsz osztálya*/
 public class TVSZ extends Item{
-
     boolean fake;
 
     /**
@@ -86,6 +85,7 @@ public class TVSZ extends Item{
         if(fake) return "Rules have no power here.";
         return "Your life is saved.";
     }
+
     /**
      * A tárgy létrehozásához szükséges command
      */
@@ -94,6 +94,7 @@ public class TVSZ extends Item{
         if(fake) return "tvsz fake "+durability;
         else return "tvsz notfake "+durability;
     }
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */

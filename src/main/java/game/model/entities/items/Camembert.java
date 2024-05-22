@@ -48,6 +48,7 @@ public class Camembert extends Item{
     public String getEffect() {
         return "The room gets gassed.";
     }
+
     /**
      * A tárgy létrehozásához szükséges command
      */
@@ -55,6 +56,7 @@ public class Camembert extends Item{
     public String create(){
         return "camembert "+durability;
     }
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */

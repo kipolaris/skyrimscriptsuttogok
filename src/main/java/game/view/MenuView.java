@@ -28,7 +28,6 @@ public class MenuView extends JPanel {
 
         itemListView = new ItemListView();
 
-        // Layout the buttons in a vertical box layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(dropButton);
         add(pickupButton);

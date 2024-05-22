@@ -4,6 +4,9 @@ import javax.swing.*;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 
+/**
+ * A főmenü nézetének megjelenítéséért felelős osztály.
+ */
 public class MainMenuView extends JPanel {
     private JButton newButton;
     private JLabel playersLabel;
@@ -11,6 +14,10 @@ public class MainMenuView extends JPanel {
     private JButton loadButton;
     private JComboBox<String> gameComboBox;
 
+    /**
+     * Konstruktor a MainMenuView osztályhoz.
+     * Inicializálja a komponenseket és beállítja az elrendezést.
+     */
     public MainMenuView() {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -20,14 +27,14 @@ public class MainMenuView extends JPanel {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
 
-        // Create components
+        // Komponensek létrehozása
         newButton = new JButton("NEW");
         playersLabel = new JLabel("Players:");
         playersTextField = new JTextField(5);
         loadButton = new JButton("LOAD");
         gameComboBox = new JComboBox<>();
 
-        // Add components to panel
+        // Komponensek hozzáadása a panelhez
         gbc.gridy = 1;
         add(newButton, gbc);
 
@@ -50,23 +57,47 @@ public class MainMenuView extends JPanel {
         add(gameComboBox, gbc);
     }
 
+    /**
+     * Visszaadja az új játék indítására szolgáló gombot.
+     *
+     * @return az új játék indítására szolgáló JButton
+     */
     public JButton getNewButton() {
         return newButton;
     }
 
+    /**
+     * Visszaadja a játékosok számának bevitelére szolgáló szövegmezőt.
+     *
+     * @return a játékosok számának bevitelére szolgáló JTextField
+     */
     public JTextField getPlayersTextField() {
         return playersTextField;
     }
 
+    /**
+     * Visszaadja a játék betöltésére szolgáló gombot.
+     *
+     * @return a játék betöltésére szolgáló JButton
+     */
     public JButton getLoadButton() {
         return loadButton;
     }
 
+    /**
+     * Visszaadja a mentett játékok kiválasztására szolgáló kombóboxot.
+     *
+     * @return a mentett játékok kiválasztására szolgáló JComboBox
+     */
     public JComboBox<String> getGameComboBox() {
         return gameComboBox;
     }
 
-    // Method to add a DocumentListener to the playersTextField
+    /**
+     * Hozzáad egy DocumentListener-t a playersTextField-hez.
+     *
+     * @param listener a hozzáadandó DocumentListener
+     */
     public void addPlayersTextFieldListener(DocumentListener listener) {
         playersTextField.getDocument().addDocumentListener(listener);
     }

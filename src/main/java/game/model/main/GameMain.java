@@ -32,6 +32,7 @@ public class GameMain {
     public static GameEngine gameEngine = new GameEngine();
 
     public static boolean allOut = true;
+    public static GamePanel gamePanel = new GamePanel();
 
     /**Beállítja az areWeTesting értékét*/
     public static void setAreWeTesting(boolean areWeTesting) {

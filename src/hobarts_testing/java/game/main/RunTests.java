@@ -10,12 +10,12 @@ import java.util.*;
 import static game.model.main.GameMain.isGameInitialized;
 import static game.model.main.GameMain.perform;
 
-/**Osztály, ami futtatja az összes tesztet és kimenetüket ellenőrzi is*/
+/**
+ * Osztály, ami futtatja az összes tesztet és a kimenetüket ellenőrzi is
+ */
 public class RunTests {
     public static File currentDir = null;
-    public static String getCurrentDir(){
-        return currentDir.getName();
-    }
+
     public static void main(String[] args) {
         GameMain.setAreWeTesting(true);
         GameMain.addAllCommands();

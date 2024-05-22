@@ -27,7 +27,7 @@ public class PairAny implements iCommand{
 
         if(item1 == null || item2 == null) Suttogo.error("You don’t have an item named like that.");
 
-        else if(item1 instanceof Transistor && item2 instanceof Transistor) {
+        else if(item1.getId().startsWith("Transistor") && item2 instanceof Transistor) {
             Transistor t1 = (Transistor) item1;
             Transistor t2 = (Transistor) item2;
 

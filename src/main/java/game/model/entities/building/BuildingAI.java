@@ -15,10 +15,7 @@ public class BuildingAI {
     public static void setRoomID(int roomID) {
         BuildingAI.roomID = roomID;
     }
-
-
     private static int roomID;
-
     private Map<String, Room> labyrinth = new HashMap<>();
 
     /**Visszaad egy egyedi szoba azonosítót*/

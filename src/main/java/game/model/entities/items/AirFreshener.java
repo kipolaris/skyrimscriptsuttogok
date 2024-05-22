@@ -49,6 +49,7 @@ public class AirFreshener extends Item{
     public String getEffect() {
         return "The room gets fresh air.";
     }
+
     /**
      * A tárgy létrehozásához szükséges command
      */
@@ -56,6 +57,7 @@ public class AirFreshener extends Item{
     public String create(){
         return "airfreshener";
     }
+
     /**
      * Hanyadikként volt a tárgy létrehozva
      */
