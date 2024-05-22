@@ -32,7 +32,7 @@ public class MenuController implements ModelListener{
     public MenuController(MenuView _view, GameEngine _model, RoomController _rc) {
         this.view = _view;
         this.gameEngine = _model;
-        this.infoView = GameMain.gamePanel.getInfoView();
+        //this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
 
         itemListController = new ItemListController(view.getItemListView(), student.getItems());

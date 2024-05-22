@@ -19,10 +19,10 @@ public class DoorView extends JPanel{
 
     /** Az ablak szélessége és magassága pixelben: */
     int frame_size = 500;
-    double scale = 0.6;
+
 
     /** A kép méretezési tényezője (1 érték teljes méret, 1-nél kisebb érték lecsökkentett méret): */
-    double scale = 0.8;
+    double scale = 0.6;
 
     /**
      * Fő metódus a képek megjelenítésének indításához. Ez a metódus elindítja a DisplayImage konstruktort az AWT eseménykezelő szálon.
@@ -36,7 +36,7 @@ public class DoorView extends JPanel{
     /**
      * A DisplayImage osztály konstruktora. Beállítja a JFrame-et és méretezi, majd kirajzolja a háttér- és átfedésképeket.
      */
-    private DoorView() {
+    DoorView() {
         // Új JFrame (ablak) létrehozása:
         JFrame frame = new JFrame("Display Image");
 
