@@ -38,7 +38,6 @@ public class BuildingAI {
      * Összeolvaszt két szobát a labirintusban
      */
     public void mergeRooms(Room r1, Room r2){
-        Suttogo.info("mergeRooms(Room, Room)");
         int ossz = r1.getCharacters().size()+r2.getCharacters().size();
         int max = 0;
         if (r1.getCapacity() > r2.getCapacity())
@@ -95,7 +94,6 @@ public class BuildingAI {
 
     /**Szétválasztunk egy adott szobát a labirintusból két szobára*/
     public void splitRoom(Room r1){
-        Suttogo.info("splitRoom(Room)");
         if (!(r1.getDoors().size() < 2)){
             ArrayList<Door> ajto1 = new ArrayList<>();
             ArrayList<Door> ajto2 = new ArrayList<>();
@@ -136,13 +134,11 @@ public class BuildingAI {
 
     /**Hozzáadunk egy szobát a labirintushoz*/
     public void addRoom(Room r1){
-        Suttogo.info("addRoom(Room)");
         labyrinth.put(r1.getId(), r1);
     }
 
     /**Eltávolítunk egy szobát a labirintusból*/
     public void removeRoom(Room r1){
-        Suttogo.info("removeRoom(Room)");
         labyrinth.remove(r1);
     }
 

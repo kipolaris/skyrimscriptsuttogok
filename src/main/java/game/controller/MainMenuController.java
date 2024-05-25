@@ -1,5 +1,6 @@
 package game.controller;
 
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 import game.model.main.SaverLoader;
@@ -65,9 +66,9 @@ public class MainMenuController implements ModelListener{
         try {
             int numberOfPlayers = Integer.parseInt(playersText);
             gameEngine.numberOfPlayers = numberOfPlayers;
-            System.out.println("Number of players set to " + numberOfPlayers);
+            Suttogo.note("Number of players set to " + numberOfPlayers);
         } catch (NumberFormatException ex) {
-            System.err.println("Invalid number of players: " + playersText);
+            Suttogo.error("Invalid number of players: " + playersText);
         }
     }
 
@@ -107,9 +108,9 @@ public class MainMenuController implements ModelListener{
                 GameMain.gamePanel.gaming();
                 GameMain.gameEngine.notifyEveryone();
                 GamePanel.getCardLayout().show(GamePanel.getCardPanel(), "play");
-                System.out.println("New game started with " + numberOfPlayers + " players.");
+                Suttogo.info("New game started with " + numberOfPlayers + " players.");
             } catch (NumberFormatException ex) {
-                System.err.println("Invalid number of players: " + playersText);
+                Suttogo.error("Invalid number of players: " + playersText);
             }
         }
     }

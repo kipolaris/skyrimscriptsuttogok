@@ -24,8 +24,6 @@ public class TVSZ extends Item{
      * A prioritási listán szerepet tölt be, értéke 2
      */
     public int getPriority(){
-        Suttogo.info("getPriority()");
-        Suttogo.info("\treturn 2");
         return 2;
     }
 
@@ -34,7 +32,6 @@ public class TVSZ extends Item{
      */
     @Override
     public void activate() {
-        Suttogo.info("activate()");
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
@@ -45,14 +42,11 @@ public class TVSZ extends Item{
      */
     @Override
     public boolean decreaseDurability() {
-        Suttogo.info("decreaseDurability()");
         this.durability--;
 
         if (this.durability <= 0) {
-            Suttogo.info("\treturn false");
             return false;
         }
-        Suttogo.info("\treturn true");
         return true;
     }
 
@@ -61,8 +55,7 @@ public class TVSZ extends Item{
      */
     @Override
     public boolean isPairable() {
-        Suttogo.info("isPairable()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 
@@ -71,12 +64,9 @@ public class TVSZ extends Item{
      */
     @Override
     public boolean protectFromKill() {
-        Suttogo.info("protectFromKill()");
         if(this.activated) {
-            Suttogo.info("\treturn true");
             return true;
         }
-        Suttogo.info("\treturn false");
         return false;
     }
 

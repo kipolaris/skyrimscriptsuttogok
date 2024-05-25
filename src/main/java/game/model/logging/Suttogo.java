@@ -17,7 +17,7 @@ public class Suttogo {
      * Enum representing the logging levels.
      */
     public enum Level {
-        NONE, ERROR, NOTE, INFO
+        NONE, INFO, NOTE, ERROR
     }
 
     private static Level level = Level.NOTE;

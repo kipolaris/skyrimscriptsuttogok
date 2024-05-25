@@ -49,14 +49,11 @@ public abstract class Item {
 
     /** Hátralévő élettartam lekérdezése*/
     public int getDurability() {
-        Suttogo.info("getDurability()");
-        Suttogo.info("\treturn int");
         return durability;
     }
 
     /** Hátralévő élettartam beállítása*/
     public void setDurability(int durability) {
-        Suttogo.info("setDurability(int)");
         this.durability = durability;
     }
 
@@ -68,14 +65,12 @@ public abstract class Item {
 
     /** Visszaadja, hogy a tárgy melyik szobában van*/
     public Room getLocation(){
-        Suttogo.info("getLocation()");
-        Suttogo.info("\treturn Room");
+
         return location;
     }
 
     /** Beállítja, hogy melyik szobában található a tárgy*/
     public void setLocation(Room room){
-        Suttogo.info("setLocation(Room)");
         this.location=room;
     }
 
@@ -83,21 +78,18 @@ public abstract class Item {
 
     /** Ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a kibukástól*/
     public boolean protectFromKill() {
-        Suttogo.info("protectFromKill()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 
     /** Ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól*/
     public boolean protectFromGas() {
-        Suttogo.info("protectFromGas()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 
     /** Ez a függvény állítja be, hogy kinél van a tárgy*/
     public void setOwner(Character character){
-        Suttogo.info("setOwner(Character)");
         this.owner = character;
     }
 
@@ -105,8 +97,7 @@ public abstract class Item {
      * A tárgy gazdája
      */
     public Character getOwner(){
-        Suttogo.info("getOwner()");
-        Suttogo.info("\treturn Character");
+
         return owner;
     }
 
