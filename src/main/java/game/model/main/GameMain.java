@@ -89,7 +89,8 @@ public class GameMain {
     public static void main(String[] args) throws Exception {
         System.out.println("Játék mód: 0");
         System.out.println("Fejlesztői mód: 1");
-        int input = (int) System.in.read();
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
         addAllCommands();
         if(input == 1) {
             Scanner sc = new Scanner(System.in);
