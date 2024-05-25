@@ -3,6 +3,7 @@ package game.model.entities.items;
 import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
+import game.model.main.GameMain;
 
 import static game.model.main.GameMain.gameEngine;
 
@@ -20,17 +21,17 @@ public class Camembert extends Item{
 
     @Override
     public void activate() { /** ezzel lehet aktiválni a tárgyat, ezután a szoba mérgesgázzal teli lesz*/
-
         Room loc = owner.getLocation();
         loc.setGassed(true);
-        durability = 0;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
+        decreaseDurability();
     }
 
     @Override
     public boolean decreaseDurability() {/** hátralévő élettartam csökkentése 1 körrel*/
-
+        durability--;
+        if(durability == 0) { gameEngine.nullifyItem(this); }
         return false;
     }
 
