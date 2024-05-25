@@ -88,8 +88,8 @@ public class GamePanel {
     /**
      * Felvesz és visszaad egy addRoomView megjelenítőt
      */
-    public RoomView addRoomView() {
-        RoomView roomView = new RoomView(new CharacterView(), new ItemListView());
+    public RoomView addRoomView(CharacterView characters, ItemListView items) {
+        RoomView roomView = new RoomView(characters, items);
         playPanel.add(roomView, BorderLayout.CENTER);
 
         return roomView;
@@ -100,7 +100,10 @@ public class GamePanel {
      */
     public MenuView addMenuView() {
         MenuView menuView = new MenuView();
-        playPanel.add(menuView, BorderLayout.WEST);
+        JPanel menuContainer = new JPanel(new BorderLayout());
+        menuContainer.add(menuView, BorderLayout.NORTH);
+        menuContainer.setPreferredSize(menuView.getPreferredSize());
+        playPanel.add(menuContainer, BorderLayout.WEST);
 
         return menuView;
     }
@@ -133,13 +136,12 @@ public class GamePanel {
      * Összeállítja a menü megjelenését
      */
     public void menu() {
-
         GameMain.gamePanel = new GamePanel();
-
 
         GameMain.gamePanel.addMainMenuView();
         GameMain.gamePanel.display();
     }
+
     /**
      * Összeállítja az in-game megjelenítést
      */
@@ -158,7 +160,7 @@ public class GamePanel {
 
         ItemListController itemListController = new ItemListController(itemListView, new ArrayList<>());
 
-        RoomView roomView = addRoomView();
+        RoomView roomView = addRoomView(roomCharacterView, itemListView);
 
         RoomController roomController = new RoomController(new Room(), roomView, itemListController, roomChars);
 

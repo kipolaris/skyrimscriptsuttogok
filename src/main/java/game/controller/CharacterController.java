@@ -32,4 +32,6 @@ public class CharacterController implements ModelListener{
     public void setCharacters(List<Character> characters){
         this.characters = characters;
     }
+
+    public CharacterView getCharacterView() { return characterView; }
 }

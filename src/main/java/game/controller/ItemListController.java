@@ -39,6 +39,8 @@ public class ItemListController implements ModelListener{
         view.setItems(model);
     }
 
+    public ItemListView getItemListView() { return view; }
+
     /**
      * Függvény, amely kulcs alapján visszaadja a kiválasztott tárgyat.
      *
