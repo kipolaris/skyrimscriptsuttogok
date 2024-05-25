@@ -420,4 +420,17 @@ public class GameEngine extends AbstractObservableModel {
 
         return merged.get(key);
     }
+
+    /**
+     * Függvény egy tárgy megsemmisítésére.
+     *
+     * <p>Mikor egy tárgy elkopik, többé már nem használható.</p>
+     */
+    public void nullifyItem(Item item) {
+        if(item.getDurability() == 0) {
+            if(item.getLocation() != null) { item.getLocation().removeItem(item); }
+            if(item.getOwner() != null) { item.getOwner().loseItem(item); }
+            if(items.containsValue(item)) { items.remove(item.getId()); }
+        }
+    }
 }
