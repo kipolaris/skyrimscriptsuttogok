@@ -17,13 +17,14 @@ import game.model.logging.Suttogo;
 import game.model.entities.Character;
 import game.view.GamePanel;
 
+import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
 
 /**Osztály, amely főmenüként szolgál és a parancsokat kezeli*/
 public class GameMain {
 
-    public static HashMap<String, iCommand> commandMap = new HashMap<>();
+    public static Map<String, iCommand> commandMap = new HashMap<>();
 
     public static boolean isGameStarted = false;
 
@@ -44,8 +45,8 @@ public class GameMain {
     public static String lastOutput = "";
 
     //A roomController és a gamePanel egyelőre dummy szerepet szolgál, javítani kell az itteni működést
-    public static RoomController roomController = new RoomController();
-    public static GamePanel gamePanel = new GamePanel(gameEngine,roomController);
+    //public static RoomController roomController = new RoomController();
+    //public static GamePanel gamePanel = new GamePanel(gameEngine,roomController);
 
     /**Felveszi a parancsokat egy mapra*/
     public static void addAllCommands(){
@@ -193,7 +194,7 @@ public class GameMain {
                 sb.append('\t').append(st.getId()).append('\n');
             }
         }
-        lastOutput = lastOutput + sb.toString();
+        lastOutput = lastOutput + sb;
         if(!areWeTesting) System.out.print(lastOutput);
     }
 
@@ -205,6 +206,4 @@ public class GameMain {
             command.execute(cmd);
         }
     }
-
-    public GamePanel getGamePanel() { return gamePanel; }
 }

@@ -54,18 +54,10 @@ public class Character {
     }
 
     /**
-     * prioritásKomparátor. Ez valósítja meg, hogy hiearchia szerint használja védelemre
+     * prioritásKomparátor. Ez valósítja meg, hogy hierarchia szerint használja védelemre
      * a tárgyakat a karakter.
      */
-    protected static Comparator<Item> priorityComparator = (o1, o2) -> {
-        int priorityCheck = Integer.compare(o1.getPriority(), o2.getPriority());
-
-        if(priorityCheck!=0){
-            return priorityCheck;
-        }
-
-        return Integer.compare(o1.getDurability(), o1.getDurability());
-    };
+    protected static Comparator<Item> priorityComparator = Comparator.comparingInt(Item::getPriority).thenComparingInt(Item::getDurability);
 
     /**
      * Szoba/karakter tartózkodási helyének lekérdezése

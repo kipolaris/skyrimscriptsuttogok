@@ -30,9 +30,10 @@ public class Professor extends Character{
     /**
      * Egy professzor körének menete
      */
+    @Override
     public void doRound(){
         Random rand = new Random();
-        Predicate<Boolean> p = (a) -> rand.nextInt(2)==1;
+        Predicate<Boolean> p = a -> rand.nextInt(2)==1;
         ArrayList<Door> doors = this.location.getDoors();
         Door d;
         Room prevloc = location;

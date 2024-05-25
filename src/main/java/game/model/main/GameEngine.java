@@ -47,10 +47,6 @@ public class GameEngine extends AbstractObservableModel {
 
     private Map<String, Cleaner> cleaners = null;
 
-    private Queue<Queue<Character>> turns = null;
-
-    private Queue<Character> studentTurns = null;
-
     private Queue<Character> aiTurns = null;
 
     /**Visszaadja az isAInext értékét*/
@@ -351,9 +347,8 @@ public class GameEngine extends AbstractObservableModel {
                 s.resetActions();
             }
 
-            turns = new ArrayDeque<>();
-
-            studentTurns = new ArrayDeque<>();
+            Queue<Queue<Character>> turns = new ArrayDeque<>();
+            Queue<Character> studentTurns = new ArrayDeque<>();
             aiTurns = new ArrayDeque<>();
 
             turns.add(studentTurns);
@@ -378,7 +373,7 @@ public class GameEngine extends AbstractObservableModel {
      * Eltávolít egy hallgatót a listából
      */
     public void studentDied(Student s) {
-        students.remove(s);
+        students.remove(s.getId());
     }
 
     /**
@@ -417,6 +412,7 @@ public class GameEngine extends AbstractObservableModel {
         HashMap<String, Character> merged = new HashMap<>();
 
         merged.putAll(students);
+        merged.putAll(professors);
         merged.putAll(cleaners);
 
         return merged.get(key);
