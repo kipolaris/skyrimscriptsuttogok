@@ -3,9 +3,11 @@ package game.model.entities.building;
 import game.model.entities.Character;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
+import game.model.main.GameMain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**A pályaépítő osztálya*/
@@ -15,8 +17,8 @@ public class BuildingAI {
     public static void setRoomID(int roomID) {
         BuildingAI.roomID = roomID;
     }
-    private static int roomID;
-    private Map<String, Room> labyrinth = new HashMap<>();
+    private static int roomID = 0;
+    private final Map<String, Room> labyrinth = new HashMap<>();
 
     /**Visszaad egy egyedi szoba azonosítót*/
     public static int getRoomID() {
@@ -26,12 +28,6 @@ public class BuildingAI {
     /**Visszaadja a szobák egy kulccsal ellátott osztályát*/
     public Map<String, Room> getLabyrinth(){
         return labyrinth;
-    }
-
-    /**Paraméter nélküli konstruktor*/
-    public void BuildingAI() {
-        roomID = 0;
-        labyrinth = new HashMap<String, Room>();
     }
 
     /**
@@ -89,6 +85,8 @@ public class BuildingAI {
             this.addRoom(uj);
             this.removeRoom(r1);
             this.removeRoom(r2);
+
+            Suttogo.note(labyrinth.size() + " rooms in labyrinth");
         }
     }
 
@@ -126,9 +124,13 @@ public class BuildingAI {
             Room uj1 = new Room(r1.getCapacity()/2, r1.getGassed(), r1.getCursed(), ajto1, targy1, ember1);
             Room uj2 = new Room(r1.getCapacity()/2, r1.getGassed(), r1.getCursed(), ajto2, targy2, ember2);
 
+            GameMain.perform("neighbour "+uj1.getId()+" "+uj2.getId());
+
             this.addRoom(uj1);
             this.addRoom(uj2);
             this.removeRoom(r1);
+
+            Suttogo.note(labyrinth.size() + " rooms in labyrinth");
         }
     }
 
@@ -139,7 +141,17 @@ public class BuildingAI {
 
     /**Eltávolítunk egy szobát a labirintusból*/
     public void removeRoom(Room r1){
-        labyrinth.remove(r1);
+        labyrinth.remove(r1.getId());
+
+        List<Door> doorsToRemove = new ArrayList<>();
+
+        for(Door d : r1.getDoors()){
+            Room r2 = d.getNeighbour(r1);
+            r2.getDoors().remove(d);
+            doorsToRemove.add(d);
+        }
+
+        r1.getDoors().removeAll(doorsToRemove);
     }
 
     /**Visszaad egy szabad szobát, ami nem egyezik a megadott szobával*/

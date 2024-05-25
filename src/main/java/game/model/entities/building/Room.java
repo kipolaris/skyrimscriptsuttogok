@@ -88,7 +88,22 @@ public class Room {
         cursed = cu;
         doors = ds != null ? new ArrayList<>(ds) : new ArrayList<>();
         items = is != null ? new ArrayList<>(is) : new ArrayList<>();
+
+        //ugye, mint a tárgyaknál, mind a karaktereknél is be kell állítani a helyüket
+        if(is != null) {
+            for (Item item : is) {
+                item.setLocation(this);
+            }
+        }
+
         characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
+
+        if(cs != null) {
+            for(Character character : cs){
+                character.setLocation(this);
+            }
+        }
+
         wasCleaned = false;
         sticky = false;
         visitors = 0;

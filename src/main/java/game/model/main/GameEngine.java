@@ -97,6 +97,8 @@ public class GameEngine extends AbstractObservableModel {
 
     public static int numberOfPlayers = 1;
 
+    public static int buildingAIcommandsDone = 0;
+
     //GETTERS - SETTERS -----------------------------
 
     /**Visszaadja a hallgatók egy kulccsal ellátott listáját*/
@@ -225,7 +227,8 @@ public class GameEngine extends AbstractObservableModel {
                 Room r2 = allrooms.get(n2);
 
                 //random értétek meghatározására szolgáló predikátum
-                Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
+                Predicate<Boolean> pa = (a) -> r.nextInt(2) == 1;
+                Predicate<Boolean> p = (a) -> true;
 
                 if (p.test(true)) {
                     builder.mergeRooms(r1, r2);
@@ -256,9 +259,19 @@ public class GameEngine extends AbstractObservableModel {
                     }
                 }
             } else {
-                //#todo: manuális parancsok mergere és splitre!
+                buildingAIcommandsDone = 0;
+                Suttogo.info("now you MUST use buildingAI commands twice");
             }
-            playOnePhase();
+        }
+    }
+
+    public void controlBuildingAI(){
+        if(buildingAIcommandsDone < 2){
+            Suttogo.note("buildingAIcommandsDone: "+buildingAIcommandsDone);
+            buildingAIcommandsDone++;
+            if(buildingAIcommandsDone==2) playOnePhase();
+        }else{
+            Suttogo.error("You have already used buildingAI commands twice!");
         }
     }
 
@@ -288,9 +301,11 @@ public class GameEngine extends AbstractObservableModel {
                 GameMain.perform("student");
                 GameMain.perform("roomaddchar Student"+i+" Room0");
             }
-
+            //#todo: professort visszatenni
+            /**
             GameMain.perform("professor");
             GameMain.perform("roomaddchar Professor0 Room1");
+             **/
 
             GameMain.perform("ffp2");                    //FFP20
             GameMain.perform("roomadditem FFP20 Room0");

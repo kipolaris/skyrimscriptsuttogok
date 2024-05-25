@@ -24,7 +24,7 @@ public class Suttogo {
         NONE, INFO, NOTE, ERROR
     }
 
-    private static Level level = Level.NOTE;
+    private static Level level = Level.INFO;
 
     /**
      * Method to set the logging level.

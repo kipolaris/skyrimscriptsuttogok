@@ -84,6 +84,8 @@ public class GameMain {
         commandMap.put("unpair", new Unpair());
         commandMap.put("out", new Out());
         commandMap.put("startgame", new StartGame());
+        commandMap.put("merge", new MergeRooms());
+        commandMap.put("split", new SplitRoom());
     }
 
     public static void main(String[] args) throws Exception {
