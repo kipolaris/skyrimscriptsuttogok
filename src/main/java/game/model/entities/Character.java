@@ -259,4 +259,11 @@ public class Character {
     public void noMoreActions(){
         Suttogo.error("You have no more actions!");
     }
+
+    /**
+     * Függvény egy tárgy megsemmisítésére.
+     *
+     * <p>Mikor egy tárgy elkopik, többé már nem használható.</p>
+     */
+    //public void 
 }

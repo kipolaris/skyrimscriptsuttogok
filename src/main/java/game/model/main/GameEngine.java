@@ -286,8 +286,22 @@ public class GameEngine extends AbstractObservableModel {
 
             GameMain.perform("ffp2");                    //FFP20
             GameMain.perform("roomadditem FFP20 Room0");
-            GameMain.perform("sliderule");              //SlideRule1
-            GameMain.perform("roomadditem SlideRule1 Room1");
+            GameMain.perform("airfreshener");                    //Airfreshener1
+            GameMain.perform("roomadditem Airfreshener1 Room0");
+            GameMain.perform("camembert");                    //Camembert2
+            GameMain.perform("roomadditem Camembert2 Room0");
+            GameMain.perform("cups");                    //Cups3
+            GameMain.perform("roomadditem Cups3 Room0");
+            GameMain.perform("rag");                    //Rag4
+            GameMain.perform("roomadditem Rag4 Room0");
+            GameMain.perform("transistor");                    //Transistor5
+            GameMain.perform("roomadditem Transistor5 Room0");
+            GameMain.perform("transistor");                    //Transistor6
+            GameMain.perform("roomadditem Transistor6 Room0");
+            GameMain.perform("tvsz");                    //TVSZ7
+            GameMain.perform("roomadditem TVSZ7 Room0");
+            GameMain.perform("sliderule");              //SlideRule8
+            GameMain.perform("roomadditem SlideRule8 Room1");
         }
 
         GameMain.isGameInitialized = true;

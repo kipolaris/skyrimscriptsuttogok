@@ -4,6 +4,7 @@ import game.model.entities.items.Item;
 import game.model.entities.items.Transistor;
 import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
+import game.model.main.GameMain;
 
 import java.util.PriorityQueue;
 
@@ -75,5 +76,6 @@ public class Student extends Character{
             i.decreaseDurability();
             actions--;
         } else noMoreActions();
+        GameMain.gameEngine.notifyEveryone();
     }
 }

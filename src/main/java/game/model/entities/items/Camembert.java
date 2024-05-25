@@ -25,7 +25,6 @@ public class Camembert extends Item{
         Suttogo.info("activate()");
         Room loc = owner.getLocation();
         loc.setGassed(true);
-        durability = 0;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
     }

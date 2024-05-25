@@ -119,7 +119,6 @@ public class MenuController implements ModelListener{
                 infoView.showInfo("Item used", 2000);
                 System.out.println("Item used");
             }
-
         }
     }
 
