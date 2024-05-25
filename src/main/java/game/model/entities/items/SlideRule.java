@@ -44,7 +44,6 @@ public class SlideRule extends Item{
      */
     @Override
     public boolean decreaseDurability() {
-
         return false;
     }
 

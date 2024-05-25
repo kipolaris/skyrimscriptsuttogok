@@ -68,7 +68,6 @@ public class Student extends Character{
     public void useItem(Item i) {
         if(actions>0) {
             i.activate();
-            i.decreaseDurability();
             actions--;
         } else noMoreActions();
         GameMain.gameEngine.notifyEveryone();

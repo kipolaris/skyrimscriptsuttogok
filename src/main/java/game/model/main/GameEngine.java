@@ -427,10 +427,8 @@ public class GameEngine extends AbstractObservableModel {
      * <p>Mikor egy tárgy elkopik, többé már nem használható.</p>
      */
     public void nullifyItem(Item item) {
-        if(item.getDurability() == 0) {
-            if(item.getLocation() != null) { item.getLocation().removeItem(item); }
-            if(item.getOwner() != null) { item.getOwner().loseItem(item); }
-            if(items.containsValue(item)) { items.remove(item.getId()); }
-        }
+        if(item.getLocation() != null) { item.getLocation().removeItem(item); }
+        if(item.getOwner() != null) { item.getOwner().loseItem(item); }
+        if(items.containsValue(item)) { items.remove(item.getId()); }
     }
 }
