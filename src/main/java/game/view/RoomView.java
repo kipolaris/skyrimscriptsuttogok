@@ -251,4 +251,9 @@ public class RoomView extends JPanel{
         public int getY() { return y; }
         public float getOpacity() { return opacity; }
     }
+
+    /**
+     * Függvény, amely visszaadja, a szoba listájából kiválasztott tárgyat
+     */
+    public String getSelectedItem() { return itemListView.getSelectedItem(); }
 }
