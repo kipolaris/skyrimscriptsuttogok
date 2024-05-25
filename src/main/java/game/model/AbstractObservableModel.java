@@ -2,6 +2,7 @@ package game.model;
 
 import game.controller.ModelListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public abstract class AbstractObservableModel implements ObservableModel {
     /**
      * A megfigyelők listája.
      */
-    protected List<ModelListener> listeners;
+    protected List<ModelListener> listeners = new ArrayList<>();
 
     @Override
     public void addListener(ModelListener listener) {

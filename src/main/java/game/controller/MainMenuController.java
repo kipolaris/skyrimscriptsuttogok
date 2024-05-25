@@ -1,8 +1,10 @@
 package game.controller;
 
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 import game.model.main.SaverLoader;
+import game.view.GamePanel;
 import game.view.MainMenuView;
 
 import javax.swing.event.DocumentEvent;
@@ -53,7 +55,7 @@ public class MainMenuController implements ModelListener{
         });
 
         // A játék választó lista és a szövegmező feltöltése
-        onModelChange();
+        //onModelChange();
     }
 
     /**
@@ -64,9 +66,9 @@ public class MainMenuController implements ModelListener{
         try {
             int numberOfPlayers = Integer.parseInt(playersText);
             gameEngine.numberOfPlayers = numberOfPlayers;
-            System.out.println("Number of players set to " + numberOfPlayers);
+            Suttogo.note("Number of players set to " + numberOfPlayers);
         } catch (NumberFormatException ex) {
-            System.err.println("Invalid number of players: " + playersText);
+            Suttogo.error("Invalid number of players: " + playersText);
         }
     }
 
@@ -103,9 +105,12 @@ public class MainMenuController implements ModelListener{
                 int numberOfPlayers = Integer.parseInt(playersText);
                 GameMain.perform("newgame");
                 GameMain.perform("startgame");
-                System.out.println("New game started with " + numberOfPlayers + " players.");
+                GameMain.gamePanel.gaming();
+                GameMain.gameEngine.notifyEveryone();
+                GamePanel.getCardLayout().show(GamePanel.getCardPanel(), "play");
+                Suttogo.info("New game started with " + numberOfPlayers + " players.");
             } catch (NumberFormatException ex) {
-                System.err.println("Invalid number of players: " + playersText);
+                Suttogo.error("Invalid number of players: " + playersText);
             }
         }
     }
@@ -123,8 +128,9 @@ public class MainMenuController implements ModelListener{
         public void actionPerformed(ActionEvent e) {
             String selectedGame = (String) view.getGameComboBox().getSelectedItem();
             if (selectedGame != null) {
-                saverLoader.loadGame(selectedGame); // Assume loadGame(String gameName) loads a game
+                saverLoader.loadGame(selectedGame);
                 System.out.println("Game " + selectedGame + " loaded.");
+                GameMain.gamePanel.gaming();
             }
         }
     }

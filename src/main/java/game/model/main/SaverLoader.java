@@ -49,16 +49,16 @@ public class SaverLoader {
             try (PrintWriter writer = new PrintWriter(new FileWriter(saved))) {
                 writer.println("newgame");
                 writer.println("random-nogo");
-                /**
-                 * Szobák elmentése
+                /*
+                  Szobák elmentése
                  */
                 writer.println("Room-list");
                 Map<String, Room> lab = bai.getLabyrinth();
                 for (String s: lab.keySet()){
                     writer.println(s);
                 }
-                /**
-                 * Szobákat létrehozó commandok
+                /*
+                  Szobákat létrehozó commandok
                  */
                 int index = bai.getRoomID();
                 writer.println("Room-make");
@@ -77,8 +77,8 @@ public class SaverLoader {
                         }
                     }else writer.println("room 0");
                 }
-                /**
-                 * Szobák összekötése ajtókkal, szomszédok inicializálása
+                /*
+                  Szobák összekötése ajtókkal, szomszédok inicializálása
                  */
                 writer.println("Neighbours");
                 List<Door> doors = new ArrayList<>();
@@ -91,8 +91,8 @@ public class SaverLoader {
                 for (Door d : doors){
                     writer.println(d.create());
                 }
-                /**
-                 * Takarítók elmentése
+                /*
+                  Takarítók elmentése
                  */
                 writer.println("Cleaner-list");
                 Map<String, Cleaner> cl = g.getCleaners();
@@ -100,8 +100,8 @@ public class SaverLoader {
                     writer.println(s);
                 }
                 index = g.getCleanerID();
-                /**
-                 * Takarítókat létrehozó commandok
+                /*
+                  Takarítókat létrehozó commandok
                  */
                 writer.println("Cleaner-make");
                 for (int i=0; i!=index; i++){
@@ -112,8 +112,8 @@ public class SaverLoader {
                         else writer.println("cleaner");
                     }else writer.println("cleaner");
                 }
-                /**
-                 * Professzorok elmentése
+                /*
+                  Professzorok elmentése
                  */
                 writer.println("Prof-list");
                 Map<String, Professor> pl = g.getProfessors();
@@ -121,8 +121,8 @@ public class SaverLoader {
                     writer.println(s);
                 }
                 index = g.getProfessorID();
-                /**
-                 * Professzorokat létrehozó commandok
+                /*
+                  Professzorokat létrehozó commandok
                  */
                 writer.println("Prof-make");
                 for (int i=0; i!=index; i++){
@@ -133,8 +133,8 @@ public class SaverLoader {
                         else writer.println("professor");
                     }else writer.println("professor");
                 }
-                /**
-                 * Hallgatók elmentése
+                /*
+                  Hallgatók elmentése
                  */
                 writer.println("Student-list");
                 Map<String, Student> sl = g.getStudents();
@@ -142,8 +142,8 @@ public class SaverLoader {
                     writer.println(s);
                 }
                 index = g.getStudentID();
-                /**
-                 * Hallgatókat létrehozó commandok
+                /*
+                  Hallgatókat létrehozó commandok
                  */
                 writer.println("Student-make");
                 for (int i=0; i!=index; i++){
@@ -154,8 +154,8 @@ public class SaverLoader {
                         else writer.println("student");
                     }else writer.println("student");
                 }
-                /**
-                 * Tárgyak elmentése
+                /*
+                  Tárgyak elmentése
                  */
                 writer.println("Item-list");
                 Map<String, Item> il = g.getItems();
@@ -163,8 +163,8 @@ public class SaverLoader {
                     writer.println(s);
                 }
                 index = g.getItemID();
-                /**
-                 * Tárgyakat létrehozó commandok
+                /*
+                  Tárgyakat létrehozó commandok
                  */
                 boolean is = false;
                 writer.println("Item-make");
@@ -175,13 +175,13 @@ public class SaverLoader {
                             is=true;
                         }
                     }
-                    /**
-                     * Ha ez a szám már megsemmisült, akkor is legyen ilyen számú, max a végén ki lesz törölve
+                    /*
+                      Ha ez a szám már megsemmisült, akkor is legyen ilyen számú, max a végén ki lesz törölve
                      */
                     if (!is) writer.println("ffp2");
                 }
-                /**
-                 * Karakterek elhelyezése a szobákba
+                /*
+                  Karakterek elhelyezése a szobákba
                  */
                 writer.println("Char-place");
                 Map<String, Character> chars = new HashMap<>();
@@ -194,8 +194,8 @@ public class SaverLoader {
                         writer.println("roomaddchar " + s + " " + r.getId());
                     }
                 }
-                /**
-                 * Tranzisztorok párosítása
+                /*
+                  Tranzisztorok párosítása
                  */
                 writer.println("Transistors");
                 Map<String, Item> transistors = new HashMap<>();
@@ -206,8 +206,8 @@ public class SaverLoader {
                         transistors.put(i.getId(), i);
                     }
                 }
-                /**
-                 * Tárgyak elhelyezése karaktereknél
+                /*
+                  Tárgyak elhelyezése karaktereknél
                  */
                 writer.println("Item-to-char");
                 for (String s : chars.keySet()){
@@ -217,8 +217,8 @@ public class SaverLoader {
                         }
                     }
                 }
-                /**
-                 * Tárgyak elhelyezése szobákban
+                /*
+                  Tárgyak elhelyezése szobákban
                  */
                 writer.println("Item-to-room");
                 for (Room r : lab.values()){
@@ -229,9 +229,9 @@ public class SaverLoader {
                         }
                     }
                 }
-                /**
-                 * Ha el van indítva a játék, akkor ide van elmentve a jelenlegi játékos
-                 * A jelenlegi játékos még fennmaradó akciópontjai
+                /*
+                  Ha el van indítva a játék, akkor ide van elmentve a jelenlegi játékos
+                  A jelenlegi játékos még fennmaradó akciópontjai
                  */
                 writer.println("Current character + randomness");
                 if (g.getCurrent()!=null){
@@ -241,8 +241,8 @@ public class SaverLoader {
                     writer.println("null");
                     writer.println("null");
                 }
-                /**
-                 * A játék randomságát inicializáló command
+                /*
+                  A játék randomságát inicializáló command
                  */
                 if (g.getRandom()) writer.println("random-go");
                 else writer.println("random-nogo");
@@ -267,90 +267,90 @@ public class SaverLoader {
             try {
                 reader = new BufferedReader(new FileReader(path));
                 String line=reader.readLine();
-                /**
-                 * Játék inicializálása a newgame-mel, valamint a randomság kikapcsolásával
+                /*
+                  Játék inicializálása a newgame-mel, valamint a randomság kikapcsolásával
                  */
                 while (!(line.equals("Room-list"))) {
                     perform(line);
                     line = reader.readLine();
                 }
-                /**
-                 * Játékban résztvevő szobák elmentése
+                /*
+                  Játékban résztvevő szobák elmentése
                  */
                 List<String> rooms = new ArrayList<>();
                 while (!(line.equals("Room-make"))) {
                     rooms.add(line);
                     line=reader.readLine();
                 }
-                /**
-                 * Szobák létrehozása
+                /*
+                  Szobák létrehozása
                  */
                 while (!(line.equals("Cleaner-list"))) {
                     perform(line);
                     line = reader.readLine();
                 }
-                /**
-                 * Játékban résztvevő takarítók elmentése
+                /*
+                  Játékban résztvevő takarítók elmentése
                  */
                 List<String> cleaners = new ArrayList<>();
                 while (!(line.equals("Cleaner-make"))) {
                     cleaners.add(line);
                     line=reader.readLine();
                 }
-                /**
-                 * Takarítók létrehozása
+                /*
+                  Takarítók létrehozása
                  */
                 while (!(line.equals("Prof-list"))) {
                     perform(line);
                     line = reader.readLine();
                 }
-                /**
-                 * Játékban résztvevő professzorok elmentése
+                /*
+                  Játékban résztvevő professzorok elmentése
                  */
                 List<String> profs = new ArrayList<>();
                 while (!(line.equals("Prof-make"))) {
                     profs.add(line);
                     line=reader.readLine();
                 }
-                /**
-                 * Professzorok létrehozása
+                /*
+                  Professzorok létrehozása
                  */
                 while (!(line.equals("Student-list"))) {
                     perform(line);
                     line = reader.readLine();
                 }
-                /**
-                 * Játékban résztvevő hallgatók elmentése
+                /*
+                  Játékban résztvevő hallgatók elmentése
                  */
                 List<String> students = new ArrayList<>();
                 while (!(line.equals("Student-make"))) {
                     students.add(line);
                     line=reader.readLine();
                 }
-                /**
-                 * Hallgatók létrehozása
+                /*
+                  Hallgatók létrehozása
                  */
                 while (!(line.equals("Item-list"))) {
                     perform(line);
                     line = reader.readLine();
                 }
-                /**
-                 * Még játékban levő tárgyak elmentése
+                /*
+                  Még játékban levő tárgyak elmentése
                  */
                 List<String> items = new ArrayList<>();
                 while (!(line.equals("Item-make"))) {
                     items.add(line);
                     line=reader.readLine();
                 }
-                /**
-                 * Tárgyak létrehozása
+                /*
+                  Tárgyak létrehozása
                  */
                 while (!(line.equals("Current character + randomness"))) {
                     perform(line);
                     line = reader.readLine();
                 }
-                /**
-                 * Jelenlegi állás betöltése, ha el volt indítva a játék
+                /*
+                  Jelenlegi állás betöltése, ha el volt indítva a játék
                  */
                 String curr = reader.readLine();
                 String actions = reader.readLine();
@@ -358,17 +358,17 @@ public class SaverLoader {
                     g.setCurrent(curr);
                     g.getCurrent().setActions(Integer.parseInt(actions));
                 }
-                /**
-                 * Random beállítása
+                /*
+                  Random beállítása
                  */
                 perform(reader.readLine());
-                /**
-                 * A számozás miatt létre kellhetett hozni plusz karaktereket, hogy a számozás jól sikerüljön
-                 * Persze lehet, hogy ezek a karakterek már korábban a játék során megsemmisültek
-                 * Ezeket a karaktereket töröljük most az ellenőrzőlisták segítségével
+                /*
+                  A számozás miatt létre kellhetett hozni plusz karaktereket, hogy a számozás jól sikerüljön
+                  Persze lehet, hogy ezek a karakterek már korábban a játék során megsemmisültek
+                  Ezeket a karaktereket töröljük most az ellenőrzőlisták segítségével
                  */
-                /**
-                 * Ha bármelyik takarító meghalt volna a játék során
+                /*
+                  Ha bármelyik takarító meghalt volna a játék során
                  */
                 List<String> ellenor = new ArrayList<>();
                 for (String s: cleaners){
@@ -376,8 +376,8 @@ public class SaverLoader {
                 }
                 for (String s : ellenor)
                     g.getCleaners().remove(s);
-                /**
-                 * Ha bármelyik hallgató meghalt volna a játék során
+                /*
+                  Ha bármelyik hallgató meghalt volna a játék során
                  */
                 ellenor.clear();
                 for (String s: students){
@@ -385,8 +385,8 @@ public class SaverLoader {
                 }
                 for (String s : ellenor)
                     g.getStudents().remove(s);
-                /**
-                 * Ha bármelyik professzor meghalt volna a játék során
+                /*
+                  Ha bármelyik professzor meghalt volna a játék során
                  */
                 ellenor.clear();
                 for (String s: profs){
@@ -394,10 +394,10 @@ public class SaverLoader {
                 }
                 for (String s : ellenor)
                     g.getProfessors().remove(s);
-                /**
-                 * A számozás miatt létre kellhetett hozni plusz tárgyakat, hogy a számozás jól sikerüljön
-                 * Persze lehet, hogy ezek a tárgyak már korábban a játék során megsemmisültek
-                 * Ezeket a tárgyakat töröljük most az ellenőrzőlisták segítségével
+                /*
+                  A számozás miatt létre kellhetett hozni plusz tárgyakat, hogy a számozás jól sikerüljön
+                  Persze lehet, hogy ezek a tárgyak már korábban a játék során megsemmisültek
+                  Ezeket a tárgyakat töröljük most az ellenőrzőlisták segítségével
                  */
                 ellenor.clear();
                 for (String s: items){
@@ -410,7 +410,6 @@ public class SaverLoader {
                 else Suttogo.error("Hiba a beolvasás közben!");
             }
             Suttogo.info("Betoltes sikeres.");
-            Suttogo.note("Betoltes sikeres.");
         }catch(Exception e){
             Suttogo.error("Hiba betoltes kozben!");
             e.printStackTrace();

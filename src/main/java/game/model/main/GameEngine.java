@@ -143,6 +143,10 @@ public class GameEngine extends AbstractObservableModel {
         return builder;
     }
 
+    public Item getItem(String key){
+        return items.get(key);
+    }
+
     /**
      * Ellenőrzi, hogy van-e még akciója a karakternek a körben.
      * Ha nincs, akkor meghívja a next() függvényt.
@@ -182,7 +186,7 @@ public class GameEngine extends AbstractObservableModel {
     public void next() {
         if (chart.hasNext()) {
             current = chart.next();
-            Suttogo.note("current: "+current.getId());
+            Suttogo.info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
                 Suttogo.note("isAInext was set to true");
                 isAInext = true;
@@ -196,6 +200,7 @@ public class GameEngine extends AbstractObservableModel {
             nextQueue();
             Suttogo.note("switched to next queue");
         }
+        notifyEveryone();
     }
 
     /**
@@ -254,7 +259,6 @@ public class GameEngine extends AbstractObservableModel {
      * Ahhoz a startgame parancsot használd (vagyis a playOnePhase indítja).
      */
     public void initGame() {
-        Suttogo.info("initGame()");
         students = new HashMap<>();
         professors = new HashMap<>();
         cleaners = new HashMap<>();
@@ -282,8 +286,22 @@ public class GameEngine extends AbstractObservableModel {
 
             GameMain.perform("ffp2");                    //FFP20
             GameMain.perform("roomadditem FFP20 Room0");
-            GameMain.perform("sliderule");              //SlideRule1
-            GameMain.perform("roomadditem SlideRule1 Room1");
+            GameMain.perform("airfreshener");                    //Airfreshener1
+            GameMain.perform("roomadditem Airfreshener1 Room0");
+            GameMain.perform("camembert");                    //Camembert2
+            GameMain.perform("roomadditem Camembert2 Room0");
+            GameMain.perform("cups");                    //Cups3
+            GameMain.perform("roomadditem Cups3 Room0");
+            GameMain.perform("rag");                    //Rag4
+            GameMain.perform("roomadditem Rag4 Room0");
+            GameMain.perform("transistor");                    //Transistor5
+            GameMain.perform("roomadditem Transistor5 Room0");
+            GameMain.perform("transistor");                    //Transistor6
+            GameMain.perform("roomadditem Transistor6 Room0");
+            GameMain.perform("tvsz");                    //TVSZ7
+            GameMain.perform("roomadditem TVSZ7 Room0");
+            GameMain.perform("sliderule");              //SlideRule8
+            GameMain.perform("roomadditem SlideRule8 Room1");
         }
 
         GameMain.isGameInitialized = true;
@@ -293,8 +311,6 @@ public class GameEngine extends AbstractObservableModel {
      * Ellenőrzi, hogy kihaltak-e a Studentek
      */
     public boolean studentsExtinct() {
-        Suttogo.info("studentsExtinct()");
-        Suttogo.info("\treturn boolean");
         return students.isEmpty();
     }
 
@@ -302,7 +318,6 @@ public class GameEngine extends AbstractObservableModel {
      * Leállítja a játékot
      */
     public void endGame() {
-        Suttogo.info("endGame()");
         students.clear();
         professors.clear();
         items.clear();
@@ -316,7 +331,6 @@ public class GameEngine extends AbstractObservableModel {
      * A játékot újból inicializálja
      */
     public void refresh() {
-        Suttogo.info("refresh()");
         students = new HashMap<>();
         professors = new HashMap<>();
         builder = new BuildingAI();
@@ -330,7 +344,6 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void playOnePhase() {
         if (!studentsExtinct() || !GameMain.isGameStarted) {
-            Suttogo.info("playOnePhase()");
 
             Suttogo.note("-------- new Phase initiated! ------------\n");
 
@@ -365,7 +378,6 @@ public class GameEngine extends AbstractObservableModel {
      * Eltávolít egy hallgatót a listából
      */
     public void studentDied(Student s) {
-        Suttogo.info("studentDied(Student)");
         students.remove(s);
     }
 
@@ -405,9 +417,19 @@ public class GameEngine extends AbstractObservableModel {
         HashMap<String, Character> merged = new HashMap<>();
 
         merged.putAll(students);
-        merged.putAll(professors);
         merged.putAll(cleaners);
 
         return merged.get(key);
+    }
+
+    /**
+     * Függvény egy tárgy megsemmisítésére.
+     *
+     * <p>Mikor egy tárgy elkopik, többé már nem használható.</p>
+     */
+    public void nullifyItem(Item item) {
+        if(item.getLocation() != null) { item.getLocation().removeItem(item); }
+        if(item.getOwner() != null) { item.getOwner().loseItem(item); }
+        if(items.containsValue(item)) { items.remove(item.getId()); }
     }
 }

@@ -16,15 +16,13 @@ public class Rag extends Item{
 
     /**Prioritási listán nem számít*/
     public int getPriority(){
-        Suttogo.info("getPriority()");
-        Suttogo.info("\treturn -1");
+
         return -1;
     }
 
     /**Aktiválja a tárgyat, eldobódik, és a tanárokra ezután veszélyes lesz*/
     @Override
     public void activate() {
-        Suttogo.info("activate()");
         this.activated = true;
         owner.dropItem(this);
         owner.setActions(1);
@@ -36,22 +34,18 @@ public class Rag extends Item{
     /**A tárgy élettartamát csökkenti. Ha aktív a tárgy, akkor körönként egy életet veszt.*/
     @Override
     public boolean decreaseDurability(){
-        Suttogo.info("decreaseDurability()");
         this.durability--;
-
         if (this.durability <= 0) {
-            Suttogo.info("\treturn false");
+            gameEngine.nullifyItem(this);
             return false;
         }
-        Suttogo.info("\treturn true");
         return true;
     }
 
     /**Párosíthatóság lekérdezése. Nem párosítható.*/
     @Override
     public boolean isPairable() {
-        Suttogo.info("isPairable()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 

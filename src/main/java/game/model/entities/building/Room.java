@@ -100,7 +100,6 @@ public class Room {
 
     /**Beállítja a szoba ajtajait*/
     public void setDoors(List<Door> ds) {
-        Suttogo.info("setDoors(ArrayList<Door>)");
         for(Door d: ds) {
             doors.add(d);
         }
@@ -108,35 +107,27 @@ public class Room {
 
     /**Hozzáad egy ajtót a szobához*/
     public void addDoor(Door door) {
-        Suttogo.info("addDoor(Door)");
         doors.add(door);
     }
 
     /**Lekérdezi a szoba ajtóit*/
     public ArrayList<Door> getDoors() {
-        Suttogo.info("getDoors()");
-        Suttogo.info("\treturn ArrayList<Door>");
         return doors;
     }
 
     /**Lehelyez egy tárgyat a szobában*/
     public void addItem(Item item) {
-        Suttogo.info("addDoor(Item)");
         items.add(item);
     }
 
     /**Eltávolít egy tárgyat a szobából*/
     public Item removeItem(Item item) {
         items.remove(item);
-        Suttogo.info("removeItem(Item)");
-        Suttogo.info("\treturn null");
         return null;
     }
 
     /**Lekérdezi a szobában lévő tárgyakat*/
     public ArrayList<Item> getItems() {
-        Suttogo.info("getItems()");
-        Suttogo.info("\treturn ArrayList<Item>");
         return items;
     }
 
@@ -147,7 +138,6 @@ public class Room {
 
     /**Hozzáad egy karaktert a szobához*/
     public boolean addCharacter(Character character) {
-        Suttogo.info("addCharacter(Character)");
         if(!isFull()){
             Room room = character.getLocation();
             if(room!=null) room.removeCharacter(character);
@@ -161,14 +151,11 @@ public class Room {
 
     /**Eltávolít egy karaktert a szobából*/
     public void removeCharacter(Character character) {
-        Suttogo.info("removeCharacter(Character)");
         characters.remove(character);
     }
 
     /**Lekérdezi a szobában lévő karaktereket*/
     public ArrayList<Character> getCharacters() {
-        Suttogo.info("getCharacters()");
-        Suttogo.info("\treturn ArrayList<Character>");
         return characters;
     }
 
@@ -180,8 +167,6 @@ public class Room {
                 students.add((Student) character);
             }
         }
-        Suttogo.info("getStudents()");
-        Suttogo.info("\treturn ArrayList<Student>");
         return students;
     }
 
@@ -193,14 +178,11 @@ public class Room {
                 professors.add((Professor) character);
             }
         }
-        Suttogo.info("getProfessors()");
-        Suttogo.info("\treturn ArrayList<Professor>");
         return professors;
     }
 
     /**Megbénítja a szobában lévő oktatókat*/
     public void paralyzeProfessors() {
-        Suttogo.info("paralyzeProfessors()");
         for (Character character : characters) {
             if (character.getId().startsWith("Professor")) {
                 character.setParalyzed(true);
@@ -210,13 +192,11 @@ public class Room {
 
     /**Elgázosítja a szobát*/
     public void setGassed(boolean g) {
-        Suttogo.info("setGassed()");
         gassed = g;
     }
 
     /**Megöli a szobában tartozkodó hallgatókat*/
     public void killStudents() {
-        Suttogo.info("killStudents()");
         for (Character character : characters) {
             if (character instanceof Student) {
                 character.die();
@@ -226,22 +206,16 @@ public class Room {
 
     /**Lekérdezi, hogy gázos-e a szoba*/
     public boolean getGassed() {
-        Suttogo.info("getGassed()");
-        Suttogo.info("\treturn boolean");
         return gassed;
     }
 
     /**Lekérdezi, hogy átkozott-e a szoba*/
     public boolean getCursed() {
-        Suttogo.info("getCursed()");
-        Suttogo.info("\treturn boolean");
         return cursed;
     }
 
     /**Lekérdezi a szoba kapacitását*/
     public int getCapacity() {
-        Suttogo.info("getCapacity()");
-        Suttogo.info("\treturn int");
         return capacity;
     }
 

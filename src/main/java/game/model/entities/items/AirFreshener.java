@@ -15,33 +15,20 @@ public class AirFreshener extends Item{
 
     /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
     public int getPriority(){
-        Suttogo.info("getPriority()");
-        Suttogo.info("\treturn -1");
         return -1;
     }
 
     @Override
     public void activate() { /** ezzel lehet aktiválni a tárgyat, ezután a szoba megtisztul a mérgesgáztól*/
-        Suttogo.info("activate()");
-        location = owner.getLocation();
-        owner = null;
-        location.setGassed(false);
-        location.setHasAirFreshener();
+        owner.getLocation().setGassed(false);
+        owner.getLocation().setHasAirFreshener();
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
-    }
-
-    @Override
-    public boolean decreaseDurability() {/** hátralévő élettartam csökkentése 1 körrel*/
-        Suttogo.info("decreaseDurability()");
-        Suttogo.info("\treturn false");
-        return false;
+        gameEngine.nullifyItem(this);
     }
 
     @Override
     public boolean isPairable() { /** megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
-        Suttogo.info("isPairable()");
-        Suttogo.info("\treturn false");
         return false;
     }
 

@@ -2,20 +2,23 @@ package game.controller;
 import game.model.entities.Student;
 import game.model.entities.building.Door;
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 import game.view.InfoView;
 import game.view.MenuView;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Control osztály az MenuView osztályhoz.
  */
 public class MenuController implements ModelListener{
     private final MenuView view;
-    private InfoView infoView;
+    private InfoView infoView = new InfoView(); //#todo: implement
     private Student student;
     private final GameEngine gameEngine;
     private final RoomController roomController;
@@ -32,10 +35,8 @@ public class MenuController implements ModelListener{
     public MenuController(MenuView _view, GameEngine _model, RoomController _rc) {
         this.view = _view;
         this.gameEngine = _model;
-        //this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
-
-        itemListController = new ItemListController(view.getItemListView(), student.getItems());
+        //this.infoView = GameMain.gamePanel.getInfoView();
 
         // Add action listeners to the buttons
         view.addDropActionListener(new DropButtonListener());
@@ -43,13 +44,23 @@ public class MenuController implements ModelListener{
         view.addUseActionListener(new UseButtonListener());
         view.addMoveActionListener(new MoveButtonListener());
         view.addSkipActionListener(new SkipButtonListener());
+
+        onModelChange();
     }
 
     @Override
     public void onModelChange() {
-        if(gameEngine.getCurrent() instanceof Student){
-            student = (Student) gameEngine.getCurrent();
-            itemListController.onModelChange();
+        if(gameEngine.getCurrent().getId().startsWith("Student")){
+            if(student == null || !student.equals(gameEngine.getCurrent())) {
+                student = (Student) gameEngine.getCurrent();
+                view.setCurrentStudent(student.getId());
+                itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
+            }
+            else {
+                view.setActionPoints("Akciók: " + student.getActions());
+                itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
+                itemListController.onModelChange();
+            }
         }
     }
 
@@ -114,7 +125,6 @@ public class MenuController implements ModelListener{
                 System.out.println("Item used");
                 infoView.showInfo("Item used", 2000);
             }
-
         }
     }
 
@@ -151,9 +161,7 @@ public class MenuController implements ModelListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             student.skipTurn();
-            infoView.showInfo("Turn skipped", 2000);
-            System.out.println("Turn skipped");
-            infoView.showInfo("Turn skipped", 2000);
+            //infoView.showInfo("Turn skipped", 2000);
         }
     }
 }

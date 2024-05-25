@@ -1,6 +1,8 @@
 package game.controller;
 
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
+import game.model.main.GameMain;
 import game.view.ItemListView;
 
 import java.awt.event.ActionEvent;
@@ -13,7 +15,7 @@ import java.util.Map;
  */
 public class ItemListController implements ModelListener{
     private ItemListView view;
-    private Map<String, Item> model;
+    private List<Item> model;
 
     /**
      * Két paraméteres konstruktor.
@@ -21,22 +23,24 @@ public class ItemListController implements ModelListener{
      * @param view az ItemListView osztály egy példánya
      * @param model egy tárgyakat tartalmazó Map String kulccsal
      */
-    public ItemListController(ItemListView view, Map<String, Item> model) {
+    public ItemListController(ItemListView view, List<Item> model) {
         this.view = view;
         this.model = model;
 
         // Add an action listener to handle selection changes
         view.getComboBox().addActionListener(e -> {
             String selectedItem = view.getSelectedItem();
-            System.out.println("Selected item: " + selectedItem);
+            Suttogo.info("Selected item: " + selectedItem);
             // Additional logic to handle the selected item
         });
     }
 
     @Override
     public void onModelChange() {
-        view.setItems((List<Item>) model.values());
+        view.setItems(model);
     }
+
+    public ItemListView getItemListView() { return view; }
 
     /**
      * Függvény, amely kulcs alapján visszaadja a kiválasztott tárgyat.
@@ -44,7 +48,11 @@ public class ItemListController implements ModelListener{
      * @return Item
      */
     public Item getSelectedItem(){
-        return model.get(view.getSelectedItem());
+        return GameMain.gameEngine.getItem(view.getSelectedItem());
+    }
+
+    public void setItems(List<Item> items){
+        this.model = items;
     }
 }
 

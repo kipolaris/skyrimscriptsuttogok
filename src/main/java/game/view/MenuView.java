@@ -7,12 +7,15 @@ import java.awt.event.ActionListener;
  * View osztály a felhasználói interfész (avagy menü) megjelenítésére.
  */
 public class MenuView extends JPanel {
+    private JLabel currentStudent = new JLabel("ERROR");
+
     private JButton dropButton;
     private JButton pickupButton;
     private JButton useButton;
     private JButton moveButton;
     private JButton skipButton;
     private ItemListView itemListView;
+    private JLabel actions;
 
     /**
      * Paraméter nélküli konstruktor.
@@ -27,13 +30,28 @@ public class MenuView extends JPanel {
         skipButton = new JButton("Skip");
 
         itemListView = new ItemListView();
+        JComboBox<String> itemBox = itemListView.getComboBox();
+
+        actions = new JLabel();
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        add(dropButton);
-        add(pickupButton);
-        add(useButton);
-        add(moveButton);
-        add(skipButton);
+
+        addAlignedComponent(currentStudent);
+        addAlignedComponent(dropButton);
+        addAlignedComponent(pickupButton);
+        addAlignedComponent(useButton);
+        addAlignedComponent(moveButton);
+        addAlignedComponent(skipButton);
+        addAlignedComponent(actions);
+        addAlignedComponent(itemBox);
+
+        setComponentsHeight(this);
+        setComponentsWidth(this);
+
+    }
+
+    public void setCurrentStudent(String studentName) {
+        currentStudent.setText(studentName);
     }
 
     /**
@@ -88,6 +106,59 @@ public class MenuView extends JPanel {
      */
     public void addSkipActionListener(ActionListener listener) {
         skipButton.addActionListener(listener);
+    }
+
+    /**
+     * Privát függvény, ami beállítja a komponensek magasságát.
+     */
+    private void setComponentsHeight(Container container) {
+        int maxHeight = 0;
+
+        // Maxméret meghatározása
+        for (Component comp : container.getComponents()) {
+            Dimension preferredSize = comp.getPreferredSize();
+            maxHeight = Math.max(maxHeight, preferredSize.height);
+        }
+
+        // Méret beállítása minden komponensre
+        for (Component comp : container.getComponents()) {
+            Dimension size = comp.getPreferredSize();
+            size.height = maxHeight;
+
+            comp.setMinimumSize(size);
+            comp.setPreferredSize(size);
+            comp.setMaximumSize(size);
+        }
+    }
+
+    /**
+     * Privát függvény, ami beállítja a komponensek szélességét.
+     */
+    private void setComponentsWidth(Container container) {
+        // Méret beállítása minden komponensre
+        for (Component comp : container.getComponents()) {
+            Dimension size = comp.getPreferredSize();
+            size.width = 100;
+
+            comp.setMinimumSize(size);
+            comp.setPreferredSize(size);
+            comp.setMaximumSize(size);
+        }
+    }
+
+    /**
+     * Függvény komponensek elrendezésére
+     */
+    private void addAlignedComponent(JComponent component) {
+        component.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(component);
+    }
+
+    /**
+     * Függvény akciópontok kiírásához.
+     */
+    public void setActionPoints(String s) {
+        actions.setText(s);
     }
 }
 

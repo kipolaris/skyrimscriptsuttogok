@@ -25,19 +25,14 @@ public class Door {
     *és ha át tud lépni akkor átlépteti
      */
     public boolean accept(Character c, Room r){
-        Suttogo.info("accept(Character, Room)");
         if((!bothWays && !from.equals(r)) || to.getCharacters().size()+1 >= to.getCapacity()) {
-            Suttogo.info("\treturn false");
             return false;
         }
-        Suttogo.info("\treturn true");
         return true;
     }
 
     /**Lekérdezi az adott szobának a szomszédját*/
     public Room getNeighbour(Room r){
-        Suttogo.info("getNeighbour(Room)");
-        Suttogo.info("\treturn Room");
         if(r==from) return to;
         return from;
     }
@@ -63,5 +58,16 @@ public class Door {
             if (visible) return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond visible";
             else return "neighbour "+from.getId()+" "+to.getId()+" oneway_tosecond invisibility";
         }
+    }
+
+    public boolean isItInwards(Room r){
+        if(!bothWays){
+            return to.equals(r);
+        }
+        return true;
+    }
+
+    public boolean isBothWays(){
+        return bothWays;
     }
 }

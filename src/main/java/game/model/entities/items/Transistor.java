@@ -20,8 +20,7 @@ public class Transistor extends Item{
 
   @Override
   public int getPriority(){
-        Suttogo.info("getPriority()");
-        Suttogo.info("\treturn -1");
+
         return -1;
   }
 
@@ -31,7 +30,6 @@ public class Transistor extends Item{
   */
   @Override
   public void activate() {
-      Suttogo.info("activate()");
       if(this.Pair == null) {
           Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
           this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
@@ -56,8 +54,6 @@ public class Transistor extends Item{
   */
   @Override
   public boolean decreaseDurability() {
-      Suttogo.info("decreaseDurability()");
-      Suttogo.info("\treturn false");
       return false;
   }
 
@@ -67,12 +63,9 @@ public class Transistor extends Item{
    */
   @Override
   public boolean isPairable() {
-      Suttogo.info("isPairable()");
       if (this.Pair == null) {
-          Suttogo.info("\treturn true");
           return true;
       }
-      Suttogo.info("\treturn false");
       return false;
   }
 
@@ -80,7 +73,6 @@ public class Transistor extends Item{
    * Beállítjuk a párjának a másik tranzisztort
    */
   public void setPair(Transistor p){
-      Suttogo.info("setPair(Transistor)");
       this.Pair = p;
   }
     /**
@@ -88,8 +80,7 @@ public class Transistor extends Item{
      */
     @Override
     public Transistor getPair() {
-        Suttogo.info("getPair()");
-        Suttogo.info("\treturn Transistor");
+
         return this.Pair;
     }
 
@@ -106,7 +97,7 @@ public class Transistor extends Item{
    * Az adott tranzisztor és párjának kapcsolatát felbontja
    */
   public void unpair(){
-      Suttogo.info("unpair()");
+      Suttogo.info("unpair..");
       this.Pair.setPair(null);
       this.setPair(null);
   }

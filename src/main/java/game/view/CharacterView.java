@@ -14,7 +14,7 @@ import game.model.entities.Character;
  */
 public class CharacterView {
     private final List<ModelListener> listeners = new ArrayList<>();
-    private final JComboBox<String> characterComboBox;
+    private final JComboBox<String> characterComboBox = new JComboBox<>();
 
     /**
      * Paraméter nélküli konstruktor.
@@ -22,8 +22,6 @@ public class CharacterView {
      * <p>Létrehoz egy üres JComboBox-ot (ebbe kerül majd bele a karakterek egy listája)</p>
      */
     public CharacterView() {
-        characterComboBox = new JComboBox<>();
-        characterComboBox.setEnabled(false); // Disable the combo box to prevent selection changes
     }
 
     /**
@@ -36,6 +34,8 @@ public class CharacterView {
         for (Character character : characters) {
             characterComboBox.addItem(character.getId());
         }
+        characterComboBox.revalidate();
+        characterComboBox.repaint();
     }
 
     /**
