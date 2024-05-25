@@ -2,6 +2,7 @@ package game.controller;
 import game.model.entities.Student;
 import game.model.entities.building.Door;
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 import game.view.InfoView;
@@ -50,6 +51,7 @@ public class MenuController implements ModelListener{
         if(gameEngine.getCurrent().getId().startsWith("Student")){
             if(student == null || !student.equals(gameEngine.getCurrent())) {
                 student = (Student) gameEngine.getCurrent();
+                view.setCurrentStudent(student.getId());
                 itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
             else itemListController.onModelChange();
@@ -151,7 +153,6 @@ public class MenuController implements ModelListener{
         public void actionPerformed(ActionEvent e) {
             student.skipTurn();
             //infoView.showInfo("Turn skipped", 2000);
-            System.out.println("Turn skipped");
         }
     }
 }

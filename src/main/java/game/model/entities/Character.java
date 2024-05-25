@@ -213,6 +213,8 @@ public class Character {
         Suttogo.info("skipTurn()");
         actions=0;
         isMoved=true;
+        GameMain.gameEngine.next();
+        Suttogo.info("Turn skipped");
     }
 
     /**

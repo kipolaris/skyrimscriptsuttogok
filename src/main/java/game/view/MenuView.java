@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
  * View osztály a felhasználói interfész (avagy menü) megjelenítésére.
  */
 public class MenuView extends JPanel {
+    private JLabel currentStudent = new JLabel("ERROR");
+
     private JButton dropButton;
     private JButton pickupButton;
     private JButton useButton;
@@ -33,6 +35,8 @@ public class MenuView extends JPanel {
         JComboBox<String> itemBox = itemListView.getComboBox();
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        addAlignedComponent(currentStudent);
         addAlignedComponent(dropButton);
         addAlignedComponent(pickupButton);
         addAlignedComponent(useButton);
@@ -43,6 +47,10 @@ public class MenuView extends JPanel {
         setComponentsHeight(this);
         setComponentsWidth(this);
 
+    }
+
+    public void setCurrentStudent(String studentName) {
+        currentStudent.setText(studentName);
     }
 
     /**
