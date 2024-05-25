@@ -20,7 +20,6 @@ public class Cups extends Item{
 
     @Override
     public void activate() {/** ezzel lehet aktiválni a tárgyat, innentől a tárgy megvédi használóját a csúnya, gonosz, rosszakaró, hamis oktatóktól*/
-
         this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
@@ -38,7 +37,6 @@ public class Cups extends Item{
 
     @Override
     public boolean isPairable() { /** megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
-
         return false;
     }
 

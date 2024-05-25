@@ -25,7 +25,7 @@ public class Camembert extends Item{
         loc.setGassed(true);
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
-        decreaseDurability();
+        gameEngine.nullifyItem(this);
     }
 
     @Override

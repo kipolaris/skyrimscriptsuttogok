@@ -24,11 +24,11 @@ public class AirFreshener extends Item{
         owner.getLocation().setHasAirFreshener();
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
+        gameEngine.nullifyItem(this);
     }
 
     @Override
     public boolean isPairable() { /** megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
-
         return false;
     }
 
