@@ -59,7 +59,6 @@ public class Cleaner extends Character {
 
     @Override
     public void move(Door d){
-        Suttogo.info("move(Door)");
 
         if(d.accept(this, location)){
             Room dest = d.getNeighbour(location);

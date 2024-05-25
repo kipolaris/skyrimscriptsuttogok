@@ -3,9 +3,15 @@ package game.view;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Osztály hibaüzenetek közlésére (felhasználó tájékoztató)
+ */
 public class InfoView extends JPanel {
     private JLabel infoLabel;
 
+    /**
+     * Paraméter nélküli konstruktor.
+     */
     public InfoView() {
         setLayout(new BorderLayout());
         setBackground(Color.GRAY);

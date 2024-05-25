@@ -10,10 +10,6 @@
     <orderEntry type="module" module-name="main" />
   </component>
   <component name="SonarLintModuleSettings">
-<<<<<<< HEAD
-    <option name="uniqueId" value="60a5da51-4784-40f0-a1b2-eb3f661e07a2" />
-=======
-    <option name="uniqueId" value="b221431f-3d47-4bb7-86ca-ef76718ac967" />
->>>>>>> a63547aaa1075e7a31041c26ab54bb874f24e8e8
+    <option name="uniqueId" value="213f7b4d-89ad-4f50-bb5c-ee37fb74e243" />
   </component>
 </module>

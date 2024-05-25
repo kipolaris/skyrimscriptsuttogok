@@ -30,6 +30,8 @@ public class ItemListView {
         for (Item item : items) {
             itemComboBox.addItem(item.getId());
         }
+        itemComboBox.revalidate();
+        itemComboBox.repaint();
     }
 
     /**

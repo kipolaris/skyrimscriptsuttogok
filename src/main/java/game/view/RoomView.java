@@ -1,5 +1,7 @@
 package game.view;
 
+import game.model.entities.building.Door;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,7 +15,7 @@ import static java.lang.Math.toIntExact;
 /**
  * Egy osztály, amely egy képet jelenít meg, kör alakban elhelyezett átfedésekkel a kép közepén.
  */
-public class DoorView extends JPanel{
+public class RoomView extends JPanel{
     /** Lista az összes átfedés képek tárolására: */
     private List<Overlay> overlays = new ArrayList<>();
 
@@ -24,49 +26,106 @@ public class DoorView extends JPanel{
     /** A kép méretezési tényezője (1 érték teljes méret, 1-nél kisebb érték lecsökkentett méret): */
     double scale = 0.6;
 
-    /**
-     * Fő metódus a képek megjelenítésének indításához. Ez a metódus elindítja a DisplayImage konstruktort az AWT eseménykezelő szálon.
-     *
-     * @param args a parancssori argumentumok (nem használt)
-     */
-   public static void main(String[] args) {
-        SwingUtilities.invokeLater(DoorView::new);
-    }
+    // A háttérkép szélességének és magasságának kiszámítása a méretezési tényező alapján:
+    private final int bgWidth = toIntExact(Math.round(frame_size * scale));
+    private final int bgHeight = toIntExact(Math.round(frame_size * scale));
+
+   // A kör középpontjának koordinátáinak és sugarának kiszámítása, ahol az átfedések eloszlanak:
+   private final int centerX = bgWidth / 2;
+   private final int centerY = bgHeight / 2;
+   private final double radius = 0.4 * bgWidth;
+
+    // Új ARGB BufferedImage létrehozása a háttérkép méreteivel (ebbe a bufferbe rajzoljuk a háttér- és átfedésképeket):
+   private final BufferedImage backgroundBuff = new BufferedImage(bgWidth, bgHeight, BufferedImage.TYPE_INT_ARGB);
+
+   private final JComboBox<String> doorsJComboBox = new JComboBox<>();
+
+   private final CharacterView characterView;
+
+   private final ItemListView itemListView;
+
+   private final JLabel RoomName = new JLabel("Room Name");
+
+   public void setRoomName(String name) {
+       RoomName.setText(name);
+   }
+
 
     /**
      * A DisplayImage osztály konstruktora. Beállítja a JFrame-et és méretezi, majd kirajzolja a háttér- és átfedésképeket.
      */
-    DoorView() {
-        // Új JFrame (ablak) létrehozása:
-        JFrame frame = new JFrame("Display Image");
+    public RoomView(CharacterView _characterView, ItemListView _itemListView) {
+        this.characterView = _characterView;
 
-        // A háttérkép szélességének és magasságának kiszámítása a méretezési tényező alapján:
-        int bgWidth = toIntExact(Math.round(frame_size * scale));
-        int bgHeight = toIntExact(Math.round(frame_size * scale));
+        this.itemListView = _itemListView;
 
         // Az eredeti háttérkép betöltése és megfelelő méretezése:
         BufferedImage backgroundOrig = getImage("src/pics/standard_room.png", frame_size, frame_size);
         Image background = backgroundOrig.getScaledInstance(bgWidth, bgHeight, Image.SCALE_SMOOTH);
 
-        // Új ARGB BufferedImage létrehozása a háttérkép méreteivel (ebbe a bufferbe rajzoljuk a háttér- és átfedésképeket):
-        BufferedImage backgroundBuff = new BufferedImage(bgWidth, bgHeight, BufferedImage.TYPE_INT_ARGB);
-
         // A háttérkép rajzolása a bufferre:
         Graphics2D gBg = backgroundBuff.createGraphics();
         gBg.drawImage(background, 0, 0, null);
 
-        // A kör középpontjának koordinátáinak és sugarának kiszámítása, ahol az átfedések eloszlanak:
-        int centerX = bgWidth / 2;
-        int centerY = bgHeight / 2;
-        double radius = 0.4 * bgWidth;
+        gBg.dispose();
 
-        // Átfedések hozzáadása a kör körüli pozíciókban:
-        String[] overlayImages = { "src/pics/standard_door.png", "src/pics/invisible_door.png", "src/pics/oneway_out_door.png", "src/pics/oneway_in_door.png"};
+        this.setSize(frame_size, frame_size);
+        JLabel imageLabel = new JLabel(new ImageIcon(backgroundBuff));
 
-        int overlaysCount = overlayImages.length;  // Az átfedések száma, amelyeket elosztunk a kör körül.
+        JComboBox<String> characterBox = characterView.getComboBox();
+
+        this.add(RoomName);
+
+        this.add(characterBox);
+
+        JComboBox<String> itemBox = itemListView.getComboBox();
+
+        this.add(itemBox);
+
+        this.add(doorsJComboBox);
+
+        characterBox.setMaximumSize(characterBox.getPreferredSize());
+
+
+        JPanel textPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        textPanel.setOpaque(false);
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setOpaque(false);
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.PAGE_AXIS));
+        centerPanel.add(textPanel);
+
+        imageLabel.setLayout(new BorderLayout());
+        imageLabel.add(centerPanel, BorderLayout.CENTER);
+
+
+        this.add(imageLabel);
+        this.setOpaque(false);
+        this.validate();
+        this.repaint();
+    }
+
+    public void addToDoorsJCombobox(String door){
+        doorsJComboBox.addItem(door);
+    }
+
+    public String getSelectedDoor(){
+        return (String) doorsJComboBox.getSelectedItem();
+    }
+
+    public void clearDoorsComboBox(){
+        doorsJComboBox.removeAllItems();
+    }
+
+    /**
+     * A szoba ajtajainak beállítása, elrendezése.
+     */
+    public void setDoors(List<String> overlayImages){
+
+        int overlaysCount = overlayImages.size();  // Az átfedések száma, amelyeket elosztunk a kör körül.
         for(int i = 0; i < overlaysCount; i++) {
             // Az aktuális átfedés képének megszerzése:
-            String overlayImage = overlayImages[i];
+            String overlayImage = overlayImages.get(i);
 
             // Az átfedés szögének kiszámítása a kör körül (a teljes kör 2*PI radián):
             double angle = Math.PI * 2 * i / overlaysCount;
@@ -100,41 +159,17 @@ public class DoorView extends JPanel{
             }
         }
 
-        gBg.dispose();
+    }
 
-        this.setSize(frame_size, frame_size);
-        JLabel imageLabel = new JLabel(new ImageIcon(backgroundBuff));
-
-        JComboBox<String> box = new JComboBox<>(new String[]{"Option 1", "Option 2", "Option 3"});
-        box.setMaximumSize(box.getPreferredSize());
-
-        JPanel comboPanel = new JPanel();
-        comboPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        comboPanel.add(box);
-        comboPanel.setOpaque(false);
-
-
-        JPanel textPanel = new JPanel();
-        textPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        textPanel.setOpaque(false);
-
-        JPanel centerPanel = new JPanel();
-        centerPanel.setOpaque(false);
-        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.PAGE_AXIS));
-        centerPanel.add(textPanel);
-        centerPanel.add(comboPanel);
-
-        imageLabel.setLayout(new BorderLayout());
-        imageLabel.add(centerPanel, BorderLayout.CENTER);
-
-        this.add(imageLabel);
-        this.setOpaque(false);
-        this.validate();
-        this.repaint();
-
-        // A JFrame megjelenítése:
-        frame.setVisible(true);
+    /**
+     * Függvény, amely visszaad egy új JPanelt
+     */
+    private JPanel createComboBoxPanel(JComboBox<String> box) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel.add(box);
+        panel.setOpaque(false);
+        return panel;
     }
 
     /**
@@ -216,4 +251,9 @@ public class DoorView extends JPanel{
         public int getY() { return y; }
         public float getOpacity() { return opacity; }
     }
+
+    /**
+     * Függvény, amely visszaadja, a szoba listájából kiválasztott tárgyat
+     */
+    public String getSelectedItem() { return itemListView.getSelectedItem(); }
 }

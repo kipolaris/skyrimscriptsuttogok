@@ -9,56 +9,70 @@ import java.util.Set;
 import java.util.Queue;
 import java.util.LinkedList;
 
-/**Osztály a konzolra való kiíráshoz*/
+/** Class for console output */
 public class Suttogo {
     private Suttogo() {}
 
     /**
-     * A naplózás szintjeit reprezentáló felsorolás típus.
+     * Enum representing the logging levels.
      */
     public enum Level {
-        INFO, ERROR, NONE, NOTE
+        NONE, INFO, NOTE, ERROR
     }
+
     private static Level level = Level.NOTE;
 
     /**
-     * Információs üzenet kiírása.
+     * Method to set the logging level.
      *
-     * @param message az üzenet
+     * @param newLevel the new logging level
      */
-    public static void info(String message) {
-        if(level == Level.INFO || level == Level.ERROR)
-                log("INFO "+message);
+    public static void setLevel(Level newLevel) {
+        level = newLevel;
     }
 
     /**
-     * Hibaüzenet kiírása.
+     * Logs an informational message. This is intended for the user.
      *
-     * @param message az üzenet
+     * @param message the message
+     */
+    public static void info(String message) {
+        if (level.ordinal() >= Level.INFO.ordinal()) {
+            log("INFO " + message);
+        }
+    }
+
+    /**
+     * Logs an error message.
+     *
+     * @param message the message
      */
     public static void error(String message) {
-        if(level == Level.ERROR || level == Level.NOTE || level == Level.INFO){
-            String loggable = "ERROR "+message;
+        if (level.ordinal() >= Level.ERROR.ordinal()) {
+            String loggable = "ERROR " + message;
             GameMain.lastOutput = GameMain.lastOutput + loggable + '\n';
             log(loggable);
         }
     }
 
     /**
-     * Jegyzet kiírása.
+     * Logs a note message. This is for debugging purposes and not intended for the user.
      *
-     * @param message az üzenet
+     * @param message the message
      */
-    public static void note(String message){
-        if(level == Level.NOTE || level == Level.ERROR) log("NOTE "+message);
+    public static void note(String message) {
+        if (level.ordinal() >= Level.NOTE.ordinal()) {
+            log("NOTE " + message);
+        }
     }
 
     /**
-     * Log üzenet kiírása.
+     * Logs a message.
      *
-     * @param message az üzenet
+     * @param message the message
      */
     private static void log(String message) {
-        System.out.print(message+'\n');
+        System.out.print(message + '\n');
     }
 }
+
