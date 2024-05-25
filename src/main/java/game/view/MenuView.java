@@ -18,6 +18,7 @@ public class MenuView extends JPanel {
     private JButton moveButton;
     private JButton skipButton;
     private ItemListView itemListView;
+    private JLabel actions;
 
     /**
      * Paraméter nélküli konstruktor.
@@ -34,6 +35,8 @@ public class MenuView extends JPanel {
         itemListView = new ItemListView();
         JComboBox<String> itemBox = itemListView.getComboBox();
 
+        actions = new JLabel();
+
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         addAlignedComponent(currentStudent);
@@ -42,6 +45,7 @@ public class MenuView extends JPanel {
         addAlignedComponent(useButton);
         addAlignedComponent(moveButton);
         addAlignedComponent(skipButton);
+        addAlignedComponent(actions);
         addAlignedComponent(itemBox);
 
         setComponentsHeight(this);
@@ -134,21 +138,10 @@ public class MenuView extends JPanel {
      * Privát függvény, ami beállítja a komponensek szélességét.
      */
     private void setComponentsWidth(Container container) {
-        int maxWidth = 0;
-
-        // Maxméret meghatározása
-        for (Component comp : container.getComponents()) {
-            if (comp instanceof JButton) {
-                JButton button = (JButton) comp;
-                int width = button.getFontMetrics(button.getFont()).stringWidth(button.getText()) + 20; // Add padding
-                maxWidth = Math.max(maxWidth, width);
-            }
-        }
-
         // Méret beállítása minden komponensre
         for (Component comp : container.getComponents()) {
             Dimension size = comp.getPreferredSize();
-            size.width = maxWidth+25;
+            size.width = 100;
 
             comp.setMinimumSize(size);
             comp.setPreferredSize(size);
@@ -162,6 +155,13 @@ public class MenuView extends JPanel {
     private void addAlignedComponent(JComponent component) {
         component.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(component);
+    }
+
+    /**
+     * Függvény akciópontok kiírásához.
+     */
+    public void setActionPoints(String s) {
+        actions.setText(s);
     }
 }
 
