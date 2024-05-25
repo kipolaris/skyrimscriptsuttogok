@@ -20,7 +20,6 @@ public class FFP2 extends Item{
 
     @Override
     public void activate() { /**ezzel lehet aktiválni a maszkot, innentől megvédi használóját a mérges gáztól*/
-        Suttogo.info("activate()");
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
@@ -28,39 +27,31 @@ public class FFP2 extends Item{
 
     /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
     public int getPriority(){
-        Suttogo.info("getPriority()");
-        Suttogo.info("\treturn 1");
+
         return 1;
     }
 
     @Override
     public boolean decreaseDurability() {/** hátralévő élettartam csökkentése 1 körrel*/
-        Suttogo.info("decreaseDurability()");
         this.durability--;
 
         if (this.durability <= 0) {
-            Suttogo.info("\treturn false");
             return false;
         }
-        Suttogo.info("\treturn true");
         return true;
     }
 
     @Override
     public boolean isPairable() { /** megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
-        Suttogo.info("isPairable()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 
     @Override
     public boolean protectFromGas() {/** ezzel a függvénnyel lehet megkérni a tárgyat, hogy az védje meg használóját a mérges gáztól*/
-        Suttogo.info("protectFromGas()");
         if(activated) {
-            Suttogo.info("\treturn true");
             return true;
         }
-        Suttogo.info("\treturn false");
         return false;
     }
 

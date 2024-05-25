@@ -1,5 +1,6 @@
 package game.controller;
 
+import game.model.logging.Suttogo;
 import game.view.CharacterView;
 
 import java.util.ArrayList;
@@ -32,10 +33,9 @@ public class CharacterController implements ModelListener{
 
     public void setCharacters(List<Character> characters){
         if(characters.isEmpty()){
-            System.out.println("CharacterController: characters list is empty");
+            Suttogo.note("CharacterController: characters list is empty");
         }
         this.characters = characters;
-        System.out.println("CharacterController list of chars size: " + characters.size());
     }
 
     public CharacterView getCharacterView() { return characterView; }

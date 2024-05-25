@@ -185,7 +185,7 @@ public class GameEngine extends AbstractObservableModel {
     public void next() {
         if (chart.hasNext()) {
             current = chart.next();
-            Suttogo.note("current: "+current.getId());
+            Suttogo.info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
                 Suttogo.note("isAInext was set to true");
                 isAInext = true;
@@ -258,7 +258,6 @@ public class GameEngine extends AbstractObservableModel {
      * Ahhoz a startgame parancsot használd (vagyis a playOnePhase indítja).
      */
     public void initGame() {
-        Suttogo.info("initGame()");
         students = new HashMap<>();
         professors = new HashMap<>();
         cleaners = new HashMap<>();
@@ -311,8 +310,6 @@ public class GameEngine extends AbstractObservableModel {
      * Ellenőrzi, hogy kihaltak-e a Studentek
      */
     public boolean studentsExtinct() {
-        Suttogo.info("studentsExtinct()");
-        Suttogo.info("\treturn boolean");
         return students.isEmpty();
     }
 
@@ -320,7 +317,6 @@ public class GameEngine extends AbstractObservableModel {
      * Leállítja a játékot
      */
     public void endGame() {
-        Suttogo.info("endGame()");
         students.clear();
         professors.clear();
         items.clear();
@@ -334,7 +330,6 @@ public class GameEngine extends AbstractObservableModel {
      * A játékot újból inicializálja
      */
     public void refresh() {
-        Suttogo.info("refresh()");
         students = new HashMap<>();
         professors = new HashMap<>();
         builder = new BuildingAI();
@@ -348,7 +343,6 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void playOnePhase() {
         if (!studentsExtinct() || !GameMain.isGameStarted) {
-            Suttogo.info("playOnePhase()");
 
             Suttogo.note("-------- new Phase initiated! ------------\n");
 
@@ -383,7 +377,6 @@ public class GameEngine extends AbstractObservableModel {
      * Eltávolít egy hallgatót a listából
      */
     public void studentDied(Student s) {
-        Suttogo.info("studentDied(Student)");
         students.remove(s);
     }
 
@@ -423,7 +416,6 @@ public class GameEngine extends AbstractObservableModel {
         HashMap<String, Character> merged = new HashMap<>();
 
         merged.putAll(students);
-        merged.putAll(professors);
         merged.putAll(cleaners);
 
         return merged.get(key);

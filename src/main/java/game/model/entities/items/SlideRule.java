@@ -27,8 +27,7 @@ public class SlideRule extends Item{
      * A prioritási listán való helyét adja vissza. A logarléc nem fontos védelmi szempontból.
      */
     public int getPriority(){
-        Suttogo.info("getPriority()");
-        Suttogo.info("\treturn -1");
+
         return -1;
     }
 
@@ -37,7 +36,7 @@ public class SlideRule extends Item{
      */
     @Override
     public void activate() {
-        Suttogo.info("activate()");
+
     }
 
     /**
@@ -45,8 +44,7 @@ public class SlideRule extends Item{
      */
     @Override
     public boolean decreaseDurability() {
-        Suttogo.info("decreaseDurability()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 
@@ -55,15 +53,14 @@ public class SlideRule extends Item{
      */
     @Override
     public boolean isPairable() {
-        Suttogo.info("isPairable()");
-        Suttogo.info("\treturn false");
+
         return false;
     }
 
     /**Itt állítható be a tartózkodási helye, hogy éppen melyik szobában vagy kinél van*/
     @Override
     public void setLocation(Room room){
-        Suttogo.info("setLocation(Room)");
+
         if(room==null){
             String s = this.getId() + " picked up. " + getEffect();
             Suttogo.info(s);

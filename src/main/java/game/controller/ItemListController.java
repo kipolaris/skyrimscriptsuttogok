@@ -1,6 +1,7 @@
 package game.controller;
 
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 import game.view.ItemListView;
 
@@ -29,7 +30,7 @@ public class ItemListController implements ModelListener{
         // Add an action listener to handle selection changes
         view.getComboBox().addActionListener(e -> {
             String selectedItem = view.getSelectedItem();
-            System.out.println("Selected item: " + selectedItem);
+            Suttogo.info("Selected item: " + selectedItem);
             // Additional logic to handle the selected item
         });
     }

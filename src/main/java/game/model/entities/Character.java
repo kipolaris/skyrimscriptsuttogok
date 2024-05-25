@@ -58,8 +58,6 @@ public class Character {
      * a tárgyakat a karakter.
      */
     protected static Comparator<Item> priorityComparator = (o1, o2) -> {
-        Suttogo.info("priorityComparator(Item, Item)");
-        Suttogo.info("\treturn Comparator<Item>");
         int priorityCheck = Integer.compare(o1.getPriority(), o2.getPriority());
 
         if(priorityCheck!=0){
@@ -73,8 +71,6 @@ public class Character {
      * Szoba/karakter tartózkodási helyének lekérdezése
      */
     public Room getLocation() {
-        Suttogo.info("getLocation()");
-        Suttogo.info("\treturn Room");
         return location;
     }
 
@@ -82,7 +78,6 @@ public class Character {
      * Tartózkodási hely beállítása
      */
     public void setLocation(Room location) {
-        Suttogo.info("setLocation(Room)");
         this.location = location;
     }
 
@@ -90,8 +85,6 @@ public class Character {
      * A karakter bénítottságát kérdezi le
      */
     public boolean getParalyzed() {
-        Suttogo.info("getParalyzed()");
-        Suttogo.info("\treturn boolean");
         return paralyzed;
     }
 
@@ -100,15 +93,13 @@ public class Character {
      * hívódik meg az adott tárgyra
      */
     public void useItem(Item i) {
-        Suttogo.info("useItem(Item)");
+        //??
     }
 
     /**
      * Visszaadja a karakternél levő tárgyakat
      */
     public Map<String, Item> getItems() {
-        Suttogo.info("getItems()");
-        Suttogo.info("\treturn ArrayList<Item>");
         return items;
     }
 
@@ -116,7 +107,6 @@ public class Character {
      * Tárgy felvétele
      */
     public void addItem(Item item) {
-        Suttogo.info("addItem(Item)");
         if(actions>0) {
             if (!(item.getId().startsWith("Rag") && item.isActivated())) {
                 if (items.size() < maxInventorySize) {
@@ -137,7 +127,6 @@ public class Character {
      * Tárgy eldobása
      */
     public void dropItem(Item item) {
-        Suttogo.info("dropItem(Item)");
         if(actions>0) {
             if(items.containsValue(item)){
                 item.setLocation(location);
@@ -154,7 +143,6 @@ public class Character {
      * Karakter bénítása, ha nincs gáz ellen védő tárgya
      */
     public void setParalyzed(boolean b) {
-        Suttogo.info("setParalyzed(boolean)");
         if(b) {
             PriorityQueue<Item> itemPriorityQueue = new PriorityQueue<>(priorityComparator);
 
@@ -186,7 +174,6 @@ public class Character {
      * Oktató bénítása
      */
     public void setProfessorParalyzed(boolean b) {
-        Suttogo.info("setProfessorParalyzed(boolean)");
         throw new UnsupportedOperationException();
     }
 
@@ -194,7 +181,6 @@ public class Character {
      * Másik szobába való átlépés
      */
     public void move(Door d) {
-        Suttogo.info("move(Door)");
         if(!isMoved && d.accept(this, location)){
             Room dest = d.getNeighbour(location);
             if(!dest.addCharacter(this)){
@@ -212,7 +198,6 @@ public class Character {
      * Passz, üres kör alkalmazása
      */
     public void skipTurn() {
-        Suttogo.info("skipTurn()");
         actions=0;
         isMoved=true;
         GameMain.gameEngine.next();
@@ -223,7 +208,6 @@ public class Character {
      * Kör lejátszása
      */
     public void doRound() {
-        Suttogo.info("doRound()");
         throw new UnsupportedOperationException();
     }
 
@@ -231,15 +215,11 @@ public class Character {
      * Aktív tranzisztorok lekérdezése
      */
     public Transistor getActiveTransistor() {
-        Suttogo.info("getActiveTransistor()");
-        Suttogo.info("\treturn Transistor");
         throw new UnsupportedOperationException();
     }
 
     /**Elpusztítja a karaktert*/
     public boolean die() {
-        Suttogo.info("die()");
-        Suttogo.info("\treturn boolean");
         throw new UnsupportedOperationException();
     }
 

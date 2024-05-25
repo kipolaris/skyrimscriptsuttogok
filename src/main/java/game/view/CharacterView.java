@@ -32,12 +32,10 @@ public class CharacterView {
     public void setCharacters(List<Character> characters) {
         characterComboBox.removeAllItems();
         for (Character character : characters) {
-            System.out.println("CharacterView: " + character.getId());
             characterComboBox.addItem(character.getId());
         }
         characterComboBox.revalidate();
         characterComboBox.repaint();
-        System.out.println("JComboBox item count: " + characterComboBox.getItemCount());
     }
 
     /**
