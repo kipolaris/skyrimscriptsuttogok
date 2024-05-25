@@ -37,4 +37,6 @@ public class CharacterController implements ModelListener{
         this.characters = characters;
         System.out.println("CharacterController list of chars size: " + characters.size());
     }
+
+    public CharacterView getCharacterView() { return characterView; }
 }

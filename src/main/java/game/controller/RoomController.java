@@ -4,7 +4,9 @@ import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.main.GameMain;
+import game.view.CharacterView;
 import game.view.GamePanel;
+import game.view.ItemListView;
 import game.view.RoomView;
 
 import java.util.ArrayList;
@@ -49,6 +51,7 @@ public class RoomController implements ModelListener{
         this.itemListController = itemListController;
         this.characterController = characterController;
 
+        onModelChange();
     }
 
     @Override
@@ -95,7 +98,7 @@ public class RoomController implements ModelListener{
 
         characterController.onModelChange();
 
-        itemListController.setItems(new ArrayList<>(GameMain.gameEngine.getCurrent().getItems().values()));
+        itemListController.setItems(r.getItems());
 
         itemListController.onModelChange();
 

@@ -30,13 +30,19 @@ public class MenuView extends JPanel {
         skipButton = new JButton("Skip");
 
         itemListView = new ItemListView();
+        JComboBox<String> itemBox = itemListView.getComboBox();
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        add(dropButton);
-        add(pickupButton);
-        add(useButton);
-        add(moveButton);
-        add(skipButton);
+        addAlignedComponent(dropButton);
+        addAlignedComponent(pickupButton);
+        addAlignedComponent(useButton);
+        addAlignedComponent(moveButton);
+        addAlignedComponent(skipButton);
+        addAlignedComponent(itemBox);
+
+        setComponentsHeight(this);
+        setComponentsWidth(this);
+
     }
 
     /**
@@ -91,6 +97,63 @@ public class MenuView extends JPanel {
      */
     public void addSkipActionListener(ActionListener listener) {
         skipButton.addActionListener(listener);
+    }
+
+    /**
+     * Privát függvény, ami beállítja a komponensek magasságát.
+     */
+    private void setComponentsHeight(Container container) {
+        int maxHeight = 0;
+
+        // Maxméret meghatározása
+        for (Component comp : container.getComponents()) {
+            Dimension preferredSize = comp.getPreferredSize();
+            maxHeight = Math.max(maxHeight, preferredSize.height);
+        }
+
+        // Méret beállítása minden komponensre
+        for (Component comp : container.getComponents()) {
+            Dimension size = comp.getPreferredSize();
+            size.height = maxHeight;
+
+            comp.setMinimumSize(size);
+            comp.setPreferredSize(size);
+            comp.setMaximumSize(size);
+        }
+    }
+
+    /**
+     * Privát függvény, ami beállítja a komponensek szélességét.
+     */
+    private void setComponentsWidth(Container container) {
+        int maxWidth = 0;
+
+        // Maxméret meghatározása
+        for (Component comp : container.getComponents()) {
+            if (comp instanceof JButton) {
+                JButton button = (JButton) comp;
+                int width = button.getFontMetrics(button.getFont()).stringWidth(button.getText()) + 20; // Add padding
+                maxWidth = Math.max(maxWidth, width);
+            }
+        }
+
+        // Méret beállítása minden komponensre
+        for (Component comp : container.getComponents()) {
+            Dimension size = comp.getPreferredSize();
+            size.width = maxWidth+25;
+
+            comp.setMinimumSize(size);
+            comp.setPreferredSize(size);
+            comp.setMaximumSize(size);
+        }
+    }
+
+    /**
+     * Függvény komponensek elrendezésére
+     */
+    private void addAlignedComponent(JComponent component) {
+        component.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(component);
     }
 }
 

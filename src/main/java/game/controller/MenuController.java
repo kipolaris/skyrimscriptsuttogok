@@ -32,15 +32,10 @@ public class MenuController implements ModelListener{
     public MenuController(MenuView _view, GameEngine _model, RoomController _rc) {
         this.view = _view;
         this.gameEngine = _model;
-        //this.infoView = GameMain.gamePanel.getInfoView();
         roomController = _rc;
+        //this.infoView = GameMain.gamePanel.getInfoView();
 
-        //onModelChange();
-
-        //#todo: ez így sajnos nem biztos h jó (map megoldás miatt)
-        if(student != null) {
-            itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
-        }
+        onModelChange();
 
         // Add action listeners to the buttons
         view.addDropActionListener(new DropButtonListener());
@@ -52,11 +47,12 @@ public class MenuController implements ModelListener{
 
     @Override
     public void onModelChange() {
-        if(gameEngine.getCurrent() instanceof Student){
-            student = (Student) gameEngine.getCurrent();
-            if(itemListController!=null){
-                itemListController.onModelChange();
+        if(gameEngine.getCurrent().getId().startsWith("Student")){
+            if(student == null || !student.equals(gameEngine.getCurrent())) {
+                student = (Student) gameEngine.getCurrent();
+                itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
+            else itemListController.onModelChange();
         }
     }
 
