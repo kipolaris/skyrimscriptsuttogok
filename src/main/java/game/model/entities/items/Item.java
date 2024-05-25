@@ -3,6 +3,7 @@ import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 
+import static game.model.main.GameMain.gameEngine;
 
 
 /**A tárgyak ősosztálya*/
@@ -58,7 +59,11 @@ public abstract class Item {
     }
 
     /** Hátralévő élettartam csökkentése 1 körrel*/
-    public abstract boolean decreaseDurability();
+    public boolean decreaseDurability() {
+        durability--;
+        if(durability == 0) { gameEngine.nullifyItem(this); }
+        return false;
+    }
 
     /** Megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
     public abstract boolean isPairable();

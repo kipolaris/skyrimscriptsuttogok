@@ -28,11 +28,9 @@ public class Cups extends Item{
 
     @Override
     public boolean decreaseDurability() {/** hátralévő élettartam csökkentése 1 körrel*/
-
         this.durability--;
-
         if (this.durability <= 0) {
-
+            gameEngine.nullifyItem(this);
             return false;
         }
         return true;

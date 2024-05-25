@@ -20,18 +20,10 @@ public class AirFreshener extends Item{
 
     @Override
     public void activate() { /** ezzel lehet aktiválni a tárgyat, ezután a szoba megtisztul a mérgesgáztól*/
-        location = owner.getLocation();
-        owner = null;
-        location.setGassed(false);
-        location.setHasAirFreshener();
+        owner.getLocation().setGassed(false);
+        owner.getLocation().setHasAirFreshener();
         String s = this.getId() + " used. " + getEffect();
         Suttogo.info(s);
-    }
-
-    @Override
-    public boolean decreaseDurability() {/** hátralévő élettartam csökkentése 1 körrel*/
-
-        return false;
     }
 
     @Override

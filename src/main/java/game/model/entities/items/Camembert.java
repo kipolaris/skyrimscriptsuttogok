@@ -29,13 +29,6 @@ public class Camembert extends Item{
     }
 
     @Override
-    public boolean decreaseDurability() {/** hátralévő élettartam csökkentése 1 körrel*/
-        durability--;
-        if(durability == 0) { gameEngine.nullifyItem(this); }
-        return false;
-    }
-
-    @Override
     public boolean isPairable() { /** megmondja hogy a tárgy párosítható-e (tranzisztor esetén releváns csak)*/
 
         return false;
