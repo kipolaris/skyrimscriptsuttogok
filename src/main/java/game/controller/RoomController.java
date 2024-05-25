@@ -1,5 +1,7 @@
 package game.controller;
 
+import game.model.entities.Character;
+import game.model.entities.Student;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
@@ -56,7 +58,13 @@ public class RoomController implements ModelListener{
 
     @Override
     public void onModelChange() {
-        r = GameMain.gameEngine.getCurrent().getLocation();
+        Character current = GameMain.gameEngine.getCurrent();
+
+        if(current instanceof Student){
+            r = GameMain.gameEngine.getCurrent().getLocation();
+        }
+        //egyébként marad a legutóbbi szoba adata, csak akkor frissül, ha a current egy diák
+
 
         roomView.clearDoorsComboBox();
 

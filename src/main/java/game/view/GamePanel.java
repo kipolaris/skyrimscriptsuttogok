@@ -162,7 +162,7 @@ public class GamePanel {
 
         RoomView roomView = addRoomView(roomCharacterView, itemListView);
 
-        RoomController roomController = new RoomController(new Room(), roomView, itemListController, roomChars);
+        RoomController roomController = new RoomController(null, roomView, itemListController, roomChars);
 
         //a bal felső sarokban a karaktercomboboxok beállítása
 

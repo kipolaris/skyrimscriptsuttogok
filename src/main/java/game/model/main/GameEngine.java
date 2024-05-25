@@ -212,7 +212,7 @@ public class GameEngine extends AbstractObservableModel {
             chart = currentQueue.iterator();
             next();
         } else {
-            Suttogo.note("----Building AI comes ---------");
+            Suttogo.note("------- Building AI comes ---------");
             if (random) {
                 Random r = new Random();
 
@@ -220,28 +220,39 @@ public class GameEngine extends AbstractObservableModel {
 
                 int n1 = r.nextInt(allrooms.size());
                 int n2 = r.nextInt(allrooms.size());
-                int n3 = r.nextInt(allrooms.size());
 
                 Room r1 = allrooms.get(n1);
                 Room r2 = allrooms.get(n2);
 
-                Room r3 = allrooms.get(n3);
-
-                Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
+                //random értétek meghatározására szolgáló predikátum
+                Predicate<Boolean> pa = (a) -> r.nextInt(2) == 1;
+                Predicate<Boolean> p = (a) -> true;
 
                 if (p.test(true)) {
                     builder.mergeRooms(r1, r2);
+                    Suttogo.note("Rooms merged");
                 }
+
+                //újra értéket adunk az allroomsnak, mert változott
+                allrooms = new ArrayList<>(builder.getLabyrinth().values());
+                int n3 = r.nextInt(allrooms.size());
+                Room r3 = allrooms.get(n3);
+
                 if (p.test(true)) {
                     builder.splitRoom(r3);
+                    Suttogo.note("Room split");
                 }
+
+                allrooms = new ArrayList<>(builder.getLabyrinth().values());
+
                 ArrayList<Door> alldoors = new ArrayList<>();
+
                 for (Room room : allrooms) {
                     ArrayList<Door> group = room.getDoors();
                     for (Door door : group) {
                         if (!alldoors.contains(door)) {
                             alldoors.add(door);
-                            door.setVisible(r.nextInt(1) == 1);
+                            door.setVisible(p.test(true));
                         }
                     }
                 }
@@ -268,7 +279,6 @@ public class GameEngine extends AbstractObservableModel {
         itemID = 0;
         cleanerID = 0;
 
-        //#todo: potential bug alert!
         //#todo: ezt jobban népesíteni kell
         if (random) {
             GameMain.perform("room "+(numberOfPlayers+3)); //Room0

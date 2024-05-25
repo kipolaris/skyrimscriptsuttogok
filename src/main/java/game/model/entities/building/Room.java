@@ -93,9 +93,6 @@ public class Room {
         sticky = false;
         visitors = 0;
         hasAirFreshener = false;
-
-        //rögtön hozzá is adjuk a labirynthoz
-        gameEngine.getBuilder().addRoom(this);
     }
 
     /**Beállítja a szoba ajtajait*/
