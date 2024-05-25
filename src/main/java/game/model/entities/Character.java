@@ -130,6 +130,7 @@ public class Character {
                 } else Suttogo.error("Your inventory is full!");
             } else Suttogo.error("This item can't be picked up");
         } else noMoreActions();
+        GameMain.gameEngine.notifyEveryone();
     }
 
     /**
@@ -146,7 +147,7 @@ public class Character {
             }
             else Suttogo.error("There is no such item!");
         }else noMoreActions();
-
+        GameMain.gameEngine.notifyEveryone();
     }
 
     /**
@@ -201,6 +202,7 @@ public class Character {
             }
             isMoved = true;
         }
+        else if(isMoved) { Suttogo.error("You have no more energy to move"); }
 
         //itt meghívjuk a gameengine notifyeveryone-jét, hogy értesítse a szobát, hogy mozgás történt
         GameMain.gameEngine.notifyEveryone();

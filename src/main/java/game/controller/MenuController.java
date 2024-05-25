@@ -36,14 +36,14 @@ public class MenuController implements ModelListener{
         roomController = _rc;
         //this.infoView = GameMain.gamePanel.getInfoView();
 
-        onModelChange();
-
         // Add action listeners to the buttons
         view.addDropActionListener(new DropButtonListener());
         view.addPickupActionListener(new PickupButtonListener());
         view.addUseActionListener(new UseButtonListener());
         view.addMoveActionListener(new MoveButtonListener());
         view.addSkipActionListener(new SkipButtonListener());
+
+        onModelChange();
     }
 
     @Override
@@ -54,7 +54,10 @@ public class MenuController implements ModelListener{
                 view.setCurrentStudent(student.getId());
                 itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
-            else itemListController.onModelChange();
+            else {
+                itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
+                itemListController.onModelChange();
+            }
         }
     }
 

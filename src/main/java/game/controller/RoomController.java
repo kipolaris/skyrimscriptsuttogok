@@ -121,7 +121,14 @@ public class RoomController implements ModelListener{
      *
      * @return kiválaszott tárgy
      */
-    public Item getChosenItem(){return null;} //todo
+    public Item getChosenItem(){
+        ArrayList<Item> items = r.getItems();
+        String item = roomView.getSelectedItem();
+        for(int i = 0; i < items.size(); i++) {
+            if(items.get(i).getId().equals(item)) { return items.get(i); }
+        }
+        return null;
+    }
 
     public void setRoom(Room r){
         this.r = r;
