@@ -100,6 +100,8 @@ public class RoomController implements ModelListener{
         itemListController.onModelChange();
 
         roomView.setDoors(overlayImages);
+
+        roomView.setRoomName(r.getId());
     }
 
     /**

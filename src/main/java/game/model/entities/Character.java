@@ -1,5 +1,7 @@
 package game.model.entities;
 
+import game.controller.ModelListener;
+import game.model.ObservableModel;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.*;
@@ -8,13 +10,8 @@ import game.model.main.GameMain;
 
 import java.util.*;
 
-//#todo: itt is megvalósítani a listener logikát
 /**A karakterek ősosztálya*/
 public class Character {
-
-
-    //#todo: listenerlist
-
     public boolean isMoved() {
         return isMoved;
     }
@@ -205,6 +202,8 @@ public class Character {
             isMoved = true;
         }
 
+        //itt meghívjuk a gameengine notifyeveryone-jét, hogy értesítse a szobát, hogy mozgás történt
+        GameMain.gameEngine.notifyEveryone();
     }
 
     /**

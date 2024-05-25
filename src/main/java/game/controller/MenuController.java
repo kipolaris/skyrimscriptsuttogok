@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class MenuController implements ModelListener{
     private final MenuView view;
-    private InfoView infoView;
+    private InfoView infoView = new InfoView(); //#todo: implement
     private Student student;
     private final GameEngine gameEngine;
     private final RoomController roomController;

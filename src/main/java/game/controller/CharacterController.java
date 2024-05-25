@@ -2,6 +2,7 @@ package game.controller;
 
 import game.view.CharacterView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import game.model.entities.Character;
@@ -30,6 +31,10 @@ public class CharacterController implements ModelListener{
     }
 
     public void setCharacters(List<Character> characters){
+        if(characters.isEmpty()){
+            System.out.println("CharacterController: characters list is empty");
+        }
         this.characters = characters;
+        System.out.println("CharacterController list of chars size: " + characters.size());
     }
 }

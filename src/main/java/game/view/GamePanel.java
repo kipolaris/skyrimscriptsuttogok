@@ -176,15 +176,16 @@ public class GamePanel {
 
         MenuView menuView = GameMain.gamePanel.addMenuView();
 
-        new MenuController(menuView, ge, roomController);
+        MenuController menuController = new MenuController(menuView, ge, roomController);
 
         //listenerek beállítása
         ge.addListener(roomController);
         ge.addListener(itemListController);
-        ge.addListener(roomChars);
         ge.addListener(allcontroller1);
         ge.addListener(allcontroller2);
         ge.addListener(allcontroller3);
+
+        ge.addListener(menuController);
 
 
 

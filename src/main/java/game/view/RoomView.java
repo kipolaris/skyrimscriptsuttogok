@@ -44,6 +44,11 @@ public class RoomView extends JPanel{
 
    private final ItemListView itemListView;
 
+   private final JLabel RoomName = new JLabel("Room Name");
+
+   public void setRoomName(String name) {
+       RoomName.setText(name);
+   }
 
 
     /**
@@ -68,6 +73,8 @@ public class RoomView extends JPanel{
         JLabel imageLabel = new JLabel(new ImageIcon(backgroundBuff));
 
         JComboBox<String> characterBox = characterView.getComboBox();
+
+        this.add(RoomName);
 
         this.add(characterBox);
 
