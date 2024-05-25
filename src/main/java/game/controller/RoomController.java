@@ -8,6 +8,7 @@ import game.view.GamePanel;
 import game.view.RoomView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -31,6 +32,11 @@ public class RoomController implements ModelListener{
 
     private final String onewayInDoorPic = "src/pics/oneway_in_door.png";
 
+    /***
+     * számon tartja, hogy melyik ajtóhoz melyik jcombobox string tartozik.
+     */
+    private HashMap<String, Door> doorsMap = new HashMap<>();
+
     /**
      * Két paraméteres konstruktor.
      *
@@ -49,23 +55,40 @@ public class RoomController implements ModelListener{
     public void onModelChange() {
         r = GameMain.gameEngine.getCurrent().getLocation();
 
+        roomView.clearDoorsComboBox();
+
         // Átfedések hozzáadása a kör körüli pozíciókban:
         List<String> overlayImages = new ArrayList<>();
 
         List<Door> doors = r.getDoors();
 
+        int i = 0;
+
         for(Door d : doors){
             if(!d.getVisible()){
                 overlayImages.add(invisibleDoorPic);
+                String key = "Door"+i+" (invisible)";
+                doorsMap.put(key, d);
+                roomView.addToDoorsJCombobox(key);
             }else{
                 if(d.isBothWays()){
                     overlayImages.add(standardDoorPic);
+                    String key = "Door"+i+" (standard)";
+                    doorsMap.put(key, d);
+                    roomView.addToDoorsJCombobox(key);
                 }else if(d.isItInwards(r)){
                     overlayImages.add(onewayInDoorPic);
+                    String key = "Door"+i+" (one way in)";
+                    doorsMap.put(key, d);
+                    roomView.addToDoorsJCombobox(key);
                 }else{
                     overlayImages.add(onewayOutDoorPic);
+                    String key = "Door"+i+" (one way out)";
+                    doorsMap.put(key, d);
+                    roomView.addToDoorsJCombobox(key);
                 }
             }
+            i++;
         }
 
         characterController.setCharacters(r.getCharacters());
@@ -85,8 +108,8 @@ public class RoomController implements ModelListener{
      * @return kiválasztott ajtó
      */
     public Door getChosenDoor(){
-        return null;
-    } //todo
+        return doorsMap.get(roomView.getSelectedDoor());
+    }
 
     /**
      * Visszadja a kiválaszott tárgyat.

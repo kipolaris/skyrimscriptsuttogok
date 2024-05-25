@@ -38,12 +38,21 @@ public class RoomView extends JPanel{
     // Új ARGB BufferedImage létrehozása a háttérkép méreteivel (ebbe a bufferbe rajzoljuk a háttér- és átfedésképeket):
    private final BufferedImage backgroundBuff = new BufferedImage(bgWidth, bgHeight, BufferedImage.TYPE_INT_ARGB);
 
+   private final JComboBox<String> doorsJComboBox = new JComboBox<>();
+
+   private final CharacterView characterView;
+
+   private final ItemListView itemListView;
+
 
 
     /**
      * A DisplayImage osztály konstruktora. Beállítja a JFrame-et és méretezi, majd kirajzolja a háttér- és átfedésképeket.
      */
-    public RoomView(CharacterView characterView, ItemListView itemListView) {
+    public RoomView(CharacterView _characterView, ItemListView _itemListView) {
+        this.characterView = _characterView;
+
+        this.itemListView = _itemListView;
 
         // Az eredeti háttérkép betöltése és megfelelő méretezése:
         BufferedImage backgroundOrig = getImage("src/pics/standard_room.png", frame_size, frame_size);
@@ -60,13 +69,15 @@ public class RoomView extends JPanel{
 
         JComboBox<String> characterBox = characterView.getComboBox();
 
+        this.add(characterBox);
+
         JComboBox<String> itemBox = itemListView.getComboBox();
 
-        //JComboBox<String> box = new JComboBox<>(new String[]{"Option 1", "Option 2", "Option 3"});
-        characterBox.setMaximumSize(characterBox.getPreferredSize());
+        this.add(itemBox);
 
-        JPanel characterPanel = createComboBoxPanel(characterBox);
-        JPanel itemPanel = createComboBoxPanel(itemBox);
+        this.add(doorsJComboBox);
+
+        characterBox.setMaximumSize(characterBox.getPreferredSize());
 
 
         JPanel textPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -76,8 +87,6 @@ public class RoomView extends JPanel{
         centerPanel.setOpaque(false);
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.PAGE_AXIS));
         centerPanel.add(textPanel);
-        centerPanel.add(characterPanel);
-        centerPanel.add(itemPanel);
 
         imageLabel.setLayout(new BorderLayout());
         imageLabel.add(centerPanel, BorderLayout.CENTER);
@@ -87,9 +96,18 @@ public class RoomView extends JPanel{
         this.setOpaque(false);
         this.validate();
         this.repaint();
+    }
 
-        // A JFrame megjelenítése:
-        //frame.setVisible(true);
+    public void addToDoorsJCombobox(String door){
+        doorsJComboBox.addItem(door);
+    }
+
+    public String getSelectedDoor(){
+        return (String) doorsJComboBox.getSelectedItem();
+    }
+
+    public void clearDoorsComboBox(){
+        doorsJComboBox.removeAllItems();
     }
 
     /**
