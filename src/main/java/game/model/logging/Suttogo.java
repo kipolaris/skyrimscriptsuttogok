@@ -1,5 +1,6 @@
 package game.model.logging;
 
+import game.model.AbstractObservableModel;
 import game.model.main.GameMain;
 
 import java.util.HashSet;
@@ -14,7 +15,7 @@ import java.util.EnumMap;
 import java.util.EnumMap;
 
 /** Class for console output */
-public class Suttogo {
+public class Suttogo extends AbstractObservableModel {
     public Suttogo() {}
 
     /**
