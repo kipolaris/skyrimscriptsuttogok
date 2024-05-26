@@ -56,8 +56,8 @@ public class MenuController implements ModelListener{
                 itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
             else {
-                if(student.getParalyzed()) { view.setActionPoints("Megbénultál.."); }
-                else view.setActionPoints("Akciók: " + student.getActions());
+                if(student.getParalyzed()) { view.setActionPoints("You're paralyzed"); }
+                else view.setActionPoints("Actions left: " + student.getActions());
                 itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
                 itemListController.onModelChange();
             }

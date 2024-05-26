@@ -315,7 +315,7 @@ public class GameEngine extends AbstractObservableModel {
             GameMain.perform("roomaddchar Professor0 Room1");
 
             GameMain.perform("ffp2");                    //FFP20
-            GameMain.perform("roomadditem FFP20 Room0");
+            GameMain.perform("charadditem FFP20 Student0");
             GameMain.perform("airfreshener");                    //Airfreshener1
             GameMain.perform("roomadditem Airfreshener1 Room0");
             GameMain.perform("camembert");                    //Camembert2
