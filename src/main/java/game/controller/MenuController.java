@@ -23,7 +23,6 @@ public class MenuController implements ModelListener{
     private final GameEngine gameEngine;
     private final RoomController roomController;
     private ItemListController itemListController;
-    private InfoView infoView;
 
     /**
      * Három paraméteres konstruktor.

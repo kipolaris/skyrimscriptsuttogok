@@ -44,17 +44,17 @@ public class Professor extends Character{
             timer++;
         }
         ArrayList<Item> locItems = location.getItems();
-        for(int i =0 ; i<3; i++){
-            if(p.test(true && locItems.size()>0)){
+        for(int i =0 ; i<3 && !locItems.isEmpty(); i++){
+            if(p.test(true)){
                 //#todo: ez valamiért illegalargumentexceptiönt dob...
+                //kicsit variáltam, ki kell próbálni h ez megoldja-e
                 Item item = locItems.get(rand.nextInt(locItems.size()));
                 this.addItem(item);
             }
         }
-        //#todo: ez is random? vagy ez mindig?
-        if(p.test(true)){
-            this.location.killStudents();
-        }
+
+        this.location.killStudents();
+
 
         gameEngine.next();
     }

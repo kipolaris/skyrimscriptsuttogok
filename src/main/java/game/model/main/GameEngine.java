@@ -1,6 +1,5 @@
 package game.model.main;
 
-import game.controller.ModelListener;
 import game.model.AbstractObservableModel;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
@@ -11,7 +10,6 @@ import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
-import game.view.GamePanel;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -27,8 +25,8 @@ public class GameEngine extends AbstractObservableModel {
     /**
      * Ezáltal lehet a current értékét beállítani
      */
-    public void setCurrent(String s){
-        current = students.get(s);
+    public void setCurrent(String key){
+        current = characters.get(key);
     }
     private Character current = null;
 
@@ -39,11 +37,12 @@ public class GameEngine extends AbstractObservableModel {
 
     private Map<String, Professor> professors = null;
 
+    private HashMap<String, Character> characters = null;
+
     /**Visszaadja a takarítók egy kulccsal ellátott listáját*/
     public Map<String, Cleaner> getCleaners() {
         return cleaners;
     }
-
 
     private Map<String, Cleaner> cleaners = null;
 
@@ -238,7 +237,7 @@ public class GameEngine extends AbstractObservableModel {
                     for (Door door : group) {
                         if (!alldoors.contains(door)) {
                             alldoors.add(door);
-                            door.setVisible(r.nextInt(1) == 1);
+                            door.setVisible(p.test(true));
                         }
                     }
                 }
@@ -258,12 +257,17 @@ public class GameEngine extends AbstractObservableModel {
         students = new HashMap<>();
         professors = new HashMap<>();
         cleaners = new HashMap<>();
+        characters = new HashMap<>();
         builder = new BuildingAI();
         BuildingAI.setRoomID(0);
         studentID = 0;
         professorID = 0;
         itemID = 0;
         cleanerID = 0;
+
+        characters.putAll(students);
+        characters.putAll(professors);
+        characters.putAll(cleaners);
 
         //#todo: potential bug alert!
         //#todo: ezt jobban népesíteni kell
@@ -380,7 +384,6 @@ public class GameEngine extends AbstractObservableModel {
      * Felvesz egy hallgatót a listára
      */
     public void addStudent(Student s) {
-
         students.put(s.getId(), s);
     }
 
