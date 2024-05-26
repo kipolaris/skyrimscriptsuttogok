@@ -303,7 +303,8 @@ public class GameEngine extends AbstractObservableModel {
 
         //#todo: ezt jobban népesíteni kell
         if (random) {
-            GameMain.perform("room "+(numberOfPlayers+3)); //Room0
+            // A kezdő szoba (itt lehet állítani a gázosságot/átkosságot)
+            GameMain.perform("room "+(numberOfPlayers+3) + " true true"); //Room0
             GameMain.perform("room 5");                    //Room1
             GameMain.perform("neighbour Room0 Room1");
 
