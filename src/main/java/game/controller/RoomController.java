@@ -40,6 +40,10 @@ public class RoomController implements ModelListener{
 
     private final String cursedMark = "src/pics/cursed_room_mark.png";
 
+    private final String freshedMark = "src/pics/freshed_room_mark.png";
+
+    private final String raggedMark = "src/pics/ragged_room_mark.png";
+
     /***
      * számon tartja, hogy melyik ajtóhoz melyik jcombobox string tartozik.
      */
@@ -126,6 +130,14 @@ public class RoomController implements ModelListener{
 
         if(r.getGassed()) { overlayImages.add(gassedMark); }
         if(r.getCursed()) { overlayImages.add(cursedMark); }
+        if(r.getHasAirFreshener()) { overlayImages.add(freshedMark); }
+        ArrayList<Item> items = r.getItems();
+        for(Item item : items) {
+            if(item.getId().startsWith("Rag") && item.isActivated()){
+                overlayImages.add(raggedMark);
+                break;
+            }
+        }
 
         roomView.setMarks(overlayImages);
 
