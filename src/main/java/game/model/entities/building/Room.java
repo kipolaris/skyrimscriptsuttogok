@@ -253,6 +253,9 @@ public class Room {
     /**Elgázosítja a szobát*/
     public void setGassed(boolean g) {
         gassed = g;
+        for (Character character : characters) {
+            character.setParalyzed(gassed);
+        }
     }
 
     /**Megöli a szobában tartozkodó hallgatókat*/

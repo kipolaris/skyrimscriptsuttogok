@@ -56,7 +56,8 @@ public class MenuController implements ModelListener{
                 itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
             else {
-                view.setActionPoints("Akciók: " + student.getActions());
+                if(student.getParalyzed()) { view.setActionPoints("Megbénultál.."); }
+                else view.setActionPoints("Akciók: " + student.getActions());
                 itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
                 itemListController.onModelChange();
             }
@@ -77,6 +78,7 @@ public class MenuController implements ModelListener{
             Item chosen = itemListController.getSelectedItem();
             if(chosen != null) {
                 student.dropItem(chosen);
+                //todo: ezek a gombok még nem kellene kiírják mi történik, mert egy csomó esetben az akció nem elvégezhető
                 infoView.showInfo("Item dropped", 2000);
                 System.out.println("Item dropped");
                 infoView.showInfo("Item dropped", 2000);
@@ -99,6 +101,7 @@ public class MenuController implements ModelListener{
 
             if (i != null) {
                 student.addItem(i);
+                //todo: ezek a gombok még nem kellene kiírják mi történik, mert egy csomó esetben az akció nem elvégezhető
                 infoView.showInfo("Item picked up", 2000);
                 System.out.println("Item picked up");
                 infoView.showInfo("Item picked up", 2000);
@@ -120,6 +123,7 @@ public class MenuController implements ModelListener{
             Item i = itemListController.getSelectedItem();
             if(i != null){
                 student.useItem(i);
+                //todo: ezek a gombok még nem kellene kiírják mi történik, mert egy csomó esetben az akció nem elvégezhető
                 infoView.showInfo("Item used", 2000);
                 System.out.println("Item used");
                 infoView.showInfo("Item used", 2000);
@@ -140,6 +144,7 @@ public class MenuController implements ModelListener{
         public void actionPerformed(ActionEvent e) {
             Door d = roomController.getChosenDoor();
             if(d != null) {
+                //todo: ezek a gombok még nem kellene kiírják mi történik, mert egy csomó esetben az akció nem elvégezhető
                 student.move(d);
                 infoView.showInfo(student.getId() + " moved to another room", 2000);
                 System.out.println("Character moved");
