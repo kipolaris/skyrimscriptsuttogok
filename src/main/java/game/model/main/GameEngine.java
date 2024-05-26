@@ -234,12 +234,12 @@ public class GameEngine extends AbstractObservableModel {
                     Room r2 = allrooms.get(n2);
 
                     //random értétek meghatározására szolgáló predikátum
-                    Predicate<Boolean> pa = (a) -> r.nextInt(2) == 1;
-                    Predicate<Boolean> p = (a) -> true;
+                    Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
+                    //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
 
                     if (p.test(true)) {
                         builder.mergeRooms(r1, r2);
-                        Suttogo.note("Rooms merged");
+
                     }
 
                     //újra értéket adunk az allroomsnak, mert változott
@@ -249,7 +249,6 @@ public class GameEngine extends AbstractObservableModel {
 
                     if (p.test(true)) {
                         builder.splitRoom(r3);
-                        Suttogo.note("Room split");
                     }
 
                     allrooms = new ArrayList<>(builder.getLabyrinth().values());
@@ -273,6 +272,9 @@ public class GameEngine extends AbstractObservableModel {
         }
     }
 
+    /**
+     * A buildingAI parancsokat vezérli, ha a random ki van kapcsolva.
+     */
     public void controlBuildingAI(){
         if(buildingAIcommandsDone < 2){
             Suttogo.note("buildingAIcommandsDone: "+buildingAIcommandsDone);
