@@ -34,11 +34,30 @@ public class SaverLoader {
     public List<String> getSavedGames(){
         List<String> names = new ArrayList<>();
         File dir = new File("src/main/java/game/model/main/games");
-        File[] subDirs = dir.listFiles(File::isDirectory);
-        for (File subDir : subDirs){
-            names.add(subDir.getName());
+        File[] files = dir.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    names.add(file.getName());
+                }
+            }
         }
         return names;
+    }
+
+    /**
+     * A korábban elmentett fájlok alapján visszaad egy olyan fájlnevet, ami még nem létezik
+     */
+    public String newName(){
+        List<String> names = getSavedGames();
+        int szam = 0;
+        for (String s : names){
+            String numberPart = s.substring(4, s.length()-4); // Get the part after "Game"
+            if (Integer.parseInt(numberPart)>szam)
+                szam = Integer.parseInt(numberPart);
+        }
+        szam++;
+        return "Game"+ szam;
     }
 
     /**A játékot elmenti a megadott helyre*/

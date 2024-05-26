@@ -26,7 +26,7 @@ import java.io.IOException;
 
 /**Osztály, amely főmenüként szolgál és a parancsokat kezeli*/
 public class GameMain {
-
+    public static int last_character_value = 5;
     public static HashMap<String, iCommand> commandMap = new HashMap<>();
 
     public static boolean isGameStarted = false;

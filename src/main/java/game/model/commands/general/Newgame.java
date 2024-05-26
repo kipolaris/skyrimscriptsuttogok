@@ -24,6 +24,8 @@ public class Newgame implements iCommand {/**Új játékot inicializál*/
             return;
         }
 
+        GameMain.last_character_value=numberOfPlayers;
+
         GameMain.gameEngine.numberOfPlayers = numberOfPlayers;
         GameMain.gameEngine.initGame();
         Suttogo.note("New Game loaded with " + numberOfPlayers + " players. Have fun!");

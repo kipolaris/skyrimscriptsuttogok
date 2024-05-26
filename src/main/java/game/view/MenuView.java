@@ -1,5 +1,7 @@
 package game.view;
 
+import game.model.logging.Suttogo;
+
 import javax.swing.*;
 
 import javax.swing.*;
@@ -10,6 +12,7 @@ import java.awt.event.ActionListener;
  * View osztály a felhasználói interfész (avagy menü) megjelenítésére.
  */
 public class MenuView extends JPanel {
+    private JPanel info;
     private JLabel currentStudent = new JLabel("ERROR");
 
     private JButton dropButton;
@@ -26,6 +29,8 @@ public class MenuView extends JPanel {
      * <p>Beállítja a gombokat, amivel a felhasználó tud majd parancsokat közölni a játéknak.</p>
      */
     public MenuView() {
+        setLayout(new BorderLayout());
+
         dropButton = new JButton("Drop");
         pickupButton = new JButton("Pickup");
         useButton = new JButton("Use");
@@ -35,22 +40,31 @@ public class MenuView extends JPanel {
         itemListView = new ItemListView();
         JComboBox<String> itemBox = itemListView.getComboBox();
 
+        info = new JPanel(new BorderLayout());
         actions = new JLabel();
 
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        JScrollPane scrollPane = new JScrollPane(info);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getViewport().setPreferredSize(new Dimension(100, 60));
 
-        addAlignedComponent(currentStudent);
-        addAlignedComponent(dropButton);
-        addAlignedComponent(pickupButton);
-        addAlignedComponent(useButton);
-        addAlignedComponent(moveButton);
-        addAlignedComponent(skipButton);
-        addAlignedComponent(actions);
-        addAlignedComponent(itemBox);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        setComponentsHeight(this);
-        setComponentsWidth(this);
+        addAlignedComponent(mainPanel, currentStudent);
+        addAlignedComponent(mainPanel, dropButton);
+        addAlignedComponent(mainPanel, pickupButton);
+        addAlignedComponent(mainPanel, useButton);
+        addAlignedComponent(mainPanel, moveButton);
+        addAlignedComponent(mainPanel, skipButton);
+        addAlignedComponent(mainPanel, actions);
+        addAlignedComponent(mainPanel, itemBox);
 
+        setComponentsHeight(mainPanel);
+        setComponentsWidth(mainPanel);
+
+        add(scrollPane, BorderLayout.NORTH);
+        add(mainPanel, BorderLayout.CENTER);
     }
 
     public void setCurrentStudent(String studentName) {
@@ -152,16 +166,37 @@ public class MenuView extends JPanel {
     /**
      * Függvény komponensek elrendezésére
      */
-    private void addAlignedComponent(JComponent component) {
+    private void addAlignedComponent(JPanel panel, JComponent component) {
         component.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(component);
+        panel.add(component);
     }
+
 
     /**
      * Függvény akciópontok kiírásához.
      */
     public void setActionPoints(String s) {
         actions.setText(s);
+    }
+    public void setInfo(JPanel in){
+        // Remove the old info panel if it exists
+        remove(info);
+
+        // Set the new info panel
+        info = in;
+        info.setMaximumSize(new Dimension(Integer.MAX_VALUE, info.getPreferredSize().height));
+
+        JScrollPane scrollPane = new JScrollPane(info);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getViewport().setPreferredSize(new Dimension(100, 60));
+
+        // Add the new info panel to the MenuView
+        add(scrollPane, BorderLayout.NORTH);
+
+        // Refresh the layout
+        revalidate();
+        repaint();
     }
 }
 
