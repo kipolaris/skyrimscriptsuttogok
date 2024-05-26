@@ -9,9 +9,11 @@ import game.view.InfoView;
 import game.view.MenuView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Control osztály az MenuView osztályhoz.
@@ -47,6 +49,37 @@ public class MenuController implements ModelListener{
         onModelChange();
     }
 
+    public JPanel addInfo(){
+        JPanel charPanel = new JPanel(new BorderLayout());
+
+        String stud = "";
+        Map<String, Student> students = gameEngine.getStudents();
+        int counter = 0;
+        for (String s : students.keySet()) {
+            stud = stud + s;
+            if (counter!=students.size()-1) {
+                stud = stud+", ";
+            }
+            counter++;
+        }
+        JLabel charactersLabel = new JLabel(stud);
+        charPanel.add(charactersLabel, BorderLayout.NORTH);
+
+        int cleaners=gameEngine.getCleaners().size();
+        int professors=gameEngine.getProfessors().size();
+        // Takarítók és professzorok száma
+        JPanel fieldsPanel = new JPanel(new GridLayout(2, 2));
+        JLabel cleanersLabel = new JLabel("Takarítók száma: " + cleaners);
+        JLabel professorsLabel = new JLabel("Professzorok száma: " + professors);
+        fieldsPanel.add(cleanersLabel);
+        fieldsPanel.add(new JLabel());
+        fieldsPanel.add(professorsLabel);
+        fieldsPanel.add(new JLabel());
+        charPanel.add(fieldsPanel, BorderLayout.CENTER);
+
+        return charPanel;
+    }
+
     @Override
     public void onModelChange() {
         if(gameEngine.getCurrent().getId().startsWith("Student")){
@@ -58,6 +91,7 @@ public class MenuController implements ModelListener{
             else {
                 if(student.getParalyzed()) { view.setActionPoints("You're paralyzed"); }
                 else view.setActionPoints("Actions left: " + student.getActions());
+                view.setInfo(addInfo());
                 itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
                 itemListController.onModelChange();
             }
