@@ -15,7 +15,7 @@ import java.util.EnumMap;
 
 /** Class for console output */
 public class Suttogo {
-    private Suttogo() {}
+    public Suttogo() {}
 
     /**
      * Enum representing the logging levels.
@@ -25,6 +25,9 @@ public class Suttogo {
     }
 
     private static Level level = Level.INFO;
+
+    private static String lastMessage = null;
+    public String getLastMessage() { return lastMessage; }
 
     /**
      * Method to set the logging level.
@@ -43,6 +46,7 @@ public class Suttogo {
     public static void info(String message) {
         if (shouldLog(Level.INFO)) {
             log("INFO " + message);
+            lastMessage = message;
         }
     }
 
@@ -56,6 +60,7 @@ public class Suttogo {
             String loggable = "ERROR " + message;
             GameMain.lastOutput = GameMain.lastOutput + loggable + '\n';
             log(loggable);
+            lastMessage = message;
         }
     }
 
@@ -67,6 +72,7 @@ public class Suttogo {
     public static void note(String message) {
         if (shouldLog(Level.NOTE)) {
             log("NOTE " + message);
+            lastMessage = message;
         }
     }
 

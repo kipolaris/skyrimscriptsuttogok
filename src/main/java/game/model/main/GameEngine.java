@@ -90,7 +90,8 @@ public class GameEngine extends AbstractObservableModel {
     private static int cleanerID = 0;
 
     private BuildingAI builder = null;
-
+    private final Suttogo suttogo = new Suttogo();
+    public Suttogo getSuttogo() { return suttogo; }
     public static int numberOfPlayers = 1;
 
     public static int buildingAIcommandsDone = 0;
