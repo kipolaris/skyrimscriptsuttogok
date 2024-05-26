@@ -41,7 +41,7 @@ public class RunTests {
 
                             String line;
                             while ((line = reader.readLine()) != null) {
-                                Suttogo.note("**** "+line+" ****");
+                                Suttogo.getSuttogo().note("**** "+line+" ****");
                                 perform(line);
                                 if(isGameInitialized) GameMain.printOut();
                                 writer.println(GameMain.lastOutput); // Assuming this method fetches last output

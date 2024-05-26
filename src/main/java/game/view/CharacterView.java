@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import game.model.entities.Character;
+import game.model.main.GameEngine;
+import game.model.main.GameMain;
 
 /**
  * View osztály egy adott szobában lévő karakterek megjelenítésére.
@@ -56,7 +58,7 @@ public class CharacterView {
         if(listener!=null){
             listeners.add(listener);
         }else{
-            Suttogo.error("A kapott listener null : CharacterView addListener()");
+            Suttogo.getSuttogo().error("A kapott listener null : CharacterView addListener()");
         }
     }
 }

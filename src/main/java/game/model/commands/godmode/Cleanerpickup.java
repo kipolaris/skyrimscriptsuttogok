@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
+import static game.model.main.GameMain.gameEngine;
+
 /**
  * Parancs osztály takarítók általi tárgyfelvételre
  */
@@ -19,7 +21,7 @@ public class Cleanerpickup implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Egy takarítót egy tárgy felvételére késztet*/
         if(cmd.length < 2) {
-            Suttogo.error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Map<String, Cleaner> cleaners = GameMain.gameEngine.getCleaners();

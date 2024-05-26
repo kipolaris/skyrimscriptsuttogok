@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Map;
 
+import static game.model.main.GameMain.gameEngine;
+
 /**
  * Parancs osztály oktatók általi tárgyfelvételre
  */
@@ -19,7 +21,7 @@ public class Profpickup implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Egy professzort egy tárgy felvételére késztet*/
         if(cmd.length < 2) {
-            Suttogo.error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Map<String, Professor> prof = GameMain.gameEngine.getProfessors();

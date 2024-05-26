@@ -23,7 +23,7 @@ public class AirFreshener extends Item{
         owner.getLocation().setGassed(false);
         owner.getLocation().setHasAirFreshener();
         String s = this.getId() + " used. " + getEffect();
-        Suttogo.info(s);
+        Suttogo.getSuttogo().info(s);
         gameEngine.nullifyItem(this);
     }
 

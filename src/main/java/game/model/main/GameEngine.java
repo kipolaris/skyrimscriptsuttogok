@@ -1,6 +1,5 @@
 package game.model.main;
 
-import game.controller.ModelListener;
 import game.model.AbstractObservableModel;
 import game.model.entities.Cleaner;
 import game.model.entities.Professor;
@@ -26,8 +25,8 @@ public class GameEngine extends AbstractObservableModel {
     /**
      * Ezáltal lehet a current értékét beállítani
      */
-    public void setCurrent(String s){
-        current = students.get(s);
+    public void setCurrent(String key){
+        current = characters.get(key);
     }
     private Character current = null;
 
@@ -38,17 +37,14 @@ public class GameEngine extends AbstractObservableModel {
 
     private Map<String, Professor> professors = null;
 
+    private HashMap<String, Character> characters = null;
+
     /**Visszaadja a takarítók egy kulccsal ellátott listáját*/
     public Map<String, Cleaner> getCleaners() {
         return cleaners;
     }
 
-
     private Map<String, Cleaner> cleaners = null;
-
-    private Queue<Queue<Character>> turns = null;
-
-    private Queue<Character> studentTurns = null;
 
     private Queue<Character> aiTurns = null;
 
@@ -82,7 +78,6 @@ public class GameEngine extends AbstractObservableModel {
         return itemID++;
     }
 
-
     private static int itemID = 0;
 
     /**Visszaad egy egyedi takarító azonosítót*/
@@ -90,13 +85,11 @@ public class GameEngine extends AbstractObservableModel {
         return cleanerID++;
     }
 
-
     private static int cleanerID = 0;
 
     private BuildingAI builder = null;
-
+    
     public static int numberOfPlayers = 1;
-
     public static int buildingAIcommandsDone = 0;
 
     //GETTERS - SETTERS -----------------------------
@@ -159,11 +152,11 @@ public class GameEngine extends AbstractObservableModel {
         if (c.getActions() > 0) {
             if (c.getActions() == 1 && c.isMoved()) {
                 next();
-                Suttogo.note("next has been called");
+                Suttogo.getSuttogo().note("next has been called");
             }
             return true;
         } else {
-            Suttogo.error("You have no more actions left!");
+            Suttogo.getSuttogo().error("You have no more actions left!");
             return false;
         }
     }
@@ -173,7 +166,7 @@ public class GameEngine extends AbstractObservableModel {
         if(!c.isMoved()){
             if(c.getActions() <= 0){
                 next();
-                Suttogo.note("next has been called");
+                Suttogo.getSuttogo().note("next has been called");
             }
             return true;
         }
@@ -187,19 +180,19 @@ public class GameEngine extends AbstractObservableModel {
     public void next() {
         if (chart.hasNext()) {
             current = chart.next();
-            Suttogo.info("current: "+current.getId());
+            Suttogo.getSuttogo().info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
-                Suttogo.note("isAInext was set to true");
+                Suttogo.getSuttogo().note("isAInext was set to true");
                 isAInext = true;
                 if (!random) {
-                    Suttogo.note("Now you can step with" + current.getId() + "ai");
+                    Suttogo.getSuttogo().note("Now you can step with" + current.getId() + "ai");
                 }
             } else {
                 isAInext = false;
             }
         } else {
             nextQueue();
-            Suttogo.note("switched to next queue");
+            Suttogo.getSuttogo().note("switched to next queue");
         }
         notifyEveryone();
     }
@@ -214,7 +207,7 @@ public class GameEngine extends AbstractObservableModel {
             chart = currentQueue.iterator();
             next();
         } else {
-            Suttogo.note("------- Building AI comes ---------");
+            Suttogo.getSuttogo().note("------- Building AI comes ---------");
             if (random) {
 
                 ArrayList<Room> allrooms = new ArrayList<>(builder.getLabyrinth().values());
@@ -267,7 +260,7 @@ public class GameEngine extends AbstractObservableModel {
                 }
             } else {
                 buildingAIcommandsDone = 0;
-                Suttogo.info("now you MUST use buildingAI commands twice");
+                Suttogo.getSuttogo().info("now you MUST use buildingAI commands twice");
             }
         }
     }
@@ -277,11 +270,11 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void controlBuildingAI(){
         if(buildingAIcommandsDone < 2){
-            Suttogo.note("buildingAIcommandsDone: "+buildingAIcommandsDone);
+            Suttogo.getSuttogo().note("buildingAIcommandsDone: "+buildingAIcommandsDone);
             buildingAIcommandsDone++;
             if(buildingAIcommandsDone==2) playOnePhase();
         }else{
-            Suttogo.error("You have already used buildingAI commands twice!");
+            Suttogo.getSuttogo().error("You have already used buildingAI commands twice!");
         }
     }
 
@@ -294,6 +287,7 @@ public class GameEngine extends AbstractObservableModel {
         students = new HashMap<>();
         professors = new HashMap<>();
         cleaners = new HashMap<>();
+        characters = new HashMap<>();
         builder = new BuildingAI();
         BuildingAI.setRoomID(0);
         studentID = 0;
@@ -301,6 +295,11 @@ public class GameEngine extends AbstractObservableModel {
         itemID = 0;
         cleanerID = 0;
 
+        characters.putAll(students);
+        characters.putAll(professors);
+        characters.putAll(cleaners);
+
+        //#todo: potential bug alert!
         //#todo: ezt jobban népesíteni kell
         if (random) {
             // A kezdő szoba (itt lehet állítani a gázosságot/átkosságot)
@@ -377,15 +376,14 @@ public class GameEngine extends AbstractObservableModel {
     public void playOnePhase() {
         if (!studentsExtinct() || !GameMain.isGameStarted) {
 
-            Suttogo.note("-------- new Phase initiated! ------------\n");
+            Suttogo.getSuttogo().note("-------- new Phase initiated! ------------\n");
 
             for (Student s : students.values()) {
                 s.resetActions();
             }
 
-            turns = new ArrayDeque<>();
-
-            studentTurns = new ArrayDeque<>();
+            Queue<Queue<Character>> turns = new ArrayDeque<>();
+            Queue<Character> studentTurns = new ArrayDeque<>();
             aiTurns = new ArrayDeque<>();
 
             turns.add(studentTurns);
@@ -402,7 +400,7 @@ public class GameEngine extends AbstractObservableModel {
             nextQueue();
         } else {
             endGame();
-            Suttogo.info("You lost!");
+            Suttogo.getSuttogo().info("You lost!");
         }
     }
 
@@ -410,14 +408,13 @@ public class GameEngine extends AbstractObservableModel {
      * Eltávolít egy hallgatót a listából
      */
     public void studentDied(Student s) {
-        students.remove(s);
+        students.remove(s.getId());
     }
 
     /**
      * Felvesz egy hallgatót a listára
      */
     public void addStudent(Student s) {
-
         students.put(s.getId(), s);
     }
 
@@ -449,6 +446,7 @@ public class GameEngine extends AbstractObservableModel {
         HashMap<String, Character> merged = new HashMap<>();
 
         merged.putAll(students);
+        merged.putAll(professors);
         merged.putAll(cleaners);
         merged.putAll(professors);
 

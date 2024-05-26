@@ -79,6 +79,7 @@ public class MenuController implements ModelListener{
                 student.dropItem(chosen);
                 infoView.showInfo("Item dropped", 2000);
                 System.out.println("Item dropped");
+                infoView.showInfo("Item dropped", 2000);
             }
         }
     }
@@ -100,6 +101,7 @@ public class MenuController implements ModelListener{
                 student.addItem(i);
                 infoView.showInfo("Item picked up", 2000);
                 System.out.println("Item picked up");
+                infoView.showInfo("Item picked up", 2000);
             }
         }
     }
@@ -120,6 +122,7 @@ public class MenuController implements ModelListener{
                 student.useItem(i);
                 infoView.showInfo("Item used", 2000);
                 System.out.println("Item used");
+                infoView.showInfo("Item used", 2000);
             }
         }
     }
@@ -140,6 +143,7 @@ public class MenuController implements ModelListener{
                 student.move(d);
                 infoView.showInfo(student.getId() + " moved to another room", 2000);
                 System.out.println("Character moved");
+                infoView.showInfo(student.getId() + " moved to another room", 2000);
             }
         }
     }

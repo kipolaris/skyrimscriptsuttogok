@@ -16,7 +16,7 @@ public class MergeRooms implements iCommand {
     @Override
     public void execute(String[] cmd) {
         if (cmd.length < 3) {
-            Suttogo.error("Invalid command. Please provide the IDs of the two rooms to be merged.");
+            Suttogo.getSuttogo().error("Invalid command. Please provide the IDs of the two rooms to be merged.");
             return;
         }
 
@@ -25,7 +25,7 @@ public class MergeRooms implements iCommand {
         Room room2 = builder.getLabyrinth().get(cmd[2]);
 
         if (room1 == null || room2 == null) {
-            Suttogo.error("One or both rooms not found!");
+            Suttogo.getSuttogo().error("One or both rooms not found!");
         }
 
         builder.mergeRooms(room1, room2);

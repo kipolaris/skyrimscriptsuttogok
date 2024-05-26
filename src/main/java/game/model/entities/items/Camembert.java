@@ -3,7 +3,6 @@ package game.model.entities.items;
 import game.model.entities.Character;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
-import game.model.main.GameMain;
 
 import static game.model.main.GameMain.gameEngine;
 
@@ -24,7 +23,7 @@ public class Camembert extends Item{
         Room loc = owner.getLocation();
         loc.setGassed(true);
         String s = this.getId() + " used. " + getEffect();
-        Suttogo.info(s);
+        Suttogo.getSuttogo().info(s);
         gameEngine.nullifyItem(this);
     }
 

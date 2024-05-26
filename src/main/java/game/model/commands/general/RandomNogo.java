@@ -4,6 +4,8 @@ import game.model.commands.iCommand;
 import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 
+import static game.model.main.GameMain.gameEngine;
+
 /**
  * Parancs osztály a random algoritmusok tiltásához
  */
@@ -13,7 +15,7 @@ public class RandomNogo implements iCommand {
 
         GameMain.gameEngine.setRandom(false);
 
-        Suttogo.note("random turned off");
+        Suttogo.getSuttogo().note("random turned off");
     }
 
 }

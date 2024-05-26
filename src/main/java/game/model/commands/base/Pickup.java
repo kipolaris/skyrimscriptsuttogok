@@ -17,7 +17,7 @@ public class Pickup implements iCommand {
      */
     public void execute(String[] cmd) {
         if (cmd.length < 3) {
-            Suttogo.error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         BuildingAI builder = gameEngine.getBuilder();
@@ -26,11 +26,11 @@ public class Pickup implements iCommand {
         Item i;
 
         if (c == null) {
-            Suttogo.error("There is no such character!");
+            Suttogo.getSuttogo().error("There is no such character!");
         } else {
             i = gameEngine.getItems().get(cmd[1]);
             if (i == null) {
-                Suttogo.error("There is no such item!");
+                Suttogo.getSuttogo().error("There is no such item!");
             } else if (c.getLocation().getItems().contains(i)) {
                 if (c.getActions() > 0) {
                     c.addItem(i);

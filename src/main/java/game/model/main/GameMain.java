@@ -17,6 +17,7 @@ import game.model.logging.Suttogo;
 import game.model.entities.Character;
 import game.view.GamePanel;
 
+import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -27,7 +28,7 @@ import java.io.IOException;
 /**Osztály, amely főmenüként szolgál és a parancsokat kezeli*/
 public class GameMain {
 
-    public static HashMap<String, iCommand> commandMap = new HashMap<>();
+    public static Map<String, iCommand> commandMap = new HashMap<>();
 
     public static boolean isGameStarted = false;
 
@@ -47,7 +48,24 @@ public class GameMain {
 
     public static String lastOutput = "";
 
+    /**
+     * A fejlesztői módot jelző bit
+     */
     public static boolean developermode = true;
+
+    /**
+     * Azt jelzi grafikus felület esetén, hogy a listenereket beállítottuk-e már.
+     * Van egy kezdeti szakasz, amikor errort dob, holott még nincs is hozzáadva listener!
+     */
+    private static boolean init = true;
+
+    public static boolean isInit() {
+        return init;
+    }
+
+    public static void setInit(boolean init) {
+        GameMain.init = init;
+    }
 
     /**Felveszi a parancsokat egy mapra*/
     public static void addAllCommands(){
@@ -106,6 +124,7 @@ public class GameMain {
             mainLoop();
         }
         else if(input == 0){
+            setInit(true); //beállítjuk, hogy az elején ne jelezzen hibát, hogy nincs listener, amíg amúgyse gond
             gamePanel.menu();
             developermode = false;
         }else if(input == 2){
@@ -119,7 +138,7 @@ public class GameMain {
     }
 
     private static void mainLoop(){
-        Suttogo.info("SYSTEM game CLI started, start typing commands");
+        Suttogo.getSuttogo().info("SYSTEM game CLI started, start typing commands");
 
         Scanner sc = new Scanner(System.in);
 
@@ -130,21 +149,21 @@ public class GameMain {
             if (command != null) {
                 command.execute(cmd);
             } else {
-                Suttogo.note("command " + cmd[0] + " does not exist!");
+                Suttogo.getSuttogo().note("command " + cmd[0] + " does not exist!");
             }
 
             if(allOut && isGameInitialized){
                 printOut();
                 GameMain.lastOutput = "";
             }else{
-                if(!allOut) Suttogo.note("Please call newgame command!");
+                if(!allOut) Suttogo.getSuttogo().note("Please call newgame command!");
             }
 
             if (gameEngine.isAInext()) {
                 Character current = gameEngine.getCurrent();
 
                 current.doRound();
-                Suttogo.note("Now " + current.getId() + "makes steps");
+                Suttogo.getSuttogo().note("Now " + current.getId() + "makes steps");
             }
         }
     }
@@ -179,12 +198,12 @@ public class GameMain {
                     }
                 }
             }
-            else Suttogo.error("A builder null!!!");
+            else Suttogo.getSuttogo().error("A builder null!!!");
 
             Character c = gameEngine.getCurrent();
 
             if (c == null) {
-                Suttogo.error("current is null!");
+                Suttogo.getSuttogo().error("current is null!");
                 return;
             }
 
@@ -231,9 +250,8 @@ public class GameMain {
             command.execute(cmd);
         }
     }
-
     public static void executeScript(){
-        Suttogo.info("SYSTEM started processing script, please wait...");
+        Suttogo.getSuttogo().info("SYSTEM started processing script, please wait...");
 
         String scriptPath = "src/main/resources/gamebuilder_scripts/script1.txt";
 
@@ -243,9 +261,9 @@ public class GameMain {
                 perform(line);
             }
         } catch (IOException e) {
-            Suttogo.error("Error reading file: " + e.getMessage());
+            Suttogo.getSuttogo().error("Error reading file: " + e.getMessage());
         }
 
-        Suttogo.info("SYSTEM script processed sucessfully.");
+        Suttogo.getSuttogo().info("SYSTEM script processed sucessfully.");
     }
 }

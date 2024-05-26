@@ -2,6 +2,7 @@ package game.view;
 
 import game.controller.*;
 import game.model.entities.building.Room;
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
@@ -121,6 +122,15 @@ public class GamePanel {
         return characterView;
     }
 
+    public InfoView addInfoView() {
+        InfoView infoView = new InfoView();
+        JPanel infoPanel = new JPanel(new FlowLayout());
+        infoPanel.add(infoView);
+        playPanel.add(infoPanel, BorderLayout.SOUTH);
+
+        return infoView;
+    }
+
     /**
      * Láthatóvá teszi az ablakot.
      */
@@ -149,15 +159,12 @@ public class GamePanel {
         //A Room panel beállítása
 
         CharacterView roomCharacterView = new CharacterView();
-
         CharacterController roomChars = new CharacterController(new ArrayList<>(), roomCharacterView);
 
         ItemListView itemListView = new ItemListView();
-
         ItemListController itemListController = new ItemListController(itemListView, new ArrayList<>());
 
         RoomView roomView = addRoomView(roomCharacterView, itemListView);
-
         RoomController roomController = new RoomController(null, roomView, itemListController, roomChars);
 
         //a bal felső sarokban a karaktercomboboxok beállítása
@@ -173,8 +180,10 @@ public class GamePanel {
         //a bal oldali menu beállítása
 
         MenuView menuView = GameMain.gamePanel.addMenuView();
-
         MenuController menuController = new MenuController(menuView, ge, roomController);
+
+        InfoView infoView = GameMain.gamePanel.addInfoView();
+        InfoController infoController = new InfoController(infoView,6000);
 
         //listenerek beállítása
         ge.addListener(roomController);
@@ -184,8 +193,11 @@ public class GamePanel {
         ge.addListener(allcontroller3);
 
         ge.addListener(menuController);
+        ge.addListener(infoController);
 
+        Suttogo.getSuttogo().addListener(infoController);
 
+        GameMain.setInit(false);
 
         GameMain.gamePanel.display();
     }

@@ -52,18 +52,10 @@ public class Character {
     }
 
     /**
-     * prioritásKomparátor. Ez valósítja meg, hogy hiearchia szerint használja védelemre
+     * prioritásKomparátor. Ez valósítja meg, hogy hierarchia szerint használja védelemre
      * a tárgyakat a karakter.
      */
-    protected static Comparator<Item> priorityComparator = (o1, o2) -> {
-        int priorityCheck = Integer.compare(o1.getPriority(), o2.getPriority());
-
-        if(priorityCheck!=0){
-            return priorityCheck;
-        }
-
-        return Integer.compare(o1.getDurability(), o1.getDurability());
-    };
+    protected static Comparator<Item> priorityComparator = Comparator.comparingInt(Item::getPriority).thenComparingInt(Item::getDurability);
 
     /**
      * Szoba/karakter tartózkodási helyének lekérdezése
@@ -114,9 +106,9 @@ public class Character {
                         item.setLocation(null);
                         item.setOwner(this);
                         actions--;
-                    } else Suttogo.error("Oh no! The floor is sticky!");
-                } else Suttogo.error("Your inventory is full!");
-            } else Suttogo.error("This item can't be picked up");
+                    } else Suttogo.getSuttogo().error("Oh no! The floor is sticky!");
+                } else Suttogo.getSuttogo().error("Your inventory is full!");
+            } else Suttogo.getSuttogo().error("This item can't be picked up");
         } else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
@@ -132,7 +124,7 @@ public class Character {
                 this.items.remove(item.getId());
                 actions--;
             }
-            else Suttogo.error("There is no such item!");
+            else Suttogo.getSuttogo().error("There is no such item!");
         }else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
@@ -157,7 +149,7 @@ public class Character {
                 //#todo: check
                 this.paralyzed = true;
                 GameMain.gameEngine.next();
-                Suttogo.error("You have been paralyzed!");
+                Suttogo.getSuttogo().error("You have been paralyzed!");
             } else {
                 if (!chosen.decreaseDurability()) {
                     items.remove(chosen);
@@ -182,11 +174,11 @@ public class Character {
         if(!isMoved && d.accept(this, location)){
             Room dest = d.getNeighbour(location);
             if(!dest.addCharacter(this)){
-                Suttogo.error("The room is full!");
+                Suttogo.getSuttogo().error("The room is full!");
             }
             isMoved = true;
         }
-        else if(isMoved) { Suttogo.error("You have no more energy to move"); }
+        else if(isMoved) { Suttogo.getSuttogo().error("You have no more energy to move"); }
 
         //itt meghívjuk a gameengine notifyeveryone-jét, hogy értesítse a szobát, hogy mozgás történt
         GameMain.gameEngine.notifyEveryone();
@@ -199,7 +191,7 @@ public class Character {
         actions=0;
         isMoved=true;
         GameMain.gameEngine.next();
-        Suttogo.info("Turn skipped");
+        Suttogo.getSuttogo().info("Turn skipped");
     }
 
     /**
@@ -235,7 +227,7 @@ public class Character {
 
     /**Hibaüzenetet ad, ha nincs több akciópont*/
     public void noMoreActions(){
-        Suttogo.error("You have no more actions!");
+        Suttogo.getSuttogo().error("You have no more actions!");
     }
 
     /**
@@ -245,7 +237,7 @@ public class Character {
         if(items.containsValue(item)){
             this.items.remove(item.getId());
         }
-        else Suttogo.error("There is no such item!");
+        else Suttogo.getSuttogo().error("There is no such item!");
         GameMain.gameEngine.notifyEveryone();
     }
 }

@@ -1,5 +1,6 @@
 package game.model.logging;
 
+import game.model.AbstractObservableModel;
 import game.model.main.GameMain;
 
 import java.util.HashSet;
@@ -14,8 +15,16 @@ import java.util.EnumMap;
 import java.util.EnumMap;
 
 /** Class for console output */
-public class Suttogo {
+public class Suttogo extends AbstractObservableModel {
     private Suttogo() {}
+
+    private static class SuttogoHolder {
+        private static final Suttogo INSTANCE = new Suttogo();
+    }
+
+    public static Suttogo getSuttogo() {
+        return SuttogoHolder.INSTANCE;
+    }
 
     /**
      * Enum representing the logging levels.
@@ -25,6 +34,9 @@ public class Suttogo {
     }
 
     private static Level level = Level.INFO;
+
+    private static String lastMessage = null;
+    public String getLastMessage() { return lastMessage; }
 
     /**
      * Method to set the logging level.
@@ -40,9 +52,11 @@ public class Suttogo {
      *
      * @param message the message
      */
-    public static void info(String message) {
+    public void info(String message) {
         if (shouldLog(Level.INFO)) {
             log("INFO " + message);
+            lastMessage = message;
+            this.notifyEveryone();
         }
     }
 
@@ -51,11 +65,13 @@ public class Suttogo {
      *
      * @param message the message
      */
-    public static void error(String message) {
+    public void error(String message) {
         if (shouldLog(Level.ERROR)) {
             String loggable = "ERROR " + message;
             GameMain.lastOutput = GameMain.lastOutput + loggable + '\n';
             log(loggable);
+            lastMessage = message;
+            this.notifyEveryone();
         }
     }
 
@@ -64,9 +80,11 @@ public class Suttogo {
      *
      * @param message the message
      */
-    public static void note(String message) {
+    public void note(String message) {
         if (shouldLog(Level.NOTE)) {
             log("NOTE " + message);
+            lastMessage = message;
+            this.notifyEveryone();
         }
     }
 

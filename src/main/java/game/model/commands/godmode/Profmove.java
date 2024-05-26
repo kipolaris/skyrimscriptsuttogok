@@ -14,7 +14,7 @@ public class Profmove implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Mozgat egy professzort*/
         if(cmd.length < 2) {
-            Suttogo.error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Move c = new Move();

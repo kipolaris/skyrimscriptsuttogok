@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static game.model.main.GameMain.isGameInitialized;
 import static game.model.main.GameMain.perform;
 
 /**Osztály, amely a játék elmentéséért és betöltéséért felelős*/
@@ -249,11 +248,11 @@ public class SaverLoader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Suttogo.info("Mentes sikeres.");
-            Suttogo.note("Mentes sikeres.");
+            Suttogo.getSuttogo().info("Mentes sikeres.");
+            Suttogo.getSuttogo().note("Mentes sikeres.");
             return true;
         }catch(Exception e){
-            Suttogo.error("Hiba mentes kozben!");
+            Suttogo.getSuttogo().error("Hiba mentes kozben!");
             return false;
         }
     }
@@ -406,13 +405,12 @@ public class SaverLoader {
                 for (String s : ellenor)
                     g.getItems().remove(s);
             } catch (IOException e) {
-                if (reader == null) Suttogo.error("Nem sikerült a fájlt megnyitni!");
-                else Suttogo.error("Hiba a beolvasás közben!");
+                if (reader == null) Suttogo.getSuttogo().error("Nem sikerült a fájlt megnyitni!");
+                else Suttogo.getSuttogo().error("Hiba a beolvasás közben!");
             }
-            Suttogo.info("Betoltes sikeres.");
+            Suttogo.getSuttogo().info("Betoltes sikeres.");
         }catch(Exception e){
-            Suttogo.error("Hiba betoltes kozben!");
-            e.printStackTrace();
+            Suttogo.getSuttogo().error("Hiba betoltes kozben!");
             g = null;
         }
     }
