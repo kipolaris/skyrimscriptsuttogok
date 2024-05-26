@@ -26,13 +26,6 @@ public class ItemListController implements ModelListener{
     public ItemListController(ItemListView view, List<Item> model) {
         this.view = view;
         this.model = model;
-
-        // Add an action listener to handle selection changes
-        view.getComboBox().addActionListener(e -> {
-            String selectedItem = view.getSelectedItem();
-            Suttogo.info("Selected item: " + selectedItem);
-            // Additional logic to handle the selected item
-        });
     }
 
     @Override

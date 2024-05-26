@@ -14,15 +14,17 @@ public class SplitRoom implements iCommand {/**Egy szobát splitel*/
     @Override
     public void execute(String[] cmd) {
         BuildingAI builder = gameEngine.getBuilder();
-        if (cmd.length > 2) {
+        if (cmd.length > 1) {
             Room r1 = builder.getLabyrinth().get(cmd[1]);
             if(r1 == null) {
-                Suttogo.error("One or both rooms are not found!");
+                Suttogo.error("The room was not found!");
+            }else {
+                builder.splitRoom(r1);
             }
-            builder.splitRoom(r1);
         }
         else {
             Suttogo.error("Too few arguments!");
         }
+        gameEngine.controlBuildingAI();
     }
 }

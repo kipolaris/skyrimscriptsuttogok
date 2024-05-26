@@ -3,9 +3,7 @@ package game.model.entities.building;
 import game.model.entities.Professor;
 import game.model.entities.Character;
 import game.model.entities.Student;
-import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
-import game.model.logging.Suttogo;
 
 import java.util.*;
 
@@ -48,11 +46,60 @@ public class Room {
 
     private ArrayList<Character> characters;
 
+    /**
+     * Paraméteres, kifinomult konstruktor. Beállítja a szoba tulajdonságait.
+     *
+     * @Attention A tárgyakat és karaktereket HOZZÁADJA a szobához! Előtte NE add hozzá!
+     * @Attention A szobát NEM adja hozzá a labirinthoz! Azt neked kell!
+     * @param max A szoba kapacitása
+     * @param gaz Gázos-e a szoba
+     * @param atok Átkozott-e a szoba
+     * @param newDoors Az ajtók listája, NEM ELLENŐRZI
+     * @param targyak A tárgyak listája, hozzáadja
+     * @param karakter A karakterek listája, hozzáadja
+     */
+    public Room(int max, boolean gaz, boolean atok, List<Door> newDoors, List<Item> targyak, List<Character> karakter){
+        id = "Room" + BuildingAI.getRoomID();
+
+        //kezdetben üres listákra inicializálunk
+        items = new ArrayList<>();
+        characters = new ArrayList<>();
+        doors = newDoors == null ? new ArrayList<>() : new ArrayList<>(newDoors);
+
+        capacity = max;
+        gassed = gaz;
+        cursed = atok;
+
+        if(targyak != null) {
+            for (Item i : targyak) {
+                addItem(i);
+            }
+        }
+
+        if(karakter != null) {
+            for (Character c : karakter) {
+                addCharacter(c);
+            }
+        }
+
+        wasCleaned = false;
+        sticky = false;
+        visitors = 0;
+        hasAirFreshener = false;
+    }
+
     /**Paraméter nélküli konstruktor*/
     public Room(){
         id = "Room" + BuildingAI.getRoomID();
 
-        gameEngine.getBuilder().addRoom(this);
+        doors = new ArrayList<>();
+        items = new ArrayList<>();
+        characters = new ArrayList<>();
+
+        wasCleaned = false;
+        sticky = false;
+        visitors = 0;
+        hasAirFreshener = false;
     }
 
     /**Visszaadja a szoba szomszédjait*/
@@ -88,18 +135,31 @@ public class Room {
         cursed = cu;
         doors = ds != null ? new ArrayList<>(ds) : new ArrayList<>();
         items = is != null ? new ArrayList<>(is) : new ArrayList<>();
+
+        //ugye, mint a tárgyaknál, mind a karaktereknél is be kell állítani a helyüket
+        if(is != null) {
+            for (Item item : is) {
+                item.setLocation(this);
+            }
+        }
+
         characters = cs != null ? new ArrayList<>(cs) : new ArrayList<>();
+
+        if(cs != null) {
+            for(Character character : cs){
+                character.setLocation(this);
+            }
+        }
+
         wasCleaned = false;
         sticky = false;
         visitors = 0;
         hasAirFreshener = false;
-
-        //rögtön hozzá is adjuk a labirynthoz
-        gameEngine.getBuilder().addRoom(this);
     }
 
     /**Beállítja a szoba ajtajait*/
     public void setDoors(List<Door> ds) {
+        doors.clear();
         for(Door d: ds) {
             doors.add(d);
         }

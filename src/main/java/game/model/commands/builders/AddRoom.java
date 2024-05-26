@@ -3,6 +3,8 @@ package game.model.commands.builders;
 import game.model.commands.iCommand;
 import game.model.entities.building.Room;
 
+import static game.model.main.GameMain.gameEngine;
+
 /**
  * Parancs osztály egy új szoba felvételére
  */
@@ -20,7 +22,8 @@ public class AddRoom implements iCommand {
             isCursed = Boolean.parseBoolean(cmd[3]);
         }
 
-        new Room(capacity, isGassed, isCursed, null, null, null);
+        Room r  = new Room(capacity, isGassed, isCursed, null, null, null);
+        gameEngine.getBuilder().addRoom(r);
     }
 
 }
