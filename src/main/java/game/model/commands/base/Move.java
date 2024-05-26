@@ -15,7 +15,7 @@ import static game.model.main.GameMain.gameEngine;
 public class Move implements iCommand {
     public void execute(String[] cmd) {/**Mozgatja az adott karaktert*/
         if(cmd.length < 3) {
-            Suttogo.error("Too few arguments!");
+            gameEngine.getSuttogo().error("Too few arguments!");
             return;
         }
         BuildingAI builder = gameEngine.getBuilder();
@@ -24,19 +24,19 @@ public class Move implements iCommand {
         Room r;
 
         if(c == null){
-            Suttogo.error("There is no such character!");
+            gameEngine.getSuttogo().error("There is no such character!");
         }else{
             if(gameEngine.canIMove(c)) {
                 r = builder.getLabyrinth().get(cmd[2]);
                 if (r == null) {
-                    Suttogo.error("There is no such room!");
+                    gameEngine.getSuttogo().error("There is no such room!");
                 } else if (c.getLocation().getNeighbours().contains(r)) {
                     Door d = r.getDoorOf(c.getLocation());
 
                     c.move(d);
                 }
             }else{
-                Suttogo.error("You have already moved!");
+                gameEngine.getSuttogo().error("You have already moved!");
             }
         }
     }

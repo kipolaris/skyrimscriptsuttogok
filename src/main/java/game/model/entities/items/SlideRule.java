@@ -62,7 +62,7 @@ public class SlideRule extends Item{
 
         if(room==null){
             String s = this.getId() + " picked up. " + getEffect();
-            Suttogo.info(s);
+            gameEngine.getSuttogo().info(s);
             if(!fake) gameEngine.endGame();
         }
     }

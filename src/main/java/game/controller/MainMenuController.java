@@ -66,9 +66,9 @@ public class MainMenuController implements ModelListener{
         try {
             int numberOfPlayers = Integer.parseInt(playersText);
             gameEngine.numberOfPlayers = numberOfPlayers;
-            Suttogo.note("Number of players set to " + numberOfPlayers);
+            gameEngine.getSuttogo().note("Number of players set to " + numberOfPlayers);
         } catch (NumberFormatException ex) {
-            Suttogo.error("Invalid number of players: " + playersText);
+            gameEngine.getSuttogo().error("Invalid number of players: " + playersText);
         }
     }
 
@@ -108,9 +108,9 @@ public class MainMenuController implements ModelListener{
                 GameMain.gamePanel.gaming();
                 GameMain.gameEngine.notifyEveryone();
                 GamePanel.getCardLayout().show(GamePanel.getCardPanel(), "play");
-                Suttogo.info("New game started with " + numberOfPlayers + " players.");
+                gameEngine.getSuttogo().info("New game started with " + numberOfPlayers + " players.");
             } catch (NumberFormatException ex) {
-                Suttogo.error("Invalid number of players: " + playersText);
+                gameEngine.getSuttogo().error("Invalid number of players: " + playersText);
             }
         }
     }

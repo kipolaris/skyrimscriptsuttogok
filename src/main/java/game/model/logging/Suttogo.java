@@ -44,10 +44,11 @@ public class Suttogo extends AbstractObservableModel {
      *
      * @param message the message
      */
-    public static void info(String message) {
+    public void info(String message) {
         if (shouldLog(Level.INFO)) {
             log("INFO " + message);
             lastMessage = message;
+            this.notifyEveryone();
         }
     }
 
@@ -56,12 +57,13 @@ public class Suttogo extends AbstractObservableModel {
      *
      * @param message the message
      */
-    public static void error(String message) {
+    public void error(String message) {
         if (shouldLog(Level.ERROR)) {
             String loggable = "ERROR " + message;
             GameMain.lastOutput = GameMain.lastOutput + loggable + '\n';
             log(loggable);
             lastMessage = message;
+            this.notifyEveryone();
         }
     }
 
@@ -70,10 +72,11 @@ public class Suttogo extends AbstractObservableModel {
      *
      * @param message the message
      */
-    public static void note(String message) {
+    public void note(String message) {
         if (shouldLog(Level.NOTE)) {
             log("NOTE " + message);
             lastMessage = message;
+            this.notifyEveryone();
         }
     }
 

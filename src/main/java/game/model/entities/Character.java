@@ -108,9 +108,9 @@ public class Character {
                         item.setLocation(null);
                         item.setOwner(this);
                         actions--;
-                    } else Suttogo.error("Oh no! The floor is sticky!");
-                } else Suttogo.error("Your inventory is full!");
-            } else Suttogo.error("This item can't be picked up");
+                    } else GameMain.gameEngine.getSuttogo().error("Oh no! The floor is sticky!");
+                } else GameMain.gameEngine.getSuttogo().error("Your inventory is full!");
+            } else GameMain.gameEngine.getSuttogo().error("This item can't be picked up");
         } else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
@@ -126,7 +126,7 @@ public class Character {
                 this.items.remove(item.getId());
                 actions--;
             }
-            else Suttogo.error("There is no such item!");
+            else GameMain.gameEngine.getSuttogo().error("There is no such item!");
         }else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
@@ -151,7 +151,7 @@ public class Character {
                 //#todo: check
                 this.paralyzed = true;
                 GameMain.gameEngine.next();
-                Suttogo.error("You have been paralyzed!");
+                GameMain.gameEngine.getSuttogo().error("You have been paralyzed!");
             } else {
                 if (!chosen.decreaseDurability()) {
                     items.remove(chosen);
@@ -176,11 +176,11 @@ public class Character {
         if(!isMoved && d.accept(this, location)){
             Room dest = d.getNeighbour(location);
             if(!dest.addCharacter(this)){
-                Suttogo.error("The room is full!");
+                GameMain.gameEngine.getSuttogo().error("The room is full!");
             }
             isMoved = true;
         }
-        else if(isMoved) { Suttogo.error("You have no more energy to move"); }
+        else if(isMoved) { GameMain.gameEngine.getSuttogo().error("You have no more energy to move"); }
 
         //itt meghívjuk a gameengine notifyeveryone-jét, hogy értesítse a szobát, hogy mozgás történt
         GameMain.gameEngine.notifyEveryone();
@@ -193,7 +193,7 @@ public class Character {
         actions=0;
         isMoved=true;
         GameMain.gameEngine.next();
-        Suttogo.info("Turn skipped");
+        GameMain.gameEngine.getSuttogo().info("Turn skipped");
     }
 
     /**
@@ -229,7 +229,7 @@ public class Character {
 
     /**Hibaüzenetet ad, ha nincs több akciópont*/
     public void noMoreActions(){
-        Suttogo.error("You have no more actions!");
+        GameMain.gameEngine.getSuttogo().error("You have no more actions!");
     }
 
     /**
@@ -239,7 +239,7 @@ public class Character {
         if(items.containsValue(item)){
             this.items.remove(item.getId());
         }
-        else Suttogo.error("There is no such item!");
+        else GameMain.gameEngine.getSuttogo().error("There is no such item!");
         GameMain.gameEngine.notifyEveryone();
     }
 }

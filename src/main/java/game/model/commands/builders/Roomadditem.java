@@ -15,7 +15,7 @@ public class Roomadditem implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Hozzáad egy tárgyat egy szobához*/
         if(cmd.length < 3) {
-            Suttogo.error("Too few arguments!");
+            gameEngine.getSuttogo().error("Too few arguments!");
             return;
         }
         Item i = gameEngine.getItems().get(cmd[1]);
@@ -23,10 +23,10 @@ public class Roomadditem implements iCommand {
         Room r = builder.getLabyrinth().get(cmd[2]);
 
         if(i == null){
-            Suttogo.error("nem talalhato a keresett targy!");
+            gameEngine.getSuttogo().error("nem talalhato a keresett targy!");
             return;
         }else if(r == null){
-            Suttogo.error("nem talalhato a keresett szoba!");
+            gameEngine.getSuttogo().error("nem talalhato a keresett szoba!");
             return;
         }
 

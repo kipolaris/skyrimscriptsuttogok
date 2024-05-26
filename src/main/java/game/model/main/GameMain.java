@@ -120,7 +120,7 @@ public class GameMain {
     }
 
     private static void mainLoop(){
-        Suttogo.info("SYSTEM game CLI started, start typing commands");
+        gameEngine.getSuttogo().info("SYSTEM game CLI started, start typing commands");
 
         Scanner sc = new Scanner(System.in);
 
@@ -131,21 +131,21 @@ public class GameMain {
             if (command != null) {
                 command.execute(cmd);
             } else {
-                Suttogo.note("command " + cmd[0] + " does not exist!");
+                gameEngine.getSuttogo().note("command " + cmd[0] + " does not exist!");
             }
 
             if(allOut && isGameInitialized){
                 printOut();
                 GameMain.lastOutput = "";
             }else{
-                if(!allOut) Suttogo.note("Please call newgame command!");
+                if(!allOut) gameEngine.getSuttogo().note("Please call newgame command!");
             }
 
             if (gameEngine.isAInext()) {
                 Character current = gameEngine.getCurrent();
 
                 current.doRound();
-                Suttogo.note("Now " + current.getId() + "makes steps");
+                gameEngine.getSuttogo().note("Now " + current.getId() + "makes steps");
             }
         }
     }
@@ -180,12 +180,12 @@ public class GameMain {
                     }
                 }
             }
-            else Suttogo.error("A builder null!!!");
+            else gameEngine.getSuttogo().error("A builder null!!!");
 
             Character c = gameEngine.getCurrent();
 
             if (c == null) {
-                Suttogo.error("current is null!");
+                gameEngine.getSuttogo().error("current is null!");
                 return;
             }
 
@@ -233,7 +233,7 @@ public class GameMain {
         }
     }
     public static void executeScript(){
-        Suttogo.info("SYSTEM started processing script, please wait...");
+        gameEngine.getSuttogo().info("SYSTEM started processing script, please wait...");
 
         String scriptPath = "src/main/resources/gamebuilder_scripts/script1.txt";
 
@@ -243,9 +243,9 @@ public class GameMain {
                 perform(line);
             }
         } catch (IOException e) {
-            Suttogo.error("Error reading file: " + e.getMessage());
+            gameEngine.getSuttogo().error("Error reading file: " + e.getMessage());
         }
 
-        Suttogo.info("SYSTEM script processed sucessfully.");
+        gameEngine.getSuttogo().info("SYSTEM script processed sucessfully.");
     }
 }

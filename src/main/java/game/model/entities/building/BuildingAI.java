@@ -2,11 +2,12 @@ package game.model.entities.building;
 
 import game.model.entities.Character;
 import game.model.entities.items.Item;
-import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static game.model.main.GameMain.gameEngine;
 
 /**A pályaépítő osztálya*/
 
@@ -64,8 +65,8 @@ public class BuildingAI {
             refineDoors(uj, r1);
             refineDoors(uj, r2);
 
-            Suttogo.info("Rooms merged");
-            Suttogo.note(labyrinth.size() + " rooms in labyrinth");
+            gameEngine.getSuttogo().info("Rooms merged");
+            gameEngine.getSuttogo().note(labyrinth.size() + " rooms in labyrinth");
         }
     }
 
@@ -154,8 +155,8 @@ public class BuildingAI {
             refineDoors(uj1, r1);
             refineDoors(uj2, r1);
 
-            Suttogo.info("Room split");
-            Suttogo.note(labyrinth.size() + " rooms in labyrinth");
+            gameEngine.getSuttogo().info("Room split");
+            gameEngine.getSuttogo().note(labyrinth.size() + " rooms in labyrinth");
         }
     }
 

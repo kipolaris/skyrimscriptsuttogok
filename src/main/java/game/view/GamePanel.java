@@ -182,7 +182,7 @@ public class GamePanel {
         MenuController menuController = new MenuController(menuView, ge, roomController);
 
         InfoView infoView = GameMain.gamePanel.addInfoView();
-        InfoController infoController = new InfoController(infoView,2000);
+        InfoController infoController = new InfoController(infoView,6000);
 
         //listenerek beállítása
         ge.addListener(roomController);

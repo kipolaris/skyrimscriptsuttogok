@@ -1,6 +1,8 @@
 package game.controller;
 
 import game.model.logging.Suttogo;
+import game.model.main.GameEngine;
+import game.model.main.GameMain;
 import game.view.CharacterView;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import game.model.entities.Character;
 public class CharacterController implements ModelListener{
     private final CharacterView characterView;
     private List<Character> characters;
+    private final GameEngine gameEngine = GameMain.gameEngine;
 
     /**
      * Két paraméteres konstruktor.
@@ -33,7 +36,7 @@ public class CharacterController implements ModelListener{
 
     public void setCharacters(List<Character> characters){
         if(characters.isEmpty()){
-            Suttogo.note("CharacterController: characters list is empty");
+            gameEngine.getSuttogo().note("CharacterController: characters list is empty");
         }
         this.characters = characters;
     }

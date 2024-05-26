@@ -18,7 +18,7 @@ public class Kill implements iCommand {
 
             //megnézzük, hogy a user valóban ezt a professort gépelte-e be
             if(cmd.length < 2) {
-                Suttogo.error("Too few arguments!");
+                gameEngine.getSuttogo().error("Too few arguments!");
                 return;
             }
             Professor chosen = gameEngine.getProfessors().get(cmd[1]);

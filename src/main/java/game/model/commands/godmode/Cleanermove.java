@@ -19,7 +19,7 @@ public class Cleanermove implements iCommand {
 
             //megnézzük, hogy a user valóban ezt a cleanert gépelte-e be
             if(cmd.length < 2) {
-                Suttogo.error("Too few arguments!");
+                gameEngine.getSuttogo().error("Too few arguments!");
                 return;
             }
             Cleaner chosen = gameEngine.getCleaners().get(cmd[1]);

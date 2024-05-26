@@ -14,7 +14,7 @@ public class Load implements iCommand {/**Betölt egy játékmenetet*/
     public void execute(String[] cmd) {
         SaverLoader parser = new SaverLoader(gameEngine);
         if(cmd.length < 2) {
-            Suttogo.error("Too few arguments!");
+            gameEngine.getSuttogo().error("Too few arguments!");
             return;
         }
         parser.loadGame(cmd[1]);
