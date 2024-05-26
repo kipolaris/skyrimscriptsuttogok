@@ -355,7 +355,7 @@ public class SaverLoader {
                 String actions = reader.readLine();
                 if (!(curr.equals("null"))){
                     g.setCurrent(curr);
-                    g.getCurrent().setActions(Integer.parseInt(actions));
+                    g.getCurrent().addActions(Integer.parseInt(actions));
                 }
                 /*
                   Random beállítása

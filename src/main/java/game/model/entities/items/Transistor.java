@@ -39,7 +39,7 @@ public class Transistor extends Item{
           Suttogo.getSuttogo().info(s);
           if(Pair.getLocation()==null) {
               owner.dropItem(this);
-              owner.setActions(1);
+              owner.addActions(1);
           }
           else {
               Room dest = Pair.getLocation();

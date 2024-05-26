@@ -30,7 +30,7 @@ public class Charadditem implements iCommand {
         }
 
         c.addItem(i);
-        c.setActions(1);
+        c.addActions(1);
     }
 
 }
