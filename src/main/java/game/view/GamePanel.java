@@ -6,6 +6,7 @@ import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -142,8 +143,6 @@ public class GamePanel {
      * Összeállítja a menü megjelenését
      */
     public void menu() {
-        GameMain.gamePanel = new GamePanel();
-
         GameMain.gamePanel.addMainMenuView();
         GameMain.gamePanel.display();
     }
@@ -152,8 +151,6 @@ public class GamePanel {
      * Összeállítja az in-game megjelenítést
      */
     public void gaming() {
-        GameMain.gamePanel = new GamePanel();
-
         GameEngine ge = GameMain.gameEngine;
 
         //A Room panel beállítása
@@ -200,5 +197,9 @@ public class GamePanel {
         GameMain.setInit(false);
 
         GameMain.gamePanel.display();
+    }
+
+    public void closeWindow() {
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 }
