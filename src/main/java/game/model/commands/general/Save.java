@@ -20,7 +20,7 @@ public void execute(String[] cmd) {
 
     String name = parser.newName();
     parser.saveGame(name);
-    Suttogo.info(name);
+    Suttogo.getSuttogo().info(name);
 }
 
 }
