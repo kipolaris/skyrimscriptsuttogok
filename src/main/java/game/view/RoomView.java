@@ -18,6 +18,7 @@ import static java.lang.Math.toIntExact;
 public class RoomView extends JPanel{
     /** Lista az összes átfedés képek tárolására: */
     private List<Overlay> overlays = new ArrayList<>();
+    private List<Overlay> marks = new ArrayList<>();
 
     /** Az ablak szélessége és magassága pixelben: */
     int frame_size = 500;
@@ -59,15 +60,7 @@ public class RoomView extends JPanel{
 
         this.itemListView = _itemListView;
 
-        // Az eredeti háttérkép betöltése és megfelelő méretezése:
-        BufferedImage backgroundOrig = getImage("src/pics/standard_room.png", frame_size, frame_size);
-        Image background = backgroundOrig.getScaledInstance(bgWidth, bgHeight, Image.SCALE_SMOOTH);
-
-        // A háttérkép rajzolása a bufferre:
-        Graphics2D gBg = backgroundBuff.createGraphics();
-        gBg.drawImage(background, 0, 0, null);
-
-        gBg.dispose();
+        setRoom();
 
         this.setSize(frame_size, frame_size);
         JLabel imageLabel = new JLabel(new ImageIcon(backgroundBuff));
@@ -162,66 +155,56 @@ public class RoomView extends JPanel{
     }
 
     /**
-     * A szoba gázosságát jelző jel beállítása, elrendezése.
+     * A szoba gázosságát és átkosságát jelző képek beállítása, elrendezése.
      */
-    public void setMarks(String overlayImage) {
-        // Helyzet beállítása
-        int overlayX = 0;
-        int overlayY = 0;
-        int overlayWidth = (int) Math.round((frame_size / 10) * scale);
-        int overlayHeight = (int) Math.round((frame_size / 10) * scale);
-        if(overlayImage.startsWith("src/pics/cursed")) { overlayX = backgroundBuff.getWidth() - overlayWidth; }
+    public void setMarks(List<String> overlayImages) {
+        int overlaysCount = overlayImages.size();  // Az átfedések száma, amelyeket elosztunk a kör körül.
+        for(int i = 0; i < overlaysCount; i++) {
+            // Helyzet beállítása
+            int overlayX = 0;
+            int overlayY = 0;
+            int overlayWidth = (int) Math.round((frame_size / 10) * scale);
+            int overlayHeight = (int) Math.round((frame_size / 10) * scale);
+            if (overlayImages.get(i).startsWith("src/pics/cursed")) {
+                overlayX = backgroundBuff.getWidth() - overlayWidth;
+            }
+            addMark(overlayImages.get(i), overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
+        }
 
-        Overlay overlay = new Overlay(overlayImage, overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
+        for(Overlay overlay : marks) {
+            // Az átfedés képének betöltése:
+            BufferedImage overlayImg = getImage(overlay.getPath(), overlay.getWidth(), overlay.getHeight());
+            if (overlayImg != null) {
+                // A Graphics2D objektum előkészítése az átfedés rajzolásához átlátszósággal:
+                Graphics2D g = backgroundBuff.createGraphics();
+                g.setComposite(AlphaComposite.SrcOver.derive(overlay.getOpacity()));
 
-        // Az átfedés képének betöltése:
-        BufferedImage overlayImg = getImage(overlay.getPath(), overlay.getWidth(), overlay.getHeight());
-        if (overlayImg != null) {
-            // A Graphics2D objektum előkészítése az átfedés rajzolásához átlátszósággal:
-            Graphics2D g = backgroundBuff.createGraphics();
-            g.setComposite(AlphaComposite.SrcOver.derive(overlay.getOpacity()));
+                // Az x és y pozíció kiszámítása a bal felső sarokban:
+                int x = overlay.getX();
+                int y = overlay.getY();
 
-            // Az x és y pozíció kiszámítása a bal felső sarokban:
-            int x = overlay.getX();
-            int y = overlay.getY();
+                // Az átfedés képének rajzolása a kiszámított pozícióban:
+                g.drawImage(overlayImg, x, y, null);
 
-            // Az átfedés képének rajzolása a kiszámított pozícióban:
-            g.drawImage(overlayImg, x, y, null);
-
-            // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
-            g.dispose();
+                // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
+                g.dispose();
+            }
         }
     }
 
     /**
-     * A szoba átkosságát jelző jel beállítása, elrendezése.
+     * A szoba beállítása, elrendezése.
      */
-    public void setCursedMark(String overlayImage) {
-        // Helyzet beállítása
-        int overlayX = 0;
-        int overlayY = 0;
-        int overlayWidth = (int) Math.round((frame_size / 10) * scale);
-        int overlayHeight = (int) Math.round((frame_size / 10) * scale);
+    public void setRoom() {
+        // Az eredeti háttérkép betöltése és megfelelő méretezése:
+        BufferedImage backgroundOrig = getImage("src/pics/standard_room.png", frame_size, frame_size);
+        Image background = backgroundOrig.getScaledInstance(bgWidth, bgHeight, Image.SCALE_SMOOTH);
 
-        Overlay overlay = new Overlay(overlayImage, overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
+        // A háttérkép rajzolása a bufferre:
+        Graphics2D gBg = backgroundBuff.createGraphics();
+        gBg.drawImage(background, 0, 0, null);
 
-        // Az átfedés képének betöltése:
-        BufferedImage overlayImg = getImage(overlay.getPath(), overlay.getWidth(), overlay.getHeight());
-        if (overlayImg != null) {
-            // A Graphics2D objektum előkészítése az átfedés rajzolásához átlátszósággal:
-            Graphics2D g = backgroundBuff.createGraphics();
-            g.setComposite(AlphaComposite.SrcOver.derive(overlay.getOpacity()));
-
-            // Az x és y pozíció kiszámítása a bal felső sarokban:
-            int x = overlay.getX();
-            int y = overlay.getY();
-
-            // Az átfedés képének rajzolása a kiszámított pozícióban:
-            g.drawImage(overlayImg, x, y, null);
-
-            // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
-            g.dispose();
-        }
+        gBg.dispose();
     }
 
     /**
@@ -319,4 +302,24 @@ public class RoomView extends JPanel{
      * Függvény, amely visszaadja, a szoba listájából kiválasztott tárgyat
      */
     public String getSelectedItem() { return itemListView.getSelectedItem(); }
+
+    /**
+     * Függvény, amely felvesz egy új jelzőt.
+     */
+    private void addMark(String path, int width, int height, int x, int y, float opacity) {
+        this.marks.add(new Overlay(path, width, height, x, y, opacity));
+    }
+
+    /**
+     * Függvény, ami üríti az overlay-t tartalmazó listákat
+     */
+    public void clearOverlays() {
+        overlays.clear();
+        marks.clear();
+        Graphics2D gBg = backgroundBuff.createGraphics();
+        gBg.clearRect(0, 0, backgroundBuff.getWidth(), backgroundBuff.getHeight());
+        gBg.dispose();
+        validate();
+        repaint();
+    }
 }

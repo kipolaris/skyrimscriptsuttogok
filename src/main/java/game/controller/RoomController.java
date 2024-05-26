@@ -114,12 +114,20 @@ public class RoomController implements ModelListener{
 
         itemListController.onModelChange();
 
+        roomView.clearOverlays();
+
+        roomView.setRoom();
+
         roomView.setDoors(overlayImages);
 
         roomView.setRoomName(r.getId());
 
-        if(r.getGassed()) { roomView.setMarks(gassedMark); }
-        if(r.getCursed()) { roomView.setMarks(cursedMark); }
+        overlayImages = new ArrayList<>();
+
+        if(r.getGassed()) { overlayImages.add(gassedMark); }
+        if(r.getCursed()) { overlayImages.add(cursedMark); }
+
+        roomView.setMarks(overlayImages);
 
         roomView.validate();
         roomView.repaint();
