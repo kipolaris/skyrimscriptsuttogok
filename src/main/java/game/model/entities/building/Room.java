@@ -46,29 +46,39 @@ public class Room {
 
     private ArrayList<Character> characters;
 
-
-    public Room(int max, boolean gaz, boolean atok, List<Door> newDoors, ArrayList<Item> targyak, ArrayList<Character> karakter){
+    /**
+     * Paraméteres, kifinomult konstruktor. Beállítja a szoba tulajdonságait.
+     *
+     * @Attention A tárgyakat és karaktereket HOZZÁADJA a szobához! Előtte NE add hozzá!
+     * @Attention A szobát NEM adja hozzá a labirinthoz! Azt neked kell!
+     * @param max A szoba kapacitása
+     * @param gaz Gázos-e a szoba
+     * @param atok Átkozott-e a szoba
+     * @param newDoors Az ajtók listája, NEM ELLENŐRZI
+     * @param targyak A tárgyak listája, hozzáadja
+     * @param karakter A karakterek listája, hozzáadja
+     */
+    public Room(int max, boolean gaz, boolean atok, List<Door> newDoors, List<Item> targyak, List<Character> karakter){
         id = "Room" + BuildingAI.getRoomID();
+
+        //kezdetben üres listákra inicializálunk
+        items = new ArrayList<>();
+        characters = new ArrayList<>();
+        doors = newDoors == null ? new ArrayList<>() : new ArrayList<>(newDoors);
 
         capacity = max;
         gassed = gaz;
         cursed = atok;
-        doors = newDoors != null ? new ArrayList<>(newDoors) : new ArrayList<>();
-        items = targyak != null ? new ArrayList<>(targyak) : new ArrayList<>();
 
         if(targyak != null) {
             for (Item i : targyak) {
-                items.add(i);
-                i.setLocation(this);
+                addItem(i);
             }
         }
 
-        characters = karakter != null ? new ArrayList<>(karakter) : new ArrayList<>();
-
         if(karakter != null) {
             for (Character c : karakter) {
-                characters.add(c);
-                c.setLocation(this);
+                addCharacter(c);
             }
         }
 
@@ -76,8 +86,6 @@ public class Room {
         sticky = false;
         visitors = 0;
         hasAirFreshener = false;
-
-        gameEngine.getBuilder().addRoom(this);
     }
 
     /**Paraméter nélküli konstruktor*/
@@ -92,8 +100,6 @@ public class Room {
         sticky = false;
         visitors = 0;
         hasAirFreshener = false;
-
-        gameEngine.getBuilder().addRoom(this);
     }
 
     /**Visszaadja a szoba szomszédjait*/

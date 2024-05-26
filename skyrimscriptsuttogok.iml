@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/hobarts_testing/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/hobarts_testing/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/1" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/3" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/4" />
@@ -47,8 +48,5 @@
     </orderEntry>
     <orderEntry type="library" name="jakarta.xml.bind.api" level="project" />
     <orderEntry type="library" name="glassfish.jaxb.runtime" level="project" />
-  </component>
-  <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="24bc8da3-53fd-4e02-b402-8f2c7466fabf" />
   </component>
 </module>

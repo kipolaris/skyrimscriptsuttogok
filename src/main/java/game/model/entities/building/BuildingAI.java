@@ -44,12 +44,9 @@ public class BuildingAI {
             ArrayList<Item> targyak = new ArrayList<>(r1.getItems());
             ArrayList<Character> karakter = new ArrayList<>(r1.getCharacters());
 
-            for (Item i : r2.getItems()) {
-                targyak.add(i);
-            }
-            for (Character c : r2.getCharacters()) {
-                karakter.add(c);
-            }
+            karakter.addAll(r2.getCharacters());
+
+            targyak.addAll(r2.getItems());
 
             boolean gaz = false;
             boolean atok = false;
