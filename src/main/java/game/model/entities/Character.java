@@ -239,4 +239,15 @@ public class Character {
     public void noMoreActions(){
         Suttogo.error("You have no more actions!");
     }
+
+    /**
+     * Tárgy megsemmisülése
+     */
+    public void loseItem(Item item) {
+        if(items.containsValue(item)){
+            this.items.remove(item.getId());
+        }
+        else Suttogo.error("There is no such item!");
+        GameMain.gameEngine.notifyEveryone();
+    }
 }

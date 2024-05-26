@@ -43,8 +43,8 @@ public class TVSZ extends Item{
     @Override
     public boolean decreaseDurability() {
         this.durability--;
-
         if (this.durability <= 0) {
+            gameEngine.nullifyItem(this);
             return false;
         }
         return true;

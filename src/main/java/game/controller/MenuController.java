@@ -8,6 +8,7 @@ import game.model.main.GameMain;
 import game.view.InfoView;
 import game.view.MenuView;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class MenuController implements ModelListener{
                 itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
             else {
+                view.setActionPoints("Akciók: " + student.getActions());
                 itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
                 itemListController.onModelChange();
             }
@@ -119,7 +121,6 @@ public class MenuController implements ModelListener{
                 infoView.showInfo("Item used", 2000);
                 System.out.println("Item used");
             }
-
         }
     }
 

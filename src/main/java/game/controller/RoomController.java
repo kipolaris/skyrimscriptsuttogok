@@ -36,6 +36,10 @@ public class RoomController implements ModelListener{
 
     private final String onewayInDoorPic = "src/pics/oneway_in_door.png";
 
+    private final String gassedMark = "src/pics/gassed_room_mark.png";
+
+    private final String cursedMark = "src/pics/cursed_room_mark.png";
+
     /***
      * számon tartja, hogy melyik ajtóhoz melyik jcombobox string tartozik.
      */
@@ -113,6 +117,11 @@ public class RoomController implements ModelListener{
         roomView.setDoors(overlayImages);
 
         roomView.setRoomName(r.getId());
+
+        if(r.getGassed()) { roomView.setGassedMark(gassedMark); }
+
+        roomView.validate();
+        roomView.repaint();
     }
 
     /**
