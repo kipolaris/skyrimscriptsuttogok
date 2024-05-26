@@ -250,6 +250,15 @@ public class GameMain {
             command.execute(cmd);
         }
     }
+
+    /**
+     * A scriptes végrehajtás függvénye. A scriptet a src/main/resources/gamebuilder_scripts mappában kell elhelyezni, és a
+     * scriptPath változóban kell megadni a fájl nevét.
+     * A fájl használata: helyezz bele parancsokat úgy, mint ha a szabványos inputra írnád be őket, minden sor egy parancs.
+     * Vigyázz, mert a kezdetektől kell specifikálnod a parancsokat (szóval kell a newgame és a startgame is!)
+     * Note: alapértelmezésben a random ki van kapcsolva.
+     */
+
     public static void executeScript(){
         Suttogo.getSuttogo().info("SYSTEM started processing script, please wait...");
 
