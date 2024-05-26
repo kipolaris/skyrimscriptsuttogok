@@ -23,6 +23,7 @@ public class FFP2 extends Item{
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.getSuttogo().info(s);
+        if(fake) gameEngine.nullifyItem(this);
     }
 
     /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
