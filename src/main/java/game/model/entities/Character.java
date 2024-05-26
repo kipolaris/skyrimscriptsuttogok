@@ -106,17 +106,19 @@ public class Character {
      */
     public void addItem(Item item) {
         if(actions>0) {
-            if (!(item.getId().startsWith("Rag") && item.isActivated())) {
-                if (items.size() < maxInventorySize) {
-                    if(!location.getSticky()) {
-                        location.removeItem(item);
-                        items.put(item.getId(), item);
-                        item.setLocation(null);
-                        item.setOwner(this);
-                        actions--;
-                    } else Suttogo.error("Oh no! The floor is sticky!");
-                } else Suttogo.error("Your inventory is full!");
-            } else Suttogo.error("This item can't be picked up");
+            if(!paralyzed){
+                if (!(item.getId().startsWith("Rag") && item.isActivated())) {
+                    if (items.size() < maxInventorySize) {
+                        if(!location.getSticky()) {
+                            location.removeItem(item);
+                            items.put(item.getId(), item);
+                            item.setLocation(null);
+                            item.setOwner(this);
+                            actions--;
+                        } else Suttogo.error("Oh no! The floor is sticky!");
+                    } else Suttogo.error("Your inventory is full!");
+                } else Suttogo.error("This item can't be picked up");
+            }else Suttogo.error("You are paralyzed.");
         } else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
@@ -126,13 +128,14 @@ public class Character {
      */
     public void dropItem(Item item) {
         if(actions>0) {
-            if(items.containsValue(item)){
-                item.setLocation(location);
-                location.addItem(item);
-                this.items.remove(item.getId());
-                actions--;
-            }
-            else Suttogo.error("There is no such item!");
+            if(!paralyzed){
+                if(items.containsValue(item)){
+                    item.setLocation(location);
+                    location.addItem(item);
+                    this.items.remove(item.getId());
+                    actions--;
+                }else Suttogo.error("There is no such item!");
+            }else Suttogo.error("You are paralyzed.");
         }else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
@@ -156,7 +159,12 @@ public class Character {
             if (chosen == null) {
                 //#todo: check
                 this.paralyzed = true;
-                GameMain.gameEngine.next();
+                ArrayList<Item> all = new ArrayList<>(items.values());
+                for(Item item : all) {
+                    item.setLocation(location);
+                    location.addItem(item);
+                    this.items.remove(item.getId());
+                }
                 Suttogo.error("You have been paralyzed!");
             } else {
                 if (!chosen.decreaseDurability()) {
@@ -180,11 +188,13 @@ public class Character {
      */
     public void move(Door d) {
         if(!isMoved && d.accept(this, location)){
-            Room dest = d.getNeighbour(location);
-            if(!dest.addCharacter(this)){
-                Suttogo.error("The room is full!");
-            }
-            isMoved = true;
+            if(!paralyzed) {
+                Room dest = d.getNeighbour(location);
+                if (!dest.addCharacter(this)) {
+                    Suttogo.error("The room is full!");
+                }
+                isMoved = true;
+            }else Suttogo.error("You are paralyzed.");
         }
         else if(isMoved) { Suttogo.error("You have no more energy to move"); }
 
@@ -200,6 +210,7 @@ public class Character {
         isMoved=true;
         GameMain.gameEngine.next();
         Suttogo.info("Turn skipped");
+        GameMain.gameEngine.notifyEveryone();
     }
 
     /**
@@ -222,7 +233,7 @@ public class Character {
     }
 
     /**Az akciópontokhoz hozzáadja a paraméterként megadott értéket*/
-    public void setActions(int i) {
+    public void addActions(int i) {
         actions += i;
         if(actions < 0) actions = 0;
     }

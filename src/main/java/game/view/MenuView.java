@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * View osztály a felhasználói interfész (avagy menü) megjelenítésére.
  */
 public class MenuView extends JPanel {
-    private JLabel currentStudent = new JLabel("ERROR");
+    private JLabel currentCharacter = new JLabel("ERROR");
 
     private JButton dropButton;
     private JButton pickupButton;
@@ -39,7 +39,7 @@ public class MenuView extends JPanel {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        addAlignedComponent(currentStudent);
+        addAlignedComponent(currentCharacter);
         addAlignedComponent(dropButton);
         addAlignedComponent(pickupButton);
         addAlignedComponent(useButton);
@@ -54,7 +54,7 @@ public class MenuView extends JPanel {
     }
 
     public void setCurrentStudent(String studentName) {
-        currentStudent.setText(studentName);
+        currentCharacter.setText(studentName);
     }
 
     /**

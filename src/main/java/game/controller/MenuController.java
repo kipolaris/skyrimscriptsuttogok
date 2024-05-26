@@ -56,7 +56,8 @@ public class MenuController implements ModelListener{
                 itemListController = new ItemListController(view.getItemListView(), new ArrayList<>(student.getItems().values()));
             }
             else {
-                view.setActionPoints("Akciók: " + student.getActions());
+                if(student.getParalyzed()) { view.setActionPoints("Megbénultál.."); }
+                else view.setActionPoints("Akciók: " + student.getActions());
                 itemListController.setItems(new ArrayList<>(gameEngine.getCurrent().getItems().values()));
                 itemListController.onModelChange();
             }
@@ -78,7 +79,7 @@ public class MenuController implements ModelListener{
             if(chosen != null) {
                 student.dropItem(chosen);
                 infoView.showInfo("Item dropped", 2000);
-                System.out.println("Item dropped");
+                //System.out.println("Item dropped");
             }
         }
     }
@@ -99,7 +100,7 @@ public class MenuController implements ModelListener{
             if (i != null) {
                 student.addItem(i);
                 infoView.showInfo("Item picked up", 2000);
-                System.out.println("Item picked up");
+                //System.out.println("Item picked up");
             }
         }
     }
@@ -119,7 +120,7 @@ public class MenuController implements ModelListener{
             if(i != null){
                 student.useItem(i);
                 infoView.showInfo("Item used", 2000);
-                System.out.println("Item used");
+                //System.out.println("Item used");
             }
         }
     }
@@ -139,7 +140,7 @@ public class MenuController implements ModelListener{
             if(d != null) {
                 student.move(d);
                 infoView.showInfo(student.getId() + " moved to another room", 2000);
-                System.out.println("Character moved");
+                //System.out.println("Character moved");
             }
         }
     }

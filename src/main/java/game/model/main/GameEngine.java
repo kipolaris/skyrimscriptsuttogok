@@ -17,6 +17,7 @@ import java.util.function.Predicate;
 
 /**Osztály, amely a játékot megvalósítja*/
 public class GameEngine extends AbstractObservableModel {
+    private HashMap<String, Character> characters = null;
 
     /**Visszaadja a current értékét*/
     public Character getCurrent() {
@@ -26,8 +27,8 @@ public class GameEngine extends AbstractObservableModel {
     /**
      * Ezáltal lehet a current értékét beállítani
      */
-    public void setCurrent(String s){
-        current = students.get(s);
+    public void setCurrent(String key){
+        current = characters.get(key);
     }
     private Character current = null;
 
@@ -335,6 +336,10 @@ public class GameEngine extends AbstractObservableModel {
             GameMain.perform("sliderule");              //SlideRule8
             GameMain.perform("roomadditem SlideRule8 Room1");
         }
+
+        characters = new HashMap<>();
+        characters.putAll(students);        characters.putAll(professors);
+        characters.putAll(cleaners);
 
         GameMain.isGameInitialized = true;
     }

@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static game.model.main.GameMain.isGameInitialized;
 import static game.model.main.GameMain.perform;
 
 /**Osztály, amely a játék elmentéséért és betöltéséért felelős*/
@@ -356,7 +355,7 @@ public class SaverLoader {
                 String actions = reader.readLine();
                 if (!(curr.equals("null"))){
                     g.setCurrent(curr);
-                    g.getCurrent().setActions(Integer.parseInt(actions));
+                    g.getCurrent().addActions(Integer.parseInt(actions));
                 }
                 /*
                   Random beállítása
