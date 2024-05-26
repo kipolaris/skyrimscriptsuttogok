@@ -70,7 +70,7 @@ public class Student extends Character{
             if(!paralyzed) {
                 i.activate();
                 actions--;
-            }else Suttogo.error("You are paralyzed.");
+            }else Suttogo.getSuttogo().error("You are paralyzed.");
         } else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }
