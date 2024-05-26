@@ -162,6 +162,69 @@ public class RoomView extends JPanel{
     }
 
     /**
+     * A szoba gázosságát jelző jel beállítása, elrendezése.
+     */
+    public void setMarks(String overlayImage) {
+        // Helyzet beállítása
+        int overlayX = 0;
+        int overlayY = 0;
+        int overlayWidth = (int) Math.round((frame_size / 10) * scale);
+        int overlayHeight = (int) Math.round((frame_size / 10) * scale);
+        if(overlayImage.startsWith("src/pics/cursed")) { overlayX = backgroundBuff.getWidth() - overlayWidth; }
+
+        Overlay overlay = new Overlay(overlayImage, overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
+
+        // Az átfedés képének betöltése:
+        BufferedImage overlayImg = getImage(overlay.getPath(), overlay.getWidth(), overlay.getHeight());
+        if (overlayImg != null) {
+            // A Graphics2D objektum előkészítése az átfedés rajzolásához átlátszósággal:
+            Graphics2D g = backgroundBuff.createGraphics();
+            g.setComposite(AlphaComposite.SrcOver.derive(overlay.getOpacity()));
+
+            // Az x és y pozíció kiszámítása a bal felső sarokban:
+            int x = overlay.getX();
+            int y = overlay.getY();
+
+            // Az átfedés képének rajzolása a kiszámított pozícióban:
+            g.drawImage(overlayImg, x, y, null);
+
+            // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
+            g.dispose();
+        }
+    }
+
+    /**
+     * A szoba átkosságát jelző jel beállítása, elrendezése.
+     */
+    public void setCursedMark(String overlayImage) {
+        // Helyzet beállítása
+        int overlayX = 0;
+        int overlayY = 0;
+        int overlayWidth = (int) Math.round((frame_size / 10) * scale);
+        int overlayHeight = (int) Math.round((frame_size / 10) * scale);
+
+        Overlay overlay = new Overlay(overlayImage, overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
+
+        // Az átfedés képének betöltése:
+        BufferedImage overlayImg = getImage(overlay.getPath(), overlay.getWidth(), overlay.getHeight());
+        if (overlayImg != null) {
+            // A Graphics2D objektum előkészítése az átfedés rajzolásához átlátszósággal:
+            Graphics2D g = backgroundBuff.createGraphics();
+            g.setComposite(AlphaComposite.SrcOver.derive(overlay.getOpacity()));
+
+            // Az x és y pozíció kiszámítása a bal felső sarokban:
+            int x = overlay.getX();
+            int y = overlay.getY();
+
+            // Az átfedés képének rajzolása a kiszámított pozícióban:
+            g.drawImage(overlayImg, x, y, null);
+
+            // A Graphics2D példány eldobása az erőforrások azonnali felszabadításához:
+            g.dispose();
+        }
+    }
+
+    /**
      * Függvény, amely visszaad egy új JPanelt
      */
     private JPanel createComboBoxPanel(JComboBox<String> box) {

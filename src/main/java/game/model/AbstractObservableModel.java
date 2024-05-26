@@ -1,6 +1,7 @@
 package game.model;
 
 import game.controller.ModelListener;
+import game.model.main.GameMain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public abstract class AbstractObservableModel implements ObservableModel {
                 listener.onModelChange();
             }
         } else {
-            System.err.println(this.getClass() + ": no listeners found");
+            if(!GameMain.developermode) System.err.println(this.getClass() + ": no listeners found");
         }
     }
 }

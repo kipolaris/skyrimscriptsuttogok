@@ -1,5 +1,7 @@
 package game.controller;
 
+import game.model.entities.Character;
+import game.model.entities.Student;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
@@ -34,6 +36,10 @@ public class RoomController implements ModelListener{
 
     private final String onewayInDoorPic = "src/pics/oneway_in_door.png";
 
+    private final String gassedMark = "src/pics/gassed_room_mark.png";
+
+    private final String cursedMark = "src/pics/cursed_room_mark.png";
+
     /***
      * számon tartja, hogy melyik ajtóhoz melyik jcombobox string tartozik.
      */
@@ -56,7 +62,13 @@ public class RoomController implements ModelListener{
 
     @Override
     public void onModelChange() {
-        r = GameMain.gameEngine.getCurrent().getLocation();
+        Character current = GameMain.gameEngine.getCurrent();
+
+        if(current instanceof Student){
+            r = GameMain.gameEngine.getCurrent().getLocation();
+        }
+        //egyébként marad a legutóbbi szoba adata, csak akkor frissül, ha a current egy diák
+
 
         roomView.clearDoorsComboBox();
 
@@ -105,6 +117,12 @@ public class RoomController implements ModelListener{
         roomView.setDoors(overlayImages);
 
         roomView.setRoomName(r.getId());
+
+        if(r.getGassed()) { roomView.setMarks(gassedMark); }
+        if(r.getCursed()) { roomView.setMarks(cursedMark); }
+
+        roomView.validate();
+        roomView.repaint();
     }
 
     /**
