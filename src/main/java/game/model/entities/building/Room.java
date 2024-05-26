@@ -323,4 +323,9 @@ public class Room {
     public void setHasAirFreshener() {
         hasAirFreshener = true;
     }
+
+    /**Visszaadja a hasAirFreshener értékét*/
+    public boolean getHasAirFreshener() {
+        return hasAirFreshener;
+    }
 }
