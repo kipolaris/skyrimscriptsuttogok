@@ -1,15 +1,11 @@
 package game.view;
 
 import game.controller.*;
-import game.model.entities.Character;
-import game.model.entities.Student;
 import game.model.entities.building.Room;
-import game.model.entities.items.Item;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.*;
 import java.awt.*;

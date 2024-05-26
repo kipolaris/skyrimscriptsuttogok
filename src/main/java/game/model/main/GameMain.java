@@ -20,6 +20,10 @@ import game.view.GamePanel;
 import java.util.Scanner;
 import java.util.HashMap;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**Osztály, amely főmenüként szolgál és a parancsokat kezeli*/
 public class GameMain {
 
@@ -42,6 +46,8 @@ public class GameMain {
     public static boolean areWeTesting = false;
 
     public static String lastOutput = "";
+
+    public static boolean developermode = true;
 
     /**Felveszi a parancsokat egy mapra*/
     public static void addAllCommands(){
@@ -84,47 +90,70 @@ public class GameMain {
         commandMap.put("unpair", new Unpair());
         commandMap.put("out", new Out());
         commandMap.put("startgame", new StartGame());
+        commandMap.put("merge", new MergeRooms());
+        commandMap.put("split", new SplitRoom());
     }
 
     public static void main(String[] args) throws Exception {
         System.out.println("Játék mód: 0");
         System.out.println("Fejlesztői mód: 1");
-        Scanner sc = new Scanner(System.in);
-        int input = sc.nextInt();
+        System.out.println("Játékpálya betöltése scriptből: 2");
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
         addAllCommands();
         if(input == 1) {
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                String[] cmd = line.split(" ");
-                iCommand command = commandMap.get(cmd[0]);
-                if (command != null) {
-                    command.execute(cmd);
-                } else {
-                    Suttogo.note("command " + cmd[0] + " does not exist!");
-                }
+            developermode = true;
+            mainLoop();
+        }
+        else if(input == 0){
+            gamePanel.menu();
+            developermode = false;
+        }else if(input == 2){
+            developermode = true;
+            executeScript();
+            printOut();
+            mainLoop();
+        }else{
+            System.out.println("Nem megfelelő bemenet!");
+        }
+    }
 
-                if(allOut && isGameInitialized){
-                    printOut();
-                    GameMain.lastOutput = "";
-                }else{
-                    if(!allOut) Suttogo.note("Please call newgame command!");
-                }
+    private static void mainLoop(){
+        Suttogo.info("SYSTEM game CLI started, start typing commands");
 
-                if (gameEngine.isAInext()) {
-                    Character current = gameEngine.getCurrent();
+        Scanner sc = new Scanner(System.in);
 
-                    current.doRound();
-                    Suttogo.note("Now " + current.getId() + "makes steps");
-                }
+        while (sc.hasNextLine()) {
+            String line = sc.nextLine();
+            String[] cmd = line.split(" ");
+            iCommand command = commandMap.get(cmd[0]);
+            if (command != null) {
+                command.execute(cmd);
+            } else {
+                Suttogo.note("command " + cmd[0] + " does not exist!");
+            }
+
+            if(allOut && isGameInitialized){
+                printOut();
+                GameMain.lastOutput = "";
+            }else{
+                if(!allOut) Suttogo.note("Please call newgame command!");
+            }
+
+            if (gameEngine.isAInext()) {
+                Character current = gameEngine.getCurrent();
+
+                current.doRound();
+                Suttogo.note("Now " + current.getId() + "makes steps");
             }
         }
-        else { gamePanel.menu(); }
     }
 
     /**Kiírja a játék státuszát*/
     public static void printOut() {
         StringBuilder sb = new StringBuilder();
         if(isGameStarted) {
+            sb.append("--------------------\n");
             sb.append("Rooms:\n");
             BuildingAI builder = gameEngine.getBuilder();
             if(builder!=null) {
@@ -189,6 +218,7 @@ public class GameMain {
                 sb.append('\t').append(st.getId()).append('\n');
             }
         }
+        sb.append("--------------------\n");
         lastOutput = lastOutput + sb.toString();
         if(!areWeTesting) System.out.print(lastOutput);
     }
@@ -200,5 +230,22 @@ public class GameMain {
         if (command != null) {
             command.execute(cmd);
         }
+    }
+
+    public static void executeScript(){
+        Suttogo.info("SYSTEM started processing script, please wait...");
+
+        String scriptPath = "src/main/resources/gamebuilder_scripts/script1.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(scriptPath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                perform(line);
+            }
+        } catch (IOException e) {
+            Suttogo.error("Error reading file: " + e.getMessage());
+        }
+
+        Suttogo.info("SYSTEM script processed sucessfully.");
     }
 }

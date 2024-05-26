@@ -103,7 +103,7 @@ public class MainMenuController implements ModelListener{
             String playersText = view.getPlayersTextField().getText();
             try {
                 int numberOfPlayers = Integer.parseInt(playersText);
-                GameMain.perform("newgame");
+                GameMain.perform("newgame "+ gameEngine.numberOfPlayers);
                 GameMain.perform("startgame");
                 GameMain.gamePanel.gaming();
                 GameMain.gameEngine.notifyEveryone();

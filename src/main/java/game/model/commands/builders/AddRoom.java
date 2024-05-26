@@ -22,8 +22,8 @@ public class AddRoom implements iCommand {
             isCursed = Boolean.parseBoolean(cmd[3]);
         }
 
-        //rögtön hozzá is adjuk a labirynthoz
-        gameEngine.getBuilder().addRoom(new Room(capacity, isGassed, isCursed, null, null, null));
+        Room r  = new Room(capacity, isGassed, isCursed, null, null, null);
+        gameEngine.getBuilder().addRoom(r);
     }
 
 }

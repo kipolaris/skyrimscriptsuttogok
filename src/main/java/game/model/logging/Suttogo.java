@@ -9,6 +9,10 @@ import java.util.Set;
 import java.util.Queue;
 import java.util.LinkedList;
 
+import java.util.EnumMap;
+
+import java.util.EnumMap;
+
 /** Class for console output */
 public class Suttogo {
     private Suttogo() {}
@@ -20,7 +24,7 @@ public class Suttogo {
         NONE, INFO, NOTE, ERROR
     }
 
-    private static Level level = Level.NOTE;
+    private static Level level = Level.INFO;
 
     /**
      * Method to set the logging level.
@@ -37,7 +41,7 @@ public class Suttogo {
      * @param message the message
      */
     public static void info(String message) {
-        if (level.ordinal() >= Level.INFO.ordinal()) {
+        if (shouldLog(Level.INFO)) {
             log("INFO " + message);
         }
     }
@@ -48,7 +52,7 @@ public class Suttogo {
      * @param message the message
      */
     public static void error(String message) {
-        if (level.ordinal() >= Level.ERROR.ordinal()) {
+        if (shouldLog(Level.ERROR)) {
             String loggable = "ERROR " + message;
             GameMain.lastOutput = GameMain.lastOutput + loggable + '\n';
             log(loggable);
@@ -61,9 +65,25 @@ public class Suttogo {
      * @param message the message
      */
     public static void note(String message) {
-        if (level.ordinal() >= Level.NOTE.ordinal()) {
+        if (shouldLog(Level.NOTE)) {
             log("NOTE " + message);
         }
+    }
+
+    /**
+     * Checks if a message should be logged based on the current logging level.
+     *
+     * @param messageLevel the level of the message
+     * @return true if the message should be logged, false otherwise
+     */
+    private static boolean shouldLog(Level messageLevel) {
+        EnumMap<Level, Integer> levelPriority = new EnumMap<>(Level.class);
+        levelPriority.put(Level.NONE, 0);
+        levelPriority.put(Level.INFO, 1);
+        levelPriority.put(Level.NOTE, 2);
+        levelPriority.put(Level.ERROR, 3);
+
+        return levelPriority.get(messageLevel) >= levelPriority.get(level);
     }
 
     /**
@@ -75,4 +95,5 @@ public class Suttogo {
         System.out.print(message + '\n');
     }
 }
+
 

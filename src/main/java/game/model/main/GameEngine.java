@@ -97,6 +97,8 @@ public class GameEngine extends AbstractObservableModel {
 
     public static int numberOfPlayers = 1;
 
+    public static int buildingAIcommandsDone = 0;
+
     //GETTERS - SETTERS -----------------------------
 
     /**Visszaadja a hallgatók egy kulccsal ellátott listáját*/
@@ -214,52 +216,72 @@ public class GameEngine extends AbstractObservableModel {
         } else {
             Suttogo.note("------- Building AI comes ---------");
             if (random) {
-                Random r = new Random();
 
                 ArrayList<Room> allrooms = new ArrayList<>(builder.getLabyrinth().values());
 
-                int n1 = r.nextInt(allrooms.size());
-                int n2 = r.nextInt(allrooms.size());
+                if(allrooms.size() > 1) {
+                    Random r = new Random();
 
-                Room r1 = allrooms.get(n1);
-                Room r2 = allrooms.get(n2);
+                    int n1 = 1;
+                    int n2 = 1;
 
-                //random értétek meghatározására szolgáló predikátum
-                Predicate<Boolean> pa = (a) -> r.nextInt(2) == 1;
-                Predicate<Boolean> p = (a) -> true;
+                    while (n1 == n2) {
+                        n1 = r.nextInt(allrooms.size());
+                        n2 = r.nextInt(allrooms.size());
+                    }
 
-                if (p.test(true)) {
-                    builder.mergeRooms(r1, r2);
-                    Suttogo.note("Rooms merged");
-                }
+                    Room r1 = allrooms.get(n1);
+                    Room r2 = allrooms.get(n2);
 
-                //újra értéket adunk az allroomsnak, mert változott
-                allrooms = new ArrayList<>(builder.getLabyrinth().values());
-                int n3 = r.nextInt(allrooms.size());
-                Room r3 = allrooms.get(n3);
+                    //random értétek meghatározására szolgáló predikátum
+                    Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
+                    //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
 
-                if (p.test(true)) {
-                    builder.splitRoom(r3);
-                    Suttogo.note("Room split");
-                }
+                    if (p.test(true)) {
+                        builder.mergeRooms(r1, r2);
 
-                allrooms = new ArrayList<>(builder.getLabyrinth().values());
+                    }
 
-                ArrayList<Door> alldoors = new ArrayList<>();
+                    //újra értéket adunk az allroomsnak, mert változott
+                    allrooms = new ArrayList<>(builder.getLabyrinth().values());
+                    int n3 = r.nextInt(allrooms.size());
+                    Room r3 = allrooms.get(n3);
 
-                for (Room room : allrooms) {
-                    ArrayList<Door> group = room.getDoors();
-                    for (Door door : group) {
-                        if (!alldoors.contains(door)) {
-                            alldoors.add(door);
-                            door.setVisible(p.test(true));
+                    if (p.test(true)) {
+                        builder.splitRoom(r3);
+                    }
+
+                    allrooms = new ArrayList<>(builder.getLabyrinth().values());
+
+                    ArrayList<Door> alldoors = new ArrayList<>();
+
+                    for (Room room : allrooms) {
+                        ArrayList<Door> group = room.getDoors();
+                        for (Door door : group) {
+                            if (!alldoors.contains(door)) {
+                                alldoors.add(door);
+                                door.setVisible(p.test(true));
+                            }
                         }
                     }
                 }
             } else {
-                //#todo: manuális parancsok mergere és splitre!
+                buildingAIcommandsDone = 0;
+                Suttogo.info("now you MUST use buildingAI commands twice");
             }
-            playOnePhase();
+        }
+    }
+
+    /**
+     * A buildingAI parancsokat vezérli, ha a random ki van kapcsolva.
+     */
+    public void controlBuildingAI(){
+        if(buildingAIcommandsDone < 2){
+            Suttogo.note("buildingAIcommandsDone: "+buildingAIcommandsDone);
+            buildingAIcommandsDone++;
+            if(buildingAIcommandsDone==2) playOnePhase();
+        }else{
+            Suttogo.error("You have already used buildingAI commands twice!");
         }
     }
 
@@ -427,6 +449,7 @@ public class GameEngine extends AbstractObservableModel {
 
         merged.putAll(students);
         merged.putAll(cleaners);
+        merged.putAll(professors);
 
         return merged.get(key);
     }
