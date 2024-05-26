@@ -162,6 +162,7 @@ public class Room {
 
     /**Beállítja a szoba ajtajait*/
     public void setDoors(List<Door> ds) {
+        doors.clear();
         for(Door d: ds) {
             doors.add(d);
         }

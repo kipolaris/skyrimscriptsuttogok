@@ -5,10 +5,8 @@ import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**A pályaépítő osztálya*/
 
@@ -71,34 +69,26 @@ public class BuildingAI {
     }
 
     /**
-     * Szétosztja az ajtókat
+     * Egyesíti a két megadott szoba ajtajait
      * @param r1 az egyik szoba
      * @param r2 a másik szoba
      * @return az ajtók listája
      */
-    private List<Door> doorLogic(Room r1, Room r2){
-        ArrayList<Door> ajtok = new ArrayList<>(r1.getDoors());
+    private List<Door> doorLogic(Room r1, Room r2) {
 
-        ArrayList<Door> rossz = new ArrayList<>();
+        Set<Door> ajtok = new HashSet<>(r1.getDoors());
 
-        for (Door d1 : ajtok) {
-            for (Door d2 : r2.getDoors()) {
-                if (d1.getNeighbour(r1) == d2.getNeighbour(r2)) {
-                    rossz.add(d2);
-                }
-            }
-        }
+        Set<Door> r2Doors = new HashSet<>(r2.getDoors());
 
-        for (Door egy : r2.getDoors()) {
-            boolean van = false;
-            for (Door ketto : rossz) {
-                if (egy.getNeighbour(r2) == ketto.getNeighbour(r2))
-                    van = true;
-            }
-            if (!van) ajtok.add(egy);
-        }
+        // Remove common doors from the ajtok set
+        ajtok.removeAll(r2Doors);
 
-        return ajtok;
+        // Add unique doors from r2 to ajtok
+        ajtok.addAll(r2Doors.stream()
+                .filter(door -> !r1.getDoors().contains(door))
+                .collect(Collectors.toSet()));
+
+        return new ArrayList<>(ajtok);
     }
 
     /**
@@ -113,24 +103,11 @@ public class BuildingAI {
             if(d.getTo() == oldroom) d.setTo(newroom);
         }
 
-        List<Door> doorsToRemove = new ArrayList<>();
+        // Use a Set to remove duplicate doors
+        Set<Door> uniqueDoors = new HashSet<>(newroom.getDoors());
 
-        //ha véletlen két identikus ajtó került bele
-        for(Door d: newroom.getDoors()){
-            if(d.getFrom().equals(d.getTo())){
-                doorsToRemove.add(d);
-            }else{
-                for(Door d2: newroom.getDoors()){
-                    if(d.equals(d2)){
-                        doorsToRemove.add(d);
-                    }else if(d.getFrom().equals(d2.getFrom()) && d.getTo().equals(d2.getTo())){
-                        doorsToRemove.add(d2);
-                    }
-                }
-            }
-        }
-
-        newroom.getDoors().removeAll(doorsToRemove);
+        // Replace the list of doors in newroom with the unique doors
+        newroom.setDoors(new ArrayList<>(uniqueDoors));
     }
 
     /**Szétválasztunk egy adott szobát a labirintusból két szobára*/

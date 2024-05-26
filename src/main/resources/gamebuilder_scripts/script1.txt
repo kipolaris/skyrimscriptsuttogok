@@ -13,3 +13,5 @@ roomadditem FFP20 Room0
 sliderule
 roomadditem SlideRule1 Room1
 startgame
+skip
+merge Room0 Room1

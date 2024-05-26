@@ -3,6 +3,8 @@ package game.model.entities.building;
 import game.model.entities.Character;
 import game.model.logging.Suttogo;
 
+import java.util.Objects;
+
 
 /**Az ajtó osztálya*/
 public class Door {
@@ -85,5 +87,22 @@ public class Door {
 
     public boolean isBothWays(){
         return bothWays;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Door door = (Door) obj;
+        return from.equals(door.from) && to.equals(door.to) || from.equals(door.to) && to.equals(door.from);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(from, to) + Objects.hash(to, from);
     }
 }
