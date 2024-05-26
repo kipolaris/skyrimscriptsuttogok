@@ -110,7 +110,8 @@ public class RoomController implements ModelListener{
 
         roomView.setRoomName(r.getId());
 
-        if(r.getGassed()) { roomView.setGassedMark(gassedMark); }
+        if(r.getGassed()) { roomView.setMarks(gassedMark); }
+        if(r.getCursed()) { roomView.setMarks(cursedMark); }
 
         roomView.validate();
         roomView.repaint();
