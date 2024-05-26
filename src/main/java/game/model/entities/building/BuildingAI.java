@@ -41,7 +41,6 @@ public class BuildingAI {
         else max = r2.getCapacity();
 
         if (ossz <= max) {
-            ArrayList<Door> ajtok = new ArrayList<>(r1.getDoors());
             ArrayList<Item> targyak = new ArrayList<>(r1.getItems());
             ArrayList<Character> karakter = new ArrayList<>(r1.getCharacters());
 
@@ -50,25 +49,6 @@ public class BuildingAI {
             }
             for (Character c : r2.getCharacters()) {
                 karakter.add(c);
-            }
-
-            ArrayList<Door> rossz = new ArrayList<>();
-
-            for (Door d1 : ajtok) {
-                for (Door d2 : r2.getDoors()) {
-                    if (d1.getNeighbour(r1) == d2.getNeighbour(r2)) {
-                        rossz.add(d2);
-                    }
-                }
-            }
-
-            for (Door egy : r2.getDoors()) {
-                boolean van = false;
-                for (Door ketto : rossz) {
-                    if (egy.getNeighbour(r2) == ketto.getNeighbour(r2))
-                        van = true;
-                }
-                if (!van) ajtok.add(egy);
             }
 
             boolean gaz = false;
@@ -80,19 +60,85 @@ public class BuildingAI {
             if (r1.getGassed()) gaz = true;
             else if (r2.getGassed()) gaz = true;
 
-            Room uj = new Room(max, gaz, atok, ajtok, targyak, karakter);
+            Room uj = new Room(max, gaz, atok, doorLogic(r1, r2), targyak, karakter);
 
             this.addRoom(uj);
             this.removeRoom(r1);
             this.removeRoom(r2);
 
+            refineDoors(uj, r1);
+            refineDoors(uj, r2);
+
             Suttogo.note(labyrinth.size() + " rooms in labyrinth");
         }
     }
 
+    /**
+     * Szétosztja az ajtókat
+     * @param r1 az egyik szoba
+     * @param r2 a másik szoba
+     * @return az ajtók listája
+     */
+    private List<Door> doorLogic(Room r1, Room r2){
+        ArrayList<Door> ajtok = new ArrayList<>(r1.getDoors());
+
+        ArrayList<Door> rossz = new ArrayList<>();
+
+        for (Door d1 : ajtok) {
+            for (Door d2 : r2.getDoors()) {
+                if (d1.getNeighbour(r1) == d2.getNeighbour(r2)) {
+                    rossz.add(d2);
+                }
+            }
+        }
+
+        for (Door egy : r2.getDoors()) {
+            boolean van = false;
+            for (Door ketto : rossz) {
+                if (egy.getNeighbour(r2) == ketto.getNeighbour(r2))
+                    van = true;
+            }
+            if (!van) ajtok.add(egy);
+        }
+
+        return ajtok;
+    }
+
+    /**
+     * Átrendezzük az ajtókat, hogy a régi szobára mutató ajtók az új szobára mutassanak
+     * @param newroom az új szoba
+     * @param oldroom a régi szoba
+     */
+    private void refineDoors(Room newroom, Room oldroom){
+        for (Door d : newroom.getDoors()) {
+            if(d.getFrom() == oldroom) d.setFrom(newroom);
+            //nyilván egyszerre a kettő nem lehet, mert akkor saját magába lenne ajtó
+            if(d.getTo() == oldroom) d.setTo(newroom);
+        }
+
+        List<Door> doorsToRemove = new ArrayList<>();
+
+        //ha véletlen két identikus ajtó került bele
+        for(Door d: newroom.getDoors()){
+            if(d.getFrom().equals(d.getTo())){
+                doorsToRemove.add(d);
+            }else{
+                for(Door d2: newroom.getDoors()){
+                    if(d.equals(d2)){
+                        doorsToRemove.add(d);
+                    }else if(d.getFrom().equals(d2.getFrom()) && d.getTo().equals(d2.getTo())){
+                        doorsToRemove.add(d2);
+                    }
+                }
+            }
+        }
+
+        newroom.getDoors().removeAll(doorsToRemove);
+    }
+
     /**Szétválasztunk egy adott szobát a labirintusból két szobára*/
     public void splitRoom(Room r1){
-        if (!(r1.getDoors().size() < 2)){
+        if (r1.getDoors().size() >= 2){
             ArrayList<Door> ajto1 = new ArrayList<>();
             ArrayList<Door> ajto2 = new ArrayList<>();
             ArrayList<Item> targy1 = new ArrayList<>();
@@ -129,6 +175,9 @@ public class BuildingAI {
             this.addRoom(uj1);
             this.addRoom(uj2);
             this.removeRoom(r1);
+
+            refineDoors(uj1, r1);
+            refineDoors(uj2, r1);
 
             Suttogo.note(labyrinth.size() + " rooms in labyrinth");
         }

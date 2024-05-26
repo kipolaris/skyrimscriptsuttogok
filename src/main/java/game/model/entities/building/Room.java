@@ -3,9 +3,7 @@ package game.model.entities.building;
 import game.model.entities.Professor;
 import game.model.entities.Character;
 import game.model.entities.Student;
-import game.model.entities.items.FFP2;
 import game.model.entities.items.Item;
-import game.model.logging.Suttogo;
 
 import java.util.*;
 
@@ -48,9 +46,52 @@ public class Room {
 
     private ArrayList<Character> characters;
 
+
+    public Room(int max, boolean gaz, boolean atok, List<Door> newDoors, ArrayList<Item> targyak, ArrayList<Character> karakter){
+        id = "Room" + BuildingAI.getRoomID();
+
+        capacity = max;
+        gassed = gaz;
+        cursed = atok;
+        doors = newDoors != null ? new ArrayList<>(newDoors) : new ArrayList<>();
+        items = targyak != null ? new ArrayList<>(targyak) : new ArrayList<>();
+
+        if(targyak != null) {
+            for (Item i : targyak) {
+                items.add(i);
+                i.setLocation(this);
+            }
+        }
+
+        characters = karakter != null ? new ArrayList<>(karakter) : new ArrayList<>();
+
+        if(karakter != null) {
+            for (Character c : karakter) {
+                characters.add(c);
+                c.setLocation(this);
+            }
+        }
+
+        wasCleaned = false;
+        sticky = false;
+        visitors = 0;
+        hasAirFreshener = false;
+
+        gameEngine.getBuilder().addRoom(this);
+    }
+
     /**Paraméter nélküli konstruktor*/
     public Room(){
         id = "Room" + BuildingAI.getRoomID();
+
+        doors = new ArrayList<>();
+        items = new ArrayList<>();
+        characters = new ArrayList<>();
+
+        wasCleaned = false;
+        sticky = false;
+        visitors = 0;
+        hasAirFreshener = false;
 
         gameEngine.getBuilder().addRoom(this);
     }

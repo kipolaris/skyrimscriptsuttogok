@@ -11,6 +11,22 @@ public class Door {
     private boolean bothWays;
     private boolean visible;
 
+    public Room getFrom() {
+        return from;
+    }
+
+    public Room getTo(){
+        return to;
+    }
+
+    public void setFrom(Room r){
+        from = r;
+    }
+
+    public void setTo(Room r){
+        to = r;
+    }
+
     /**Konstruktor: Létrehozza az ajtót, beállítja, hogy melyik szobák tartoznak hozzá,
     *hogy mindkét irányból lehet-e használni, és hogy látható-e
      */
