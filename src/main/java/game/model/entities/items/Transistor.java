@@ -44,7 +44,7 @@ public class Transistor extends Item{
           else {
               Room dest = Pair.getLocation();
               if(!dest.addCharacter(owner)){
-                  Suttogo.error("The room is full!");
+                  Suttogo.getSuttogo().error("The room is full!");
               } else unpair();
           }
       }

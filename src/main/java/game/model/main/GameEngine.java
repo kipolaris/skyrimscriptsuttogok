@@ -38,8 +38,6 @@ public class GameEngine extends AbstractObservableModel {
 
     private Map<String, Professor> professors = null;
 
-    private HashMap<String, Character> characters = null;
-
     /**Visszaadja a takarítók egy kulccsal ellátott listáját*/
     public Map<String, Cleaner> getCleaners() {
         return cleaners;
