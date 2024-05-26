@@ -15,7 +15,7 @@ public class RandomNogo implements iCommand {
 
         GameMain.gameEngine.setRandom(false);
 
-        gameEngine.getSuttogo().note("random turned off");
+        Suttogo.getSuttogo().note("random turned off");
     }
 
 }

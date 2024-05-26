@@ -22,7 +22,7 @@ public class FFP2 extends Item{
     public void activate() { /**ezzel lehet aktiválni a maszkot, innentől megvédi használóját a mérges gáztól*/
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
-        gameEngine.getSuttogo().info(s);
+        Suttogo.getSuttogo().info(s);
     }
 
     /** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/

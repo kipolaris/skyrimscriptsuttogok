@@ -4,6 +4,7 @@ import game.model.commands.iCommand;
 import game.model.entities.Character;
 import game.model.entities.building.BuildingAI;
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
@@ -16,7 +17,7 @@ public class Pickup implements iCommand {
      */
     public void execute(String[] cmd) {
         if (cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         BuildingAI builder = gameEngine.getBuilder();
@@ -25,11 +26,11 @@ public class Pickup implements iCommand {
         Item i;
 
         if (c == null) {
-            gameEngine.getSuttogo().error("There is no such character!");
+            Suttogo.getSuttogo().error("There is no such character!");
         } else {
             i = gameEngine.getItems().get(cmd[1]);
             if (i == null) {
-                gameEngine.getSuttogo().error("There is no such item!");
+                Suttogo.getSuttogo().error("There is no such item!");
             } else if (c.getLocation().getItems().contains(i)) {
                 if (c.getActions() > 0) {
                     c.addItem(i);

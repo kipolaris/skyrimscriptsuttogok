@@ -16,7 +16,15 @@ import java.util.EnumMap;
 
 /** Class for console output */
 public class Suttogo extends AbstractObservableModel {
-    public Suttogo() {}
+    private Suttogo() {}
+
+    private static class SuttogoHolder {
+        private static final Suttogo INSTANCE = new Suttogo();
+    }
+
+    public static Suttogo getSuttogo() {
+        return SuttogoHolder.INSTANCE;
+    }
 
     /**
      * Enum representing the logging levels.

@@ -8,6 +8,7 @@ import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
+import game.model.logging.Suttogo;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -247,11 +248,11 @@ public class SaverLoader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            g.getSuttogo().info("Mentes sikeres.");
-            g.getSuttogo().note("Mentes sikeres.");
+            Suttogo.getSuttogo().info("Mentes sikeres.");
+            Suttogo.getSuttogo().note("Mentes sikeres.");
             return true;
         }catch(Exception e){
-            g.getSuttogo().error("Hiba mentes kozben!");
+            Suttogo.getSuttogo().error("Hiba mentes kozben!");
             return false;
         }
     }
@@ -404,13 +405,12 @@ public class SaverLoader {
                 for (String s : ellenor)
                     g.getItems().remove(s);
             } catch (IOException e) {
-                if (reader == null) g.getSuttogo().error("Nem sikerült a fájlt megnyitni!");
-                else g.getSuttogo().error("Hiba a beolvasás közben!");
+                if (reader == null) Suttogo.getSuttogo().error("Nem sikerült a fájlt megnyitni!");
+                else Suttogo.getSuttogo().error("Hiba a beolvasás közben!");
             }
-            g.getSuttogo().info("Betoltes sikeres.");
+            Suttogo.getSuttogo().info("Betoltes sikeres.");
         }catch(Exception e){
-            g.getSuttogo().error("Hiba betoltes kozben!");
-            e.printStackTrace();
+            Suttogo.getSuttogo().error("Hiba betoltes kozben!");
             g = null;
         }
     }

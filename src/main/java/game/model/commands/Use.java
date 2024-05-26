@@ -17,7 +17,7 @@ public class Use implements iCommand{
     @Override
     public void execute(String[] cmd) {
         if(cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         /**
@@ -28,7 +28,7 @@ public class Use implements iCommand{
             Student student = students.get(cmd[1]);
             Map<String, Item> items = student.getItems();
             Item item = items.get(cmd[2]);
-            if (item == null) gameEngine.getSuttogo().error("You don’t have an item named like that.");
+            if (item == null) Suttogo.getSuttogo().error("You don’t have an item named like that.");
             else student.useItem(item);
         } else{
             /**
@@ -39,7 +39,7 @@ public class Use implements iCommand{
                 Cleaner cleaner = cleaners.get(cmd[1]);
                 Map<String, Item> items = cleaner.getItems();
                 Item item = items.get(cmd[2]);
-                if (item == null) gameEngine.getSuttogo().error("You don’t have an item named like that.");
+                if (item == null) Suttogo.getSuttogo().error("You don’t have an item named like that.");
                 else cleaner.useItem(item);
             } else{
                 /**
@@ -49,7 +49,7 @@ public class Use implements iCommand{
                 Professor professor = professors.get(cmd[1]);
                 Map<String, Item> items = professor.getItems();
                 Item item = items.get(cmd[2]);
-                if (item == null) gameEngine.getSuttogo().error("You don’t have an item named like that.");
+                if (item == null) Suttogo.getSuttogo().error("You don’t have an item named like that.");
                 else professor.useItem(item);
             }
         }

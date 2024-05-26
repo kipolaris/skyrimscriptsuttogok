@@ -21,7 +21,7 @@ public class Cleanerpickup implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Egy takarítót egy tárgy felvételére késztet*/
         if(cmd.length < 2) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Map<String, Cleaner> cleaners = GameMain.gameEngine.getCleaners();

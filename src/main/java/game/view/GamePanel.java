@@ -2,6 +2,7 @@ package game.view;
 
 import game.controller.*;
 import game.model.entities.building.Room;
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
@@ -194,7 +195,9 @@ public class GamePanel {
         ge.addListener(menuController);
         ge.addListener(infoController);
 
-        ge.getSuttogo().addListener(infoController);
+        Suttogo.getSuttogo().addListener(infoController);
+
+        GameMain.setInit(false);
 
         GameMain.gamePanel.display();
     }

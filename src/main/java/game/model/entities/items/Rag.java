@@ -28,7 +28,7 @@ public class Rag extends Item{
         owner.setActions(1);
         this.location.paralyzeProfessors();
         String s = this.getId() + " used. " + getEffect();
-        gameEngine.getSuttogo().info(s);
+        Suttogo.getSuttogo().info(s);
     }
 
     /**A tárgy élettartamát csökkenti. Ha aktív a tárgy, akkor körönként egy életet veszt.*/

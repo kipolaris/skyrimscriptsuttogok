@@ -16,7 +16,7 @@ public class StartGame implements iCommand {/**Elindítja a játékot*/
             GameMain.gameEngine.playOnePhase();
             GameMain.isGameStarted = true;
         } else{
-            gameEngine.getSuttogo().error("add some characters to the game!");
+            Suttogo.getSuttogo().error("add some characters to the game!");
         }
     }
 }

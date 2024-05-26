@@ -15,7 +15,7 @@ public class Neighbour implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Két szobát összeköt egy ajtóval*/
         if(cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         BuildingAI builder = gameEngine.getBuilder();
@@ -23,10 +23,10 @@ public class Neighbour implements iCommand {
         Room room2 = builder.getLabyrinth().get(cmd[2]);
 
         if(room1 == null){
-            gameEngine.getSuttogo().note("room1 az null!");
+            Suttogo.getSuttogo().note("room1 az null!");
             return;
         }else if(room2 == null){
-            gameEngine.getSuttogo().note("room2 az null!");
+            Suttogo.getSuttogo().note("room2 az null!");
             return;
         }
         boolean visible = true;

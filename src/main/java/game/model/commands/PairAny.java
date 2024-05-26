@@ -17,7 +17,7 @@ public class PairAny implements iCommand{
     @Override
     public void execute(String[] cmd) {
         if(cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
 
@@ -25,7 +25,7 @@ public class PairAny implements iCommand{
         Item item1 = items.get(cmd[1]);
         Item item2 = items.get(cmd[2]);
 
-        if(item1 == null || item2 == null) gameEngine.getSuttogo().error("You don’t have an item named like that.");
+        if(item1 == null || item2 == null) Suttogo.getSuttogo().error("You don’t have an item named like that.");
 
         else if(item1.getId().startsWith("Transistor") && item2 instanceof Transistor) {
             Transistor t1 = (Transistor) item1;
@@ -33,12 +33,12 @@ public class PairAny implements iCommand{
 
 
             if (t1.isPairable() == false || t2.isPairable() == false){
-                gameEngine.getSuttogo().error("This transistor is already paired.");
+                Suttogo.getSuttogo().error("This transistor is already paired.");
             }
             else {
                 t1.pair(t2);
             }
         }
-        else gameEngine.getSuttogo().error("This item is not a Transistor.");
+        else Suttogo.getSuttogo().error("This item is not a Transistor.");
     }
 }

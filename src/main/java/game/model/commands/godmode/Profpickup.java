@@ -21,7 +21,7 @@ public class Profpickup implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Egy professzort egy tárgy felvételére késztet*/
         if(cmd.length < 2) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Map<String, Professor> prof = GameMain.gameEngine.getProfessors();

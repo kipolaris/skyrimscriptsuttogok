@@ -14,7 +14,7 @@ import static game.model.main.GameMain.gameEngine;
 public class Charadditem implements iCommand {
     public void execute(String[] cmd) {/**Hozzáad egy tárgyat egy karakterhez*/
         if(cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Item i = gameEngine.getItems().get(cmd[1]);
@@ -22,10 +22,10 @@ public class Charadditem implements iCommand {
         Character c = gameEngine.findCharacter(cmd[2]);
 
         if(i == null){
-            gameEngine.getSuttogo().error("There is no such item!");
+            Suttogo.getSuttogo().error("There is no such item!");
             return;
         }else if(c == null){
-            gameEngine.getSuttogo().error("There is no such character!");
+            Suttogo.getSuttogo().error("There is no such character!");
             return;
         }
 

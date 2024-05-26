@@ -37,7 +37,7 @@ public class Transistor extends Item{
       }
       else{
           String s = this.getId() + " used. " + getEffect();
-          gameEngine.getSuttogo().info(s);
+          Suttogo.getSuttogo().info(s);
           if(Pair.getLocation()==null) {
               owner.dropItem(this);
           }
@@ -88,7 +88,7 @@ public class Transistor extends Item{
    * Másik tranzisztorra és saját magára is beállítja, hogy összepárosodtak
    */
   public void pair(Transistor t){
-      gameEngine.getSuttogo().info("pair(Transistor)");
+      Suttogo.getSuttogo().info("pair(Transistor)");
       t.setPair(this);
       this.setPair(t);
   }
@@ -97,7 +97,7 @@ public class Transistor extends Item{
    * Az adott tranzisztor és párjának kapcsolatát felbontja
    */
   public void unpair(){
-      gameEngine.getSuttogo().info("unpair..");
+      Suttogo.getSuttogo().info("unpair..");
       this.Pair.setPair(null);
       this.setPair(null);
   }

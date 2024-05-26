@@ -28,7 +28,7 @@ public abstract class AbstractObservableModel implements ObservableModel {
                 listener.onModelChange();
             }
         } else {
-            if(!GameMain.developermode) System.err.println(this.getClass() + ": no listeners found");
+            if(!GameMain.developermode && !GameMain.isInit()) System.err.println(this.getClass() + ": no listeners found");
         }
     }
 }

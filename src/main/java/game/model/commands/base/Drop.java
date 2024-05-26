@@ -13,19 +13,19 @@ import static game.model.main.GameMain.gameEngine;
 public class Drop implements iCommand {
     public void execute(String[] cmd) {/**Eldobat egy tárgyat az adott karaktertől*/
         if(cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Character c = gameEngine.findCharacter(cmd[1]);
         Item i;
 
         if(c == null){
-            gameEngine.getSuttogo().error("There is no such character!");
+            Suttogo.getSuttogo().error("There is no such character!");
             return;
         }else{
             i = c.getItems().get(cmd[2]);
             if(i == null){
-                gameEngine.getSuttogo().error("There is no such item!");
+                Suttogo.getSuttogo().error("There is no such item!");
                 return;
             }
         }

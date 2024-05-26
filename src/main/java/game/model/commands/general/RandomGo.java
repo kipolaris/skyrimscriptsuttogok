@@ -14,7 +14,7 @@ public class RandomGo implements iCommand {
     public void execute(String[] cmd) {/**Engedélyezi a random algoritmusokat*/
 
         GameMain.gameEngine.setRandom(true);
-        gameEngine.getSuttogo().note("Random was set to true");
+        Suttogo.getSuttogo().note("Random was set to true");
     }
 
 }

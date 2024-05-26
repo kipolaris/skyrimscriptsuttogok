@@ -1,5 +1,6 @@
 package game.controller;
 
+import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 import game.view.InfoView;
@@ -17,6 +18,6 @@ public class InfoController implements ModelListener {
     }
 
     public void onModelChange() {
-        view.showInfo(gameEngine.getSuttogo().getLastMessage(), timer);
+        view.showInfo(Suttogo.getSuttogo().getLastMessage(), timer);
     }
 }

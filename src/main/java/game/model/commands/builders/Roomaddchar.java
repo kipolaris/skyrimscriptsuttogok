@@ -15,7 +15,7 @@ public class Roomaddchar implements iCommand {
     @Override
     public void execute(String[] cmd) {/**Hozzáad egy karaktert egy szobához*/
         if(cmd.length < 3) {
-            gameEngine.getSuttogo().error("Too few arguments!");
+            Suttogo.getSuttogo().error("Too few arguments!");
             return;
         }
         Character c = gameEngine.findCharacter(cmd[1]);
@@ -23,10 +23,10 @@ public class Roomaddchar implements iCommand {
         Room r = builder.getLabyrinth().get(cmd[2]);
 
         if(c == null){
-            gameEngine.getSuttogo().error("nem talalhato a keresett karakter!");
+            Suttogo.getSuttogo().error("nem talalhato a keresett karakter!");
             return;
         }else if(r == null){
-            gameEngine.getSuttogo().error("nem talalhato a keresett szoba!");
+            Suttogo.getSuttogo().error("nem talalhato a keresett szoba!");
             return;
         }
 

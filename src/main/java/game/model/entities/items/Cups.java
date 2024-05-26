@@ -22,7 +22,7 @@ public class Cups extends Item{
     public void activate() {/** ezzel lehet aktiválni a tárgyat, innentől a tárgy megvédi használóját a csúnya, gonosz, rosszakaró, hamis oktatóktól*/
         this.activated = true;
         String s = this.getId() + " used. " + getEffect();
-        gameEngine.getSuttogo().info(s);
+        Suttogo.getSuttogo().info(s);
     }
 
     @Override

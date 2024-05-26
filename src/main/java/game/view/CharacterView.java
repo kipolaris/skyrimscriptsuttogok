@@ -58,7 +58,7 @@ public class CharacterView {
         if(listener!=null){
             listeners.add(listener);
         }else{
-            GameMain.gameEngine.getSuttogo().error("A kapott listener null : CharacterView addListener()");
+            Suttogo.getSuttogo().error("A kapott listener null : CharacterView addListener()");
         }
     }
 }

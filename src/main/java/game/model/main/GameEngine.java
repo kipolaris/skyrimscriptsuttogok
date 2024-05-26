@@ -88,7 +88,7 @@ public class GameEngine extends AbstractObservableModel {
     private static int cleanerID = 0;
 
     private BuildingAI builder = null;
-    private final Suttogo suttogo = new Suttogo();
+    
     public static int numberOfPlayers = 1;
     public static int buildingAIcommandsDone = 0;
 
@@ -141,8 +141,6 @@ public class GameEngine extends AbstractObservableModel {
         return items.get(key);
     }
 
-    public Suttogo getSuttogo() { return suttogo; }
-
     /**
      * Ellenőrzi, hogy van-e még akciója a karakternek a körben.
      * Ha nincs, akkor meghívja a next() függvényt.
@@ -154,11 +152,11 @@ public class GameEngine extends AbstractObservableModel {
         if (c.getActions() > 0) {
             if (c.getActions() == 1 && c.isMoved()) {
                 next();
-                suttogo.note("next has been called");
+                Suttogo.getSuttogo().note("next has been called");
             }
             return true;
         } else {
-            suttogo.error("You have no more actions left!");
+            Suttogo.getSuttogo().error("You have no more actions left!");
             return false;
         }
     }
@@ -168,7 +166,7 @@ public class GameEngine extends AbstractObservableModel {
         if(!c.isMoved()){
             if(c.getActions() <= 0){
                 next();
-                suttogo.note("next has been called");
+                Suttogo.getSuttogo().note("next has been called");
             }
             return true;
         }
@@ -182,19 +180,19 @@ public class GameEngine extends AbstractObservableModel {
     public void next() {
         if (chart.hasNext()) {
             current = chart.next();
-            suttogo.info("current: "+current.getId());
+            Suttogo.getSuttogo().info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
-                suttogo.note("isAInext was set to true");
+                Suttogo.getSuttogo().note("isAInext was set to true");
                 isAInext = true;
                 if (!random) {
-                    suttogo.note("Now you can step with" + current.getId() + "ai");
+                    Suttogo.getSuttogo().note("Now you can step with" + current.getId() + "ai");
                 }
             } else {
                 isAInext = false;
             }
         } else {
             nextQueue();
-            suttogo.note("switched to next queue");
+            Suttogo.getSuttogo().note("switched to next queue");
         }
         notifyEveryone();
     }
@@ -209,7 +207,7 @@ public class GameEngine extends AbstractObservableModel {
             chart = currentQueue.iterator();
             next();
         } else {
-            suttogo.note("------- Building AI comes ---------");
+            Suttogo.getSuttogo().note("------- Building AI comes ---------");
             if (random) {
 
                 ArrayList<Room> allrooms = new ArrayList<>(builder.getLabyrinth().values());
@@ -262,7 +260,7 @@ public class GameEngine extends AbstractObservableModel {
                 }
             } else {
                 buildingAIcommandsDone = 0;
-                suttogo.info("now you MUST use buildingAI commands twice");
+                Suttogo.getSuttogo().info("now you MUST use buildingAI commands twice");
             }
         }
     }
@@ -272,11 +270,11 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void controlBuildingAI(){
         if(buildingAIcommandsDone < 2){
-            suttogo.note("buildingAIcommandsDone: "+buildingAIcommandsDone);
+            Suttogo.getSuttogo().note("buildingAIcommandsDone: "+buildingAIcommandsDone);
             buildingAIcommandsDone++;
             if(buildingAIcommandsDone==2) playOnePhase();
         }else{
-            suttogo.error("You have already used buildingAI commands twice!");
+            Suttogo.getSuttogo().error("You have already used buildingAI commands twice!");
         }
     }
 
@@ -378,7 +376,7 @@ public class GameEngine extends AbstractObservableModel {
     public void playOnePhase() {
         if (!studentsExtinct() || !GameMain.isGameStarted) {
 
-            suttogo.note("-------- new Phase initiated! ------------\n");
+            Suttogo.getSuttogo().note("-------- new Phase initiated! ------------\n");
 
             for (Student s : students.values()) {
                 s.resetActions();
@@ -402,7 +400,7 @@ public class GameEngine extends AbstractObservableModel {
             nextQueue();
         } else {
             endGame();
-            suttogo.info("You lost!");
+            Suttogo.getSuttogo().info("You lost!");
         }
     }
 

@@ -15,10 +15,10 @@ public class ToggleAllOut implements iCommand {
     public void execute(String[] cmd) {
         if(GameMain.allOut){
             GameMain.allOut = false;
-            gameEngine.getSuttogo().note("allOut funcion off");
+            Suttogo.getSuttogo().note("allOut funcion off");
         }else{
             GameMain.allOut = true;
-            gameEngine.getSuttogo().note("allOut function on");
+            Suttogo.getSuttogo().note("allOut function on");
         }
     }
 }

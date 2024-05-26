@@ -34,7 +34,7 @@ public class TVSZ extends Item{
     public void activate() {
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
-        gameEngine.getSuttogo().info(s);
+        Suttogo.getSuttogo().info(s);
     }
 
     /**

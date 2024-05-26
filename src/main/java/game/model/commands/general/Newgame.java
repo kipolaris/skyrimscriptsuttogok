@@ -14,7 +14,7 @@ public class Newgame implements iCommand {/**Új játékot inicializál*/
     @Override
     public void execute(String[] cmd) {
         if (cmd.length < 2) {
-            gameEngine.getSuttogo().error("Invalid command. Please provide the number of players.");
+            Suttogo.getSuttogo().error("Invalid command. Please provide the number of players.");
             return;
         }
 
@@ -22,13 +22,13 @@ public class Newgame implements iCommand {/**Új játékot inicializál*/
         try {
             numberOfPlayers = Integer.parseInt(cmd[1]);
         } catch (NumberFormatException e) {
-            gameEngine.getSuttogo().error("Invalid number of players. Please provide a valid integer.");
+            Suttogo.getSuttogo().error("Invalid number of players. Please provide a valid integer.");
             return;
         }
 
         GameMain.gameEngine.numberOfPlayers = numberOfPlayers;
         GameMain.gameEngine.initGame();
-        gameEngine.getSuttogo().note("New Game loaded with " + numberOfPlayers + " players. Have fun!");
+        Suttogo.getSuttogo().note("New Game loaded with " + numberOfPlayers + " players. Have fun!");
     }
 
 
