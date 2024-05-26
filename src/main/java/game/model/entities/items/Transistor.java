@@ -31,19 +31,21 @@ public class Transistor extends Item{
   @Override
   public void activate() {
       if(this.Pair == null) {
-          Transistor otherTransistor = owner.getActiveTransistor(); //itt kapunk egy másik transistort
+          Transistor otherTransistor = owner.getActiveTransistor(this); //itt kapunk egy másik transistort
           this.pair(otherTransistor); //erre meghíjuk a párosítást, hogy párosítsa össze a másikkal
-          owner.setActions(-1);
       }
       else{
           String s = this.getId() + " used. " + getEffect();
           Suttogo.info(s);
           if(Pair.getLocation()==null) {
               owner.dropItem(this);
+              owner.setActions(1);
           }
           else {
-              if(Pair.getLocation().addCharacter(owner)) unpair();
-              owner.setActions(-1);
+              Room dest = Pair.getLocation();
+              if(!dest.addCharacter(owner)){
+                  Suttogo.error("The room is full!");
+              } else unpair();
           }
       }
   }
@@ -80,7 +82,6 @@ public class Transistor extends Item{
      */
     @Override
     public Transistor getPair() {
-
         return this.Pair;
     }
 

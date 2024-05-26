@@ -304,7 +304,7 @@ public class GameEngine extends AbstractObservableModel {
         //#todo: ezt jobban népesíteni kell
         if (random) {
             // A kezdő szoba (itt lehet állítani a gázosságot/átkosságot)
-            GameMain.perform("room "+(numberOfPlayers+3) + " true true"); //Room0
+            GameMain.perform("room "+(numberOfPlayers+3) + " false false"); //Room0
             GameMain.perform("room 5");                    //Room1
             GameMain.perform("neighbour Room0 Room1");
 
@@ -327,9 +327,9 @@ public class GameEngine extends AbstractObservableModel {
             GameMain.perform("rag");                    //Rag4
             GameMain.perform("roomadditem Rag4 Room0");
             GameMain.perform("transistor");                    //Transistor5
-            GameMain.perform("roomadditem Transistor5 Room0");
+            GameMain.perform("charadditem Transistor5 Student0");
             GameMain.perform("transistor");                    //Transistor6
-            GameMain.perform("roomadditem Transistor6 Room0");
+            GameMain.perform("charadditem Transistor6 Student0");
             GameMain.perform("tvsz");                    //TVSZ7
             GameMain.perform("roomadditem TVSZ7 Room0");
             GameMain.perform("sliderule");              //SlideRule8

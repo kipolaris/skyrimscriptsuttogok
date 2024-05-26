@@ -1,7 +1,5 @@
 package game.model.entities;
 
-import game.controller.ModelListener;
-import game.model.ObservableModel;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.*;
@@ -214,7 +212,7 @@ public class Character {
     /**
      * Aktív tranzisztorok lekérdezése
      */
-    public Transistor getActiveTransistor() {
+    public Transistor getActiveTransistor(Transistor transistor) {
         throw new UnsupportedOperationException();
     }
 
@@ -223,7 +221,7 @@ public class Character {
         throw new UnsupportedOperationException();
     }
 
-    /**Beállítja az actions értékét*/
+    /**Az akciópontokhoz hozzáadja a paraméterként megadott értéket*/
     public void setActions(int i) {
         actions += i;
         if(actions < 0) actions = 0;
