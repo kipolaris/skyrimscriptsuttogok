@@ -55,9 +55,9 @@ public class Student extends Character{
     /**
      * A hallgató ezáltal tudja meg, hogy van-e aktív tranzisztora, és ha van, akkor az melyik
      */
-    public Transistor getActiveTransistor(){
+    public Transistor getActiveTransistor(Transistor t){
         for(Item i : items.values()){
-            if(i.isPairable()){
+            if(i.isPairable() && !i.equals(t)){
                 return (Transistor) i;
             }
         }
