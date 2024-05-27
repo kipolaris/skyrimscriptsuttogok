@@ -26,7 +26,7 @@ public class Rag extends Item{
         this.activated = true;
         owner.dropItem(this);
         owner.addActions(1);
-        this.location.paralyzeProfessors();
+        this.location.paralyzeProfessors(true);
         String s = this.getId() + " used. " + getEffect();
         Suttogo.getSuttogo().info(s);
     }
@@ -36,6 +36,7 @@ public class Rag extends Item{
     public boolean decreaseDurability(){
         this.durability--;
         if (this.durability <= 0) {
+            this.location.paralyzeProfessors(false);
             gameEngine.nullifyItem(this);
             return false;
         }

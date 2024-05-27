@@ -471,5 +471,6 @@ public class GameEngine extends AbstractObservableModel {
         if(item.getLocation() != null) { item.getLocation().removeItem(item); }
         if(item.getOwner() != null) { item.getOwner().loseItem(item); }
         if(items.containsValue(item)) { items.remove(item.getId()); }
+        notifyEveryone();
     }
 }
