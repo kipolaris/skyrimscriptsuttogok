@@ -156,7 +156,7 @@ public class GamePanel {
      * létrehozza a jobb alsó sarokban levő gombokat, melyek a mentésért, új játékért és a játék befejezéséért felelősek
      */
     public void addButtons(){
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JPanel buttonPanel = new JPanel(new FlowLayout());
         /**
          * Mentéshez a gomb létrehozása
          */
@@ -176,7 +176,7 @@ public class GamePanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardPanel.getParent().removeAll();
-                menu();
+                gameEngine.endGame();
             }
         });
 
@@ -194,7 +194,7 @@ public class GamePanel {
         buttonPanel.add(button2);
         buttonPanel.add(button3);
 
-        playPanel.add(buttonPanel, BorderLayout.SOUTH);
+        playPanel.add(buttonPanel, BorderLayout.EAST);
     }
 
 
@@ -234,7 +234,7 @@ public class GamePanel {
         MenuController menuController = new MenuController(menuView, ge, roomController);
 
         InfoView infoView = GameMain.gamePanel.addInfoView();
-        InfoController infoController = new InfoController(infoView,6000);
+        InfoController infoController = new InfoController(infoView,4000);
 
         //listenerek beállítása
         ge.addListener(roomController);
