@@ -11,6 +11,8 @@ import game.model.entities.items.Item;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
 
+import javax.swing.*;
+
 import java.util.*;
 import java.util.function.Predicate;
 
@@ -356,9 +358,13 @@ public class GameEngine extends AbstractObservableModel {
         professors.clear();
         items.clear();
         builder = null;
+        int duration = 3000;
 
         GameMain.isGameStarted = false;
         GameMain.isGameInitialized = false;
+        javax.swing.Timer timer = new javax.swing.Timer(duration, e -> GameMain.gamePanel.closeWindow());
+        timer.setRepeats(false);
+        timer.start();
     }
 
     /**

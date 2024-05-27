@@ -37,7 +37,7 @@ public class GameMain {
     public static GameEngine gameEngine = new GameEngine();
 
     public static boolean allOut = true;
-    public static GamePanel gamePanel = new GamePanel();
+    public static GamePanel gamePanel;
 
     /**Beállítja az areWeTesting értékét*/
     public static void setAreWeTesting(boolean areWeTesting) {
@@ -125,6 +125,7 @@ public class GameMain {
         }
         else if(input == 0){
             setInit(true); //beállítjuk, hogy az elején ne jelezzen hibát, hogy nincs listener, amíg amúgyse gond
+            gamePanel = new GamePanel();
             gamePanel.menu();
             developermode = false;
         }else if(input == 2){
@@ -138,7 +139,7 @@ public class GameMain {
     }
 
     private static void mainLoop(){
-        Suttogo.getSuttogo().info("SYSTEM game CLI started, start typing commands");
+        //Suttogo.getSuttogo().info("SYSTEM game CLI started, start typing commands");
 
         Scanner sc = new Scanner(System.in);
 
