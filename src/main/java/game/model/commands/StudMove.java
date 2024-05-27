@@ -2,6 +2,7 @@ package game.model.commands;
 
 import game.model.commands.base.Move;
 import game.model.entities.Student;
+import game.model.logging.Suttogo;
 
 import static game.model.main.GameMain.gameEngine;
 
@@ -19,8 +20,9 @@ public class StudMove implements iCommand{
                 String[] ns = new String[]{cmd[0], s.getId(), cmd[1]};
                 c.execute(ns);
             }
+        }else{
+            Suttogo.getSuttogo().error("This is not your round!");
         }
-
     }
 
 }

@@ -186,10 +186,9 @@ public class GameEngine extends AbstractObservableModel {
             current = chart.next();
             Suttogo.getSuttogo().info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
-                Suttogo.getSuttogo().note("isAInext was set to true");
                 isAInext = true;
                 if (!random) {
-                    Suttogo.getSuttogo().note("Now you can step with" + current.getId() + "ai");
+                    Suttogo.getSuttogo().note("Now you can step with " + current.getId() + " ai");
                 }
             } else {
                 isAInext = false;

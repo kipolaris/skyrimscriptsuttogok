@@ -186,6 +186,7 @@ public class Character {
                     Suttogo.getSuttogo().error("The room is full!");
                 }
                 isMoved = true;
+                Suttogo.getSuttogo().info("You have moved to " + dest.getId());
             }else Suttogo.getSuttogo().error("You are paralyzed.");
         }
         else if(isMoved) { Suttogo.getSuttogo().error("You have no more energy to move"); }
@@ -201,7 +202,7 @@ public class Character {
         actions=0;
         isMoved=true;
         GameMain.gameEngine.next();
-        Suttogo.getSuttogo().error("Turn skipped");
+        Suttogo.getSuttogo().info("Turn skipped");
         GameMain.gameEngine.notifyEveryone();
     }
 
