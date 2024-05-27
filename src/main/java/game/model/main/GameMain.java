@@ -125,7 +125,6 @@ public class GameMain {
             mainLoop();
         }
         else if(input == 0){
-            ImageLoader.printPathsForDebug();
             setInit(true); //beállítjuk, hogy az elején ne jelezzen hibát, hogy nincs listener, amíg amúgyse gond
             gamePanel = new GamePanel();
             gamePanel.menu();

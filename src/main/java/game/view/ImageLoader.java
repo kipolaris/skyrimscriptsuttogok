@@ -13,22 +13,22 @@ public class ImageLoader {
 
     /**
      * Visszatér a kép abszolút elérési útvonalával.
-     * @param path a megadott útvonal a köv felépítésben pl.: "/src/pics/standard_door.png" A '/' fontos!
-     * @return
+     * @param path a megadott útvonal a köv felépítésben pl.: "/src/pics/standard_door.png",
+     * a kód a / karaktereket az oprendszer által használt elválasztóra cseréli. De csak azokat!
+     * Egyébként az a legjobb, ha a getDirectorySeparator() metódust használod.
+     *
+     * @Warning A metódus nem ellenőrzi, hogy a kép létezik-e a megadott helyen!
+     * @Warning A metódus nem ellenőrzi, hogy a megadott útvonal helyes-e!
+     * @Warning A metódus nem ellenőrzi, hogy a munkakkönyvtárban van-e a kép! Figyelj hogy honnan indulsz ki!
+     * @return A kép abszolút elérési útvonala.
      */
     public static String appendAbsolutePath(String path) {
         path = path.replace("/", getDirectorySeparator()); //a biztonság kedvéért
         String absolutePath = System.getProperty("user.dir") + getDirectorySeparator() + path;
-        Suttogo.getSuttogo().note("ImageLoader: appendAbsolutePath: " + absolutePath);
         return absolutePath;
     }
 
     public static String getDirectorySeparator() {
         return File.separator;
-    }
-
-    public static void printPathsForDebug(){
-        Suttogo.getSuttogo().note("ImageLoader: appendAbsolutePath: " + appendAbsolutePath("src/pics/standard_door.png"));
-        Suttogo.getSuttogo().note("ImageLoader: getDirectorySeparator: " + getDirectorySeparator());
     }
 }
