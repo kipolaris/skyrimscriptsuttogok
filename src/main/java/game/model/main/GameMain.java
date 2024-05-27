@@ -262,7 +262,7 @@ public class GameMain {
     public static void executeScript(){
         Suttogo.getSuttogo().info("SYSTEM started processing script, please wait...");
 
-        String scriptPath = "src/main/resources/gamebuilder_scripts/script2.txt";
+        String scriptPath = "src/main/resources/gamebuilder_scripts/script3.txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(scriptPath))) {
             String line;

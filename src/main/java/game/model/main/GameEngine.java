@@ -336,7 +336,8 @@ public class GameEngine extends AbstractObservableModel {
         }
 
         characters = new HashMap<>();
-        characters.putAll(students);        characters.putAll(professors);
+        characters.putAll(students);
+        characters.putAll(professors);
         characters.putAll(cleaners);
 
         GameMain.isGameInitialized = true;
