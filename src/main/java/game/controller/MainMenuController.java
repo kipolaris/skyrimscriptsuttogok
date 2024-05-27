@@ -7,6 +7,7 @@ import game.model.main.SaverLoader;
 import game.view.GamePanel;
 import game.view.MainMenuView;
 
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
@@ -35,6 +36,7 @@ public class MainMenuController implements ModelListener{
         // Akciófigyelők hozzáadása a gombokhoz
         view.getNewButton().addActionListener(new NewButtonListener());
         view.getLoadButton().addActionListener(new LoadButtonListener());
+        populateGameComboBox();
 
         // Dokumentumfigyelő hozzáadása a playersTextField-hez
         view.addPlayersTextFieldListener(new DocumentListener() {
@@ -76,11 +78,14 @@ public class MainMenuController implements ModelListener{
      * Feltölti a játék választó listát a mentett játékokkal.
      */
     private void populateGameComboBox() {
-        view.getGameComboBox().removeAllItems();
+        Suttogo.getSuttogo().info("bement");
+        String[] s = saverLoader.getSavedGames().toArray(new String[0]);
+        for (String i:s) Suttogo.getSuttogo().info(i);
+        view.setGameComboBox(s);
 
-        for (String game : saverLoader.getSavedGames()) { // Assume getSavedGames() returns a list of saved game names
+        /*for (String game : saverLoader.getSavedGames()) { // Assume getSavedGames() returns a list of saved game names
             view.getGameComboBox().addItem(game);
-        }
+        }*/
     }
 
     @Override
