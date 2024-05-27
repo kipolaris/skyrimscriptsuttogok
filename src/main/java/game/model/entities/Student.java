@@ -67,8 +67,10 @@ public class Student extends Character{
     @Override
     public void useItem(Item i) {
         if(actions>0) {
-            i.activate();
-            actions--;
+            if(!paralyzed) {
+                i.activate();
+                actions--;
+            }else Suttogo.getSuttogo().error("You are paralyzed.");
         } else noMoreActions();
         GameMain.gameEngine.notifyEveryone();
     }

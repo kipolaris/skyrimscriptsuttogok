@@ -21,7 +21,7 @@ public class Camembert extends Item{
     @Override
     public void activate() { /** ezzel lehet aktiválni a tárgyat, ezután a szoba mérgesgázzal teli lesz*/
         Room loc = owner.getLocation();
-        loc.setGassed(true);
+        if(!loc.getHasAirFreshener()) loc.setGassed(true);
         String s = this.getId() + " used. " + getEffect();
         Suttogo.getSuttogo().info(s);
         gameEngine.nullifyItem(this);

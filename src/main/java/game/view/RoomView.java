@@ -161,12 +161,19 @@ public class RoomView extends JPanel{
         int overlaysCount = overlayImages.size();  // Az átfedések száma, amelyeket elosztunk a kör körül.
         for(int i = 0; i < overlaysCount; i++) {
             // Helyzet beállítása
-            int overlayX = 0;
-            int overlayY = 0;
+            int overlayX = 10;
+            int overlayY = 10;
             int overlayWidth = (int) Math.round((frame_size / 10) * scale);
             int overlayHeight = (int) Math.round((frame_size / 10) * scale);
             if (overlayImages.get(i).startsWith("src/pics/cursed")) {
-                overlayX = backgroundBuff.getWidth() - overlayWidth;
+                overlayX = backgroundBuff.getWidth() - overlayWidth - 10;
+            }
+            else if(overlayImages.get(i).startsWith("src/pics/freshed")) {
+                overlayX = backgroundBuff.getWidth() - overlayWidth - 10;
+                overlayY = backgroundBuff.getHeight() - overlayHeight - 10;
+            }
+            else if(overlayImages.get(i).startsWith("src/pics/ragged")) {
+                overlayY = backgroundBuff.getHeight() - overlayHeight - 10;
             }
             addMark(overlayImages.get(i), overlayWidth, overlayHeight, overlayX, overlayY, 1.0f);
         }

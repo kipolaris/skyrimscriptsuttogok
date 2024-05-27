@@ -253,6 +253,9 @@ public class Room {
     /**Elgázosítja a szobát*/
     public void setGassed(boolean g) {
         gassed = g;
+        for (Character character : characters) {
+            character.setParalyzed(gassed);
+        }
     }
 
     /**Megöli a szobában tartozkodó hallgatókat*/
@@ -319,5 +322,10 @@ public class Room {
     /**Igazra állítja a hasAirFreshener értékét*/
     public void setHasAirFreshener() {
         hasAirFreshener = true;
+    }
+
+    /**Visszaadja a hasAirFreshener értékét*/
+    public boolean getHasAirFreshener() {
+        return hasAirFreshener;
     }
 }

@@ -18,6 +18,7 @@ import java.util.function.Predicate;
 
 /**Osztály, amely a játékot megvalósítja*/
 public class GameEngine extends AbstractObservableModel {
+    private HashMap<String, Character> characters = null;
 
     /**Visszaadja a current értékét*/
     public Character getCurrent() {
@@ -38,8 +39,6 @@ public class GameEngine extends AbstractObservableModel {
     private Map<String, Student> students = null;
 
     private Map<String, Professor> professors = null;
-
-    private HashMap<String, Character> characters = null;
 
     /**Visszaadja a takarítók egy kulccsal ellátott listáját*/
     public Map<String, Cleaner> getCleaners() {
@@ -318,24 +317,28 @@ public class GameEngine extends AbstractObservableModel {
             GameMain.perform("roomaddchar Professor0 Room1");
 
             GameMain.perform("ffp2");                    //FFP20
-            GameMain.perform("roomadditem FFP20 Room0");
+            GameMain.perform("charadditem FFP20 Student0");
             GameMain.perform("airfreshener");                    //Airfreshener1
-            GameMain.perform("roomadditem Airfreshener1 Room0");
+            GameMain.perform("charadditem Airfreshener1 Student0");
             GameMain.perform("camembert");                    //Camembert2
-            GameMain.perform("roomadditem Camembert2 Room0");
+            GameMain.perform("charadditem Camembert2 Student0");
             GameMain.perform("cups");                    //Cups3
             GameMain.perform("roomadditem Cups3 Room0");
             GameMain.perform("rag");                    //Rag4
             GameMain.perform("roomadditem Rag4 Room0");
             GameMain.perform("transistor");                    //Transistor5
-            GameMain.perform("charadditem Transistor5 Student0");
+            GameMain.perform("roomadditem Transistor5 Room0");
             GameMain.perform("transistor");                    //Transistor6
-            GameMain.perform("charadditem Transistor6 Student0");
+            GameMain.perform("roomadditem Transistor6 Room0");
             GameMain.perform("tvsz");                    //TVSZ7
             GameMain.perform("roomadditem TVSZ7 Room0");
             GameMain.perform("sliderule");              //SlideRule8
             GameMain.perform("roomadditem SlideRule8 Room1");
         }
+
+        characters = new HashMap<>();
+        characters.putAll(students);        characters.putAll(professors);
+        characters.putAll(cleaners);
 
         GameMain.isGameInitialized = true;
     }

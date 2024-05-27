@@ -1,16 +1,21 @@
 package game.view;
 
 import game.controller.*;
+import game.model.entities.Student;
 import game.model.entities.building.Room;
 import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
 import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.*;
+
+import static game.model.main.GameMain.*;
 
 /**
  * Osztály a megjelenítők összefogására, és kirajzolására
@@ -148,10 +153,59 @@ public class GamePanel {
     }
 
     /**
+     * létrehozza a jobb alsó sarokban levő gombokat, melyek a mentésért, új játékért és a játék befejezéséért felelősek
+     */
+    public void addButtons(){
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        /**
+         * Mentéshez a gomb létrehozása
+         */
+        JButton button1 = new JButton("Save");
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                perform("save");
+            }
+        });
+
+        /**
+         * Játék végéért felelős gomb létrehozása
+         */
+        JButton button2 = new JButton("End");
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardPanel.getParent().removeAll();
+                menu();
+            }
+        });
+
+        /**
+         * Új játék létrehozásáért felelős gomb létrehozása
+         */
+        JButton button3 = new JButton("New");
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                perform("newgame "+last_character_value);
+            }
+        });
+        buttonPanel.add(button1);
+        buttonPanel.add(button2);
+        buttonPanel.add(button3);
+
+        playPanel.add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+
+    /**
      * Összeállítja az in-game megjelenítést
      */
     public void gaming() {
-        GameEngine ge = GameMain.gameEngine;
+        frame.dispose();
+        GameMain.gamePanel = new GamePanel();
+
+        GameEngine ge = gameEngine;
 
         //A Room panel beállítása
 
@@ -195,6 +249,7 @@ public class GamePanel {
         Suttogo.getSuttogo().addListener(infoController);
 
         GameMain.setInit(false);
+        addButtons();
 
         GameMain.gamePanel.display();
     }
