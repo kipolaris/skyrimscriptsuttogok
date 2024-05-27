@@ -8,6 +8,7 @@ import static game.model.main.GameMain.gameEngine;
 
 /**A sörös poharak osztálya*/
 public class Cups extends Item{
+
     /**Öt paraméteres konstruktor*/
     public Cups(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super("Cups"+gameEngine.getItemID(), activated, defensive, durability, location, owner);
@@ -23,6 +24,7 @@ public class Cups extends Item{
         this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.getSuttogo().info(s);
+        decreaseDurability();
     }
 
     @Override

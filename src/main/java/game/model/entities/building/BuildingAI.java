@@ -34,13 +34,13 @@ public class BuildingAI {
      * Összeolvaszt két szobát a labirintusban
      */
     public void mergeRooms(Room r1, Room r2){
-        int ossz = r1.getCharacters().size()+r2.getCharacters().size();
+        int all = r1.getCharacters().size()+r2.getCharacters().size();
         int max = 0;
         if (r1.getCapacity() > r2.getCapacity())
             max = r1.getCapacity();
         else max = r2.getCapacity();
 
-        if (ossz <= max) {
+        if (all <= max) {
             ArrayList<Item> targyak = new ArrayList<>(r1.getItems());
             ArrayList<Character> karakter = new ArrayList<>(r1.getCharacters());
 
@@ -48,16 +48,16 @@ public class BuildingAI {
 
             targyak.addAll(r2.getItems());
 
-            boolean gaz = false;
-            boolean atok = false;
+            boolean gas = false;
+            boolean curse = false;
 
-            if (r1.getCursed()) atok = true;
-            else if (r2.getCursed()) atok = true;
+            if (r1.getCursed()) curse = true;
+            else if (r2.getCursed()) curse = true;
 
-            if (r1.getGassed()) gaz = true;
-            else if (r2.getGassed()) gaz = true;
+            if (r1.getGassed()) gas = true;
+            else if (r2.getGassed()) gas = true;
 
-            Room uj = new Room(max, gaz, atok, doorLogic(r1, r2), targyak, karakter);
+            Room uj = new Room(max, gas, curse, doorLogic(r1, r2), targyak, karakter);
 
             this.addRoom(uj);
             this.removeRoom(r1);
@@ -79,19 +79,19 @@ public class BuildingAI {
      */
     private List<Door> doorLogic(Room r1, Room r2) {
 
-        Set<Door> ajtok = new HashSet<>(r1.getDoors());
+        Set<Door> doors = new HashSet<>(r1.getDoors());
 
         Set<Door> r2Doors = new HashSet<>(r2.getDoors());
 
-        // Remove common doors from the ajtok set
-        ajtok.removeAll(r2Doors);
+        // Remove common doors from the doors set
+        doors.removeAll(r2Doors);
 
-        // Add unique doors from r2 to ajtok
-        ajtok.addAll(r2Doors.stream()
+        // Add unique doors from r2 to doors
+        doors.addAll(r2Doors.stream()
                 .filter(door -> !r1.getDoors().contains(door))
                 .collect(Collectors.toSet()));
 
-        return new ArrayList<>(ajtok);
+        return new ArrayList<>(doors);
     }
 
     /**

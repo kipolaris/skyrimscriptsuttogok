@@ -11,7 +11,7 @@ import static game.model.main.GameMain.gameEngine;
 /**A tvsz osztálya*/
 public class TVSZ extends Item{
     boolean fake;
-
+    
     /**
      * Konstruktor: ltrehozza a tárgyat, és inicializálja az értékeit
      */
@@ -35,6 +35,7 @@ public class TVSZ extends Item{
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.getSuttogo().info(s);
+        decreaseDurability();
     }
 
     /**
