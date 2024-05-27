@@ -8,6 +8,8 @@ import static game.model.main.GameMain.gameEngine;
 
 /**A sörös poharak osztálya*/
 public class Cups extends Item{
+    //Ideiglenes törlendő komment
+
     /**Öt paraméteres konstruktor*/
     public Cups(boolean activated, boolean defensive, int durability, Room location, Character owner) {
         super("Cups"+gameEngine.getItemID(), activated, defensive, durability, location, owner);

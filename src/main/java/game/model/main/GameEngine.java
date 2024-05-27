@@ -428,6 +428,7 @@ public class GameEngine extends AbstractObservableModel {
         }
     }
 
+    //valamiért nem enged normálisan pusholni
     public void decreaseRagDurability(ArrayList<Item> items) {
         for (Item item : items) {
             if(item.getClass() == Rag.class && item.isActivated()) {

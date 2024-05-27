@@ -12,6 +12,8 @@ import static game.model.main.GameMain.gameEngine;
 public class TVSZ extends Item{
     boolean fake;
 
+    //Ideiglenes törlendő komment
+
     /**
      * Konstruktor: ltrehozza a tárgyat, és inicializálja az értékeit
      */
