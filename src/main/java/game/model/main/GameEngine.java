@@ -88,7 +88,7 @@ public class GameEngine extends AbstractObservableModel {
 
     private static int cleanerID = 0;
 
-    private BuildingAI builder = new BuildingAI();
+    private BuildingAI builder = null;
     
     public static int numberOfPlayers = 1;
     public static int buildingAIcommandsDone = 0;
@@ -180,16 +180,13 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void next() {
         if (chart.hasNext()) {
-            GameMain.gameEngine.notifyEveryone();
             current = chart.next();
             Suttogo.getSuttogo().info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
-                Suttogo.getSuttogo().note("isAInext was set to true");
                 isAInext = true;
                 if (!random) {
-                    Suttogo.getSuttogo().note("Now you can step with" + current.getId() + "ai");
+                    Suttogo.getSuttogo().note("Now you can step with " + current.getId() + " ai");
                 }
-                else current.doRound();
             } else {
                 isAInext = false;
             }
@@ -223,18 +220,14 @@ public class GameEngine extends AbstractObservableModel {
 
                     while (n1 == n2) {
                         n1 = r.nextInt(allrooms.size());
-                        if(n1 == allrooms.size()) n1--;
                         n2 = r.nextInt(allrooms.size());
-                        if(n2 == allrooms.size()) n2--;
                     }
 
                     Room r1 = allrooms.get(n1);
                     Room r2 = allrooms.get(n2);
 
                     //random értétek meghatározására szolgáló predikátum
-                    Predicate<Boolean> p = a -> {
-                        return r.nextBoolean();
-                    };
+                    Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
                     //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
 
                     if (p.test(true)) {
@@ -256,13 +249,11 @@ public class GameEngine extends AbstractObservableModel {
                     ArrayList<Door> alldoors = new ArrayList<>();
 
                     for (Room room : allrooms) {
-                        if(room.getCursed()){
-                            ArrayList<Door> group = room.getDoors();
-                            for (Door door : group) {
-                                if (!alldoors.contains(door)) {
-                                    alldoors.add(door);
-                                    door.setVisible(p.test(true));
-                                }
+                        ArrayList<Door> group = room.getDoors();
+                        for (Door door : group) {
+                            if (!alldoors.contains(door)) {
+                                alldoors.add(door);
+                                door.setVisible(p.test(true));
                             }
                         }
                     }
