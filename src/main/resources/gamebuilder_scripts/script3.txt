@@ -1,0 +1,18 @@
+random-nogo
+newgame 1
+room 1
+room 5
+room 5
+neighbour Room0 Room1
+neighbour Room1 Room2
+neighbour Room2 Room0
+student
+cleaner
+roomaddchar Student0 Room0
+roomaddchar Cleaner0 Room1
+ffp2
+roomadditem FFP20 Room0
+sliderule
+roomadditem SlideRule1 Room1
+startgame
+skip

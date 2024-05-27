@@ -221,7 +221,7 @@ public class Room {
 
     /**Lekérdezi a szobában lévő hallgatókat*/
     public ArrayList<Student> getStudents() {
-        ArrayList<Student> students = null;
+        ArrayList<Student> students = new ArrayList<Student>();
         for (Character character : characters) {
             if(character.getId().startsWith("Student")) {
                 students.add((Student) character);
@@ -229,10 +229,9 @@ public class Room {
         }
         return students;
     }
-
     /**Lekérdezi a szobában lévő oktatókat*/
     public ArrayList<Professor> getProfessors() {
-        ArrayList<Professor> professors = null;
+        ArrayList<Professor> professors = new ArrayList<Professor>();
         for (Character character : characters) {
             if (character.getId().startsWith("Professor")) {
                 professors.add((Professor) character);
