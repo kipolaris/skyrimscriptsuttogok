@@ -25,21 +25,23 @@ public class RoomController implements ModelListener{
 
     private CharacterController characterController;
 
-    private final String standardDoorPic = ImageLoader.appendAbsolutePath("/src/pics/standard_door.png");
+    private final String s = ImageLoader.getDirectorySeparator();
 
-    private final String invisibleDoorPic = ImageLoader.appendAbsolutePath("/src/pics/invisible_door.png");
+    private final String standardDoorPic = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"standard_door.png");
 
-    private final String onewayOutDoorPic = ImageLoader.appendAbsolutePath("/src/pics/oneway_out_door.png");
+    private final String onewayInDoorPic = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"oneway_in_door.png");
 
-    private final String onewayInDoorPic = ImageLoader.appendAbsolutePath("/src/pics/oneway_in_door.png");
+    private final String onewayOutDoorPic = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"oneway_out_door.png");
 
-    private final String gassedMark = ImageLoader.appendAbsolutePath("/src/pics/gassed_room_mark.png");
+    private final String invisibleDoorPic = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"invisible_door.png");
 
-    private final String cursedMark = ImageLoader.appendAbsolutePath("/src/pics/cursed_room_mark.png");
+    private final String gassedMark = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"gassed_mark.png");
 
-    private final String freshedMark = ImageLoader.appendAbsolutePath("/src/pics/freshed_room_mark.png");
+    private final String cursedMark = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"cursed_mark.png");
 
-    private final String raggedMark = ImageLoader.appendAbsolutePath("/src/pics/ragged_room_mark.png");
+    private final String freshedMark = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"freshed_mark.png");
+
+    private final String raggedMark = ImageLoader.appendAbsolutePath("src"+s+"pics"+s+"ragged_mark.png");
 
     /***
      * számon tartja, hogy melyik ajtóhoz melyik jcombobox string tartozik.
