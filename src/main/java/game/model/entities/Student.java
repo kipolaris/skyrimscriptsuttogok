@@ -60,9 +60,9 @@ public class Student extends Character{
                 Random r = new Random();
                 int indx = r.nextInt(itemList.size());
                 if (indx == itemList.size()) indx--;
-                itemList.get(indx).setLocation(location);
-                location.addItem(itemList.get(indx));
-                items.remove(itemList.get(indx).getId());
+                itemList.get(0).setLocation(location);
+                location.addItem(itemList.get(0));
+                items.remove(itemList.get(0).getId());
                 gameEngine.notifyEveryone();
             }
         }

@@ -52,6 +52,15 @@ public class Professor extends Character{
                 this.move(d);
                 if(prevloc != location) break;
             }
+            // Ha van az új szobában aktív nedves táblatörlő rongy, akkor megbénul
+            if(location!=prevloc) {
+                ArrayList<Item> items = location.getItems();
+                for (Item item : items) {
+                    if (item.getId().startsWith("Rag") && item.isActivated()) {
+                        setParalyzed(true);
+                    }
+                }
+            }
         }
         // Az aktuális helyen megpróbál felvenni egy tárgyat
         // Ha túl sok tárgy van nála, előbb eldob egyet
