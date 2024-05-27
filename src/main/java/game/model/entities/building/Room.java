@@ -242,10 +242,10 @@ public class Room {
     }
 
     /**Megbénítja a szobában lévő oktatókat*/
-    public void paralyzeProfessors() {
+    public void paralyzeProfessors(boolean b) {
         for (Character character : characters) {
             if (character.getId().startsWith("Professor")) {
-                character.setParalyzed(true);
+                character.setParalyzed(b);
             }
         }
     }

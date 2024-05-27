@@ -6,7 +6,9 @@ import game.model.logging.Suttogo;
 import game.model.main.GameEngine;
 import game.model.main.GameMain;
 
+import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 import static game.model.main.GameMain.gameEngine;
 
@@ -45,10 +47,15 @@ public class Student extends Character{
         if (chosen == null) {
             return true;
         } else {
-            if (!chosen.decreaseDurability()) {
-                items.remove(chosen);
+            String s = chosen.getId();
+            chosen.decreaseDurability();
+            if(s.startsWith("Cup")) {
+                ArrayList<Item> itemList = new ArrayList<>(items.values());
+                Random r = new Random();
+                items.remove(itemList.get(r.nextInt(itemList.size()-1)).getId());
             }
         }
+        gameEngine.notifyEveryone();
         return false;
     }
 

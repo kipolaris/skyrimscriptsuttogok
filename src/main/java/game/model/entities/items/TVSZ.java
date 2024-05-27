@@ -24,7 +24,7 @@ public class TVSZ extends Item{
      * A prioritási listán szerepet tölt be, értéke 2
      */
     public int getPriority(){
-        return 2;
+        return 1;
     }
 
     /**

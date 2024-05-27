@@ -1,0 +1,59 @@
+newgame
+random-nogo
+Room-list
+Room1
+Room0
+Room-make
+room 4
+room 5
+Neighbours
+neighbour Room0 Room1 twoways visible
+Cleaner-list
+Cleaner-make
+Prof-list
+Professor0
+Prof-make
+professor
+Student-list
+Student0
+Student-make
+student
+Item-list
+Transistor5
+Transistor6
+Airfreshener1
+FFP20
+TVSZ7
+Camembert2
+SlideRule8
+Cups3
+Rag4
+Item-make
+ffp2 notfake 1
+airfreshener
+camembert 1
+cups 1
+rag 1
+transistor
+transistor
+tvsz notfake 1
+sliderule notfake
+Char-place
+roomaddchar Student0 Room0
+roomaddchar Professor0 Room1
+Transistors
+Item-to-char
+charadditem Airfreshener1 Student0
+charadditem FFP20 Student0
+charadditem Camembert2 Student0
+Item-to-room
+roomadditem SlideRule8 Room1
+roomadditem Cups3 Room0
+roomadditem Rag4 Room0
+roomadditem Transistor5 Room0
+roomadditem Transistor6 Room0
+roomadditem TVSZ7 Room0
+Current character + randomness
+Student0
+3
+random-go
