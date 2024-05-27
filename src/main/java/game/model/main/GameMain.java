@@ -139,7 +139,7 @@ public class GameMain {
     }
 
     private static void mainLoop(){
-        Suttogo.getSuttogo().info("SYSTEM game CLI started, start typing commands");
+        //Suttogo.getSuttogo().info("SYSTEM game CLI started, start typing commands");
 
         Scanner sc = new Scanner(System.in);
 

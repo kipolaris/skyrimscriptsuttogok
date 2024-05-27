@@ -66,8 +66,8 @@ public class BuildingAI {
             refineDoors(uj, r1);
             refineDoors(uj, r2);
 
-            Suttogo.getSuttogo().info("Rooms merged");
-            Suttogo.getSuttogo().note(labyrinth.size() + " rooms in labyrinth");
+            //Suttogo.getSuttogo().info("Rooms merged");
+            //Suttogo.getSuttogo().note(labyrinth.size() + " rooms in labyrinth");
         }
     }
 

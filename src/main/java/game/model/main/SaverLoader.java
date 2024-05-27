@@ -248,11 +248,11 @@ public class SaverLoader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Suttogo.getSuttogo().info("Mentes sikeres.");
-            Suttogo.getSuttogo().note("Mentes sikeres.");
+            Suttogo.getSuttogo().info("Mentés sikeres.");
+            Suttogo.getSuttogo().note("Mentés sikeres.");
             return true;
         }catch(Exception e){
-            Suttogo.getSuttogo().error("Hiba mentes kozben!");
+            Suttogo.getSuttogo().error("Hiba mentés közben!");
             return false;
         }
     }
@@ -408,9 +408,9 @@ public class SaverLoader {
                 if (reader == null) Suttogo.getSuttogo().error("Nem sikerült a fájlt megnyitni!");
                 else Suttogo.getSuttogo().error("Hiba a beolvasás közben!");
             }
-            Suttogo.getSuttogo().info("Betoltes sikeres.");
+            Suttogo.getSuttogo().info("Betöltés sikeres.");
         }catch(Exception e){
-            Suttogo.getSuttogo().error("Hiba betoltes kozben!");
+            Suttogo.getSuttogo().error("Hiba betöltés kozben!");
             g = null;
         }
     }

@@ -35,9 +35,9 @@ public class CharacterController implements ModelListener{
     }
 
     public void setCharacters(List<Character> characters){
-        if(characters.isEmpty()){
+        /*if(characters.isEmpty()){
             Suttogo.getSuttogo().note("CharacterController: characters list is empty");
-        }
+        }*/
         this.characters = characters;
     }
 
