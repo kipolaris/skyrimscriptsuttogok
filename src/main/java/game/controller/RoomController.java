@@ -6,10 +6,7 @@ import game.model.entities.building.Door;
 import game.model.entities.building.Room;
 import game.model.entities.items.Item;
 import game.model.main.GameMain;
-import game.view.CharacterView;
-import game.view.GamePanel;
-import game.view.ItemListView;
-import game.view.RoomView;
+import game.view.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,21 +25,21 @@ public class RoomController implements ModelListener{
 
     private CharacterController characterController;
 
-    private final String standardDoorPic = "src/pics/standard_door.png";
+    private final String standardDoorPic = ImageLoader.appendAbsolutePath("/src/pics/standard_door.png");
 
-    private final String invisibleDoorPic = "src/pics/invisible_door.png";
+    private final String invisibleDoorPic = ImageLoader.appendAbsolutePath("/src/pics/invisible_door.png");
 
-    private final String onewayOutDoorPic = "src/pics/oneway_out_door.png";
+    private final String onewayOutDoorPic = ImageLoader.appendAbsolutePath("/src/pics/oneway_out_door.png");
 
-    private final String onewayInDoorPic = "src/pics/oneway_in_door.png";
+    private final String onewayInDoorPic = ImageLoader.appendAbsolutePath("/src/pics/oneway_in_door.png");
 
-    private final String gassedMark = "src/pics/gassed_room_mark.png";
+    private final String gassedMark = ImageLoader.appendAbsolutePath("/src/pics/gassed_room_mark.png");
 
-    private final String cursedMark = "src/pics/cursed_room_mark.png";
+    private final String cursedMark = ImageLoader.appendAbsolutePath("/src/pics/cursed_room_mark.png");
 
-    private final String freshedMark = "src/pics/freshed_room_mark.png";
+    private final String freshedMark = ImageLoader.appendAbsolutePath("/src/pics/freshed_room_mark.png");
 
-    private final String raggedMark = "src/pics/ragged_room_mark.png";
+    private final String raggedMark = ImageLoader.appendAbsolutePath("/src/pics/ragged_room_mark.png");
 
     /***
      * számon tartja, hogy melyik ajtóhoz melyik jcombobox string tartozik.
