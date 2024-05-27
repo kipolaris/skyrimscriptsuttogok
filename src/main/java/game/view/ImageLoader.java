@@ -26,4 +26,9 @@ public class ImageLoader {
     public static String getDirectorySeparator() {
         return File.separator;
     }
+
+    public static void printPathsForDebug(){
+        Suttogo.getSuttogo().note("ImageLoader: appendAbsolutePath: " + appendAbsolutePath("src/pics/standard_door.png"));
+        Suttogo.getSuttogo().note("ImageLoader: getDirectorySeparator: " + getDirectorySeparator());
+    }
 }

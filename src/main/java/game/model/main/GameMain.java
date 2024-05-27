@@ -16,6 +16,7 @@ import game.model.logging.Suttogo;
 
 import game.model.entities.Character;
 import game.view.GamePanel;
+import game.view.ImageLoader;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -124,6 +125,7 @@ public class GameMain {
             mainLoop();
         }
         else if(input == 0){
+            ImageLoader.printPathsForDebug();
             setInit(true); //beállítjuk, hogy az elején ne jelezzen hibát, hogy nincs listener, amíg amúgyse gond
             gamePanel = new GamePanel();
             gamePanel.menu();
