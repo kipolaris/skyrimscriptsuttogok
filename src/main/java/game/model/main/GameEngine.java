@@ -7,7 +7,10 @@ import game.model.entities.Student;
 import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
+import game.model.entities.items.Cups;
 import game.model.entities.items.Item;
+import game.model.entities.items.Rag;
+import game.model.entities.items.TVSZ;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
 
@@ -389,6 +392,11 @@ public class GameEngine extends AbstractObservableModel {
 
             for (Student s : students.values()) {
                 s.resetActions();
+                decreaseDurabilities(s.getItems());
+            }
+
+            for (Room room : builder.getLabyrinth().values()) {
+                decreaseRagDurability(room.getItems());
             }
 
             Queue<Queue<Character>> turns = new ArrayDeque<>();
@@ -410,6 +418,22 @@ public class GameEngine extends AbstractObservableModel {
         } else {
             endGame();
             Suttogo.getSuttogo().info("You lost!");
+        }
+    }
+
+    public void decreaseDurabilities(Map<String, Item> items) {
+        for (Item item : items.values()) {
+            if(item.getClass() != TVSZ.class && item.getClass() != Cups.class && item.getClass() != Rag.class) {
+                item.decreaseDurability();
+            }
+        }
+    }
+
+    public void decreaseRagDurability(ArrayList<Item> items) {
+        for (Item item : items) {
+            if(item.getClass() == Rag.class && item.isActivated()) {
+                item.decreaseDurability();
+            }
         }
     }
 

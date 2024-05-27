@@ -35,6 +35,7 @@ public class TVSZ extends Item{
         if(!fake) this.activated = true;
         String s = this.getId() + " used. " + getEffect();
         Suttogo.getSuttogo().info(s);
+        decreaseDurability();
     }
 
     /**
