@@ -15,7 +15,7 @@ public class Cups extends Item{
 
     public int getPriority(){/** visszaadja a tárgy prioritását, erre akkor van szükség, amikor két vagy több azonos tárgy található a játékosnál*/
 
-        return 1;
+        return 2;
     }
 
     @Override
