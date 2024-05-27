@@ -208,66 +208,17 @@ public class GameEngine extends AbstractObservableModel {
             chart = currentQueue.iterator();
             next();
         } else {
-            Suttogo.getSuttogo().note("------- Building AI comes ---------");
-            if (random) {
+            buildingAILogic();
+        }
+    }
 
-                ArrayList<Room> allrooms = new ArrayList<>(builder.getLabyrinth().values());
-
-                if(allrooms.size() > 1) {
-                    Random r = new Random();
-
-                    int n1 = 1;
-                    int n2 = 1;
-
-                    while (n1 == n2) {
-                        n1 = r.nextInt(allrooms.size());
-                        if(n1 == allrooms.size()) n1--;
-                        n2 = r.nextInt(allrooms.size());
-                        if(n2 == allrooms.size()) n2--;
-                    }
-
-                    Room r1 = allrooms.get(n1);
-                    Room r2 = allrooms.get(n2);
-
-                    //random értétek meghatározására szolgáló predikátum
-                    Predicate<Boolean> p = a -> {
-                        r.nextInt(1);
-                        return false;
-                    };
-                    //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
-
-                    if (p.test(true)) {
-                        builder.mergeRooms(r1, r2);
-
-                    }
-
-                    //újra értéket adunk az allroomsnak, mert változott
-                    allrooms = new ArrayList<>(builder.getLabyrinth().values());
-                    int n3 = r.nextInt(allrooms.size());
-                    Room r3 = allrooms.get(n3);
-
-                    if (p.test(true)) {
-                        builder.splitRoom(r3);
-                    }
-
-                    allrooms = new ArrayList<>(builder.getLabyrinth().values());
-
-                    ArrayList<Door> alldoors = new ArrayList<>();
-
-                    for (Room room : allrooms) {
-                        ArrayList<Door> group = room.getDoors();
-                        for (Door door : group) {
-                            if (!alldoors.contains(door)) {
-                                alldoors.add(door);
-                                door.setVisible(p.test(true));
-                            }
-                        }
-                    }
-                }
-            } else {
-                buildingAIcommandsDone = 0;
-                Suttogo.getSuttogo().info("now you MUST use buildingAI commands twice");
-            }
+    private void buildingAILogic( ){
+        Suttogo.getSuttogo().note("------- Building AI comes ---------");
+        if (random) {
+            builder.executeRandomModification();
+        } else {
+            buildingAIcommandsDone = 0;
+            Suttogo.getSuttogo().info("now you MUST use buildingAI commands twice");
         }
     }
 

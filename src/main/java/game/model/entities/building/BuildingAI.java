@@ -6,6 +6,7 @@ import game.model.logging.Suttogo;
 import game.model.main.GameMain;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static game.model.main.GameMain.gameEngine;
@@ -13,28 +14,35 @@ import static game.model.main.GameMain.gameEngine;
 /**A pályaépítő osztálya*/
 
 public class BuildingAI {
-    /**Beállítja az egyedi azonosító értékét*/
+    /**
+     * Beállítja az egyedi azonosító értékét
+     */
     public static void setRoomID(int roomID) {
         BuildingAI.roomID = roomID;
     }
+
     private static int roomID = 0;
     private final Map<String, Room> labyrinth = new HashMap<>();
 
-    /**Visszaad egy egyedi szoba azonosítót*/
+    /**
+     * Visszaad egy egyedi szoba azonosítót
+     */
     public static int getRoomID() {
         return roomID++;
     }
 
-    /**Visszaadja a szobák egy kulccsal ellátott osztályát*/
-    public Map<String, Room> getLabyrinth(){
+    /**
+     * Visszaadja a szobák egy kulccsal ellátott osztályát
+     */
+    public Map<String, Room> getLabyrinth() {
         return labyrinth;
     }
 
     /**
      * Összeolvaszt két szobát a labirintusban
      */
-    public void mergeRooms(Room r1, Room r2){
-        int ossz = r1.getCharacters().size()+r2.getCharacters().size();
+    public void mergeRooms(Room r1, Room r2) {
+        int ossz = r1.getCharacters().size() + r2.getCharacters().size();
         int max = 0;
         if (r1.getCapacity() > r2.getCapacity())
             max = r1.getCapacity();
@@ -73,6 +81,7 @@ public class BuildingAI {
 
     /**
      * Egyesíti a két megadott szoba ajtajait
+     *
      * @param r1 az egyik szoba
      * @param r2 a másik szoba
      * @return az ajtók listája
@@ -96,14 +105,15 @@ public class BuildingAI {
 
     /**
      * Átrendezzük az ajtókat, hogy a régi szobára mutató ajtók az új szobára mutassanak
+     *
      * @param newroom az új szoba
      * @param oldroom a régi szoba
      */
-    private void refineDoors(Room newroom, Room oldroom){
+    private void refineDoors(Room newroom, Room oldroom) {
         for (Door d : newroom.getDoors()) {
-            if(d.getFrom() == oldroom) d.setFrom(newroom);
+            if (d.getFrom() == oldroom) d.setFrom(newroom);
             //nyilván egyszerre a kettő nem lehet, mert akkor saját magába lenne ajtó
-            if(d.getTo() == oldroom) d.setTo(newroom);
+            if (d.getTo() == oldroom) d.setTo(newroom);
         }
 
         // Use a Set to remove duplicate doors
@@ -113,9 +123,11 @@ public class BuildingAI {
         newroom.setDoors(new ArrayList<>(uniqueDoors));
     }
 
-    /**Szétválasztunk egy adott szobát a labirintusból két szobára*/
-    public void splitRoom(Room r1){
-        if (r1.getDoors().size() >= 2){
+    /**
+     * Szétválasztunk egy adott szobát a labirintusból két szobára
+     */
+    public void splitRoom(Room r1) {
+        if (r1.getDoors().size() >= 2) {
             ArrayList<Door> ajto1 = new ArrayList<>();
             ArrayList<Door> ajto2 = new ArrayList<>();
             ArrayList<Item> targy1 = new ArrayList<>();
@@ -123,31 +135,31 @@ public class BuildingAI {
             ArrayList<Character> ember1 = new ArrayList<>();
             ArrayList<Character> ember2 = new ArrayList<>();
 
-            int n=0;
-            for (Door d : r1.getDoors()){
-                if (n%2 == 0) ajto1.add(d);
+            int n = 0;
+            for (Door d : r1.getDoors()) {
+                if (n % 2 == 0) ajto1.add(d);
                 else ajto2.add(d);
                 n++;
             }
 
-            n=0;
-            for (Item i : r1.getItems()){
-                if (n%2 == 0) targy1.add(i);
+            n = 0;
+            for (Item i : r1.getItems()) {
+                if (n % 2 == 0) targy1.add(i);
                 else targy2.add(i);
                 n++;
             }
 
-            n=0;
-            for (Character c : r1.getCharacters()){
-                if (n%2 == 0) ember1.add(c);
+            n = 0;
+            for (Character c : r1.getCharacters()) {
+                if (n % 2 == 0) ember1.add(c);
                 else ember2.add(c);
                 n++;
             }
 
-            Room uj1 = new Room(r1.getCapacity()/2, r1.getGassed(), r1.getCursed(), ajto1, targy1, ember1);
-            Room uj2 = new Room(r1.getCapacity()/2, r1.getGassed(), r1.getCursed(), ajto2, targy2, ember2);
+            Room uj1 = new Room(r1.getCapacity() / 2, r1.getGassed(), r1.getCursed(), ajto1, targy1, ember1);
+            Room uj2 = new Room(r1.getCapacity() / 2, r1.getGassed(), r1.getCursed(), ajto2, targy2, ember2);
 
-            GameMain.perform("neighbour "+uj1.getId()+" "+uj2.getId());
+            GameMain.perform("neighbour " + uj1.getId() + " " + uj2.getId());
 
             this.addRoom(uj1);
             this.addRoom(uj2);
@@ -161,18 +173,22 @@ public class BuildingAI {
         }
     }
 
-    /**Hozzáadunk egy szobát a labirintushoz*/
-    public void addRoom(Room r1){
+    /**
+     * Hozzáadunk egy szobát a labirintushoz
+     */
+    public void addRoom(Room r1) {
         labyrinth.put(r1.getId(), r1);
     }
 
-    /**Eltávolítunk egy szobát a labirintusból*/
-    public void removeRoom(Room r1){
+    /**
+     * Eltávolítunk egy szobát a labirintusból
+     */
+    public void removeRoom(Room r1) {
         labyrinth.remove(r1.getId());
 
         List<Door> doorsToRemove = new ArrayList<>();
 
-        for(Door d : r1.getDoors()){
+        for (Door d : r1.getDoors()) {
             Room r2 = d.getNeighbour(r1);
             r2.getDoors().remove(d);
             doorsToRemove.add(d);
@@ -181,11 +197,73 @@ public class BuildingAI {
         r1.getDoors().removeAll(doorsToRemove);
     }
 
-    /**Visszaad egy szabad szobát, ami nem egyezik a megadott szobával*/
+    /**
+     * Visszaad egy szabad szobát, ami nem egyezik a megadott szobával
+     */
     public Room getFreeRoom(Room r) {
-        for(Room room : labyrinth.values()) {
-            if(!room.equals(r) && !room.isFull()) return room;
+        for (Room room : labyrinth.values()) {
+            if (!room.equals(r) && !room.isFull()) return room;
         }
         return null;
+    }
+
+    public void executeRandomModification() {
+        ArrayList<Room> allrooms = new ArrayList<>(labyrinth.values());
+
+        if (allrooms.size() > 1) {
+            Random r = new Random();
+
+            int n1 = 1;
+            int n2 = 1;
+
+            while (n1 == n2) {
+                n1 = r.nextInt(allrooms.size());
+                if (n1 == allrooms.size()) n1--;
+                n2 = r.nextInt(allrooms.size());
+                if (n2 == allrooms.size()) n2--;
+            }
+
+            Room r1 = allrooms.get(n1);
+            Room r2 = allrooms.get(n2);
+
+            //random értétek meghatározására szolgáló predikátum
+            Predicate<Boolean> p = a -> r.nextBoolean();
+            //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
+
+            if (p.test(true)) {
+                mergeRooms(r1, r2);
+
+            }
+
+            //újra értéket adunk az allroomsnak, mert változott
+            allrooms = new ArrayList<>(labyrinth.values());
+            int n3 = r.nextInt(allrooms.size());
+            Room r3 = allrooms.get(n3);
+
+            if (p.test(true)) {
+                splitRoom(r3);
+            }
+
+            modifyAllDoors(allrooms, p);
+        }
+    }
+
+    private void modifyAllDoors(ArrayList<Room> allrooms, Predicate<Boolean> p) {
+        allrooms = new ArrayList<>(labyrinth.values());
+
+        ArrayList<Door> alldoors = new ArrayList<>();
+
+        for (Room room : allrooms) {
+            if(room.getCursed()) {
+
+                ArrayList<Door> group = room.getDoors();
+                for (Door door : group) {
+                    if (!alldoors.contains(door)) {
+                        alldoors.add(door);
+                        door.setVisible(p.test(true));
+                    }
+                }
+            }
+        }
     }
 }
