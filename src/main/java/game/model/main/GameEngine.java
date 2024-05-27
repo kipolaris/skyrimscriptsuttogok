@@ -299,40 +299,88 @@ public class GameEngine extends AbstractObservableModel {
         characters.putAll(professors);
         characters.putAll(cleaners);
 
-        //#todo: potential bug alert!
-        //#todo: ezt jobban népesíteni kell
-        if (random) {
-            // A kezdő szoba (itt lehet állítani a gázosságot/átkosságot)
-            GameMain.perform("room "+(numberOfPlayers+3) + " false false"); //Room0
-            GameMain.perform("room 5");                    //Room1
-            GameMain.perform("neighbour Room0 Room1");
+        if (GameMain.isInit()) {
+            // Szobák felvétele
+            GameMain.perform("room " + (numberOfPlayers+3)); // Room0
+            GameMain.perform("room " + (numberOfPlayers)); // Room1
+            GameMain.perform("room " + (numberOfPlayers+1) + " true false"); // Room2
+            GameMain.perform("room " + (numberOfPlayers+3) + " false true"); // Room3
+            GameMain.perform("room " + (numberOfPlayers)); // Room4
+            GameMain.perform("room " + (numberOfPlayers)); // Room5
+            GameMain.perform("room " + (numberOfPlayers)); // Room6
+            GameMain.perform("room " + (numberOfPlayers+5)); // Room7
+            GameMain.perform("room " + (numberOfPlayers+5)); // Room8
 
+            // Szobák összekötése
+            GameMain.perform("neighbour Room0 Room1");
+            GameMain.perform("neighbour Room0 Room2 oneway_tofirst");
+            GameMain.perform("neighbour Room0 Room3");
+            GameMain.perform("neighbour Room3 Room2 oneway_tosecond");
+            GameMain.perform("neighbour Room3 Room4 bothways invisible");
+            GameMain.perform("neighbour Room3 Room5");
+            GameMain.perform("neighbour Room6 Room5");
+
+            // Tárgyak felvétele
+            GameMain.perform("sliderule"); // SlideRule0
+            GameMain.perform("sliderule fake"); // SlideRule1
+            GameMain.perform("ffp2 4"); // FFP22
+            GameMain.perform("ffp2 3"); // FFP23
+            GameMain.perform("ffp2 3"); // FFP24
+            GameMain.perform("ffp2 fake"); // FFP25
+            GameMain.perform("airfreshener"); // Airfreshener6
+            GameMain.perform("airfreshener"); // Airfreshener7
+            GameMain.perform("camembert"); // Camembert8
+            GameMain.perform("cups 2"); //Cups9
+            GameMain.perform("rag"); //Rag10
+            GameMain.perform("rag"); //Rag11
+            GameMain.perform("rag"); //Rag12
+            GameMain.perform("transistor"); //Transistor13
+            GameMain.perform("transistor"); //Transistor14
+            GameMain.perform("transistor"); //Transistor15
+            GameMain.perform("transistor"); //Transistor16
+            GameMain.perform("transistor"); //Transistor17
+            GameMain.perform("tvsz 4"); //TVSZ18
+            GameMain.perform("tvsz 3"); //TVSZ19
+            GameMain.perform("tvsz 3"); //TVSZ20
+            GameMain.perform("tvsz fake"); //TVSZ21
+
+            // Tárgyak elhelyezése szobákban
+            GameMain.perform("roomadditem FFP22 Room0");
+            GameMain.perform("roomadditem FFP23 Room0");
+            GameMain.perform("roomadditem Airfreshener6 Room0");
+            GameMain.perform("roomadditem Cups9 Room0");
+            GameMain.perform("roomadditem Rag10 Room0");
+            GameMain.perform("roomadditem Transistor13 Room0");
+            GameMain.perform("roomadditem TVSZ18 Room0");
+            GameMain.perform("roomadditem Rag11 Room1");
+            GameMain.perform("roomadditem Airfreshener7 Room1");
+            GameMain.perform("roomadditem TVSZ21 Room1");
+            GameMain.perform("roomadditem Camembert8 Room1");
+            GameMain.perform("roomadditem SlideRule1 Room2");
+            GameMain.perform("roomadditem Transistor14 Room2");
+            GameMain.perform("roomadditem Rag12 Room2");
+            GameMain.perform("roomadditem FFP25 Room3");
+            GameMain.perform("roomadditem TVSZ19 Room3");
+            GameMain.perform("roomadditem Transistor15 Room3");
+            GameMain.perform("roomadditem TVSZ20 Room4");
+            GameMain.perform("roomadditem FFP24 Room4");
+            GameMain.perform("roomadditem Transistor16 Room4");
+            GameMain.perform("roomadditem Transistor17 Room5");
+            GameMain.perform("roomadditem SlideRule0 Room6");
+
+            // Oktatók és takarítók felvétele és elhelyezése
+            GameMain.perform("professor"); // Professor0
+            GameMain.perform("roomaddchar Professor0 Room4");
+            GameMain.perform("professor"); // Professor0
+            GameMain.perform("roomaddchar Professor1 Room6");
+            GameMain.perform("cleaner"); // Cleaner0
+            GameMain.perform("roomaddchar Cleaner0 Room5");
+
+            // Játékosok felvétele és elhelyezése
             for(int i = 0; i<numberOfPlayers; i++) {
                 GameMain.perform("student");
                 GameMain.perform("roomaddchar Student"+i+" Room0");
             }
-
-            GameMain.perform("professor");
-            GameMain.perform("roomaddchar Professor0 Room1");
-
-            GameMain.perform("ffp2");                    //FFP20
-            GameMain.perform("charadditem FFP20 Student0");
-            GameMain.perform("airfreshener");                    //Airfreshener1
-            GameMain.perform("charadditem Airfreshener1 Student0");
-            GameMain.perform("camembert");                    //Camembert2
-            GameMain.perform("charadditem Camembert2 Student0");
-            GameMain.perform("cups");                    //Cups3
-            GameMain.perform("roomadditem Cups3 Room0");
-            GameMain.perform("rag");                    //Rag4
-            GameMain.perform("roomadditem Rag4 Room0");
-            GameMain.perform("transistor");                    //Transistor5
-            GameMain.perform("roomadditem Transistor5 Room0");
-            GameMain.perform("transistor");                    //Transistor6
-            GameMain.perform("roomadditem Transistor6 Room0");
-            GameMain.perform("tvsz");                    //TVSZ7
-            GameMain.perform("roomadditem TVSZ7 Room0");
-            GameMain.perform("sliderule");              //SlideRule8
-            GameMain.perform("roomadditem SlideRule8 Room1");
         }
 
         characters = new HashMap<>();
