@@ -362,9 +362,7 @@ public class GameEngine extends AbstractObservableModel {
 
         GameMain.isGameStarted = false;
         GameMain.isGameInitialized = false;
-        javax.swing.Timer timer = new javax.swing.Timer(duration, e -> {
-            GameMain.gamePanel.closeWindow();
-        });
+        javax.swing.Timer timer = new javax.swing.Timer(duration, e -> GameMain.gamePanel.closeWindow());
         timer.setRepeats(false);
         timer.start();
     }
