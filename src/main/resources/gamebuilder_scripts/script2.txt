@@ -1,0 +1,4 @@
+newgame 1
+random-nogo
+startgame
+skip

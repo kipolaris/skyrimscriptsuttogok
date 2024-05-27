@@ -21,15 +21,9 @@ public class Profmove implements iCommand {
         if(gameEngine.getCurrent().getId().startsWith("Professor") && !gameEngine.getRandom()){
             Professor s = (Professor) gameEngine.getCurrent();
 
-            //megnézzük, hogy a user valóban ezt a professort gépelte-e be
-            Professor chosen = gameEngine.getProfessors().get(cmd[1]);
+            String[] ns = new String[]{s.getId() + cmd};
 
-            if(chosen != null && chosen.equals(s) && gameEngine.areActionsLeft(s)) {
-
-                String[] ns = new String[]{s.getId() + cmd};
-
-                c.execute(ns);
-            }
+            c.execute(ns);
         }
     }
 

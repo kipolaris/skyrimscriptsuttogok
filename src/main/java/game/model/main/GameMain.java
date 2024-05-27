@@ -160,11 +160,11 @@ public class GameMain {
                 if(!allOut) Suttogo.getSuttogo().note("Please call newgame command!");
             }
 
-            if (gameEngine.isAInext()) {
+            if (gameEngine.isAInext() && gameEngine.getRandom()) {
                 Character current = gameEngine.getCurrent();
 
                 current.doRound();
-                Suttogo.getSuttogo().note("Now " + current.getId() + "makes steps");
+                Suttogo.getSuttogo().note("Now " + current.getId() + " makes steps");
             }
         }
     }
@@ -259,11 +259,10 @@ public class GameMain {
      * Vigyázz, mert a kezdetektől kell specifikálnod a parancsokat (szóval kell a newgame és a startgame is!)
      * Note: alapértelmezésben a random ki van kapcsolva.
      */
-
     public static void executeScript(){
         Suttogo.getSuttogo().info("SYSTEM started processing script, please wait...");
 
-        String scriptPath = "src/main/resources/gamebuilder_scripts/script1.txt";
+        String scriptPath = "src/main/resources/gamebuilder_scripts/script2.txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(scriptPath))) {
             String line;
