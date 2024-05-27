@@ -130,7 +130,7 @@ public class MenuController implements ModelListener{
 
             if (i != null) {
                 student.addItem(i);
-                Suttogo.getSuttogo().info("You picked up" + i.getId());
+                Suttogo.getSuttogo().info("You picked up " + i.getId());
             }
         }
     }
