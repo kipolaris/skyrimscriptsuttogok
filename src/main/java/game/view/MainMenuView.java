@@ -105,6 +105,14 @@ public class MainMenuView extends JPanel {
         return gameComboBox;
     }
 
+    public void setGameComboBox(String[] s) {
+        // Létrehozzuk a JComboBox-ot a betöltött játékok listájával
+        gameComboBox.removeAllItems(); // Eltávolítjuk a meglévő elemeket
+        for (String item : s) {
+            gameComboBox.addItem(item); // Hozzáadjuk az új elemeket
+        }
+        repaint();
+    }
     /**
      * Hozzáad egy DocumentListener-t a playersTextField-hez.
      *
