@@ -7,14 +7,9 @@ import game.model.entities.Student;
 import game.model.entities.building.BuildingAI;
 import game.model.entities.building.Door;
 import game.model.entities.building.Room;
-import game.model.entities.items.Cups;
 import game.model.entities.items.Item;
-import game.model.entities.items.Rag;
-import game.model.entities.items.TVSZ;
 import game.model.logging.Suttogo;
 import game.model.entities.Character;
-
-import javax.swing.*;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -91,7 +86,7 @@ public class GameEngine extends AbstractObservableModel {
 
     private static int cleanerID = 0;
 
-    private BuildingAI builder = null;
+    private BuildingAI builder = new BuildingAI();
     
     public static int numberOfPlayers = 1;
     public static int buildingAIcommandsDone = 0;
@@ -183,13 +178,16 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void next() {
         if (chart.hasNext()) {
+            GameMain.gameEngine.notifyEveryone();
             current = chart.next();
             Suttogo.getSuttogo().info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
+                Suttogo.getSuttogo().note("isAInext was set to true");
                 isAInext = true;
                 if (!random) {
-                    Suttogo.getSuttogo().note("Now you can step with " + current.getId() + " ai");
+                    Suttogo.getSuttogo().note("Now you can step with" + current.getId() + "ai");
                 }
+                else current.doRound();
             } else {
                 isAInext = false;
             }
@@ -223,14 +221,19 @@ public class GameEngine extends AbstractObservableModel {
 
                     while (n1 == n2) {
                         n1 = r.nextInt(allrooms.size());
+                        if(n1 == allrooms.size()) n1--;
                         n2 = r.nextInt(allrooms.size());
+                        if(n2 == allrooms.size()) n2--;
                     }
 
                     Room r1 = allrooms.get(n1);
                     Room r2 = allrooms.get(n2);
 
                     //random értétek meghatározására szolgáló predikátum
-                    Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
+                    Predicate<Boolean> p = a -> {
+                        r.nextInt(1);
+                        return false;
+                    };
                     //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
 
                     if (p.test(true)) {
@@ -304,7 +307,7 @@ public class GameEngine extends AbstractObservableModel {
 
         //#todo: potential bug alert!
         //#todo: ezt jobban népesíteni kell
-        if (random) {
+        if (GameMain.isInit()) {
             // A kezdő szoba (itt lehet állítani a gázosságot/átkosságot)
             GameMain.perform("room "+(numberOfPlayers+3) + " false false"); //Room0
             GameMain.perform("room 5");                    //Room1
@@ -339,8 +342,7 @@ public class GameEngine extends AbstractObservableModel {
         }
 
         characters = new HashMap<>();
-        characters.putAll(students);
-        characters.putAll(professors);
+        characters.putAll(students);        characters.putAll(professors);
         characters.putAll(cleaners);
 
         GameMain.isGameInitialized = true;
@@ -360,14 +362,10 @@ public class GameEngine extends AbstractObservableModel {
         students.clear();
         professors.clear();
         items.clear();
-        builder = null;
-        int duration = 3000;
+        //builder = null;
 
         GameMain.isGameStarted = false;
         GameMain.isGameInitialized = false;
-        javax.swing.Timer timer = new javax.swing.Timer(duration, e -> GameMain.gamePanel.closeWindow());
-        timer.setRepeats(false);
-        timer.start();
     }
 
     /**
@@ -390,13 +388,8 @@ public class GameEngine extends AbstractObservableModel {
 
             Suttogo.getSuttogo().note("-------- new Phase initiated! ------------\n");
 
-            for (Student s : students.values()) {
-                s.resetActions();
-                decreaseDurabilities(s.getItems());
-            }
-
-            for (Room room : builder.getLabyrinth().values()) {
-                decreaseRagDurability(room.getItems());
+            for (Character c : characters.values()) {
+                c.resetActions();
             }
 
             Queue<Queue<Character>> turns = new ArrayDeque<>();
@@ -418,22 +411,6 @@ public class GameEngine extends AbstractObservableModel {
         } else {
             endGame();
             Suttogo.getSuttogo().info("You lost!");
-        }
-    }
-
-    public void decreaseDurabilities(Map<String, Item> items) {
-        for (Item item : items.values()) {
-            if(item.getClass() != TVSZ.class && item.getClass() != Cups.class && item.getClass() != Rag.class) {
-                item.decreaseDurability();
-            }
-        }
-    }
-
-    public void decreaseRagDurability(ArrayList<Item> items) {
-        for (Item item : items) {
-            if(item.getClass() == Rag.class && item.isActivated()) {
-                item.decreaseDurability();
-            }
         }
     }
 
