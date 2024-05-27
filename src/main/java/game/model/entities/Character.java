@@ -149,7 +149,6 @@ public class Character {
             Item chosen = itemPriorityQueue.poll();
 
             if (chosen == null) {
-                //#todo: check
                 this.paralyzed = true;
                 ArrayList<Item> all = new ArrayList<>(items.values());
                 for(Item item : all) {

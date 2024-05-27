@@ -57,7 +57,7 @@ public class GameMain {
      * Azt jelzi grafikus felület esetén, hogy a listenereket beállítottuk-e már.
      * Van egy kezdeti szakasz, amikor errort dob, holott még nincs is hozzáadva listener!
      */
-    private static boolean init = true;
+    private static boolean init = false;
 
     public static boolean isInit() {
         return init;

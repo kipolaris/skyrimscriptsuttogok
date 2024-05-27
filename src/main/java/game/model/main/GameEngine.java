@@ -86,7 +86,7 @@ public class GameEngine extends AbstractObservableModel {
 
     private static int cleanerID = 0;
 
-    private BuildingAI builder = null;
+    private BuildingAI builder = new BuildingAI();
     
     public static int numberOfPlayers = 1;
     public static int buildingAIcommandsDone = 0;
@@ -178,6 +178,7 @@ public class GameEngine extends AbstractObservableModel {
      */
     public void next() {
         if (chart.hasNext()) {
+            GameMain.gameEngine.notifyEveryone();
             current = chart.next();
             Suttogo.getSuttogo().info("current: "+current.getId());
             if (currentQueue.equals(aiTurns)) {
@@ -186,6 +187,7 @@ public class GameEngine extends AbstractObservableModel {
                 if (!random) {
                     Suttogo.getSuttogo().note("Now you can step with" + current.getId() + "ai");
                 }
+                else current.doRound();
             } else {
                 isAInext = false;
             }
@@ -219,14 +221,19 @@ public class GameEngine extends AbstractObservableModel {
 
                     while (n1 == n2) {
                         n1 = r.nextInt(allrooms.size());
+                        if(n1 == allrooms.size()) n1--;
                         n2 = r.nextInt(allrooms.size());
+                        if(n2 == allrooms.size()) n2--;
                     }
 
                     Room r1 = allrooms.get(n1);
                     Room r2 = allrooms.get(n2);
 
                     //random értétek meghatározására szolgáló predikátum
-                    Predicate<Boolean> p = (a) -> r.nextInt(2) == 1;
+                    Predicate<Boolean> p = a -> {
+                        r.nextInt(1);
+                        return false;
+                    };
                     //Predicate<Boolean> p = (a) -> true; determinisztikus lefutásért kommentezd vissza
 
                     if (p.test(true)) {
@@ -300,7 +307,7 @@ public class GameEngine extends AbstractObservableModel {
 
         //#todo: potential bug alert!
         //#todo: ezt jobban népesíteni kell
-        if (random) {
+        if (GameMain.isInit()) {
             // A kezdő szoba (itt lehet állítani a gázosságot/átkosságot)
             GameMain.perform("room "+(numberOfPlayers+3) + " false false"); //Room0
             GameMain.perform("room 5");                    //Room1
@@ -355,7 +362,7 @@ public class GameEngine extends AbstractObservableModel {
         students.clear();
         professors.clear();
         items.clear();
-        builder = null;
+        //builder = null;
 
         GameMain.isGameStarted = false;
         GameMain.isGameInitialized = false;
@@ -381,8 +388,8 @@ public class GameEngine extends AbstractObservableModel {
 
             Suttogo.getSuttogo().note("-------- new Phase initiated! ------------\n");
 
-            for (Student s : students.values()) {
-                s.resetActions();
+            for (Character c : characters.values()) {
+                c.resetActions();
             }
 
             Queue<Queue<Character>> turns = new ArrayDeque<>();

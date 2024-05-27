@@ -45,6 +45,12 @@ public class Student extends Character{
         Item chosen = itemPriorityQueue.poll();
 
         if (chosen == null) {
+            ArrayList<Item> all = new ArrayList<>(items.values());
+            for(Item item : all) {
+                item.setLocation(location);
+                location.addItem(item);
+                items.remove(item.getId());
+            }
             return true;
         } else {
             String s = chosen.getId();
@@ -52,10 +58,14 @@ public class Student extends Character{
             if(s.startsWith("Cup")) {
                 ArrayList<Item> itemList = new ArrayList<>(items.values());
                 Random r = new Random();
-                items.remove(itemList.get(r.nextInt(itemList.size()-1)).getId());
+                int indx = r.nextInt(itemList.size());
+                if (indx == itemList.size()) indx--;
+                itemList.get(indx).setLocation(location);
+                location.addItem(itemList.get(indx));
+                items.remove(itemList.get(indx).getId());
+                gameEngine.notifyEveryone();
             }
         }
-        gameEngine.notifyEveryone();
         return false;
     }
 

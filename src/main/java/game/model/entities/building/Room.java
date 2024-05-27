@@ -221,7 +221,7 @@ public class Room {
 
     /**Lekérdezi a szobában lévő hallgatókat*/
     public ArrayList<Student> getStudents() {
-        ArrayList<Student> students = null;
+        ArrayList<Student> students = new ArrayList<>();
         for (Character character : characters) {
             if(character.getId().startsWith("Student")) {
                 students.add((Student) character);
@@ -260,11 +260,19 @@ public class Room {
 
     /**Megöli a szobában tartozkodó hallgatókat*/
     public void killStudents() {
+        ArrayList<Character> dead = new ArrayList<>();
         for (Character character : characters) {
             if (character instanceof Student) {
-                character.die();
+                if(character.die()) {
+                    dead.add(character);
+                }
             }
         }
+        for(Character character : dead) {
+            removeCharacter(character);
+            gameEngine.studentDied((Student) character);
+        }
+        gameEngine.notifyEveryone();
     }
 
     /**Lekérdezi, hogy gázos-e a szoba*/
